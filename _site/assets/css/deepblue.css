@@ -10,8 +10,8 @@
 
 .db {
   --db-deep:    #06182b;
-  --db-ocean:   #0a2740;
-  --db-ocean-2: #0d3151;
+  --db-ocean:   #1a4d73;
+  --db-ocean-2: #1e5985;
   --db-accent:  #13c5dd;            /* bright turquoise */
   --db-accent-2: #5fd9ea;           /* lighter turquoise (hover) */
   --db-ice:     #e7f9fc;            /* pale cyan */
@@ -28,7 +28,7 @@
   font-family: var(--ff-body);
   color: var(--db-foam);
   background:
-    radial-gradient(120% 70% at 50% -10%, #114b6e 0%, rgba(17, 75, 110, 0) 55%),
+    radial-gradient(120% 70% at 50% -10%, #2070a0 0%, rgba(17, 75, 110, 0) 55%),
     linear-gradient(180deg, var(--db-ocean) 0%, var(--db-deep) 100%);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -179,7 +179,7 @@ main { overflow: hidden; }
   overflow: hidden;
   background:
     radial-gradient(78% 56% at 50% 4%, rgba(19, 197, 221, 0.16) 0%, rgba(19, 197, 221, 0) 60%),
-    linear-gradient(180deg, #0b3658 0%, var(--db-deep) 100%);
+    linear-gradient(180deg, #1e6090 0%, var(--db-deep) 100%);
 }
 .db-hero-overlay {
   position: absolute;
@@ -571,6 +571,9 @@ main { overflow: hidden; }
 .db-tabs { margin-top: 30px; border-top: 1px solid var(--db-line); padding-top: 26px; }
 .db-tabnav { gap: 10px; border: 0; }
 .db-tabnav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   background: transparent;
   border: 1px solid var(--db-line-strong);
   color: var(--db-mist);
@@ -578,12 +581,26 @@ main { overflow: hidden; }
   padding: 8px 19px;
   font-size: 13px;
   letter-spacing: 0.05em;
+  transition: color .2s, border-color .2s;
+}
+.db-tabnav .nav-link i {
+  font-size: 14px;
+  opacity: 0.75;
+  line-height: 1;
+}
+.db-tabnav .nav-link:hover {
+  color: var(--db-accent-2);
+  border-color: var(--db-line-strong);
 }
 .db-tabnav .nav-link.active {
   background: transparent;
   border-color: var(--db-accent);
   color: var(--db-accent-2);
   font-weight: 500;
+}
+.db-tabnav .nav-link.active i {
+  opacity: 1;
+  color: var(--db-accent);
 }
 .db-tabbody { margin-top: 22px; }
 .db-tabbody p { color: var(--db-ice); opacity: 0.82; font-weight: 300; font-size: 15.5px; line-height: 1.75; margin: 0; }
@@ -633,15 +650,54 @@ main { overflow: hidden; }
 
 /* ----------------------------------------------------------- misc states */
 
-.db-loading { display: grid; place-items: center; min-height: 320px; }
-.db-spinner {
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  border: 2px solid var(--db-line-strong);
-  border-top-color: var(--db-accent);
-  animation: db-spin .8s linear infinite;
+.db-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  gap: 20px;
 }
-@keyframes db-spin { to { transform: rotate(360deg); } }
+.db-loader {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+}
+.db-loader-wave {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--db-accent);
+  opacity: 0;
+  animation: db-sonar 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
+.db-loader-wave:nth-child(2) { animation-delay: 0.8s; }
+.db-loader-wave:nth-child(3) { animation-delay: 1.6s; }
+.db-loader-core {
+  position: relative;
+  z-index: 2;
+  width: 30px; height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--db-accent);
+  border-radius: 50%;
+  color: var(--db-accent);
+  font-size: 15px;
+}
+.db-loading-label {
+  color: var(--db-mist);
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  animation: db-pulse 1.8s ease-in-out infinite alternate;
+}
+@keyframes db-sonar {
+  0%   { transform: scale(0.25); opacity: 0.65; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+@keyframes db-pulse { from { opacity: 0.3; } to { opacity: 0.9; } }
 .db-empty { text-align: center; color: var(--db-mist); padding: 80px 0; }
 
 /* The shared error card (MenuCore.renderError) lands inside .db — tune it. */

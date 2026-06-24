@@ -475,11 +475,13 @@
         '<ul class="nav db-tabnav nav-pills" role="tablist">' +
           '<li class="nav-item" role="presentation">' +
             '<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#' + uid + '-desc" type="button" role="tab">' +
+              '<i class="bi bi-card-text"></i>' +
               esc(Core.uiText('description', state.lang)) + '</button>' +
           '</li>' +
           (hasInfo ?
           '<li class="nav-item" role="presentation">' +
             '<button class="nav-link" data-bs-toggle="pill" data-bs-target="#' + uid + '-info" type="button" role="tab">' +
+              '<i class="bi bi-list-check"></i>' +
               esc(Core.uiText('ingredientsAllergens', state.lang)) + '</button>' +
           '</li>' : '') +
         '</ul>' +
