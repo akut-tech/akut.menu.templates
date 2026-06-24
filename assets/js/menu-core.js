@@ -130,12 +130,51 @@
   // back to English. `{name}`-style placeholders are filled from `vars`.
   var UI_STRINGS = {
     moreFrom: {
-      English:    'More from {name}',
-      Portuguese: 'Mais de {name}',
-      Spanish:    'Más de {name}',
-      French:     'Plus de {name}',
-      German:     'Mehr aus {name}',
-      Italian:    'Altro da {name}'
+      English: 'More from {name}', Portuguese: 'Mais de {name}',
+      Spanish: 'Más de {name}',    French: 'Plus de {name}'
+    },
+    menu: {
+      English: 'Menu', Portuguese: 'Menu', Spanish: 'Menú', French: 'Menu'
+    },
+    details: {
+      English: 'Details', Portuguese: 'Detalhes', Spanish: 'Detalles', French: 'Détails'
+    },
+    description: {
+      English: 'Description', Portuguese: 'Descrição', Spanish: 'Descripción', French: 'Description'
+    },
+    ingredients: {
+      English: 'Ingredients', Portuguese: 'Ingredientes', Spanish: 'Ingredientes', French: 'Ingrédients'
+    },
+    allergens: {
+      English: 'Allergens', Portuguese: 'Alergénios', Spanish: 'Alérgenos', French: 'Allergènes'
+    },
+    ingredientsAllergens: {
+      English: 'Ingredients & Allergens', Portuguese: 'Ingredientes e Alergénios',
+      Spanish: 'Ingredientes y Alérgenos', French: 'Ingrédients & Allergènes'
+    },
+    backToMenu: {
+      English: 'Back to menu', Portuguese: 'Voltar ao menu',
+      Spanish: 'Volver al menú', French: 'Retour au menu'
+    },
+    category: {
+      English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie'
+    },
+    newBadge: {
+      English: 'New', Portuguese: 'Novo', Spanish: 'Nuevo', French: 'Nouveau'
+    },
+    noItems: {
+      English: 'This menu has no items yet.',
+      Portuguese: 'Este menu ainda não tem itens.',
+      Spanish: 'Este menú aún no tiene artículos.',
+      French: 'Ce menu n’a pas encore d’articles.'
+    },
+    freshFromOcean: {
+      English: 'Fresh from the ocean', Portuguese: 'Fresco do oceano',
+      Spanish: 'Fresco del océano', French: 'Fraîcheur de l’océan'
+    },
+    tryAgain: {
+      English: 'Try again', Portuguese: 'Tentar novamente',
+      Spanish: 'Reintentar', French: 'Réessayer'
     }
   };
 
@@ -152,18 +191,27 @@
 
   /* -------------------------------------------------------------- formatting */
 
+  // Always show two decimals (e.g. 1.00, 18.90) per the configured currency.
   function formatPrice(value, currencyEnum) {
     if (value == null || isNaN(value)) return '';
     var cur = (CONFIG.currencies || {})[currencyEnum] || {};
     var symbol = cur.symbol || '';
-    var num = Number(value).toFixed(2).replace(/\.00$/, '');
-    return symbol + num;
+    return symbol + Number(value).toFixed(2);
   }
 
-  function dietLabels(diets) {
+  // Diet labels are template-owned (not S3 data); each entry in `_data/diets.yml`
+  // may be a plain string (legacy) or a per-language object keyed like the menu
+  // localized fields. Resolves to `lang`, then English, then the first value.
+  function dietLabels(diets, lang) {
     var map = CONFIG.diets || {};
     return (diets || []).map(function (d) {
-      return (map[d] != null) ? map[d] : ('Diet ' + d);
+      var entry = map[d];
+      if (entry == null) return 'Diet ' + d;
+      if (typeof entry === 'string') return entry;
+      if (lang && entry[lang] != null) return entry[lang];
+      if (entry.English != null) return entry.English;
+      var keys = Object.keys(entry);
+      return keys.length ? entry[keys[0]] : ('Diet ' + d);
     });
   }
 
@@ -192,41 +240,59 @@
 
   /* -------------------------------------------------------- friendly errors */
 
-  function errorMessage(err) {
+  // Friendly error copy, translated like the rest of the UI. `{code}` in the
+  // NO_TENANT body is replaced with an example address.
+  var ERROR_STRINGS = {
+    NO_TENANT: {
+      English:    { title: 'No restaurant selected',    body: 'Add a tenant to the address, for example {code}.' },
+      Portuguese: { title: 'Nenhum restaurante selecionado', body: 'Adicione um restaurante ao endereço, por exemplo {code}.' },
+      Spanish:    { title: 'Ningún restaurante seleccionado', body: 'Añada un restaurante a la dirección, por ejemplo {code}.' },
+      French:     { title: 'Aucun restaurant sélectionné', body: 'Ajoutez un restaurant à l’adresse, par exemple {code}.' }
+    },
+    NOT_FOUND: {
+      English:    { title: 'Menu not found', body: "We couldn't find a menu for this restaurant yet. Please check the link or try again later." },
+      Portuguese: { title: 'Menu não encontrado', body: 'Ainda não encontrámos um menu para este restaurante. Verifique o link ou tente mais tarde.' },
+      Spanish:    { title: 'Menú no encontrado', body: 'Aún no encontramos un menú para este restaurante. Comprueba el enlace o inténtalo más tarde.' },
+      French:     { title: 'Menu introuvable', body: 'Nous n’avons pas encore trouvé de menu pour ce restaurant. Vérifiez le lien ou réessayez plus tard.' }
+    },
+    HTTP_ERROR: {
+      English:    { title: 'Menu temporarily unavailable', body: 'The menu service responded with an error. Please try again in a few minutes.' },
+      Portuguese: { title: 'Menu temporariamente indisponível', body: 'O serviço de menus respondeu com um erro. Tente novamente dentro de alguns minutos.' },
+      Spanish:    { title: 'Menú temporalmente no disponible', body: 'El servicio de menús respondió con un error. Inténtalo de nuevo en unos minutos.' },
+      French:     { title: 'Menu temporairement indisponible', body: 'Le service de menus a renvoyé une erreur. Veuillez réessayer dans quelques minutes.' }
+    },
+    NETWORK: {
+      English:    { title: 'Menu temporarily unavailable', body: "We couldn't reach the menu service. Please check your connection and try again." },
+      Portuguese: { title: 'Menu temporariamente indisponível', body: 'Não foi possível contactar o serviço de menus. Verifique a sua ligação e tente novamente.' },
+      Spanish:    { title: 'Menú temporalmente no disponible', body: 'No pudimos conectar con el servicio de menús. Comprueba tu conexión e inténtalo de nuevo.' },
+      French:     { title: 'Menu temporairement indisponible', body: 'Impossible de joindre le service de menus. Vérifiez votre connexion et réessayez.' }
+    }
+  };
+
+  function errorMessage(err, lang) {
     var code = (err && err.code) || 'NETWORK';
-    var map = {
-      NO_TENANT: {
-        title: 'No restaurant selected',
-        body: 'Add a tenant to the address, for example <code>' +
-              escapeHtml((BASE_URL || '') + '/your-restaurant') + '</code>.'
-      },
-      NOT_FOUND: {
-        title: 'Menu not found',
-        body: "We couldn't find a menu for this restaurant yet. Please check the link or try again later."
-      },
-      HTTP_ERROR: {
-        title: 'Menu temporarily unavailable',
-        body: 'The menu service responded with an error. Please try again in a few minutes.'
-      },
-      NETWORK: {
-        title: 'Menu temporarily unavailable',
-        body: "We couldn't reach the menu service. Please check your connection and try again."
-      }
-    };
-    return map[code] || map.NETWORK;
+    var entry = ERROR_STRINGS[code] || ERROR_STRINGS.NETWORK;
+    var key = (lang && entry[lang]) ? lang : (readLang() && entry[readLang()] ? readLang() : 'English');
+    var msg = entry[key] || entry.English;
+    var body = msg.body.replace(
+      '{code}', '<code>' + escapeHtml((BASE_URL || '') + '/your-restaurant') + '</code>'
+    );
+    return { title: msg.title, body: body };
   }
 
   // Render the friendly fallback into a container element.
-  function renderError(container, err) {
+  function renderError(container, err, lang) {
     if (!container) return;
-    var msg = errorMessage(err);
+    var msg = errorMessage(err, lang);
     container.innerHTML =
       '<div class="menu-error">' +
         '<div class="menu-error-card">' +
           '<div class="menu-error-emoji">🍽️</div>' +
           '<h1>' + escapeHtml(msg.title) + '</h1>' +
           '<p>' + msg.body + '</p>' +
-          '<button type="button" class="common-btn" onclick="location.reload()"><span>Try again</span></button>' +
+          '<button type="button" class="common-btn" onclick="location.reload()"><span>' +
+            escapeHtml(uiText('tryAgain', lang || readLang())) +
+          '</span></button>' +
         '</div>' +
       '</div>';
   }

@@ -79,7 +79,7 @@
         else if (detailRoot) renderDetail(detailRoot);
       })
       .catch(function (err) {
-        Core.renderError(fallback, err);
+        Core.renderError(fallback, err, state.lang);
       });
   });
 
@@ -177,7 +177,7 @@
 
   function setupChrome() {
     var menu = state.menu;
-    var name = L(menu.Name) || 'Menu';
+    var name = L(menu.Name) || Core.uiText('menu', state.lang);
 
     // The brand uses a logo image when the menu carries one; otherwise the
     // static icon + name already present in the markup is kept.
@@ -198,6 +198,14 @@
     setText('[data-menu-notes]', menu.Notes || '');
     setText('[data-current-year]', new Date().getFullYear());
     document.title = name;
+    applyI18n();
+  }
+
+  // Translate any static markup tagged with data-i18n="<key>".
+  function applyI18n() {
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      el.textContent = Core.uiText(el.getAttribute('data-i18n'), state.lang);
+    });
   }
 
   function setupLangSwitcher() {
@@ -252,7 +260,7 @@
     var cats = sortedCategories(menu);
 
     if (!cats.length) {
-      root.innerHTML = '<div class="db-empty"><p>This menu has no items yet.</p></div>';
+      root.innerHTML = '<div class="db-empty"><p>' + esc(Core.uiText('noItems', state.lang)) + '</p></div>';
       return;
     }
 
@@ -296,10 +304,10 @@
   function renderItem(item) {
     var img = firstImage(item);
     var price = Core.formatPrice(item.Price, state.menu.Currency);
-    var diets = Core.dietLabels(item.Diets).map(function (d) {
+    var diets = Core.dietLabels(item.Diets, state.lang).map(function (d) {
       return '<span class="db-tag">' + esc(d) + '</span>';
     }).join('');
-    var newBadge = item.IsNew ? '<span class="db-new">New</span>' : '';
+    var newBadge = item.IsNew ? '<span class="db-new">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '';
 
     return '' +
       '<a class="db-card" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
@@ -328,18 +336,18 @@
     var found = itemId && findItem(menu, itemId);
 
     if (!found) {
-      Core.renderError(root, { code: 'NOT_FOUND' });
+      Core.renderError(root, { code: 'NOT_FOUND' }, state.lang);
       return;
     }
 
     var item = found.item;
     var category = found.category;
     setText('[data-item-name-crumb]', L(item.Name));
-    document.title = L(item.Name) || 'Item details';
+    document.title = L(item.Name) || Core.uiText('details', state.lang);
 
     var media = buildMedia(item);
     var price = Core.formatPrice(item.Price, menu.Currency);
-    var diets = Core.dietLabels(item.Diets);
+    var diets = Core.dietLabels(item.Diets, state.lang);
 
     root.innerHTML =
       '<div class="db-detail">' +
@@ -347,7 +355,7 @@
         '<div class="db-detail-info">' +
           '<span class="db-detail-cat">' + esc(L(category.Name)) + '</span>' +
           '<h1 class="db-detail-title">' + esc(L(item.Name)) +
-            (item.IsNew ? '<span class="db-new">New</span>' : '') + '</h1>' +
+            (item.IsNew ? '<span class="db-new">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '') + '</h1>' +
           (price ? '<div class="db-detail-price">' + esc(price) + '</div>' : '') +
           '<p class="db-detail-lead">' + esc(L(item.ShortDescription)) + '</p>' +
           (diets.length ? '<div class="db-tags db-detail-tags">' +
@@ -466,11 +474,13 @@
       '<div class="db-tabs">' +
         '<ul class="nav db-tabnav nav-pills" role="tablist">' +
           '<li class="nav-item" role="presentation">' +
-            '<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#' + uid + '-desc" type="button" role="tab">Description</button>' +
+            '<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#' + uid + '-desc" type="button" role="tab">' +
+              esc(Core.uiText('description', state.lang)) + '</button>' +
           '</li>' +
           (hasInfo ?
           '<li class="nav-item" role="presentation">' +
-            '<button class="nav-link" data-bs-toggle="pill" data-bs-target="#' + uid + '-info" type="button" role="tab">Ingredients &amp; Allergens</button>' +
+            '<button class="nav-link" data-bs-toggle="pill" data-bs-target="#' + uid + '-info" type="button" role="tab">' +
+              esc(Core.uiText('ingredientsAllergens', state.lang)) + '</button>' +
           '</li>' : '') +
         '</ul>' +
         '<div class="tab-content db-tabbody">' +
@@ -479,8 +489,8 @@
           '</div>' +
           (hasInfo ?
           '<div class="tab-pane fade" id="' + uid + '-info" role="tabpanel">' +
-            (ingredients ? '<div class="db-info-block"><h4>Ingredients</h4><p>' + esc(ingredients) + '</p></div>' : '') +
-            (allergens ? '<div class="db-info-block"><h4>Allergens</h4><p>' + esc(allergens) + '</p></div>' : '') +
+            (ingredients ? '<div class="db-info-block"><h4>' + esc(Core.uiText('ingredients', state.lang)) + '</h4><p>' + esc(ingredients) + '</p></div>' : '') +
+            (allergens ? '<div class="db-info-block"><h4>' + esc(Core.uiText('allergens', state.lang)) + '</h4><p>' + esc(allergens) + '</p></div>' : '') +
           '</div>' : '') +
         '</div>' +
       '</div>';

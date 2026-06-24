@@ -1,13 +1,23 @@
 # Maps the numeric values in an item's `Diets` array to a human label.
-# Adjust to match the real Akut diet enum.
+# Keys match akut.domain.FoodDietType enum values exactly.
 #
-# Known: 2 and 3 appear in the sample data.
-0: Halal
-1: Kosher
-2: Vegetarian
-3: Vegan
-4: Gluten-Free
-5: Dairy-Free
-6: Nut-Free
-7: Organic
-8: Spicy
+# Each entry is keyed by language name (matching the localized fields in the
+# menu JSON, e.g. "English"). The runtime resolves the active language, then
+# falls back to English. A plain string is still accepted for back-compat.
+1:  { English: Vegan,            Portuguese: Vegano,                 Spanish: Vegano,                 French: Végétalien }
+2:  { English: Vegetarian,       Portuguese: Vegetariano,            Spanish: Vegetariano,            French: Végétarien }
+3:  { English: Gluten-Free,      Portuguese: Sem Glúten,             Spanish: Sin Gluten,             French: Sans Gluten }
+4:  { English: Lactose-Free,     Portuguese: Sem Lactose,            Spanish: Sin Lactosa,            French: Sans Lactose }
+5:  { English: Egg-Free,         Portuguese: Sem Ovos,               Spanish: Sin Huevo,              French: Sans Œuf }
+6:  { English: Sugar-Free,       Portuguese: Sem Açúcar,             Spanish: Sin Azúcar,             French: Sans Sucre }
+7:  { English: Caffeine-Free,    Portuguese: Sem Cafeína,            Spanish: Sin Cafeína,            French: Sans Caféine }
+8:  { English: Alcohol-Free,     Portuguese: Sem Álcool,             Spanish: Sin Alcohol,            French: Sans Alcool }
+9:  { English: Low-Carb,         Portuguese: Baixo em Carboidratos,  Spanish: Bajo en Carbohidratos,  French: Pauvre en Glucides }
+10: { English: Low-Fat,          Portuguese: Baixo em Gordura,       Spanish: Bajo en Grasa,          French: Pauvre en Matières Grasses }
+11: { English: Low-Salt,         Portuguese: Baixo em Sal,           Spanish: Bajo en Sal,            French: Pauvre en Sel }
+12: { English: Low-Sugar,        Portuguese: Baixo em Açúcar,        Spanish: Bajo en Azúcar,         French: Pauvre en Sucre }
+13: { English: Organic,          Portuguese: Biológico,              Spanish: Orgánico,               French: Biologique }
+14: { English: Bio,              Portuguese: Bio,                    Spanish: Bio,                    French: Bio }
+15: { English: Kosher,           Portuguese: Kosher,                 Spanish: Kosher,                 French: Casher }
+16: { English: Raw,              Portuguese: Cru,                    Spanish: Crudo,                  French: Cru }
+17: { English: Spicy,            Portuguese: Picante,                Spanish: Picante,                French: Épicé }

@@ -32,7 +32,7 @@
         else if (detailRoot) renderDetail(detailRoot);
       })
       .catch(function (err) {
-        Core.renderError(fallback, err);
+        Core.renderError(fallback, err, state.lang);
       });
   });
 
@@ -127,7 +127,15 @@
     setText('[data-menu-description]', L(menu.Description));
     setText('[data-menu-notes]', menu.Notes || '');
     setText('[data-current-year]', new Date().getFullYear());
-    document.title = L(menu.Name) || 'Menu';
+    document.title = L(menu.Name) || Core.uiText('menu', state.lang);
+    applyI18n();
+  }
+
+  // Translate any static markup tagged with data-i18n="<key>".
+  function applyI18n() {
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      el.textContent = Core.uiText(el.getAttribute('data-i18n'), state.lang);
+    });
   }
 
   function setupLangSwitcher() {
@@ -182,7 +190,7 @@
     var cats = sortedCategories(menu);
 
     if (!cats.length) {
-      root.innerHTML = '<div class="text-center"><p>This menu has no items yet.</p></div>';
+      root.innerHTML = '<div class="text-center"><p>' + esc(Core.uiText('noItems', state.lang)) + '</p></div>';
       return;
     }
 
@@ -196,7 +204,7 @@
       '<div class="row">' +
         '<div class="col-lg-12">' +
           '<div class="section-title text-center">' +
-            '<span>Menu</span>' +
+            '<span>' + esc(Core.uiText('menu', state.lang)) + '</span>' +
             '<h2 class="mt-2">' + esc(L(cat.Name)) + '</h2>' +
             (desc ? '<p class="menu-cat-desc">' + esc(desc) + '</p>' : '') +
           '</div>' +
@@ -218,10 +226,10 @@
   function renderMenuItem(item) {
     var img = firstImage(item);
     var price = Core.formatPrice(item.Price, state.menu.Currency);
-    var diets = Core.dietLabels(item.Diets).map(function (d) {
+    var diets = Core.dietLabels(item.Diets, state.lang).map(function (d) {
       return '<span class="menu-diet-tag">' + esc(d) + '</span>';
     }).join('');
-    var newBadge = item.IsNew ? '<span class="menu-new-badge">New</span>' : '';
+    var newBadge = item.IsNew ? '<span class="menu-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '';
 
     return '' +
       '<div class="menu-book-box d-flex justify-content-between align-items-center">' +
@@ -247,7 +255,7 @@
     var found = itemId && findItem(menu, itemId);
 
     if (!found) {
-      Core.renderError(root, { code: 'NOT_FOUND' });
+      Core.renderError(root, { code: 'NOT_FOUND' }, state.lang);
       return;
     }
 
@@ -255,26 +263,27 @@
     var category = found.category;
     setText('[data-item-name]', L(item.Name));
     setText('[data-item-name-crumb]', L(item.Name));
-    document.title = L(item.Name) || 'Item details';
+    document.title = L(item.Name) || Core.uiText('details', state.lang);
 
     var media = buildMedia(item);
     var price = Core.formatPrice(item.Price, menu.Currency);
-    var diets = Core.dietLabels(item.Diets);
+    var diets = Core.dietLabels(item.Diets, state.lang);
 
     root.innerHTML =
       '<div class="row gy-4">' +
         '<div class="col-lg-6">' + renderGallery(media, L(item.Name)) + '</div>' +
         '<div class="col-lg-6">' +
           '<div class="shop-details-info-wrap">' +
-            '<a class="detail-back-link" href="' + esc(homeUrl()) + '"><i class="bi bi-arrow-left"></i> Back to menu</a>' +
+            '<a class="detail-back-link" href="' + esc(homeUrl()) + '"><i class="bi bi-arrow-left"></i> ' +
+              esc(Core.uiText('backToMenu', state.lang)) + '</a>' +
             '<div class="section-title"><h2>' + esc(L(item.Name)) +
-              (item.IsNew ? '<span class="menu-new-badge">New</span>' : '') + '</h2></div>' +
+              (item.IsNew ? '<span class="menu-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '') + '</h2></div>' +
             (price ? '<h2 class="price-number-tag">' + esc(price) + '</h2>' : '') +
             '<p>' + esc(L(item.ShortDescription)) + '</p>' +
             (diets.length ? '<div class="menu-diet-tags detail-diet-tags">' +
               diets.map(function (d) { return '<span class="menu-diet-tag">' + esc(d) + '</span>'; }).join('') +
               '</div>' : '') +
-            renderTagRow('Category', [L(category.Name)]) +
+            renderTagRow(Core.uiText('category', state.lang), [L(category.Name)]) +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -400,11 +409,13 @@
         '<div class="row"><div class="col-lg-12">' +
           '<ul class="nav shop-info-nav nav-pills" role="tablist">' +
             '<li class="nav-item" role="presentation">' +
-              '<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-desc" type="button" role="tab">Description</button>' +
+              '<button class="nav-link active" data-bs-toggle="pill" data-bs-target="#tab-desc" type="button" role="tab">' +
+                esc(Core.uiText('description', state.lang)) + '</button>' +
             '</li>' +
             (hasInfo ?
             '<li class="nav-item" role="presentation">' +
-              '<button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-info" type="button" role="tab">Ingredients &amp; Allergens</button>' +
+              '<button class="nav-link" data-bs-toggle="pill" data-bs-target="#tab-info" type="button" role="tab">' +
+                esc(Core.uiText('ingredientsAllergens', state.lang)) + '</button>' +
             '</li>' : '') +
           '</ul>' +
           '<div class="tab-content mt-5">' +
@@ -414,8 +425,8 @@
             (hasInfo ?
             '<div class="tab-pane fade" id="tab-info" role="tabpanel">' +
               '<div class="row gy-4">' +
-                (ingredients ? '<div class="col-lg-6"><h2 class="h2 mb-2">Ingredients</h2><p>' + esc(ingredients) + '</p></div>' : '') +
-                (allergens ? '<div class="col-lg-6"><h2 class="h2 mb-2">Allergens</h2><p>' + esc(allergens) + '</p></div>' : '') +
+                (ingredients ? '<div class="col-lg-6"><h2 class="h2 mb-2">' + esc(Core.uiText('ingredients', state.lang)) + '</h2><p>' + esc(ingredients) + '</p></div>' : '') +
+                (allergens ? '<div class="col-lg-6"><h2 class="h2 mb-2">' + esc(Core.uiText('allergens', state.lang)) + '</h2><p>' + esc(allergens) + '</p></div>' : '') +
               '</div>' +
             '</div>' : '') +
           '</div>' +
