@@ -430,7 +430,8 @@
 
     return '' +
       '<div class="pt-120">' +
-        '<div class="row"><div class="col-lg-12"><h2 class="h2">More from ' + esc(L(category.Name)) + '</h2></div></div>' +
+        '<div class="row"><div class="col-lg-12"><h2 class="h2">' +
+          esc(Core.uiText('moreFrom', state.lang, { name: L(category.Name) })) + '</h2></div></div>' +
         '<div class="row pt-60"><div class="col-lg-12"><div class="menu-book-box-wrap">' +
           others.map(renderMenuItem).join('') +
         '</div></div></div>' +

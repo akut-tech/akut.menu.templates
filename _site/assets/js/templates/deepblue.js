@@ -494,7 +494,7 @@
     return '' +
       '<section class="db-related">' +
         '<div class="db-cat-head">' +
-          '<h2 class="db-cat-title">More from ' + esc(L(category.Name)) + '</h2>' +
+          '<h2 class="db-cat-title">' + esc(Core.uiText('moreFrom', state.lang, { name: L(category.Name) })) + '</h2>' +
           ornament(1) +
         '</div>' +
         '<div class="db-list">' + others.map(renderItem).join('') + '</div>' +

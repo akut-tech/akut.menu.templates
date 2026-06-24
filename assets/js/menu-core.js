@@ -125,6 +125,31 @@
   function readLang() { try { return global.localStorage.getItem(LANG_KEY); } catch (e) { return null; } }
   function saveLang(l) { try { global.localStorage.setItem(LANG_KEY, l); } catch (e) {} }
 
+  // Translations for the templates' own UI labels (not menu data). Keyed by the
+  // same language keys used in the data (e.g. "English", "Portuguese"); falls
+  // back to English. `{name}`-style placeholders are filled from `vars`.
+  var UI_STRINGS = {
+    moreFrom: {
+      English:    'More from {name}',
+      Portuguese: 'Mais de {name}',
+      Spanish:    'Más de {name}',
+      French:     'Plus de {name}',
+      German:     'Mehr aus {name}',
+      Italian:    'Altro da {name}'
+    }
+  };
+
+  function uiText(key, lang, vars) {
+    var entry = UI_STRINGS[key] || {};
+    var s = (lang && entry[lang]) || entry.English || '';
+    if (vars) {
+      Object.keys(vars).forEach(function (k) {
+        s = s.replace('{' + k + '}', vars[k] == null ? '' : vars[k]);
+      });
+    }
+    return s;
+  }
+
   /* -------------------------------------------------------------- formatting */
 
   function formatPrice(value, currencyEnum) {
@@ -219,6 +244,7 @@
     t: t,
     saveLang: saveLang,
     readLang: readLang,
+    uiText: uiText,
     formatPrice: formatPrice,
     dietLabels: dietLabels,
     escapeHtml: escapeHtml,

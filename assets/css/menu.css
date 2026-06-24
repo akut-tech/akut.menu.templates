@@ -47,6 +47,10 @@
   background: #fd9900; color: #fff; font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 4px;
 }
+/* The theme's `.section-title span { color: var(--primary-yellow) }` is more
+   specific than `.menu-new-badge`, which turned the detail-page badge text
+   yellow-on-orange (invisible). Re-assert white with matching specificity. */
+.section-title .menu-new-badge { color: #fff; }
 .menu-diet-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .menu-diet-tag {
   font-size: 11px; font-weight: 600; color: #2f8f4e;
