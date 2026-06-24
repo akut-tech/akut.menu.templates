@@ -103,12 +103,13 @@ available key.
 The numeric enums are mapped in `_data/`:
 
 - `languages.yml` — `DefaultLanguage` → language key + display label
-- `currencies.yml` — `Currency` → code + symbol
+- `currencies.yml` — `Currency` → code + symbol (mirrors the `akut.domain`
+  `Currency` enum: `1 = Euro`, `2 = Dollar`, `3 = Pound`)
 - `diets.yml` — `Diets` values → labels
 
-> Only a few enum values are confirmed from sample data (`DefaultLanguage: 2 =
-> English`, `Currency: 1`, `Diets: 2,3`). Update these files to match the real
-> Akut enums.
+> `Currency` mirrors the `akut.domain` enum. The remaining `DefaultLanguage`
+> and `Diets` mappings are inferred from sample data (`DefaultLanguage: 2 =
+> English`, `Diets: 2,3`) — update those files to match the real Akut enums.
 
 ## Error handling
 
