@@ -1,0 +1,83 @@
+/* Akut menu overrides — sits on top of the Epicurean theme (style.css) */
+
+/* ---------------------------------------------------------- header tweaks */
+.menu-area-two .menu-logo-wrap img { max-height: 56px; width: auto; }
+.menu-tagline { color: #777; font-size: 14px; }
+
+/* --------------------------------------------------------- language switcher */
+.lang-switcher { position: relative; }
+.lang-switcher .lang-current {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid #eee; border-radius: 6px;
+  padding: 8px 14px; cursor: pointer; font-weight: 600; color: #17191c;
+}
+.lang-switcher .lang-current:hover { border-color: #fd9900; }
+.lang-switcher .lang-menu {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 50;
+  min-width: 160px; background: #fff; border: 1px solid #eee; border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 6px; display: none;
+}
+.lang-switcher.open .lang-menu { display: block; }
+.lang-switcher .lang-menu li { list-style: none; }
+.lang-switcher .lang-menu button {
+  width: 100%; text-align: left; background: none; border: 0; border-radius: 4px;
+  padding: 8px 12px; cursor: pointer; color: #17191c;
+}
+.lang-switcher .lang-menu button:hover,
+.lang-switcher .lang-menu button.active { background: #fff6e8; color: #fd9900; }
+
+/* ------------------------------------------------------------- menu items */
+.menu-book-box { position: relative; }
+.menu-book-link { position: absolute; inset: 0; z-index: 2; }
+.menu-book-box .menu-book-img img {
+  width: 90px; height: 90px; object-fit: cover; border-radius: 8px;
+}
+.menu-new-badge {
+  display: inline-block; margin-left: 10px; vertical-align: middle;
+  background: #fd9900; color: #fff; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 4px;
+}
+.menu-diet-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.menu-diet-tag {
+  font-size: 11px; font-weight: 600; color: #2f8f4e;
+  background: #eaf7ee; border-radius: 4px; padding: 2px 8px;
+}
+.menu-cat-desc { color: #777; margin-top: 10px; }
+
+/* --------------------------------------------------------------- detail */
+.detail-diet-tags { margin-top: 16px; }
+.detail-back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+
+/* ------------------------------------------------------------ slim footer */
+.footer-area-slim { padding: 40px 0; }
+.footer-area-slim .footer-logo img { max-height: 48px; width: auto; }
+.footer-powered { color: #fd9900; font-size: 13px; }
+
+/* ----------------------------------------------------------- friendly error */
+.menu-error {
+  min-height: 70vh; display: flex; align-items: center; justify-content: center;
+  padding: 60px 16px; text-align: center;
+}
+.menu-error-card { max-width: 520px; }
+.menu-error-emoji { font-size: 64px; line-height: 1; margin-bottom: 16px; }
+.menu-error-card h1 { font-size: 32px; margin-bottom: 12px; }
+.menu-error-card p { color: #777; margin-bottom: 24px; }
+.menu-error-card code {
+  background: #f5f5f5; padding: 2px 6px; border-radius: 4px; color: #d6336c;
+}
+
+/* --------------------------------------------------------------- loading */
+.menu-loading {
+  min-height: 50vh; display: flex; align-items: center; justify-content: center;
+}
+.menu-loading .spinner {
+  width: 48px; height: 48px; border: 4px solid #eee; border-top-color: #fd9900;
+  border-radius: 50%; animation: akut-spin 1s linear infinite;
+}
+@keyframes akut-spin { to { transform: rotate(360deg); } }
+
+/* ----------------------------------------------------------- back to top */
+.back-to-top-btn { opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+.back-to-top-btn.show { opacity: 1; visibility: visible; }
+
+[hidden] { display: none !important; }

@@ -1,0 +1,13 @@
+# Registry of available menu templates.
+# The menu JSON's `TemplateId` is matched (case-insensitive) against the keys
+# in `list`. The S3 value "default" is aliased to `default` below.
+default: epicurean
+
+aliases:
+  default: epicurean
+
+list:
+  epicurean:
+    name: Epicurean
+    main: /templates/epicurean/
+    detail: /templates/epicurean/detail/

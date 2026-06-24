@@ -1,0 +1,53 @@
+---
+title: Loading menu…
+permalink: /404.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="icon" href="{{ '/assets/images/fav.png' | relative_url }}" type="image/png">
+  <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/bootstrap-icons.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/menu.css' | relative_url }}">
+  {% include menu-config.html %}
+</head>
+<body>
+  <!--
+    On static hosts (S3 website, GitHub Pages) a clean tenant URL such as
+    "/test" has no matching file and is served as this 404 document. We reuse it
+    as the dispatcher: resolve the tenant from the path and route to its template.
+    If there is no tenant, we show the friendly fallback.
+  -->
+  <div class="site-wrapper">
+    <div id="dispatch-root">
+      <div class="menu-loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+  <script src="{{ '/assets/js/menu-core.js' | relative_url }}"></script>
+  <script>
+    (function () {
+      var root = document.getElementById('dispatch-root');
+      var tenant = MenuCore.getTenant();
+
+      if (!tenant) {
+        MenuCore.renderError(root, { code: 'NO_TENANT' });
+        return;
+      }
+
+      MenuCore.fetchMenu(tenant)
+        .then(function (menu) {
+          var main = MenuCore.templatePath('main', menu.TemplateId);
+          location.replace(MenuCore.withTenant(main, tenant));
+        })
+        .catch(function (err) {
+          MenuCore.renderError(root, err);
+        });
+    })();
+  </script>
+</body>
+</html>

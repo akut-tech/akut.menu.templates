@@ -1,0 +1,13 @@
+# Maps the numeric values in an item's `Diets` array to a human label.
+# Adjust to match the real Akut diet enum.
+#
+# Known: 2 and 3 appear in the sample data.
+0: Halal
+1: Kosher
+2: Vegetarian
+3: Vegan
+4: Gluten-Free
+5: Dairy-Free
+6: Nut-Free
+7: Organic
+8: Spicy

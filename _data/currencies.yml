@@ -1,0 +1,9 @@
+# Maps the numeric `Currency` value in the menu JSON to a currency code and the
+# symbol used when formatting prices. Adjust to match the real Akut enum.
+#
+# Known: 1 is used in the sample data.
+0: { code: EUR, symbol: "€" }
+1: { code: USD, symbol: "$" }
+2: { code: GBP, symbol: "£" }
+3: { code: BRL, symbol: "R$" }
+4: { code: JPY, symbol: "¥" }

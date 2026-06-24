@@ -1,0 +1,37 @@
+# Akut Menu Templates — Jekyll configuration
+title: Akut Menu Templates
+description: >-
+  Multi-template menu renderer. Each tenant's menu is loaded at runtime from a
+  public S3 object and rendered with the template named in its TemplateId.
+
+# Leave empty for local development (jekyll serve).
+# Set to the sub-path when hosted under a folder, e.g. "/menu".
+baseurl: ""
+url: ""
+
+# Local development server port (default Jekyll port is 4000).
+port: 4001
+
+# Public S3 bucket that stores the per-tenant menu JSON.
+# Final URL: {s3_base}{tenant}.json
+s3_base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/active/"
+
+# Template used when a menu's TemplateId is missing or unknown.
+default_template: epicurean
+
+# Path segments that are NOT tenant names when resolving from the URL path.
+reserved_paths:
+  - templates
+  - assets
+
+encoding: utf-8
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .gitignore
+
+# Pretty URLs for the template folders (/templates/epicurean/).
+permalink: pretty

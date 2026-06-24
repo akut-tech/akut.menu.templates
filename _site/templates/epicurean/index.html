@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Menu</title>
+
+<link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
+
+<!-- Icon font -->
+<link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+<!-- Lightbox (item gallery zoom) -->
+<link rel="stylesheet" href="/assets/css/magnific-popup.css">
+<!-- Grid / components (tabs) -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<!-- Theme -->
+<link rel="stylesheet" href="/assets/css/style.css">
+<!-- Akut menu overrides -->
+<link rel="stylesheet" href="/assets/css/menu.css">
+
+  <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
+<script>
+  window.AKUT_CONFIG = {
+    s3Base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/active/",
+    baseUrl: "",
+    defaultTemplate: "epicurean",
+    reservedPaths: ["templates","assets"],
+    languages: {"0":{"key":"Portuguese","code":"pt","label":"Português"},"1":{"key":"Spanish","code":"es","label":"Español"},"2":{"key":"English","code":"en","label":"English"},"3":{"key":"French","code":"fr","label":"Français"},"4":{"key":"German","code":"de","label":"Deutsch"},"5":{"key":"Italian","code":"it","label":"Italiano"}},
+    currencies: {"0":{"code":"EUR","symbol":"€"},"1":{"code":"USD","symbol":"$"},"2":{"code":"GBP","symbol":"£"},"3":{"code":"BRL","symbol":"R$"},"4":{"code":"JPY","symbol":"¥"}},
+    diets: {"0":"Halal","1":"Kosher","2":"Vegetarian","3":"Vegan","4":"Gluten-Free","5":"Dairy-Free","6":"Nut-Free","7":"Organic","8":"Spicy"},
+    templates: {"epicurean":{"name":"Epicurean","main":"/templates/epicurean/","detail":"/templates/epicurean/detail/"}},
+    templateAliases: {"default":"epicurean"}
+  };
+</script>
+
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="spinner-wrap">
+      <div class="preloader-logo">
+        <img src="/assets/images/preloader.svg" alt="" class="img-fluid">
+      </div>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
+
+  <div class="site-wrapper">
+    <!-- Header: tenant logo + language switcher (populated at runtime) -->
+<header>
+  <div class="menu-area menu-area-two">
+    <div class="container">
+      <div class="row align-items-center gy-3">
+        <div class="col-6 col-lg-4 order-1">
+          <div class="menu-logo-wrap">
+            <a href="#" data-menu-home>
+              <img data-menu-logo src="/assets/images/logo-two.svg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 order-3 order-lg-2 text-center">
+          <p class="menu-tagline mb-0" data-menu-tagline></p>
+        </div>
+        <div class="col-6 col-lg-4 order-2 order-lg-3">
+          <div class="d-flex justify-content-end align-items-center">
+            <div class="lang-switcher" data-lang-switcher hidden>
+              <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-globe2"></i>
+                <span data-lang-current-label>Language</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <ul class="lang-menu custom-ul" data-lang-menu></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+    <main>
+      <!-- Breadcrumb -->
+<div class="breadcrumb-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-info text-center">
+          <h1 class="text-white" data-menu-name>Menu</h1>
+          <p class="text-white mt-3" data-menu-description></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Menu (rendered at runtime) -->
+<div class="manu-page-wrap pt-120 pb-120">
+  <div class="container">
+    <div id="menu-root">
+      <div class="menu-loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+</div>
+
+    </main>
+
+    <!-- Footer: simplified, restaurant-aware -->
+<div class="footer-area footer-area-slim">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-lg-4 text-center text-lg-start">
+        <a class="footer-logo" href="#" data-menu-home>
+          <img data-menu-logo src="/assets/images/logo-two.svg" alt="">
+        </a>
+      </div>
+      <div class="col-lg-4 text-center">
+        <p class="text-white mb-0" data-menu-notes></p>
+      </div>
+      <div class="col-lg-4 text-center text-lg-end">
+        <p class="text-white mb-0">
+          &copy; <span data-current-year></span> <span data-menu-name></span>
+        </p>
+        <p class="footer-powered mb-0">Powered by Akut</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <!-- Vendor JS (only what the menu pages use: tabs + gallery zoom) -->
+  <script src="/assets/js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="/assets/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/vendor/jquery.magnific-popup.min.js"></script>
+
+  <!-- Akut runtime -->
+  <script src="/assets/js/menu-core.js"></script>
+  
+  <script src="/assets/js/templates/epicurean.js"></script>
+  
+
+  <!-- Theme init (preloader, back-to-top) -->
+  <script src="/assets/js/theme-init.js"></script>
+</body>
+</html>

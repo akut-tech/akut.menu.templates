@@ -1,0 +1,127 @@
+{
+  "Id": "a1b2c3d4-0000-0000-0000-000000000001",
+  "Logo": {
+    "Order": 0,
+    "Url": "https://cdn.shopify.com/s/files/1/0788/9687/files/image2_600x600_52d512a2-43a1-47f1-bfde-e12a3c158390.jpg",
+    "Title": "Restaurant Logo",
+    "Source": 0,
+    "Link": ""
+  },
+  "Name": { "English": "Epicurean Sample Menu", "Português": "Menu de Exemplo Epicurean" },
+  "Description": { "English": "A demonstration menu rendered from local data", "Português": "Um menu de demonstração renderizado a partir de dados locais" },
+  "Notes": "Demo data shipped with the project",
+  "TemplateId": "default",
+  "DefaultLanguage": 2,
+  "Currency": 1,
+  "Status": 1,
+  "Categories": [
+    {
+      "Id": "b2c3d4e5-0000-0000-0000-000000000001",
+      "Order": 1,
+      "Name": { "English": "Starters", "Português": "Entradas" },
+      "Description": { "English": "Light bites to begin", "Português": "Petiscos leves para começar" },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000001",
+          "Order": 1,
+          "Diets": [2, 3],
+          "Images": [
+            { "Order": 0, "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg", "Title": "Tomato Soup", "Source": 0, "Link": "" }
+          ],
+          "YouTubeVideoUrls": null,
+          "Name": { "English": "Tomato Soup", "Português": "Sopa de Tomate" },
+          "ShortDescription": { "English": "Classic tomato bisque", "Português": "Creme de tomate clássico" },
+          "FullDescription": { "English": "Slow-cooked tomato soup with fresh basil and a swirl of cream.", "Português": "Sopa de tomate cozida lentamente com manjericão fresco e um fio de natas." },
+          "Ingredients": { "English": "Tomatoes, basil, cream, onion", "Português": "Tomate, manjericão, natas, cebola" },
+          "Allergens": { "English": "Milk", "Português": "Leite" },
+          "Price": 5.5,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000002",
+          "Order": 2,
+          "Diets": [2],
+          "Images": [
+            { "Order": 0, "Url": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800", "Title": "Bruschetta", "Source": 0, "Link": "" }
+          ],
+          "YouTubeVideoUrls": null,
+          "Name": { "English": "Bruschetta", "Português": "Bruschetta" },
+          "ShortDescription": { "English": "Toasted bread, tomato, garlic", "Português": "Pão torrado, tomate, alho" },
+          "FullDescription": { "English": "Grilled sourdough topped with marinated tomatoes, garlic and olive oil.", "Português": "Pão de massa-mãe grelhado com tomate marinado, alho e azeite." },
+          "Ingredients": { "English": "Bread, tomato, garlic, olive oil, basil", "Português": "Pão, tomate, alho, azeite, manjericão" },
+          "Allergens": { "English": "Gluten", "Português": "Glúten" },
+          "Price": 6.0,
+          "IsNew": true
+        }
+      ]
+    },
+    {
+      "Id": "b2c3d4e5-0000-0000-0000-000000000002",
+      "Order": 2,
+      "Name": { "English": "Main Courses", "Português": "Pratos Principais" },
+      "Description": { "English": "Hearty plates", "Português": "Pratos substanciais" },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000003",
+          "Order": 1,
+          "Diets": [],
+          "Images": [
+            { "Order": 0, "Url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800", "Title": "Margherita Pizza", "Source": 0, "Link": "" },
+            { "Order": 1, "Url": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800", "Title": "Pizza close-up", "Source": 0, "Link": "" }
+          ],
+          "YouTubeVideoUrls": null,
+          "Name": { "English": "Margherita Pizza", "Português": "Pizza Margherita" },
+          "ShortDescription": { "English": "Tomato, mozzarella, basil", "Português": "Tomate, mozzarella, manjericão" },
+          "FullDescription": { "English": "Wood-fired pizza with San Marzano tomatoes, buffalo mozzarella and fresh basil.", "Português": "Pizza em forno a lenha com tomate San Marzano, mozzarella de búfala e manjericão fresco." },
+          "Ingredients": { "English": "Dough, tomato, mozzarella, basil", "Português": "Massa, tomate, mozzarella, manjericão" },
+          "Allergens": { "English": "Gluten, Milk", "Português": "Glúten, Leite" },
+          "Price": 12.5,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000004",
+          "Order": 2,
+          "Diets": [],
+          "Images": [
+            { "Order": 0, "Url": "https://images.unsplash.com/photo-1432139509613-5c4255815697?w=800", "Title": "Grilled Salmon", "Source": 0, "Link": "" }
+          ],
+          "YouTubeVideoUrls": null,
+          "Name": { "English": "Grilled Salmon", "Português": "Salmão Grelhado" },
+          "ShortDescription": { "English": "With seasonal vegetables", "Português": "Com legumes da época" },
+          "FullDescription": { "English": "Atlantic salmon fillet grilled to perfection, served with seasonal vegetables.", "Português": "Filete de salmão do Atlântico grelhado na perfeição, servido com legumes da época." },
+          "Ingredients": { "English": "Salmon, vegetables, lemon, herbs", "Português": "Salmão, legumes, limão, ervas" },
+          "Allergens": { "English": "Fish", "Português": "Peixe" },
+          "Price": 18.0,
+          "IsNew": true
+        }
+      ]
+    },
+    {
+      "Id": "b2c3d4e5-0000-0000-0000-000000000003",
+      "Order": 3,
+      "Name": { "English": "Desserts", "Português": "Sobremesas" },
+      "Description": { "English": "Sweet endings", "Português": "Finais doces" },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000005",
+          "Order": 1,
+          "Diets": [2],
+          "Images": [
+            { "Order": 0, "Url": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800", "Title": "Tiramisu", "Source": 0, "Link": "" }
+          ],
+          "YouTubeVideoUrls": null,
+          "Name": { "English": "Tiramisu", "Português": "Tiramisu" },
+          "ShortDescription": { "English": "Coffee-soaked classic", "Português": "Clássico embebido em café" },
+          "FullDescription": { "English": "Layers of espresso-soaked savoiardi and mascarpone cream, dusted with cocoa.", "Português": "Camadas de savoiardi embebidos em espresso e creme de mascarpone, polvilhado com cacau." },
+          "Ingredients": { "English": "Mascarpone, coffee, cocoa, eggs", "Português": "Mascarpone, café, cacau, ovos" },
+          "Allergens": { "English": "Milk, Eggs, Gluten", "Português": "Leite, Ovos, Glúten" },
+          "Price": 7.0,
+          "IsNew": false
+        }
+      ]
+    }
+  ]
+}

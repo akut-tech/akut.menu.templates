@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading menu…</title>
+  <link rel="icon" href="/assets/images/fav.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
+<script>
+  window.AKUT_CONFIG = {
+    s3Base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/active/",
+    baseUrl: "",
+    defaultTemplate: "epicurean",
+    reservedPaths: ["templates","assets"],
+    languages: {"0":{"key":"Portuguese","code":"pt","label":"Português"},"1":{"key":"Spanish","code":"es","label":"Español"},"2":{"key":"English","code":"en","label":"English"},"3":{"key":"French","code":"fr","label":"Français"},"4":{"key":"German","code":"de","label":"Deutsch"},"5":{"key":"Italian","code":"it","label":"Italiano"}},
+    currencies: {"0":{"code":"EUR","symbol":"€"},"1":{"code":"USD","symbol":"$"},"2":{"code":"GBP","symbol":"£"},"3":{"code":"BRL","symbol":"R$"},"4":{"code":"JPY","symbol":"¥"}},
+    diets: {"0":"Halal","1":"Kosher","2":"Vegetarian","3":"Vegan","4":"Gluten-Free","5":"Dairy-Free","6":"Nut-Free","7":"Organic","8":"Spicy"},
+    templates: {"epicurean":{"name":"Epicurean","main":"/templates/epicurean/","detail":"/templates/epicurean/detail/"}},
+    templateAliases: {"default":"epicurean"}
+  };
+</script>
+
+</head>
+<body>
+  <!--
+    On static hosts (S3 website, GitHub Pages) a clean tenant URL such as
+    "/test" has no matching file and is served as this 404 document. We reuse it
+    as the dispatcher: resolve the tenant from the path and route to its template.
+    If there is no tenant, we show the friendly fallback.
+  -->
+  <div class="site-wrapper">
+    <div id="dispatch-root">
+      <div class="menu-loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+  <script src="/assets/js/menu-core.js"></script>
+  <script>
+    (function () {
+      var root = document.getElementById('dispatch-root');
+      var tenant = MenuCore.getTenant();
+
+      if (!tenant) {
+        MenuCore.renderError(root, { code: 'NO_TENANT' });
+        return;
+      }
+
+      MenuCore.fetchMenu(tenant)
+        .then(function (menu) {
+          var main = MenuCore.templatePath('main', menu.TemplateId);
+          location.replace(MenuCore.withTenant(main, tenant));
+        })
+        .catch(function (err) {
+          MenuCore.renderError(root, err);
+        });
+    })();
+  </script>
+</body>
+</html>

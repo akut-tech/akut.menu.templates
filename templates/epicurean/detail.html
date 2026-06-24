@@ -1,0 +1,32 @@
+---
+layout: base
+permalink: /templates/epicurean/detail/
+title: Item details
+template_js: epicurean
+---
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-info text-center">
+          <h1 class="text-white" data-item-name>Details</h1>
+          <p class="text-white mt-3">
+            <a href="#" data-menu-home>Menu</a>
+            <i class="bi bi-chevron-right ms-2 me-2"></i><span data-item-name-crumb></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Item detail (rendered at runtime) -->
+<div class="shop-details-area pt-120 pb-120">
+  <div class="container">
+    <div id="detail-root">
+      <div class="menu-loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+</div>

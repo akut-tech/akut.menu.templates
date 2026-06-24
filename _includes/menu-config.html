@@ -1,0 +1,14 @@
+<!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
+<script>
+  window.AKUT_CONFIG = {
+    s3Base: {{ site.s3_base | jsonify }},
+    baseUrl: {{ site.baseurl | default: "" | jsonify }},
+    defaultTemplate: {{ site.default_template | jsonify }},
+    reservedPaths: {{ site.reserved_paths | jsonify }},
+    languages: {{ site.data.languages | jsonify }},
+    currencies: {{ site.data.currencies | jsonify }},
+    diets: {{ site.data.diets | jsonify }},
+    templates: {{ site.data.templates.list | jsonify }},
+    templateAliases: {{ site.data.templates.aliases | jsonify }}
+  };
+</script>

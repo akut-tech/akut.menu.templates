@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% include head.html %}
+  {% include menu-config.html %}
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="spinner-wrap">
+      <div class="preloader-logo">
+        <img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid">
+      </div>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
+
+  <div class="site-wrapper">
+    {% unless page.no_chrome %}{% include header.html %}{% endunless %}
+
+    <main>
+      {{ content }}
+    </main>
+
+    {% unless page.no_chrome %}{% include footer.html %}{% endunless %}
+  </div>
+
+  <!-- Vendor JS (only what the menu pages use: tabs + gallery zoom) -->
+  <script src="{{ '/assets/js/vendor/jquery-3.7.1.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/vendor/bootstrap.bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/vendor/jquery.magnific-popup.min.js' | relative_url }}"></script>
+
+  <!-- Akut runtime -->
+  <script src="{{ '/assets/js/menu-core.js' | relative_url }}"></script>
+  {% if page.template_js %}
+  <script src="{{ '/assets/js/templates/' | append: page.template_js | append: '.js' | relative_url }}"></script>
+  {% endif %}
+
+  <!-- Theme init (preloader, back-to-top) -->
+  <script src="{{ '/assets/js/theme-init.js' | relative_url }}"></script>
+</body>
+</html>
