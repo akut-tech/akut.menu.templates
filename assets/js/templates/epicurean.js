@@ -60,6 +60,37 @@
     return imgs.length ? imgs[0].Url : null;
   }
 
+  // Extracts the 11-char video id from the common YouTube URL shapes
+  // (watch?v=, youtu.be/, /embed/, /shorts/). Returns null if none found.
+  function youTubeId(url) {
+    if (!url) return null;
+    var m = String(url).match(
+      /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+    );
+    return m ? m[1] : null;
+  }
+
+  // Unifies images and YouTube videos into one ordered gallery list. Images
+  // (sorted by Order) come first, then any parseable YouTubeVideoUrls.
+  function buildMedia(item) {
+    var media = (item.Images || [])
+      .slice()
+      .sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); })
+      .map(function (im) { return { type: 'image', url: im.Url, thumb: im.Url }; });
+
+    (item.YouTubeVideoUrls || []).forEach(function (url) {
+      var id = youTubeId(url);
+      if (!id) return;
+      media.push({
+        type: 'video',
+        url: url,
+        embed: 'https://www.youtube.com/embed/' + id,
+        thumb: 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg'
+      });
+    });
+    return media;
+  }
+
   function sortedCategories(menu) {
     return (menu.Categories || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
   }
@@ -223,13 +254,13 @@
     setText('[data-item-name-crumb]', L(item.Name));
     document.title = L(item.Name) || 'Item details';
 
-    var images = (item.Images || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
+    var media = buildMedia(item);
     var price = Core.formatPrice(item.Price, menu.Currency);
     var diets = Core.dietLabels(item.Diets);
 
     root.innerHTML =
       '<div class="row gy-4">' +
-        '<div class="col-lg-6">' + renderGallery(images, L(item.Name)) + '</div>' +
+        '<div class="col-lg-6">' + renderGallery(media, L(item.Name)) + '</div>' +
         '<div class="col-lg-6">' +
           '<div class="shop-details-info-wrap">' +
             '<a class="detail-back-link" href="' + esc(homeUrl()) + '"><i class="bi bi-arrow-left"></i> Back to menu</a>' +
@@ -250,46 +281,77 @@
     initGallery(root);
   }
 
-  function renderGallery(images, alt) {
-    if (!images.length) {
+  function renderGallery(media, alt) {
+    if (!media.length) {
       return '<div class="shop-main-img-wrap"><div class="menu-loading" style="min-height:300px"></div></div>';
     }
-    var main =
-      '<div class="shop-main-img-wrap overflow-hidden mb-3">' +
-        '<a class="shop-main-zm" data-gallery-zoom href="' + esc(images[0].Url) + '">' +
-          '<i class="bi bi-zoom-in"></i>' +
-        '</a>' +
-        '<img data-gallery-main src="' + esc(images[0].Url) + '" alt="' + esc(alt) + '">' +
-      '</div>';
 
-    var thumbs = images.length > 1 ?
+    var stage = '<div data-gallery-stage data-alt="' + esc(alt) + '">' +
+      mediaStageHtml(media[0], alt) + '</div>';
+
+    var thumbs = media.length > 1 ?
       '<div class="d-flex flex-wrap gap-2" data-gallery-thumbs>' +
-        images.map(function (im, idx) {
-          return '<img class="gallery-thumb' + (idx === 0 ? ' active' : '') + '" ' +
-                 'style="width:72px;height:72px;object-fit:cover;border-radius:6px;cursor:pointer" ' +
-                 'data-src="' + esc(im.Url) + '" src="' + esc(im.Url) + '" alt="' + esc(alt) + '">';
+        media.map(function (m, idx) {
+          return '<button type="button" class="gallery-thumb' +
+                 (idx === 0 ? ' active' : '') + (m.type === 'video' ? ' gallery-thumb-video' : '') + '" ' +
+                 'data-type="' + m.type + '" ' +
+                 'data-url="' + esc(m.url) + '" ' +
+                 'data-embed="' + esc(m.embed || '') + '">' +
+                 '<img src="' + esc(m.thumb) + '" alt="' + esc(alt) + '">' +
+                 (m.type === 'video' ? '<span class="gallery-thumb-play"><i class="bi bi-play-fill"></i></span>' : '') +
+                 '</button>';
         }).join('') +
       '</div>' : '';
 
-    return main + thumbs;
+    return stage + thumbs;
+  }
+
+  // Markup for the main viewer: a zoomable image, or an embedded YouTube player.
+  function mediaStageHtml(media, alt) {
+    if (media.type === 'video') {
+      return '<div class="shop-main-img-wrap menu-video-wrap overflow-hidden mb-3">' +
+        '<iframe data-gallery-video src="' + esc(media.embed) + '?rel=0" ' +
+          'title="' + esc(alt) + '" frameborder="0" allowfullscreen ' +
+          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>' +
+      '</div>';
+    }
+    return '<div class="shop-main-img-wrap overflow-hidden mb-3">' +
+      '<a class="shop-main-zm" data-gallery-zoom href="' + esc(media.url) + '">' +
+        '<i class="bi bi-zoom-in"></i>' +
+      '</a>' +
+      '<img data-gallery-main src="' + esc(media.url) + '" alt="' + esc(alt) + '">' +
+    '</div>';
   }
 
   function initGallery(root) {
-    var mainImg = root.querySelector('[data-gallery-main]');
-    var zoom = root.querySelector('[data-gallery-zoom]');
+    var stage = root.querySelector('[data-gallery-stage]');
     var thumbs = root.querySelectorAll('[data-gallery-thumbs] .gallery-thumb');
+    if (!stage) return;
+
+    var alt = stage.getAttribute('data-alt') || '';
+
+    function bindZoom() {
+      var zoom = stage.querySelector('[data-gallery-zoom]');
+      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
+        global.jQuery(zoom).magnificPopup({ type: 'image' });
+      }
+    }
+
     thumbs.forEach(function (t) {
       t.addEventListener('click', function () {
-        var src = t.getAttribute('data-src');
-        if (mainImg) mainImg.src = src;
-        if (zoom) zoom.setAttribute('href', src);
-        root.querySelectorAll('.gallery-thumb').forEach(function (x) { x.classList.remove('active'); });
+        var media = {
+          type: t.getAttribute('data-type'),
+          url: t.getAttribute('data-url'),
+          embed: t.getAttribute('data-embed')
+        };
+        stage.innerHTML = mediaStageHtml(media, alt);
+        bindZoom();
+        thumbs.forEach(function (x) { x.classList.remove('active'); });
         t.classList.add('active');
       });
     });
-    if (global.jQuery && global.jQuery.fn.magnificPopup && zoom) {
-      global.jQuery(zoom).magnificPopup({ type: 'image' });
-    }
+
+    bindZoom();
   }
 
   function renderTagRow(label, values) {

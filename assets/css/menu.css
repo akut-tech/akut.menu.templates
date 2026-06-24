@@ -48,6 +48,24 @@
 .detail-diet-tags { margin-top: 16px; }
 .detail-back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 
+/* ------------------------------------------------------- detail gallery */
+.gallery-thumb {
+  position: relative; width: 72px; height: 72px; padding: 0;
+  border: 2px solid transparent; border-radius: 6px; overflow: hidden;
+  cursor: pointer; background: none; line-height: 0;
+}
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumb.active { border-color: #fd9900; }
+.gallery-thumb-play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .35); color: #fff; font-size: 26px; line-height: 1;
+}
+/* YouTube embed keeps a 16:9 box inside the main viewer */
+.menu-video-wrap { position: relative; padding-top: 56.25%; }
+.menu-video-wrap iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 14px;
+}
+
 /* ------------------------------------------------------------ slim footer */
 .footer-area-slim { padding: 40px 0; }
 .footer-area-slim .footer-logo img { max-height: 48px; width: auto; }
