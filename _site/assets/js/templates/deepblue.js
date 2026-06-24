@@ -21,6 +21,43 @@
 
   var state = { menu: null, tenant: null, lang: null, langs: [] };
 
+  /* ---------------------------------------------------- decorative motifs */
+  // Thin hand-drawn line-art used as elegant section ornaments. They cycle per
+  // category so each part of the menu carries a different sea creature.
+  function svgMotif(inner, vb) {
+    return '<svg class="db-motif" viewBox="' + vb + '" fill="none" stroke="currentColor" ' +
+      'stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + inner + '</svg>';
+  }
+  var MOTIF_SHELL = svgMotif(
+    '<path d="M32 50 C 13 49 6 28 10 17 C 18 7 46 7 54 17 C 58 28 51 49 32 50 Z"/>' +
+    '<path d="M32 50 L 13 19 M32 50 L 22 14 M32 50 L 32 12 M32 50 L 42 14 M32 50 L 51 19"/>' +
+    '<path d="M27 49 C 29 52 35 52 37 49"/>', '0 0 64 56');
+  var MOTIF_FISH = svgMotif(
+    '<path d="M6 20 C 18 7 45 7 58 20 C 45 33 18 33 6 20 Z"/>' +
+    '<path d="M58 20 C 64 14 70 12 75 10 C 72 16 72 24 75 30 C 70 28 64 26 58 20 Z"/>' +
+    '<path d="M21 13 C 27 17 27 23 22 27"/>' +
+    '<circle cx="16" cy="17" r="1.2" fill="currentColor" stroke="none"/>', '0 0 80 40');
+  var MOTIF_SHRIMP = svgMotif(
+    '<path d="M46 12 C 26 7 11 21 15 35 C 18 46 33 49 45 42"/>' +
+    '<path d="M46 12 C 52 10 56 14 53 18"/>' +
+    '<path d="M15 35 C 9 37 7 43 11 47"/>' +
+    '<path d="M22 39 l -3 6 M29 43 l -2 6 M36 44 l -1 6"/>' +
+    '<circle cx="46" cy="17" r="1.1" fill="currentColor" stroke="none"/>', '0 0 64 56');
+  var MOTIF_CRAB = svgMotif(
+    '<path d="M24 32 C 24 24 48 24 48 32 C 48 39 41 43 36 43 C 31 43 24 39 24 32 Z"/>' +
+    '<path d="M31 26 V 20 M41 26 V 20"/>' +
+    '<circle cx="31" cy="19" r="1.1" fill="currentColor" stroke="none"/>' +
+    '<circle cx="41" cy="19" r="1.1" fill="currentColor" stroke="none"/>' +
+    '<path d="M24 31 C 16 30 10 26 8 20 C 14 19 18 22 19 26"/>' +
+    '<path d="M48 31 C 56 30 62 26 64 20 C 58 19 54 22 53 26"/>' +
+    '<path d="M25 35 l -8 4 M27 38 l -7 5 M29 41 l -6 5"/>' +
+    '<path d="M47 35 l 8 4 M45 38 l 7 5 M43 41 l 6 5"/>', '0 0 72 56');
+  var MOTIF_STAR = svgMotif(
+    '<path d="M28 7 L 33.5 21 L 48 22 L 37 31.5 L 41 46 L 28 38 L 15 46 L 19 31.5 L 8 22 L 22.5 21 Z"/>' +
+    '<circle cx="28" cy="25" r="1" fill="currentColor" stroke="none"/>', '0 0 56 52');
+  var MOTIFS = [MOTIF_SHELL, MOTIF_FISH, MOTIF_SHRIMP, MOTIF_CRAB, MOTIF_STAR];
+  function motif(i) { return MOTIFS[((i % MOTIFS.length) + MOTIFS.length) % MOTIFS.length]; }
+
   document.addEventListener('DOMContentLoaded', function () {
     // Template pages always receive a real tenant via ?tenant= (the dispatcher
     // appends it). The path segment "deepblue" is the template name, not a
@@ -221,7 +258,7 @@
 
     root.innerHTML =
       renderNav(cats) +
-      cats.map(renderCategory).join('');
+      cats.map(function (cat, i) { return renderCategory(cat, i); }).join('');
   }
 
   // Sticky in-page category jump nav.
@@ -234,23 +271,29 @@
     '</ul></nav>';
   }
 
-  function renderCategory(cat) {
+  // Centered ornament: hairline — sea-creature motif — hairline.
+  function ornament(index) {
+    return '<span class="db-rule"><span class="db-rule-line"></span>' +
+      '<span class="db-rule-mark">' + motif(index) + '</span>' +
+      '<span class="db-rule-line"></span></span>';
+  }
+
+  function renderCategory(cat, index) {
     var items = sortedItems(cat);
     var desc = L(cat.Description);
     var head =
       '<div class="db-cat-head">' +
-        '<span class="db-cat-kicker">Deep Blue</span>' +
         '<h2 class="db-cat-title">' + esc(L(cat.Name)) + '</h2>' +
+        ornament(index) +
         (desc ? '<p class="db-cat-desc">' + esc(desc) + '</p>' : '') +
-        '<span class="db-cat-rule"><i class="bi bi-water"></i></span>' +
       '</div>';
 
-    var body = '<div class="db-cards">' + items.map(renderMenuCard).join('') + '</div>';
+    var body = '<div class="db-list">' + items.map(renderItem).join('') + '</div>';
 
     return '<section class="db-cat" id="db-cat-' + esc(cat.Id) + '">' + head + body + '</section>';
   }
 
-  function renderMenuCard(item) {
+  function renderItem(item) {
     var img = firstImage(item);
     var price = Core.formatPrice(item.Price, state.menu.Currency);
     var diets = Core.dietLabels(item.Diets).map(function (d) {
@@ -259,22 +302,21 @@
     var newBadge = item.IsNew ? '<span class="db-new">New</span>' : '';
 
     return '' +
-      '<a class="db-card" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
-        '<div class="db-card-media">' +
+      '<a class="db-row" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
+        '<span class="db-row-thumb">' +
           (img
             ? '<img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy">'
-            : '<span class="db-card-noimg"><i class="bi bi-water"></i></span>') +
-          newBadge +
-        '</div>' +
-        '<div class="db-card-body">' +
-          '<div class="db-card-titlerow">' +
-            '<h3 class="db-card-title">' + esc(L(item.Name)) + '</h3>' +
-            '<span class="db-card-dots"></span>' +
-            '<span class="db-card-price">' + esc(price) + '</span>' +
-          '</div>' +
-          '<p class="db-card-desc">' + esc(L(item.ShortDescription)) + '</p>' +
-          (diets ? '<div class="db-tags">' + diets + '</div>' : '') +
-        '</div>' +
+            : '<span class="db-row-noimg">' + MOTIF_SHELL + '</span>') +
+        '</span>' +
+        '<span class="db-row-body">' +
+          '<span class="db-row-head">' +
+            '<span class="db-row-name">' + esc(L(item.Name)) + newBadge + '</span>' +
+            '<span class="db-row-leader"></span>' +
+            '<span class="db-row-price">' + esc(price) + '</span>' +
+          '</span>' +
+          '<span class="db-row-desc">' + esc(L(item.ShortDescription)) + '</span>' +
+          (diets ? '<span class="db-tags">' + diets + '</span>' : '') +
+        '</span>' +
       '</a>';
   }
 
@@ -452,11 +494,10 @@
     return '' +
       '<section class="db-related">' +
         '<div class="db-cat-head">' +
-          '<span class="db-cat-kicker">Deep Blue</span>' +
           '<h2 class="db-cat-title">More from ' + esc(L(category.Name)) + '</h2>' +
-          '<span class="db-cat-rule"><i class="bi bi-water"></i></span>' +
+          ornament(1) +
         '</div>' +
-        '<div class="db-cards">' + others.map(renderMenuCard).join('') + '</div>' +
+        '<div class="db-list">' + others.map(renderItem).join('') + '</div>' +
       '</section>';
   }
 
