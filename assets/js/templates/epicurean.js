@@ -113,9 +113,13 @@
 
   function setupChrome() {
     var menu = state.menu;
-    var logoUrl = menu.Logo && menu.Logo.Link;
+    var CONFIG = global.AKUT_CONFIG || {};
+    var logoUrl = (menu.Logo && menu.Logo.Link) ||
+      (CONFIG.baseUrl || '') + '/assets/images/logo-two.svg';
     document.querySelectorAll('[data-menu-logo]').forEach(function (img) {
-      if (logoUrl) { img.src = logoUrl; img.alt = L(menu.Name) || 'Logo'; }
+      img.src = logoUrl;
+      img.alt = L(menu.Name) || 'Logo';
+      img.removeAttribute('hidden');
     });
     document.querySelectorAll('[data-menu-home]').forEach(function (a) { a.setAttribute('href', homeUrl()); });
 
