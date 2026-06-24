@@ -285,11 +285,17 @@
       return '<div class="shop-main-img-wrap"><div class="menu-loading" style="min-height:300px"></div></div>';
     }
 
-    var stage = '<div data-gallery-stage data-alt="' + esc(alt) + '">' +
-      mediaStageHtml(media[0], alt) + '</div>';
+    var arrows = media.length > 1 ?
+      '<button type="button" class="gallery-arrow gallery-arrow-prev" data-gallery-prev aria-label="Previous"><i class="bi bi-chevron-left"></i></button>' +
+      '<button type="button" class="gallery-arrow gallery-arrow-next" data-gallery-next aria-label="Next"><i class="bi bi-chevron-right"></i></button>' : '';
+
+    var stage = '<div class="gallery-stage-wrap" data-gallery-stage data-alt="' + esc(alt) + '">' +
+      arrows +
+      mediaStageHtml(media[0], alt) +
+    '</div>';
 
     var thumbs = media.length > 1 ?
-      '<div class="d-flex flex-wrap gap-2" data-gallery-thumbs>' +
+      '<div class="d-flex flex-wrap gap-2 mt-2" data-gallery-thumbs>' +
         media.map(function (m, idx) {
           return '<button type="button" class="gallery-thumb' +
                  (idx === 0 ? ' active' : '') + (m.type === 'video' ? ' gallery-thumb-video' : '') + '" ' +
@@ -328,6 +334,7 @@
     if (!stage) return;
 
     var alt = stage.getAttribute('data-alt') || '';
+    var current = 0;
 
     function bindZoom() {
       var zoom = stage.querySelector('[data-gallery-zoom]');
@@ -336,19 +343,34 @@
       }
     }
 
-    thumbs.forEach(function (t) {
-      t.addEventListener('click', function () {
-        var media = {
-          type: t.getAttribute('data-type'),
-          url: t.getAttribute('data-url'),
-          embed: t.getAttribute('data-embed')
-        };
-        stage.innerHTML = mediaStageHtml(media, alt);
-        bindZoom();
-        thumbs.forEach(function (x) { x.classList.remove('active'); });
-        t.classList.add('active');
-      });
+    function goTo(idx) {
+      current = (idx + thumbs.length) % thumbs.length;
+      var t = thumbs[current];
+      var media = {
+        type: t.getAttribute('data-type'),
+        url: t.getAttribute('data-url'),
+        embed: t.getAttribute('data-embed')
+      };
+      // Preserve the arrow buttons that live inside the stage wrapper
+      var arrows = stage.querySelectorAll('.gallery-arrow');
+      stage.innerHTML = '';
+      arrows.forEach(function (a) { stage.appendChild(a); });
+      var stageContent = document.createElement('div');
+      stageContent.innerHTML = mediaStageHtml(media, alt);
+      while (stageContent.firstChild) { stage.appendChild(stageContent.firstChild); }
+      bindZoom();
+      thumbs.forEach(function (x) { x.classList.remove('active'); });
+      t.classList.add('active');
+    }
+
+    thumbs.forEach(function (t, idx) {
+      t.addEventListener('click', function () { goTo(idx); });
     });
+
+    var prev = stage.querySelector('[data-gallery-prev]');
+    var next = stage.querySelector('[data-gallery-next]');
+    if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+    if (next) next.addEventListener('click', function () { goTo(current + 1); });
 
     bindZoom();
   }
