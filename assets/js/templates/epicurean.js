@@ -57,7 +57,7 @@
 
   function firstImage(item) {
     var imgs = (item.Images || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
-    return imgs.length ? imgs[0].Url : null;
+    return imgs.length ? imgs[0].Link : null;
   }
 
   // Extracts the 11-char video id from the common YouTube URL shapes
@@ -76,7 +76,7 @@
     var media = (item.Images || [])
       .slice()
       .sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); })
-      .map(function (im) { return { type: 'image', url: im.Url, thumb: im.Url }; });
+      .map(function (im) { return { type: 'image', url: im.Link, thumb: im.Link }; });
 
     (item.YouTubeVideoUrls || []).forEach(function (url) {
       var id = youTubeId(url);
@@ -113,7 +113,7 @@
 
   function setupChrome() {
     var menu = state.menu;
-    var logoUrl = menu.Logo && menu.Logo.Url;
+    var logoUrl = menu.Logo && menu.Logo.Link;
     document.querySelectorAll('[data-menu-logo]').forEach(function (img) {
       if (logoUrl) { img.src = logoUrl; img.alt = L(menu.Name) || 'Logo'; }
     });

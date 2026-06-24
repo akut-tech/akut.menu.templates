@@ -2,126 +2,789 @@
   "Id": "a1b2c3d4-0000-0000-0000-000000000001",
   "Logo": {
     "Order": 0,
-    "Url": "https://cdn.shopify.com/s/files/1/0788/9687/files/image2_600x600_52d512a2-43a1-47f1-bfde-e12a3c158390.jpg",
+    "Url": "https://drive.google.com/file/d/1Yhyqrak-TX_j1e5V7weoH_7SqH4cFjrq/view?usp=sharing",
     "Title": "Restaurant Logo",
-    "Source": 0,
-    "Link": ""
+    "Source": 1,
+    "Link": "https://drive.google.com/thumbnail?id=1Yhyqrak-TX_j1e5V7weoH_7SqH4cFjrq"
   },
-  "Name": { "English": "Epicurean Sample Menu", "Português": "Menu de Exemplo Epicurean" },
-  "Description": { "English": "A demonstration menu rendered from local data", "Português": "Um menu de demonstração renderizado a partir de dados locais" },
-  "Notes": "Demo data shipped with the project",
+  "Name": {
+    "English": "Lunch Menu",
+    "Portuguese": "Menu de Almoço"
+  },
+  "Description": {
+    "English": "Our daily lunch offerings",
+    "Portuguese": "As nossas ofertas diárias de almoço"
+  },
+  "Notes": "Available 12pm–3pm",
   "TemplateId": "default",
   "DefaultLanguage": 2,
   "Currency": 1,
-  "Status": 1,
   "Categories": [
     {
       "Id": "b2c3d4e5-0000-0000-0000-000000000001",
       "Order": 1,
-      "Name": { "English": "Starters", "Português": "Entradas" },
-      "Description": { "English": "Light bites to begin", "Português": "Petiscos leves para começar" },
-      "Image": null,
+      "Name": {
+        "English": "Starters",
+        "Portuguese": "Entradas"
+      },
+      "Description": {
+        "English": "Light bites to begin",
+        "Portuguese": "Petiscos leves para começar"
+      },
       "Items": [
         {
           "Id": "c3d4e5f6-0000-0000-0000-000000000001",
           "Order": 1,
           "Diets": [2, 3],
           "Images": [
-            { "Order": 0, "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg", "Title": "Tomato Soup", "Source": 0, "Link": "" }
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Tomato Soup",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
           ],
-          "YouTubeVideoUrls": null,
-          "Name": { "English": "Tomato Soup", "Português": "Sopa de Tomate" },
-          "ShortDescription": { "English": "Classic tomato bisque", "Português": "Creme de tomate clássico" },
-          "FullDescription": { "English": "Slow-cooked tomato soup with fresh basil and a swirl of cream.", "Português": "Sopa de tomate cozida lentamente com manjericão fresco e um fio de natas." },
-          "Ingredients": { "English": "Tomatoes, basil, cream, onion", "Português": "Tomate, manjericão, natas, cebola" },
-          "Allergens": { "English": "Milk", "Português": "Leite" },
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Tomato Soup",
+            "Portuguese": "Sopa de Tomate"
+          },
+          "ShortDescription": {
+            "English": "Classic tomato bisque",
+            "Portuguese": "Bisque clássico de tomate"
+          },
+          "FullDescription": {
+            "English": "Slow-cooked tomato soup with fresh basil",
+            "Portuguese": "Sopa de tomate cozida lentamente com manjericão fresco"
+          },
+          "Ingredients": {
+            "English": "Tomatoes, basil, cream, onion",
+            "Portuguese": "Tomates, manjericão, natas, cebola"
+          },
+          "Allergens": {
+            "English": "Milk",
+            "Portuguese": "Leite"
+          },
           "Price": 5.5,
           "IsNew": false
         },
         {
           "Id": "c3d4e5f6-0000-0000-0000-000000000002",
           "Order": 2,
-          "Diets": [2],
+          "Diets": [1],
           "Images": [
-            { "Order": 0, "Url": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800", "Title": "Bruschetta", "Source": 0, "Link": "" }
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Garlic Bread",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
           ],
-          "YouTubeVideoUrls": null,
-          "Name": { "English": "Bruschetta", "Português": "Bruschetta" },
-          "ShortDescription": { "English": "Toasted bread, tomato, garlic", "Português": "Pão torrado, tomate, alho" },
-          "FullDescription": { "English": "Grilled sourdough topped with marinated tomatoes, garlic and olive oil.", "Português": "Pão de massa-mãe grelhado com tomate marinado, alho e azeite." },
-          "Ingredients": { "English": "Bread, tomato, garlic, olive oil, basil", "Português": "Pão, tomate, alho, azeite, manjericão" },
-          "Allergens": { "English": "Gluten", "Português": "Glúten" },
-          "Price": 6.0,
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Garlic Bread",
+            "Portuguese": "Pão de Alho"
+          },
+          "ShortDescription": {
+            "English": "Toasted bread with garlic butter",
+            "Portuguese": "Pão tostado com manteiga de alho"
+          },
+          "FullDescription": {
+            "English": "Rustic bread slices toasted with herb-infused garlic butter",
+            "Portuguese": "Fatias de pão rústico tostadas com manteiga de alho aromatizada com ervas"
+          },
+          "Ingredients": {
+            "English": "Bread, butter, garlic, parsley",
+            "Portuguese": "Pão, manteiga, alho, salsa"
+          },
+          "Allergens": {
+            "English": "Gluten, Milk",
+            "Portuguese": "Glúten, Leite"
+          },
+          "Price": 3.5,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000003",
+          "Order": 3,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Bruschetta",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Bruschetta",
+            "Portuguese": "Bruschetta"
+          },
+          "ShortDescription": {
+            "English": "Grilled bread with tomato and basil",
+            "Portuguese": "Pão grelhado com tomate e manjericão"
+          },
+          "FullDescription": {
+            "English": "Crispy grilled bread topped with fresh diced tomato, basil and a drizzle of olive oil",
+            "Portuguese": "Pão grelhado crocante coberto com tomate fresco picado, manjericão e um fio de azeite"
+          },
+          "Ingredients": {
+            "English": "Bread, tomato, basil, olive oil, garlic",
+            "Portuguese": "Pão, tomate, manjericão, azeite, alho"
+          },
+          "Allergens": {
+            "English": "Gluten",
+            "Portuguese": "Glúten"
+          },
+          "Price": 4.5,
           "IsNew": true
         }
-      ]
+      ],
+      "Image": null
     },
     {
       "Id": "b2c3d4e5-0000-0000-0000-000000000002",
       "Order": 2,
-      "Name": { "English": "Main Courses", "Português": "Pratos Principais" },
-      "Description": { "English": "Hearty plates", "Português": "Pratos substanciais" },
-      "Image": null,
+      "Name": {
+        "English": "Main Courses",
+        "Portuguese": "Pratos Principais"
+      },
+      "Description": {
+        "English": "Hearty dishes for a satisfying lunch",
+        "Portuguese": "Pratos substanciais para um almoço satisfatório"
+      },
       "Items": [
         {
-          "Id": "c3d4e5f6-0000-0000-0000-000000000003",
+          "Id": "c3d4e5f6-0000-0000-0000-000000000004",
           "Order": 1,
-          "Diets": [],
+          "Diets": null,
           "Images": [
-            { "Order": 0, "Url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800", "Title": "Margherita Pizza", "Source": 0, "Link": "" },
-            { "Order": 1, "Url": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800", "Title": "Pizza close-up", "Source": 0, "Link": "" }
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Grilled Chicken",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
           ],
-          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=1Ty2OOI3KU0"],
-          "Name": { "English": "Margherita Pizza", "Português": "Pizza Margherita" },
-          "ShortDescription": { "English": "Tomato, mozzarella, basil", "Português": "Tomate, mozzarella, manjericão" },
-          "FullDescription": { "English": "Wood-fired pizza with San Marzano tomatoes, buffalo mozzarella and fresh basil.", "Português": "Pizza em forno a lenha com tomate San Marzano, mozzarella de búfala e manjericão fresco." },
-          "Ingredients": { "English": "Dough, tomato, mozzarella, basil", "Português": "Massa, tomate, mozzarella, manjericão" },
-          "Allergens": { "English": "Gluten, Milk", "Português": "Glúten, Leite" },
-          "Price": 12.5,
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Grilled Chicken",
+            "Portuguese": "Frango Grelhado"
+          },
+          "ShortDescription": {
+            "English": "Herb-marinated grilled chicken breast",
+            "Portuguese": "Peito de frango grelhado marinado em ervas"
+          },
+          "FullDescription": {
+            "English": "Tender chicken breast marinated in lemon, garlic and herbs, served with seasonal vegetables and roasted potatoes",
+            "Portuguese": "Peito de frango tenro marinado em limão, alho e ervas, servido com legumes da época e batatas assadas"
+          },
+          "Ingredients": {
+            "English": "Chicken breast, lemon, garlic, rosemary, thyme, potatoes, seasonal vegetables",
+            "Portuguese": "Peito de frango, limão, alho, alecrim, tomilho, batatas, legumes da época"
+          },
+          "Allergens": {
+            "English": "None",
+            "Portuguese": "Nenhum"
+          },
+          "Price": 13.5,
           "IsNew": false
         },
         {
-          "Id": "c3d4e5f6-0000-0000-0000-000000000004",
+          "Id": "c3d4e5f6-0000-0000-0000-000000000005",
           "Order": 2,
-          "Diets": [],
+          "Diets": null,
           "Images": [
-            { "Order": 0, "Url": "https://images.unsplash.com/photo-1432139509613-5c4255815697?w=800", "Title": "Grilled Salmon", "Source": 0, "Link": "" }
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Beef Steak",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
           ],
-          "YouTubeVideoUrls": null,
-          "Name": { "English": "Grilled Salmon", "Português": "Salmão Grelhado" },
-          "ShortDescription": { "English": "With seasonal vegetables", "Português": "Com legumes da época" },
-          "FullDescription": { "English": "Atlantic salmon fillet grilled to perfection, served with seasonal vegetables.", "Português": "Filete de salmão do Atlântico grelhado na perfeição, servido com legumes da época." },
-          "Ingredients": { "English": "Salmon, vegetables, lemon, herbs", "Português": "Salmão, legumes, limão, ervas" },
-          "Allergens": { "English": "Fish", "Português": "Peixe" },
-          "Price": 18.0,
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Beef Steak",
+            "Portuguese": "Bife de Vaca"
+          },
+          "ShortDescription": {
+            "English": "Pan-seared ribeye with peppercorn sauce",
+            "Portuguese": "Entrecosto selado com molho de pimenta"
+          },
+          "FullDescription": {
+            "English": "Pan-seared 200g ribeye steak finished with a classic peppercorn sauce, served with fries and salad",
+            "Portuguese": "Bife de entrecosto de 200g selado em frigideira com molho clássico de pimenta, servido com batatas fritas e salada"
+          },
+          "Ingredients": {
+            "English": "Ribeye steak, black pepper, cream, butter, shallots, brandy",
+            "Portuguese": "Bife de entrecosto, pimenta preta, natas, manteiga, chalotas, brandy"
+          },
+          "Allergens": {
+            "English": "Milk",
+            "Portuguese": "Leite"
+          },
+          "Price": 18.9,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000006",
+          "Order": 3,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Mushroom Risotto",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Mushroom Risotto",
+            "Portuguese": "Risoto de Cogumelos"
+          },
+          "ShortDescription": {
+            "English": "Creamy Arborio rice with wild mushrooms",
+            "Portuguese": "Arroz Arborio cremoso com cogumelos silvestres"
+          },
+          "FullDescription": {
+            "English": "Slow-stirred Arborio rice with a medley of wild mushrooms, white wine, parmesan and fresh thyme",
+            "Portuguese": "Arroz Arborio mexido lentamente com variedade de cogumelos silvestres, vinho branco, parmesão e tomilho fresco"
+          },
+          "Ingredients": {
+            "English": "Arborio rice, mushrooms, parmesan, white wine, onion, butter, thyme",
+            "Portuguese": "Arroz Arborio, cogumelos, parmesão, vinho branco, cebola, manteiga, tomilho"
+          },
+          "Allergens": {
+            "English": "Milk",
+            "Portuguese": "Leite"
+          },
+          "Price": 11.5,
           "IsNew": true
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000007",
+          "Order": 4,
+          "Diets": null,
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Grilled Salmon",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Grilled Salmon",
+            "Portuguese": "Salmão Grelhado"
+          },
+          "ShortDescription": {
+            "English": "Atlantic salmon with lemon butter",
+            "Portuguese": "Salmão do Atlântico com manteiga de limão"
+          },
+          "FullDescription": {
+            "English": "Fresh Atlantic salmon fillet grilled to perfection, served with lemon butter sauce, steamed asparagus and new potatoes",
+            "Portuguese": "Filete de salmão do Atlântico fresco grelhado na perfeição, servido com molho de manteiga de limão, espargos cozidos a vapor e batatinhas novas"
+          },
+          "Ingredients": {
+            "English": "Salmon fillet, lemon, butter, asparagus, new potatoes, dill",
+            "Portuguese": "Filete de salmão, limão, manteiga, espargos, batatinhas novas, endro"
+          },
+          "Allergens": {
+            "English": "Fish, Milk",
+            "Portuguese": "Peixe, Leite"
+          },
+          "Price": 16.5,
+          "IsNew": false
         }
-      ]
+      ],
+      "Image": null
     },
     {
       "Id": "b2c3d4e5-0000-0000-0000-000000000003",
       "Order": 3,
-      "Name": { "English": "Desserts", "Português": "Sobremesas" },
-      "Description": { "English": "Sweet endings", "Português": "Finais doces" },
-      "Image": null,
+      "Name": {
+        "English": "Salads",
+        "Portuguese": "Saladas"
+      },
+      "Description": {
+        "English": "Fresh and vibrant salads",
+        "Portuguese": "Saladas frescas e vibrantes"
+      },
       "Items": [
         {
-          "Id": "c3d4e5f6-0000-0000-0000-000000000005",
+          "Id": "c3d4e5f6-0000-0000-0000-000000000008",
           "Order": 1,
-          "Diets": [2],
+          "Diets": [2, 3],
           "Images": [
-            { "Order": 0, "Url": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800", "Title": "Tiramisu", "Source": 0, "Link": "" }
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Caesar Salad",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
           ],
-          "YouTubeVideoUrls": null,
-          "Name": { "English": "Tiramisu", "Português": "Tiramisu" },
-          "ShortDescription": { "English": "Coffee-soaked classic", "Português": "Clássico embebido em café" },
-          "FullDescription": { "English": "Layers of espresso-soaked savoiardi and mascarpone cream, dusted with cocoa.", "Português": "Camadas de savoiardi embebidos em espresso e creme de mascarpone, polvilhado com cacau." },
-          "Ingredients": { "English": "Mascarpone, coffee, cocoa, eggs", "Português": "Mascarpone, café, cacau, ovos" },
-          "Allergens": { "English": "Milk, Eggs, Gluten", "Português": "Leite, Ovos, Glúten" },
-          "Price": 7.0,
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Caesar Salad",
+            "Portuguese": "Salada César"
+          },
+          "ShortDescription": {
+            "English": "Romaine, parmesan and classic Caesar dressing",
+            "Portuguese": "Alface romana, parmesão e molho César clássico"
+          },
+          "FullDescription": {
+            "English": "Crisp romaine lettuce tossed with house-made Caesar dressing, shaved parmesan and crunchy croutons",
+            "Portuguese": "Alface romana crocante misturada com molho César caseiro, parmesão em lascas e croutons crocantes"
+          },
+          "Ingredients": {
+            "English": "Romaine lettuce, parmesan, croutons, Caesar dressing, lemon",
+            "Portuguese": "Alface romana, parmesão, croutons, molho César, limão"
+          },
+          "Allergens": {
+            "English": "Gluten, Milk, Eggs, Fish",
+            "Portuguese": "Glúten, Leite, Ovos, Peixe"
+          },
+          "Price": 8.5,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000009",
+          "Order": 2,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Greek Salad",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Greek Salad",
+            "Portuguese": "Salada Grega"
+          },
+          "ShortDescription": {
+            "English": "Tomato, cucumber, olives and feta",
+            "Portuguese": "Tomate, pepino, azeitonas e queijo feta"
+          },
+          "FullDescription": {
+            "English": "A classic medley of ripe tomatoes, cucumber, red onion, Kalamata olives and creamy feta cheese dressed with olive oil and oregano",
+            "Portuguese": "Uma mistura clássica de tomates maduros, pepino, cebola roxa, azeitonas Kalamata e queijo feta cremoso temperado com azeite e orégãos"
+          },
+          "Ingredients": {
+            "English": "Tomato, cucumber, red onion, Kalamata olives, feta cheese, olive oil, oregano",
+            "Portuguese": "Tomate, pepino, cebola roxa, azeitonas Kalamata, queijo feta, azeite, orégãos"
+          },
+          "Allergens": {
+            "English": "Milk",
+            "Portuguese": "Leite"
+          },
+          "Price": 7.9,
           "IsNew": false
         }
-      ]
+      ],
+      "Image": null
+    },
+    {
+      "Id": "b2c3d4e5-0000-0000-0000-000000000004",
+      "Order": 4,
+      "Name": {
+        "English": "Desserts",
+        "Portuguese": "Sobremesas"
+      },
+      "Description": {
+        "English": "Sweet endings to your meal",
+        "Portuguese": "Finais doces para a sua refeição"
+      },
+      "Items": [
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000010",
+          "Order": 1,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Chocolate Lava Cake",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Chocolate Lava Cake",
+            "Portuguese": "Bolo de Chocolate com Recheio Quente"
+          },
+          "ShortDescription": {
+            "English": "Warm chocolate cake with a molten centre",
+            "Portuguese": "Bolo de chocolate quente com centro derretido"
+          },
+          "FullDescription": {
+            "English": "Rich dark chocolate cake with a gooey molten centre, served warm with vanilla ice cream",
+            "Portuguese": "Bolo de chocolate negro rico com centro derretido pegajoso, servido quente com gelado de baunilha"
+          },
+          "Ingredients": {
+            "English": "Dark chocolate, butter, eggs, sugar, flour, vanilla ice cream",
+            "Portuguese": "Chocolate negro, manteiga, ovos, açúcar, farinha, gelado de baunilha"
+          },
+          "Allergens": {
+            "English": "Gluten, Milk, Eggs",
+            "Portuguese": "Glúten, Leite, Ovos"
+          },
+          "Price": 6.5,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000011",
+          "Order": 2,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Crème Brûlée",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Crème Brûlée",
+            "Portuguese": "Leite Creme"
+          },
+          "ShortDescription": {
+            "English": "Silky vanilla custard with caramelised sugar",
+            "Portuguese": "Creme de baunilha sedoso com açúcar caramelizado"
+          },
+          "FullDescription": {
+            "English": "Classic French vanilla custard with a perfectly torched caramelised sugar crust, served with seasonal berries",
+            "Portuguese": "Creme de baunilha francês clássico com uma crosta de açúcar caramelizado perfeitamente queimado, servido com frutos vermelhos da época"
+          },
+          "Ingredients": {
+            "English": "Cream, egg yolks, sugar, vanilla, seasonal berries",
+            "Portuguese": "Natas, gemas de ovo, açúcar, baunilha, frutos vermelhos da época"
+          },
+          "Allergens": {
+            "English": "Milk, Eggs",
+            "Portuguese": "Leite, Ovos"
+          },
+          "Price": 5.9,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000012",
+          "Order": 3,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Tiramisu",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Tiramisu",
+            "Portuguese": "Tiramisu"
+          },
+          "ShortDescription": {
+            "English": "Italian coffee-soaked mascarpone dessert",
+            "Portuguese": "Sobremesa italiana de mascarpone embebido em café"
+          },
+          "FullDescription": {
+            "English": "Layers of espresso-soaked ladyfinger biscuits and whipped mascarpone cream, dusted with cocoa powder",
+            "Portuguese": "Camadas de biscoitos embebidos em espresso e creme de mascarpone batido, polvilhados com cacau em pó"
+          },
+          "Ingredients": {
+            "English": "Mascarpone, eggs, sugar, espresso, ladyfinger biscuits, cocoa powder",
+            "Portuguese": "Mascarpone, ovos, açúcar, espresso, biscoitos savoiardi, cacau em pó"
+          },
+          "Allergens": {
+            "English": "Gluten, Milk, Eggs",
+            "Portuguese": "Glúten, Leite, Ovos"
+          },
+          "Price": 6,
+          "IsNew": true
+        }
+      ],
+      "Image": null
+    },
+    {
+      "Id": "b2c3d4e5-0000-0000-0000-000000000005",
+      "Order": 5,
+      "Name": {
+        "English": "Drinks",
+        "Portuguese": "Bebidas"
+      },
+      "Description": {
+        "English": "Refreshing beverages to complement your meal",
+        "Portuguese": "Bebidas refrescantes para complementar a sua refeição"
+      },
+      "Items": [
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000013",
+          "Order": 1,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Fresh Lemonade",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Fresh Lemonade",
+            "Portuguese": "Limonada Fresca"
+          },
+          "ShortDescription": {
+            "English": "House-made sparkling lemonade",
+            "Portuguese": "Limonada com gás feita na casa"
+          },
+          "FullDescription": {
+            "English": "Freshly squeezed lemon juice with sparkling water, a touch of honey and fresh mint",
+            "Portuguese": "Sumo de limão espremido na hora com água com gás, um toque de mel e hortelã fresca"
+          },
+          "Ingredients": {
+            "English": "Lemon juice, sparkling water, honey, mint, ice",
+            "Portuguese": "Sumo de limão, água com gás, mel, hortelã, gelo"
+          },
+          "Allergens": {
+            "English": "None",
+            "Portuguese": "Nenhum"
+          },
+          "Price": 3,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000014",
+          "Order": 2,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "Iced Coffee",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "Iced Coffee",
+            "Portuguese": "Café Gelado"
+          },
+          "ShortDescription": {
+            "English": "Cold brew over ice with milk",
+            "Portuguese": "Cold brew com gelo e leite"
+          },
+          "FullDescription": {
+            "English": "Smooth cold-brew coffee served over ice with your choice of whole milk or oat milk",
+            "Portuguese": "Café cold brew suave servido com gelo com a sua escolha de leite gordo ou leite de aveia"
+          },
+          "Ingredients": {
+            "English": "Cold brew coffee, ice, milk or oat milk",
+            "Portuguese": "Café cold brew, gelo, leite ou leite de aveia"
+          },
+          "Allergens": {
+            "English": "Milk",
+            "Portuguese": "Leite"
+          },
+          "Price": 3.5,
+          "IsNew": false
+        },
+        {
+          "Id": "c3d4e5f6-0000-0000-0000-000000000015",
+          "Order": 3,
+          "Diets": [2, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": "House Red Wine",
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            },
+            {
+              "Order": 1,
+              "Url": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg",
+              "Title": null,
+              "Source": 0,
+              "Link": "https://www.foodfromportugal.com/content/uploads/2012/11/sopa-tomate-ovos-escalfados-03.jpg"
+            }
+          ],
+          "YouTubeVideoUrls": [
+            "https://www.youtube.com/watch?v=vIQ8-se5Aek"
+          ],
+          "Name": {
+            "English": "House Red Wine",
+            "Portuguese": "Vinho Tinto da Casa"
+          },
+          "ShortDescription": {
+            "English": "Glass of selected house red",
+            "Portuguese": "Copo de vinho tinto da casa selecionado"
+          },
+          "FullDescription": {
+            "English": "A carefully selected house red wine, served by the glass — smooth, well-balanced and perfect with your meal",
+            "Portuguese": "Um vinho tinto da casa cuidadosamente selecionado, servido por copo — suave, bem equilibrado e perfeito com a sua refeição"
+          },
+          "Ingredients": {
+            "English": "Red wine",
+            "Portuguese": "Vinho tinto"
+          },
+          "Allergens": {
+            "English": "Sulphites",
+            "Portuguese": "Sulfitos"
+          },
+          "Price": 5,
+          "IsNew": false
+        }
+      ],
+      "Image": null
     }
-  ]
+  ],
+  "Status": 1
 }
