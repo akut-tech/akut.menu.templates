@@ -1,0 +1,64 @@
+---
+layout: base
+permalink: /templates/deepblue/
+title: Menu
+no_chrome: true
+template_css: deepblue
+template_js: deepblue
+---
+
+<div class="db">
+  <!-- Top bar: logo + language -->
+  <header class="db-topbar">
+    <div class="db-container db-topbar-inner">
+      <a class="db-brand" href="#" data-menu-home>
+        <span class="db-brand-mark"><i class="bi bi-water"></i></span>
+        <span class="db-brand-text" data-menu-name>Deep Blue</span>
+      </a>
+      <div class="db-lang lang-switcher" data-lang-switcher hidden>
+        <button type="button" class="db-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down db-lang-caret"></i>
+        </button>
+        <ul class="db-lang-menu custom-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="db-hero">
+    <div class="db-hero-overlay"></div>
+    <div class="db-container db-hero-inner">
+      <p class="db-hero-eyebrow">Fresh from the ocean</p>
+      <h1 class="db-hero-title" data-menu-name>Menu</h1>
+      <p class="db-hero-sub" data-menu-description></p>
+      <p class="db-hero-notes" data-menu-notes></p>
+      <a class="db-hero-scroll" href="#db-menu" aria-label="View the menu"><i class="bi bi-chevron-down"></i></a>
+    </div>
+  </section>
+
+  <!-- Menu (rendered at runtime) -->
+  <main id="db-menu" class="db-menu-area">
+    <div class="db-container">
+      <div id="menu-root">
+        <div class="db-loading"><span class="db-spinner"></span></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="db-footer">
+    <div class="db-container db-footer-inner">
+      <a class="db-brand db-footer-brand" href="#" data-menu-home>
+        <span class="db-brand-mark"><i class="bi bi-water"></i></span>
+        <span class="db-brand-text" data-menu-name>Deep Blue</span>
+      </a>
+      <p class="db-footer-notes" data-menu-notes></p>
+      <p class="db-footer-copy">
+        &copy; <span data-current-year></span> <span data-menu-name></span>
+        <span class="db-footer-powered">· Powered by Akut</span>
+      </p>
+    </div>
+  </footer>
+</div>

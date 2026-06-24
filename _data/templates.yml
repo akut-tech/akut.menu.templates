@@ -11,3 +11,7 @@ list:
     name: Epicurean
     main: /templates/epicurean/
     detail: /templates/epicurean/detail/
+  deepblue:
+    name: Deep Blue
+    main: /templates/deepblue/
+    detail: /templates/deepblue/detail/

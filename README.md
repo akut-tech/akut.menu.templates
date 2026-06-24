@@ -53,6 +53,19 @@ value `"default"` (used in the sample data) is aliased to `epicurean`.
   is the food-menu layout; detail page is the shop-details layout, both trimmed
   to the parts relevant to a menu (cart, search, blog, reviews, e-commerce
   widgets removed).
+- **deepblue** — a built-from-scratch, deep-ocean seafood theme (dark navy
+  palette, gold/aqua accents, vintage display type). Fully responsive across all
+  screen sizes with its own self-contained stylesheet
+  (`assets/css/deepblue.css`) and chrome (it sets `no_chrome: true` and ships its
+  own header/footer). Supports every epicurean capability — multilanguage,
+  categories, diet tags, prices, "New" badges, the image **and** YouTube gallery
+  (both rendered in one fixed-size 16:9 frame so the layout never jumps), the
+  description / ingredients & allergens tabs, related items, and the friendly
+  error screen. Its demo content is **stored in the project** at
+  `assets/data/deepblue-menu.json` (free imagery from Unsplash): when no
+  `?tenant=` is present it renders that bundled menu, and with a tenant it loads
+  that tenant's menu from S3 like any other template. Preview it at
+  `/templates/deepblue/`.
 
 ## Menu JSON shape
 
@@ -143,7 +156,10 @@ can be served from any static host.
 ## Adding a new template
 
 1. Create `templates/<name>/index.html` and `templates/<name>/detail/…` (set
-   `permalink` and `template_js: <name>`).
+   `permalink` and `template_js: <name>`). Optionally set `template_css: <name>`
+   to load `assets/css/<name>.css` for that template only, and `no_chrome: true`
+   if the template supplies its own header/footer instead of the shared chrome
+   (see **deepblue** for an example of both).
 2. Add `assets/js/templates/<name>.js` exporting the same render behaviour
    (fill `#menu-root` / `#detail-root`).
 3. Register it in `_data/templates.yml`.
