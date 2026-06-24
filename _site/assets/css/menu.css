@@ -3,6 +3,13 @@
 /* ---------------------------------------------------------- header tweaks */
 .menu-area-two .menu-logo-wrap img { max-height: 56px; width: auto; }
 
+/* ------------------------------------------------------------- breadcrumb */
+/* Theme breadcrumb height reduced 50%, then a further 20% (×0.8). */
+.breadcrumb-area { padding: 97.2px 0 62.4px; }
+@media only screen and (max-width: 991.98px) {
+  .breadcrumb-area { padding: 80px 0 40px; }
+}
+
 /* --------------------------------------------------------- language switcher */
 .lang-switcher { position: relative; }
 .lang-switcher .lang-current {
