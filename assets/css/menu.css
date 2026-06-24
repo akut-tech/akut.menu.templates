@@ -60,6 +60,15 @@
 
 /* ------------------------------------------------------- detail gallery */
 .gallery-stage-wrap { position: relative; }
+
+/* Fixed stage height so every image and the YouTube video occupy the same space. */
+.gallery-stage-wrap .shop-main-img-wrap { height: 420px; }
+.gallery-stage-wrap .shop-main-img-wrap img[data-gallery-main] {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+@media only screen and (max-width: 767.98px) {
+  .gallery-stage-wrap .shop-main-img-wrap { height: 260px; }
+}
 .gallery-arrow {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
   width: 40px; height: 40px; border-radius: 50%; border: none;
@@ -84,9 +93,12 @@
   background: rgba(0, 0, 0, .35); color: #fff; font-size: 26px; line-height: 1;
 }
 /* YouTube embed keeps a 16:9 box inside the main viewer */
-.menu-video-wrap { position: relative; padding-top: 56.25%; }
+.menu-video-wrap { position: relative; height: 420px; padding-top: 0; }
 .menu-video-wrap iframe {
   position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 14px;
+}
+@media only screen and (max-width: 767.98px) {
+  .menu-video-wrap { height: 260px; }
 }
 
 /* ------------------------------------------------------------ slim footer */
