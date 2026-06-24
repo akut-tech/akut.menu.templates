@@ -288,7 +288,7 @@
         (desc ? '<p class="db-cat-desc">' + esc(desc) + '</p>' : '') +
       '</div>';
 
-    var body = '<div class="db-list">' + items.map(renderItem).join('') + '</div>';
+    var body = '<div class="db-grid">' + items.map(renderItem).join('') + '</div>';
 
     return '<section class="db-cat" id="db-cat-' + esc(cat.Id) + '">' + head + body + '</section>';
   }
@@ -302,19 +302,19 @@
     var newBadge = item.IsNew ? '<span class="db-new">New</span>' : '';
 
     return '' +
-      '<a class="db-row" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
-        '<span class="db-row-thumb">' +
+      '<a class="db-card" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
+        '<span class="db-card-media">' +
           (img
             ? '<img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy">'
-            : '<span class="db-row-noimg">' + MOTIF_SHELL + '</span>') +
+            : '<span class="db-card-noimg">' + MOTIF_SHELL + '</span>') +
+          newBadge +
         '</span>' +
-        '<span class="db-row-body">' +
-          '<span class="db-row-head">' +
-            '<span class="db-row-name">' + esc(L(item.Name)) + newBadge + '</span>' +
-            '<span class="db-row-leader"></span>' +
-            '<span class="db-row-price">' + esc(price) + '</span>' +
+        '<span class="db-card-body">' +
+          '<span class="db-card-head">' +
+            '<span class="db-card-name">' + esc(L(item.Name)) + '</span>' +
+            '<span class="db-card-price">' + esc(price) + '</span>' +
           '</span>' +
-          '<span class="db-row-desc">' + esc(L(item.ShortDescription)) + '</span>' +
+          '<span class="db-card-desc">' + esc(L(item.ShortDescription)) + '</span>' +
           (diets ? '<span class="db-tags">' + diets + '</span>' : '') +
         '</span>' +
       '</a>';
@@ -497,7 +497,7 @@
           '<h2 class="db-cat-title">' + esc(Core.uiText('moreFrom', state.lang, { name: L(category.Name) })) + '</h2>' +
           ornament(1) +
         '</div>' +
-        '<div class="db-list">' + others.map(renderItem).join('') + '</div>' +
+        '<div class="db-grid">' + others.map(renderItem).join('') + '</div>' +
       '</section>';
   }
 

@@ -53,9 +53,11 @@ value `"default"` (used in the sample data) is aliased to `epicurean`.
   is the food-menu layout; detail page is the shop-details layout, both trimmed
   to the parts relevant to a menu (cart, search, blog, reviews, e-commerce
   widgets removed).
-- **deepblue** — a built-from-scratch, deep-ocean seafood theme (dark navy
-  palette, gold/aqua accents, vintage display type). Fully responsive across all
-  screen sizes with its own self-contained stylesheet
+- **deepblue** — a built-from-scratch, deep-ocean seafood theme: a deep-blue
+  ground with turquoise (`#13c5dd`) accents and pale-cyan/white text, square
+  dish cards, hand-drawn sea-creature line-art ornaments and faint masked
+  fish/chef "shape" watermarks (`assets/images/deepblue/`). Fully responsive
+  across all screen sizes with its own self-contained stylesheet
   (`assets/css/deepblue.css`) and chrome (it sets `no_chrome: true` and ships its
   own header/footer). Supports every epicurean capability — multilanguage,
   categories, diet tags, prices, "New" badges, the image **and** YouTube gallery
