@@ -15,3 +15,7 @@ list:
     name: Deep Blue
     main: /templates/deepblue/
     detail: /templates/deepblue/detail/
+  senjutsu:
+    name: Senjutsu
+    main: /templates/senjutsu/
+    category: /templates/senjutsu/category/

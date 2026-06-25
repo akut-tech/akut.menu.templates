@@ -1,0 +1,72 @@
+---
+layout: base
+permalink: /templates/senjutsu/
+title: Menu
+no_chrome: true
+template_css: senjutsu
+template_js: senjutsu
+---
+
+<div class="sj">
+  <!-- Topbar: logo + language switcher -->
+  <header class="sj-topbar">
+    <div class="sj-container sj-topbar-inner">
+      <a class="sj-brand" href="#" data-menu-home>
+        <span class="sj-brand-mark">
+          <span class="sj-brand-sun"></span>
+        </span>
+        <span data-menu-name>Menu</span>
+      </a>
+      <div class="sj-lang" data-lang-switcher hidden>
+        <button type="button" class="sj-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down sj-lang-caret"></i>
+        </button>
+        <ul class="sj-lang-menu sj-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="sj-hero">
+    <div class="sj-container sj-hero-inner">
+      <span class="sj-hero-sun" aria-hidden="true"></span>
+      <p class="sj-hero-eyebrow">お品書き</p>
+      <h1 class="sj-hero-title" data-menu-name>Menu</h1>
+      <div class="sj-brush-divider" aria-hidden="true">
+        <span class="sj-brush-line"></span>
+        <span class="sj-brush-diamond"></span>
+        <span class="sj-brush-line"></span>
+      </div>
+      <p class="sj-hero-desc" data-menu-description></p>
+      <p class="sj-hero-notes" data-menu-notes></p>
+    </div>
+  </section>
+
+  <!-- Categories (rendered at runtime) -->
+  <main class="sj-cats-section">
+    <div class="sj-container">
+      <div class="sj-cats-head">
+        <h2 class="sj-cats-heading" data-sj-i18n="categories">Categories</h2>
+        <span class="sj-cats-subtitle" data-sj-i18n="kondate">献立 · Kondate</span>
+      </div>
+      <div id="menu-root">
+        <div class="sj-loading">
+          <div class="sj-loader"></div>
+          <span class="sj-loading-label">Loading…</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="sj-footer">
+    <div class="sj-container sj-footer-inner">
+      いただきます ·
+      &copy; <span data-current-year></span>
+      <span data-menu-name></span>
+      · Powered by Akut
+    </div>
+  </footer>
+</div>

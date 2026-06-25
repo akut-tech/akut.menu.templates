@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Menu</title>
+<title>Category</title>
 
 <link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
 
@@ -17,6 +17,9 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 <!-- Akut menu overrides -->
 <link rel="stylesheet" href="/assets/css/menu.css">
+
+<!-- Per-template styling -->
+<link rel="stylesheet" href="/assets/css/senjutsu.css">
 
 
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
@@ -51,84 +54,51 @@
   <a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
 
   <div class="site-wrapper">
-    <!-- Header: tenant logo + language switcher (populated at runtime) -->
-<header>
-  <div class="menu-area menu-area-two">
-    <div class="container">
-      <div class="row align-items-center gy-3">
-        <div class="col-6 col-lg-4 order-1">
-          <div class="menu-logo-wrap">
-            <a href="#" data-menu-home>
-              <img data-menu-logo src="" alt="" hidden>
-            </a>
-          </div>
-        </div>
-        <div class="col-6 col-lg-8 order-2 order-lg-3">
-          <div class="d-flex justify-content-end align-items-center">
-            <div class="lang-switcher" data-lang-switcher hidden>
-              <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false">
-                <i class="bi bi-globe2"></i>
-                <span data-lang-current-label>Language</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <ul class="lang-menu custom-ul" data-lang-menu></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
+    
 
     <main>
-      <!-- Breadcrumb -->
-<div class="breadcrumb-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="breadcrumb-info text-center">
-          <h1 class="text-white" data-menu-name>Menu</h1>
-          <p class="text-white mt-3" data-menu-description></p>
-        </div>
+      <div class="sj">
+  <!-- Topbar: back button + language switcher -->
+  <header class="sj-topbar">
+    <div class="sj-container sj-topbar-inner">
+      <a class="sj-back-btn" href="#" data-menu-home>
+        <span class="sj-back-btn-arrow" aria-hidden="true">←</span>
+        <span class="sj-back-btn-label" data-sj-i18n="backToCategories">Back to Menu</span>
+      </a>
+      <span class="sj-topbar-tagline">お品書き</span>
+      <div class="sj-lang" data-lang-switcher hidden>
+        <button type="button" class="sj-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down sj-lang-caret"></i>
+        </button>
+        <ul class="sj-lang-menu sj-ul" data-lang-menu></ul>
       </div>
     </div>
-  </div>
-</div>
+  </header>
 
-<!-- Menu (rendered at runtime) -->
-<div class="manu-page-wrap pt-120 pb-120">
-  <div class="container">
-    <div id="menu-root">
-      <div class="menu-loading"><div class="spinner"></div></div>
+  <!-- Category content (header + items rendered at runtime) -->
+  <main id="category-root">
+    <div class="sj-loading">
+      <div class="sj-loader"></div>
+      <span class="sj-loading-label">Loading…</span>
     </div>
-  </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="sj-footer">
+    <div class="sj-container sj-footer-inner">
+      ごちそうさま ·
+      &copy; <span data-current-year></span>
+      <span data-menu-name></span>
+      · Powered by Akut
+    </div>
+  </footer>
 </div>
 
     </main>
 
-    <!-- Footer: simplified, restaurant-aware -->
-<div class="footer-area footer-area-slim">
-  <div class="container">
-    <div class="row align-items-center gy-3">
-      <div class="col-lg-4 text-center text-lg-start">
-        <a class="footer-logo" href="#" data-menu-home>
-          <img data-menu-logo src="/assets/images/logo-two.svg" alt="">
-        </a>
-      </div>
-      <div class="col-lg-4 text-center">
-        <p class="text-white mb-0" data-menu-notes></p>
-      </div>
-      <div class="col-lg-4 text-center text-lg-end">
-        <p class="text-white mb-0">
-          &copy; <span data-current-year></span> <span data-menu-name></span>
-        </p>
-        <p class="footer-powered mb-0">Powered by Akut</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+    
   </div>
 
   <!-- Vendor JS (only what the menu pages use: tabs + gallery zoom) -->
@@ -139,7 +109,7 @@
   <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
   
-  <script src="/assets/js/templates/epicurean.js"></script>
+  <script src="/assets/js/templates/senjutsu.js"></script>
   
 
   <!-- Theme init (preloader, back-to-top) -->
