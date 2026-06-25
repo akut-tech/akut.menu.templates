@@ -46,6 +46,9 @@
     },
     categoryLabel: {
       English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie'
+    },
+    watchOnYouTube: {
+      English: 'Watch on YouTube', Portuguese: 'Ver no YouTube', Spanish: 'Ver en YouTube', French: 'Voir sur YouTube'
     }
   };
 
@@ -321,6 +324,11 @@
     root.innerHTML = headerHtml + itemsHtml;
   }
 
+  function firstYouTubeUrl(item) {
+    var urls = item.YouTubeVideoUrls || [];
+    return urls.length ? urls[0] : null;
+  }
+
   function renderItemCard(item, idx) {
     var img    = firstItemImage(item);
     var price  = Core.formatPrice(item.Price, state.menu.Currency);
@@ -328,6 +336,7 @@
     var allergens   = L(item.Allergens);
     var ingredients = L(item.Ingredients);
     var fullDesc    = L(item.FullDescription) || L(item.ShortDescription);
+    var ytUrl       = firstYouTubeUrl(item);
 
     var mediaHtml = img
       ? '<img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy">'
@@ -385,6 +394,12 @@
             (fullDesc ? '<p class="sj-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
             dietTags +
             dlHtml +
+            (ytUrl
+              ? '<a class="sj-youtube-btn" href="' + esc(ytUrl) + '" target="_blank" rel="noopener noreferrer">' +
+                  '<i class="bi bi-play-fill" aria-hidden="true"></i>' +
+                  esc(sjText('watchOnYouTube')) +
+                '</a>'
+              : '') +
           '</div>' +
         '</article>' +
       '</li>';

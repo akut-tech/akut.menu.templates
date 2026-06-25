@@ -675,6 +675,33 @@ main { overflow: hidden; }
   margin: 0;
 }
 
+/* youtube button */
+.sj-youtube-btn {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  border: 1px solid var(--sj-sumi);
+  color: var(--sj-sumi);
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.sj-youtube-btn i {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.sj-youtube-btn:hover {
+  background: var(--sj-sumi);
+  color: var(--sj-washi);
+}
+
 /* back to menu link (bottom of category page) */
 .sj-bottom-back {
   margin-top: 56px;

@@ -78,7 +78,7 @@
               }
             }
           ],
-          "YouTubeVideoUrls": [],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=vIQ8-se5Aek"],
           "Name": { "English": "Pork Gyoza", "Portuguese": "Gyoza de Porco" },
           "ShortDescription": {
             "English": "Pan-seared dumplings with ponzu dipping sauce",
@@ -213,7 +213,7 @@
               }
             }
           ],
-          "YouTubeVideoUrls": [],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
           "Name": { "English": "Shoyu Ramen", "Portuguese": "Ramen Shoyu" },
           "ShortDescription": {
             "English": "Soy broth ramen with chashu pork and soft egg",
