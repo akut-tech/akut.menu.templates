@@ -136,6 +136,14 @@
     return imgs.length ? (imgs[0].Link && imgs[0].Link.FullSize) : null;
   }
 
+  function buildItemImages(item) {
+    return (item.Images || [])
+      .slice()
+      .sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); })
+      .map(function (im) { return im.Link && im.Link.FullSize; })
+      .filter(Boolean);
+  }
+
   function sortedCategories(menu) {
     return (menu.Categories || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
   }
@@ -322,6 +330,30 @@
       '</section>';
 
     root.innerHTML = headerHtml + itemsHtml;
+    initItemGalleries(root);
+  }
+
+  function initItemGalleries(root) {
+    root.querySelectorAll('[data-gallery]').forEach(function (container) {
+      var imgs = container.querySelectorAll('.sj-gallery-img');
+      var dots = container.querySelectorAll('.sj-img-dot');
+      var prev = container.querySelector('[data-img-prev]');
+      var next = container.querySelector('[data-img-next]');
+      if (imgs.length <= 1) return;
+
+      var current = 0;
+
+      function goTo(idx) {
+        imgs[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (idx + imgs.length) % imgs.length;
+        imgs[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+      if (next) next.addEventListener('click', function () { goTo(current + 1); });
+    });
   }
 
   function firstYouTubeUrl(item) {
@@ -330,17 +362,36 @@
   }
 
   function renderItemCard(item, idx) {
-    var img    = firstItemImage(item);
+    var images = buildItemImages(item);
     var price  = Core.formatPrice(item.Price, state.menu.Currency);
     var diets  = Core.dietLabels(item.Diets, state.lang);
     var allergens   = L(item.Allergens);
     var ingredients = L(item.Ingredients);
     var fullDesc    = L(item.FullDescription) || L(item.ShortDescription);
     var ytUrl       = firstYouTubeUrl(item);
+    var alt         = esc(L(item.Name));
+    var multi       = images.length > 1;
 
-    var mediaHtml = img
-      ? '<img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy">'
+    var trackHtml = images.length
+      ? images.map(function (url, i) {
+          return '<img class="sj-gallery-img' + (i === 0 ? ' active' : '') + '" src="' + esc(url) + '" alt="' + alt + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">';
+        }).join('')
       : '<div class="sj-item-no-img"><div class="sj-item-no-img-mark"></div></div>';
+
+    var arrowsHtml = multi
+      ? '<button type="button" class="sj-img-arrow sj-img-arrow-prev" data-img-prev aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>' +
+        '<button type="button" class="sj-img-arrow sj-img-arrow-next" data-img-next aria-label="Next image"><i class="bi bi-chevron-right"></i></button>'
+      : '';
+
+    var dotsHtml = multi
+      ? '<div class="sj-img-dots">' +
+          images.map(function (_, i) {
+            return '<span class="sj-img-dot' + (i === 0 ? ' active' : '') + '"></span>';
+          }).join('') +
+        '</div>'
+      : '';
+
+    var mediaHtml = '<div class="sj-gallery-track">' + trackHtml + '</div>' + arrowsHtml + dotsHtml;
 
     var newBadge = item.IsNew
       ? '<span class="sj-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + ' · 新</span>'
@@ -375,7 +426,7 @@
     return '' +
       '<li>' +
         '<article class="sj-item-card">' +
-          '<div class="sj-item-media">' +
+          '<div class="sj-item-media" data-gallery>' +
             mediaHtml +
             newBadge +
           '</div>' +
