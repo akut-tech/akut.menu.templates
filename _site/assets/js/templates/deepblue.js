@@ -123,7 +123,7 @@
 
   function firstImage(item) {
     var imgs = (item.Images || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
-    return imgs.length ? imgs[0].Link : null;
+    return imgs.length ? (imgs[0].Link && imgs[0].Link.Thumbnail) : null;
   }
 
   // Extracts the 11-char video id from common YouTube URL shapes.
@@ -140,7 +140,7 @@
     var media = (item.Images || [])
       .slice()
       .sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); })
-      .map(function (im) { return { type: 'image', url: im.Link, thumb: im.Link }; });
+      .map(function (im) { return { type: 'image', url: im.Link && im.Link.FullSize, thumb: im.Link && im.Link.Thumbnail }; });
 
     (item.YouTubeVideoUrls || []).forEach(function (url) {
       var id = youTubeId(url);
@@ -181,7 +181,7 @@
 
     // The brand uses a logo image when the menu carries one; otherwise the
     // static icon + name already present in the markup is kept.
-    var logoUrl = menu.Logo && menu.Logo.Link;
+    var logoUrl = menu.Logo && menu.Logo.Link && menu.Logo.Link.Thumbnail;
     if (logoUrl) {
       document.querySelectorAll('.db-brand').forEach(function (brand) {
         var mark = brand.querySelector('.db-brand-mark');
