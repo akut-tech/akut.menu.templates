@@ -123,7 +123,7 @@
 
   function firstImage(item) {
     var imgs = (item.Images || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
-    return imgs.length ? (imgs[0].Link && imgs[0].Link.Thumbnail) : null;
+    return imgs.length ? (imgs[0].Link && imgs[0].Link.FullSize) : null;
   }
 
   // Extracts the 11-char video id from common YouTube URL shapes.
