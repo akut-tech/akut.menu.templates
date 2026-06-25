@@ -8,14 +8,14 @@
     "Link": { "Thumbnail": "", "FullSize": "" }
   },
   "Name": {
-    "English": "Lunch Menu",
-    "Portuguese": "Menu de Almoço"
+    "English": "Senjutsu",
+    "Portuguese": "Senjutsu"
   },
   "Description": {
-    "English": "Our daily Japanese lunch offerings",
-    "Portuguese": "As nossas propostas diárias de almoço japonês"
+    "English": "A Japanese table — honest craft, seasonal ingredients and quiet ceremony",
+    "Portuguese": "Uma mesa japonesa — artesanato honesto, ingredientes sazonais e cerimónia silenciosa"
   },
-  "Notes": "Available 12pm–3pm · Disponível das 12h às 15h",
+  "Notes": "Lunch served daily 12pm–3pm · Almoço servido das 12h às 15h",
   "TemplateId": "senjutsu",
   "DefaultLanguage": 2,
   "Currency": 1,
@@ -26,12 +26,9 @@
       "Order": 1,
       "Name": { "English": "Starters", "Portuguese": "Entradas" },
       "Description": {
-        "English": "Light bites to begin your journey",
-        "Portuguese": "Petiscos leves para começar a sua viagem"
+        "English": "Small plates to open the meal with intention",
+        "Portuguese": "Pequenos pratos para abrir a refeição com intenção"
       },
-      "Images": [
-        { "Order": 0, "Title": "Starters", "Source": 0, "Url": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?w=800&q=80" } }
-      ],
       "Items": [
         {
           "Id": "sj-item-edamame",
@@ -39,17 +36,26 @@
           "Diets": [1, 3],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Edamame", "Source": 0, "Url": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Edamame",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1564834744159-ff0ea41ba4b9?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Edamame", "Portuguese": "Edamame" },
           "ShortDescription": {
             "English": "Steamed young soybeans with sea salt",
-            "Portuguese": "Feijões de soja jovens cozinhados a vapor com sal marinho"
+            "Portuguese": "Feijões de soja jovens cozidos a vapor com sal marinho"
           },
           "FullDescription": {
             "English": "Lightly steamed young soybean pods, finished with flakes of Japanese sea salt. A traditional and refreshing way to open the meal.",
-            "Portuguese": "Vagens de soja jovens levemente cozinhadas a vapor, polvilhadas com flocos de sal marinho japonês. Uma forma tradicional e refrescante de abrir a refeição."
+            "Portuguese": "Vagens de soja jovens levemente cozidas a vapor, polvilhadas com flocos de sal marinho japonês. Uma forma tradicional e refrescante de abrir a refeição."
           },
           "Price": 5.50,
           "Allergens": { "English": "Soy", "Portuguese": "Soja" },
@@ -59,23 +65,32 @@
           "Id": "sj-item-gyoza",
           "Order": 2,
           "Diets": [],
-          "IsNew": true,
+          "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Pork Gyoza", "Source": 0, "Url": "https://images.unsplash.com/photo-1625938145744-533e82c9bc69?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1625938145744-533e82c9bc69?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1625938145744-533e82c9bc69?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Pork Gyoza",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1625938145744-533e82c9bc69?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1625938145744-533e82c9bc69?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1625938145744-533e82c9bc69?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Pork Gyoza", "Portuguese": "Gyoza de Porco" },
           "ShortDescription": {
-            "English": "Pan-seared dumplings with ponzu",
-            "Portuguese": "Dumplings selados na frigideira com molho ponzu"
+            "English": "Pan-seared dumplings with ponzu dipping sauce",
+            "Portuguese": "Dumplings selados com molho ponzu"
           },
           "FullDescription": {
-            "English": "Five handmade pork and cabbage dumplings, pan-seared to a crisp base and served with a tangy ponzu dipping sauce.",
-            "Portuguese": "Cinco dumplings artesanais de porco e couve, selados na frigideira até ficarem crocantes e servidos com molho ponzu."
+            "English": "Five handmade pork and cabbage dumplings, pan-seared until the base is golden and crisp, served with a tangy ponzu dipping sauce and a touch of chilli oil.",
+            "Portuguese": "Cinco dumplings artesanais de porco e couve, selados na frigideira até a base ficar dourada e crocante, servidos com molho ponzu e um toque de óleo de malagueta."
           },
-          "Price": 8.00,
+          "Price": 8.50,
           "Allergens": { "English": "Gluten, Soy", "Portuguese": "Glúten, Soja" },
-          "Ingredients": { "English": "Pork, cabbage, garlic, ginger, wheat wrapper", "Portuguese": "Porco, couve, alho, gengibre, massa de trigo" }
+          "Ingredients": { "English": "Pork, cabbage, garlic, ginger, sesame oil, wheat wrapper", "Portuguese": "Porco, couve, alho, gengibre, óleo de sésamo, massa de trigo" }
         },
         {
           "Id": "sj-item-agedashi",
@@ -83,21 +98,61 @@
           "Diets": [2],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Agedashi Tofu", "Source": 0, "Url": "https://images.unsplash.com/photo-1617622141533-c2acd2f8f1cc?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1617622141533-c2acd2f8f1cc?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1617622141533-c2acd2f8f1cc?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Agedashi Tofu",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1617622141533-c2acd2f8f1cc?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1617622141533-c2acd2f8f1cc?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1617622141533-c2acd2f8f1cc?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Agedashi Tofu", "Portuguese": "Agedashi Tofu" },
           "ShortDescription": {
-            "English": "Crisp tofu in dashi broth",
-            "Portuguese": "Tofu crocante em caldo dashi"
+            "English": "Lightly fried silken tofu in warm dashi broth",
+            "Portuguese": "Tofu sedoso levemente frito em caldo dashi quente"
           },
           "FullDescription": {
-            "English": "Silken tofu lightly dusted and fried, resting in a warm dashi broth with grated daikon and scallions.",
-            "Portuguese": "Tofu sedoso levemente panado e frito, servido num caldo dashi quente com daikon ralado e cebolinho."
+            "English": "Silken tofu dusted in potato starch and fried until the crust is translucent and delicate, resting in a warm dashi broth finished with grated daikon, scallions and katsuobushi.",
+            "Portuguese": "Tofu sedoso polvilhado em fécula de batata e frito até a crosta ficar translúcida e delicada, servido em caldo dashi quente com daikon ralado, cebolinho e katsuobushi."
           },
           "Price": 7.50,
           "Allergens": { "English": "Soy, Fish", "Portuguese": "Soja, Peixe" },
-          "Ingredients": { "English": "Tofu, dashi, daikon, scallions", "Portuguese": "Tofu, dashi, daikon, cebolinho" }
+          "Ingredients": { "English": "Silken tofu, potato starch, dashi, daikon, scallions, katsuobushi", "Portuguese": "Tofu sedoso, fécula de batata, dashi, daikon, cebolinho, katsuobushi" }
+        },
+        {
+          "Id": "sj-item-takoyaki",
+          "Order": 4,
+          "Diets": [],
+          "IsNew": true,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Takoyaki",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1606851094291-6efae152bb87?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Takoyaki", "Portuguese": "Takoyaki" },
+          "ShortDescription": {
+            "English": "Six octopus balls with bonito flakes and mayo",
+            "Portuguese": "Seis bolinhos de polvo com flocos de bonito e maionese"
+          },
+          "FullDescription": {
+            "English": "Six golden batter balls each hiding a tender piece of octopus, served straight from the iron with takoyaki sauce, Japanese mayo and a cloud of dancing bonito flakes.",
+            "Portuguese": "Seis bolinhos dourados de massa escondendo um pedaço tenro de polvo, servidos diretamente do ferro com molho takoyaki, maionese japonesa e uma nuvem de flocos de bonito a dançar."
+          },
+          "Price": 9.00,
+          "Allergens": { "English": "Gluten, Egg, Soy, Mollusc", "Portuguese": "Glúten, Ovo, Soja, Molusco" },
+          "Ingredients": { "English": "Octopus, wheat batter, bonito flakes, takoyaki sauce, Japanese mayo, scallions", "Portuguese": "Polvo, massa de trigo, flocos de bonito, molho takoyaki, maionese japonesa, cebolinho" }
         }
       ]
     },
@@ -106,12 +161,9 @@
       "Order": 2,
       "Name": { "English": "Main Courses", "Portuguese": "Pratos Principais" },
       "Description": {
-        "English": "Heart of the meal — bowls, grills, and donburi",
+        "English": "The heart of the meal — bowls, grills and donburi",
         "Portuguese": "O coração da refeição — tigelas, grelhados e donburi"
       },
-      "Images": [
-        { "Order": 0, "Title": "Main Courses", "Source": 0, "Url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80" } }
-      ],
       "Items": [
         {
           "Id": "sj-item-chirashi",
@@ -119,137 +171,165 @@
           "Diets": [],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Chirashi Bowl", "Source": 0, "Url": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Chirashi Bowl",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Chirashi Bowl", "Portuguese": "Tigela Chirashi" },
           "ShortDescription": {
-            "English": "Assorted sashimi over sushi rice",
-            "Portuguese": "Sashimi variado sobre arroz de sushi"
+            "English": "Assorted sashimi arranged over seasoned sushi rice",
+            "Portuguese": "Sashimi variado sobre arroz de sushi temperado"
           },
           "FullDescription": {
-            "English": "A generous selection of the day's freshest sashimi arranged over seasoned sushi rice, with pickled ginger and wasabi.",
-            "Portuguese": "Uma seleção generosa do sashimi mais fresco do dia, disposto sobre arroz de sushi temperado, com gengibre em vinagre e wasabi."
+            "English": "A generous selection of the freshest sashimi of the day — tuna, salmon and yellowtail — arranged over vinegared sushi rice, served with pickled ginger, wasabi and ponzu on the side.",
+            "Portuguese": "Uma seleção generosa do sashimi mais fresco do dia — atum, salmão e peixe-limão — disposto sobre arroz de sushi avinagrado, servido com gengibre em vinagre, wasabi e ponzu à parte."
           },
           "Price": 24.00,
-          "Allergens": { "English": "Fish, Soy", "Portuguese": "Peixe, Soja" },
-          "Ingredients": { "English": "Tuna, salmon, yellowtail, sushi rice, nori", "Portuguese": "Atum, salmão, peixe-limão, arroz de sushi, nori" }
+          "Allergens": { "English": "Fish, Soy, Sesame", "Portuguese": "Peixe, Soja, Sésamo" },
+          "Ingredients": { "English": "Tuna, salmon, yellowtail, sushi rice, rice vinegar, nori, pickled ginger, wasabi", "Portuguese": "Atum, salmão, peixe-limão, arroz de sushi, vinagre de arroz, nori, gengibre em vinagre, wasabi" }
         },
         {
-          "Id": "sj-item-katsu",
+          "Id": "sj-item-ramen",
           "Order": 2,
           "Diets": [],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Tonkatsu Set", "Source": 0, "Url": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800&q=80" } }
-          ],
-          "YouTubeVideoUrls": [],
-          "Name": { "English": "Tonkatsu Set", "Portuguese": "Set Tonkatsu" },
-          "ShortDescription": {
-            "English": "Breaded pork cutlet with cabbage",
-            "Portuguese": "Costeleta de porco panada com couve"
-          },
-          "FullDescription": {
-            "English": "Panko-crusted pork loin fried golden, served with shredded cabbage, miso soup, rice, and tonkatsu sauce.",
-            "Portuguese": "Lombo de porco com crosta de panko dourado, servido com couve ralada, sopa de miso, arroz e molho tonkatsu."
-          },
-          "Price": 18.50,
-          "Allergens": { "English": "Gluten, Egg, Soy", "Portuguese": "Glúten, Ovo, Soja" },
-          "Ingredients": { "English": "Pork loin, panko, cabbage, tonkatsu sauce", "Portuguese": "Lombo de porco, panko, couve, molho tonkatsu" }
-        },
-        {
-          "Id": "sj-item-ramen",
-          "Order": 3,
-          "Diets": [],
-          "IsNew": true,
-          "Images": [
-            { "Order": 0, "Title": "Shoyu Ramen", "Source": 0, "Url": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Shoyu Ramen",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Shoyu Ramen", "Portuguese": "Ramen Shoyu" },
           "ShortDescription": {
-            "English": "Soy-based broth with chashu pork",
-            "Portuguese": "Caldo de soja com chashu de porco"
+            "English": "Soy broth ramen with chashu pork and soft egg",
+            "Portuguese": "Ramen em caldo de soja com chashu de porco e ovo macio"
           },
           "FullDescription": {
-            "English": "Rich chicken and pork broth seasoned with aged shoyu, topped with chashu, ajitsuke tamago, menma, and scallions.",
-            "Portuguese": "Caldo rico de frango e porco temperado com shoyu envelhecido, coberto com chashu, ajitsuke tamago, menma e cebolinho."
+            "English": "Rich chicken and pork bone broth seasoned with aged shoyu, topped with slices of braised chashu pork belly, an ajitsuke tamago, menma bamboo shoots, nori and scallions.",
+            "Portuguese": "Caldo rico de frango e osso de porco temperado com shoyu envelhecido, coberto com fatias de barriga de porco chashu estufada, ajitsuke tamago, rebentos de bambu menma, nori e cebolinho."
           },
           "Price": 16.00,
           "Allergens": { "English": "Gluten, Egg, Soy", "Portuguese": "Glúten, Ovo, Soja" },
-          "Ingredients": { "English": "Ramen noodles, pork chashu, soft egg, bamboo shoots", "Portuguese": "Massa ramen, chashu de porco, ovo cozido, rebentos de bambu" }
-        }
-      ]
-    },
-    {
-      "Id": "sj-cat-salads",
-      "Order": 3,
-      "Name": { "English": "Salads", "Portuguese": "Saladas" },
-      "Description": {
-        "English": "Crisp, seasonal, and clean",
-        "Portuguese": "Frescas, sazonais e limpas"
-      },
-      "Images": [
-        { "Order": 0, "Title": "Salads", "Source": 0, "Url": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80" } }
-      ],
-      "Items": [
-        {
-          "Id": "sj-item-seaweed",
-          "Order": 1,
-          "Diets": [1, 3],
-          "IsNew": false,
-          "Images": [
-            { "Order": 0, "Title": "Wakame Salad", "Source": 0, "Url": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=800&q=80" } }
-          ],
-          "YouTubeVideoUrls": [],
-          "Name": { "English": "Wakame Salad", "Portuguese": "Salada Wakame" },
-          "ShortDescription": {
-            "English": "Marinated seaweed with sesame",
-            "Portuguese": "Alga marinada com sésamo"
-          },
-          "FullDescription": {
-            "English": "Tender wakame seaweed tossed in a light sesame-ginger dressing, finished with toasted sesame seeds.",
-            "Portuguese": "Alga wakame tenra envolvida num molho leve de sésamo e gengibre, finalizada com sementes de sésamo torradas."
-          },
-          "Price": 6.50,
-          "Allergens": { "English": "Sesame, Soy", "Portuguese": "Sésamo, Soja" },
-          "Ingredients": { "English": "Wakame, sesame oil, rice vinegar, ginger", "Portuguese": "Wakame, óleo de sésamo, vinagre de arroz, gengibre" }
+          "Ingredients": { "English": "Ramen noodles, pork bone broth, shoyu, chashu pork belly, soft egg, bamboo shoots, nori, scallions", "Portuguese": "Massa ramen, caldo de osso de porco, shoyu, barriga de porco chashu, ovo macio, rebentos de bambu, nori, cebolinho" }
         },
         {
-          "Id": "sj-item-sunomono",
-          "Order": 2,
-          "Diets": [2, 3],
+          "Id": "sj-item-katsu",
+          "Order": 3,
+          "Diets": [],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Cucumber Sunomono", "Source": 0, "Url": "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Tonkatsu Set",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
-          "Name": { "English": "Cucumber Sunomono", "Portuguese": "Sunomono de Pepino" },
+          "Name": { "English": "Tonkatsu Set", "Portuguese": "Set Tonkatsu" },
           "ShortDescription": {
-            "English": "Sweet vinegar cucumber salad",
-            "Portuguese": "Salada de pepino com vinagre doce"
+            "English": "Panko-crusted pork cutlet with rice, miso soup and cabbage",
+            "Portuguese": "Costeleta de porco com crosta de panko, arroz, sopa de miso e couve"
           },
           "FullDescription": {
-            "English": "Thinly sliced cucumbers marinated in a sweet rice vinegar with a hint of dashi.",
-            "Portuguese": "Pepino fatiado finamente marinado em vinagre de arroz doce com uma pitada de dashi."
+            "English": "A thick-cut pork loin encased in a shatteringly crisp panko crust, fried golden and served with shredded cabbage, steamed white rice, house miso soup and tonkatsu dipping sauce.",
+            "Portuguese": "Um lombo de porco de corte grosso envolto numa crosta de panko estaladiça, frito dourado e servido com couve ralada, arroz branco cozido, sopa de miso da casa e molho tonkatsu."
           },
-          "Price": 5.00,
-          "Allergens": { "English": "", "Portuguese": "" },
-          "Ingredients": { "English": "Cucumber, rice vinegar, sugar", "Portuguese": "Pepino, vinagre de arroz, açúcar" }
+          "Price": 18.50,
+          "Allergens": { "English": "Gluten, Egg, Soy", "Portuguese": "Glúten, Ovo, Soja" },
+          "Ingredients": { "English": "Pork loin, panko breadcrumbs, egg, flour, shredded cabbage, Japanese rice, miso, tonkatsu sauce", "Portuguese": "Lombo de porco, panko, ovo, farinha, couve ralada, arroz japonês, miso, molho tonkatsu" }
+        },
+        {
+          "Id": "sj-item-teriyaki",
+          "Order": 4,
+          "Diets": [],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Salmon Teriyaki",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1512058454905-6b841e7ad132?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1512058454905-6b841e7ad132?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1512058454905-6b841e7ad132?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Salmon Teriyaki", "Portuguese": "Salmão Teriyaki" },
+          "ShortDescription": {
+            "English": "Glazed salmon fillet with steamed rice and pickles",
+            "Portuguese": "Filete de salmão glaceado com arroz cozido e pickles"
+          },
+          "FullDescription": {
+            "English": "Atlantic salmon fillet grilled over high heat and finished with a house-made teriyaki glaze of mirin, sake and soy. Served with steamed Japanese rice, seasonal pickles and a wedge of lemon.",
+            "Portuguese": "Filete de salmão do Atlântico grelhado a alta temperatura e finalizado com um glaze teriyaki caseiro de mirin, sake e soja. Servido com arroz japonês cozido, pickles sazonais e uma fatia de limão."
+          },
+          "Price": 21.00,
+          "Allergens": { "English": "Fish, Soy, Gluten", "Portuguese": "Peixe, Soja, Glúten" },
+          "Ingredients": { "English": "Atlantic salmon, mirin, sake, soy sauce, Japanese rice, seasonal pickles", "Portuguese": "Salmão do Atlântico, mirin, sake, molho de soja, arroz japonês, pickles sazonais" }
+        },
+        {
+          "Id": "sj-item-tempura",
+          "Order": 5,
+          "Diets": [],
+          "IsNew": true,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Tempura Set",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Tempura Set", "Portuguese": "Set Tempura" },
+          "ShortDescription": {
+            "English": "Tiger prawns and vegetables in ice-cold batter, with dipping broth",
+            "Portuguese": "Camarão-tigre e legumes em massa gelada, com caldo de mergulho"
+          },
+          "FullDescription": {
+            "English": "Four tiger prawns and a selection of seasonal vegetables — sweet potato, courgette, shiitake — fried in an ice-cold, barely-mixed batter until impossibly light. Served with tentsuyu dipping broth and grated daikon.",
+            "Portuguese": "Quatro camarões-tigre e uma seleção de legumes sazonais — batata-doce, courgette, shiitake — fritos em massa gelada e mal misturada até ficarem incrivelmente leves. Servidos com caldo tentsuyu e daikon ralado."
+          },
+          "Price": 22.50,
+          "Allergens": { "English": "Gluten, Egg, Crustacean, Fish, Soy", "Portuguese": "Glúten, Ovo, Crustáceo, Peixe, Soja" },
+          "Ingredients": { "English": "Tiger prawns, sweet potato, courgette, shiitake, wheat flour, egg, ice water, tentsuyu broth, daikon", "Portuguese": "Camarão-tigre, batata-doce, courgette, shiitake, farinha de trigo, ovo, água gelada, caldo tentsuyu, daikon" }
         }
       ]
     },
     {
       "Id": "sj-cat-desserts",
-      "Order": 4,
+      "Order": 3,
       "Name": { "English": "Desserts", "Portuguese": "Sobremesas" },
       "Description": {
         "English": "A quiet, sweet ending",
         "Portuguese": "Um fim tranquilo e doce"
       },
-      "Images": [
-        { "Order": 0, "Title": "Desserts", "Source": 0, "Url": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80" } }
-      ],
       "Items": [
         {
           "Id": "sj-item-mochi",
@@ -257,57 +337,103 @@
           "Diets": [2],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Matcha Mochi Ice Cream", "Source": 0, "Url": "https://images.unsplash.com/photo-1631206753348-db44968fd440?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1631206753348-db44968fd440?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1631206753348-db44968fd440?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Matcha Mochi Ice Cream",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1631206753348-db44968fd440?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1631206753348-db44968fd440?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1631206753348-db44968fd440?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Matcha Mochi Ice Cream", "Portuguese": "Gelado Mochi de Matcha" },
           "ShortDescription": {
-            "English": "Three pieces of matcha mochi",
-            "Portuguese": "Três peças de mochi de matcha"
+            "English": "Three pieces of soft mochi filled with matcha ice cream",
+            "Portuguese": "Três peças de mochi suave recheadas com gelado de matcha"
           },
           "FullDescription": {
-            "English": "Soft pounded rice cake wrapped around stone-ground matcha ice cream. Served three to a plate.",
-            "Portuguese": "Bolo de arroz suave envolto em gelado de matcha moído em pedra. Servido em três peças por prato."
+            "English": "Hand-pounded glutinous rice cake wrapped around stone-ground ceremonial-grade matcha ice cream. Served three to a plate, dusted with kinako powder.",
+            "Portuguese": "Bolo de arroz glutinoso batido à mão, envolto em gelado de matcha de grau ceremonial moído em pedra. Servido em três peças por prato, polvilhado com farinha kinako."
           },
-          "Price": 7.00,
-          "Allergens": { "English": "Dairy", "Portuguese": "Lacticínios" },
-          "Ingredients": { "English": "Mochi, matcha ice cream", "Portuguese": "Mochi, gelado de matcha" }
+          "Price": 7.50,
+          "Allergens": { "English": "Dairy, Soy", "Portuguese": "Lacticínios, Soja" },
+          "Ingredients": { "English": "Glutinous rice, matcha ice cream, kinako powder", "Portuguese": "Arroz glutinoso, gelado de matcha, farinha kinako" }
         },
         {
           "Id": "sj-item-dorayaki",
           "Order": 2,
-          "Diets": [],
-          "IsNew": true,
+          "Diets": [2],
+          "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Dorayaki", "Source": 0, "Url": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Dorayaki",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Dorayaki", "Portuguese": "Dorayaki" },
           "ShortDescription": {
-            "English": "Pancakes filled with red bean",
-            "Portuguese": "Panquecas recheadas com feijão vermelho"
+            "English": "Honey pancakes filled with sweet azuki bean paste",
+            "Portuguese": "Panquecas de mel recheadas com pasta doce de feijão azuki"
           },
           "FullDescription": {
-            "English": "Two fluffy honey pancakes filled with sweet azuki bean paste.",
-            "Portuguese": "Duas panquecas fofas de mel recheadas com pasta doce de feijão azuki."
+            "English": "Two fluffy honey-glazed pancakes sandwiching a generous spread of smooth tsubu-an azuki bean paste. A beloved Japanese wagashi, served warm.",
+            "Portuguese": "Duas panquecas fofas glaceadas com mel, recheadas com uma generosa camada de pasta de feijão azuki tsubu-an. Um querido wagashi japonês, servido quente."
           },
-          "Price": 6.00,
+          "Price": 6.50,
           "Allergens": { "English": "Gluten, Egg", "Portuguese": "Glúten, Ovo" },
-          "Ingredients": { "English": "Flour, egg, honey, azuki bean", "Portuguese": "Farinha, ovo, mel, feijão azuki" }
+          "Ingredients": { "English": "Flour, egg, honey, baking soda, azuki bean paste", "Portuguese": "Farinha, ovo, mel, bicarbonato de sódio, pasta de feijão azuki" }
+        },
+        {
+          "Id": "sj-item-anmitsu",
+          "Order": 3,
+          "Diets": [1, 3],
+          "IsNew": true,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Anmitsu",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Anmitsu", "Portuguese": "Anmitsu" },
+          "ShortDescription": {
+            "English": "Kanten jelly, seasonal fruit and black sugar syrup",
+            "Portuguese": "Gelatina de kanten, fruta sazonal e calda de açúcar preto"
+          },
+          "FullDescription": {
+            "English": "Cubes of delicate agar-agar kanten jelly served alongside seasonal fruit, a spoonful of smooth azuki paste and a generous drizzle of kuromitsu black sugar syrup. Light, elegant and wholly Japanese.",
+            "Portuguese": "Cubos de delicada gelatina de agar-agar kanten servidos com fruta sazonal, uma colher de pasta azuki suave e um fio generoso de calda de açúcar preto kuromitsu. Leve, elegante e genuinamente japonês."
+          },
+          "Price": 7.00,
+          "Allergens": { "English": "", "Portuguese": "" },
+          "Ingredients": { "English": "Kanten (agar-agar), seasonal fruit, azuki paste, kuromitsu syrup", "Portuguese": "Kanten (agar-agar), fruta sazonal, pasta azuki, calda kuromitsu" }
         }
       ]
     },
     {
       "Id": "sj-cat-drinks",
-      "Order": 5,
+      "Order": 4,
       "Name": { "English": "Drinks", "Portuguese": "Bebidas" },
       "Description": {
-        "English": "Tea, sake, and seasonal refreshments",
+        "English": "Tea, sake and seasonal refreshments",
         "Portuguese": "Chá, sake e refrescos sazonais"
       },
-      "Images": [
-        { "Order": 0, "Title": "Drinks", "Source": 0, "Url": "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=800&q=80" } }
-      ],
       "Items": [
         {
           "Id": "sj-item-matcha",
@@ -315,65 +441,123 @@
           "Diets": [1, 3],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Ceremonial Matcha", "Source": 0, "Url": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Ceremonial Matcha",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
           "Name": { "English": "Ceremonial Matcha", "Portuguese": "Matcha Ceremonial" },
           "ShortDescription": {
-            "English": "Whisked stone-ground green tea",
-            "Portuguese": "Chá verde moído em pedra batido com chasen"
+            "English": "First-harvest stone-ground green tea, whisked to a fine foam",
+            "Portuguese": "Chá verde de primeira colheita moído em pedra, batido em espuma fina"
           },
           "FullDescription": {
-            "English": "Premium grade matcha whisked to a fine foam, served in a traditional chawan.",
-            "Portuguese": "Matcha de grau premium batido até formar uma espuma fina, servido numa chawan tradicional."
+            "English": "Premium first-harvest matcha from Uji, Kyoto, whisked to a silky foam with a bamboo chasen. Served in a handmade ceramic chawan with a small wagashi on the side.",
+            "Portuguese": "Matcha premium de primeira colheita de Uji, Quioto, batido em espuma sedosa com um chasen de bambu. Servido numa chawan de cerâmica artesanal com um pequeno wagashi à parte."
           },
-          "Price": 5.00,
+          "Price": 6.00,
           "Allergens": { "English": "", "Portuguese": "" },
-          "Ingredients": { "English": "Matcha, water", "Portuguese": "Matcha, água" }
+          "Ingredients": { "English": "Ceremonial-grade matcha (Uji, Kyoto), water", "Portuguese": "Matcha de grau ceremonial (Uji, Quioto), água" }
+        },
+        {
+          "Id": "sj-item-hojicha",
+          "Order": 2,
+          "Diets": [1, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Hojicha",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1545048702-79362596cdc9?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Hojicha", "Portuguese": "Hojicha" },
+          "ShortDescription": {
+            "English": "Roasted green tea — warm, smoky and low in caffeine",
+            "Portuguese": "Chá verde torrado — quente, fumado e com baixo teor de cafeína"
+          },
+          "FullDescription": {
+            "English": "Kyoto-style bancha green tea slowly roasted over charcoal until the leaves turn a deep caramel brown. Earthy, slightly smoky and naturally sweet, with very little caffeine — a perfect end-of-meal tea.",
+            "Portuguese": "Chá verde bancha ao estilo de Quioto, lentamente torrado sobre carvão até as folhas ficarem castanho-caramelo escuro. Terroso, ligeiramente fumado e naturalmente doce, com muito pouca cafeína — um chá perfeito para o final da refeição."
+          },
+          "Price": 4.50,
+          "Allergens": { "English": "", "Portuguese": "" },
+          "Ingredients": { "English": "Roasted bancha green tea leaves, water", "Portuguese": "Folhas de chá verde bancha torradas, água" }
         },
         {
           "Id": "sj-item-sake",
-          "Order": 2,
-          "Diets": [1],
-          "IsNew": false,
-          "Images": [
-            { "Order": 0, "Title": "Junmai Sake", "Source": 0, "Url": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80" } }
-          ],
-          "YouTubeVideoUrls": [],
-          "Name": { "English": "Junmai Sake", "Portuguese": "Sake Junmai" },
-          "ShortDescription": {
-            "English": "Smooth, pure rice sake",
-            "Portuguese": "Sake de arroz puro e suave"
-          },
-          "FullDescription": {
-            "English": "A glass of chilled junmai sake — full bodied with a clean, dry finish.",
-            "Portuguese": "Um copo de sake junmai gelado — encorpado com um final limpo e seco."
-          },
-          "Price": 9.00,
-          "Allergens": { "English": "", "Portuguese": "" },
-          "Ingredients": { "English": "Rice, koji, water", "Portuguese": "Arroz, koji, água" }
-        },
-        {
-          "Id": "sj-item-ramune",
           "Order": 3,
           "Diets": [1],
           "IsNew": false,
           "Images": [
-            { "Order": 0, "Title": "Ramune Soda", "Source": 0, "Url": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80", "Link": { "Thumbnail": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80", "FullSize": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80" } }
+            {
+              "Order": 0,
+              "Title": "Junmai Sake",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=80"
+              }
+            }
           ],
           "YouTubeVideoUrls": [],
-          "Name": { "English": "Ramune Soda", "Portuguese": "Refrigerante Ramune" },
+          "Name": { "English": "Junmai Sake", "Portuguese": "Sake Junmai" },
           "ShortDescription": {
-            "English": "Classic Japanese marble soda",
-            "Portuguese": "Refrigerante japonês clássico com berlinde"
+            "English": "Pure rice sake — full-bodied with a clean, dry finish",
+            "Portuguese": "Sake de arroz puro — encorpado com final limpo e seco"
           },
           "FullDescription": {
-            "English": "The iconic glass-bottled lemon-lime soda sealed with a marble.",
-            "Portuguese": "O icónico refrigerante de limão e lima em garrafa de vidro, selado com um berlinde."
+            "English": "A 150 ml pour of chilled junmai sake — brewed with only rice, water, koji and yeast, with no added alcohol. Full-bodied, slightly umami and finishing clean and dry. Served in a traditional ochoko cup.",
+            "Portuguese": "Uma dose de 150 ml de sake junmai gelado — produzido apenas com arroz, água, koji e levedura, sem álcool adicionado. Encorpado, ligeiramente umami, com final limpo e seco. Servido numa ochoko tradicional."
+          },
+          "Price": 9.00,
+          "Allergens": { "English": "", "Portuguese": "" },
+          "Ingredients": { "English": "Rice, koji, water, yeast", "Portuguese": "Arroz, koji, água, levedura" }
+        },
+        {
+          "Id": "sj-item-ramune",
+          "Order": 4,
+          "Diets": [1, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Ramune Soda",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Ramune Soda", "Portuguese": "Ramune" },
+          "ShortDescription": {
+            "English": "Classic Japanese lemon-lime marble soda",
+            "Portuguese": "Refrigerante japonês clássico de limão e lima com berlinde"
+          },
+          "FullDescription": {
+            "English": "The iconic Codd-neck glass bottle sealed with a glass marble — press the marble down to release a rush of bright, lemon-lime carbonation. A nostalgic Japanese summer staple.",
+            "Portuguese": "A icónica garrafa de vidro Codd-neck selada com um berlinde de vidro — pressiona o berlinde para libertar uma efervescência brilhante de limão e lima. Um clássico nostálgico do verão japonês."
           },
           "Price": 4.00,
           "Allergens": { "English": "", "Portuguese": "" },
-          "Ingredients": { "English": "Carbonated water, sugar, lemon-lime flavor", "Portuguese": "Água com gás, açúcar, aroma de limão e lima" }
+          "Ingredients": { "English": "Carbonated water, sugar, citric acid, lemon-lime natural flavouring", "Portuguese": "Água com gás, açúcar, ácido cítrico, aroma natural de limão e lima" }
         }
       ]
     }
