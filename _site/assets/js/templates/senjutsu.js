@@ -339,20 +339,27 @@
       var dots = container.querySelectorAll('.sj-img-dot');
       var prev = container.querySelector('[data-img-prev]');
       var next = container.querySelector('[data-img-next]');
-      if (imgs.length <= 1) return;
+      var zoom = container.querySelector('[data-zoom]');
 
-      var current = 0;
+      if (imgs.length > 1) {
+        var current = 0;
 
-      function goTo(idx) {
-        imgs[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (idx + imgs.length) % imgs.length;
-        imgs[current].classList.add('active');
-        dots[current].classList.add('active');
+        function goTo(idx) {
+          imgs[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          current = (idx + imgs.length) % imgs.length;
+          imgs[current].classList.add('active');
+          dots[current].classList.add('active');
+          if (zoom) zoom.setAttribute('href', imgs[current].src);
+        }
+
+        if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+        if (next) next.addEventListener('click', function () { goTo(current + 1); });
       }
 
-      if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
-      if (next) next.addEventListener('click', function () { goTo(current + 1); });
+      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
+        global.jQuery(zoom).magnificPopup({ type: 'image' });
+      }
     });
   }
 
@@ -391,7 +398,11 @@
         '</div>'
       : '';
 
-    var mediaHtml = '<div class="sj-gallery-track">' + trackHtml + '</div>' + arrowsHtml + dotsHtml;
+    var zoomHtml = images.length
+      ? '<a class="sj-zoom" data-zoom href="' + esc(images[0]) + '" aria-label="Zoom image"><i class="bi bi-zoom-in"></i></a>'
+      : '';
+
+    var mediaHtml = '<div class="sj-gallery-track">' + trackHtml + '</div>' + arrowsHtml + dotsHtml + zoomHtml;
 
     var newBadge = item.IsNew
       ? '<span class="sj-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + ' · 新</span>'
