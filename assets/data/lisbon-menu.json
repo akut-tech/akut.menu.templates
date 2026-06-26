@@ -1,0 +1,629 @@
+{
+  "Id": "lisbon-0000-0000-0000-000000000001",
+  "Logo": {
+    "Order": 0,
+    "Title": "Lisboa",
+    "Source": 0,
+    "Url": "",
+    "Link": { "Thumbnail": "", "FullSize": "" }
+  },
+  "Name": {
+    "English": "Lunch menu",
+    "Portuguese": "Menu de Almoço"
+  },
+  "Description": {
+    "English": "Our daily lunch offerings — a contemporary tribute to the Portuguese Atlantic with seasonal ingredients, traditional fire, and the salt of the sea",
+    "Portuguese": "As nossas ofertas diárias de almoço — uma homenagem contemporânea ao Atlântico português com ingredientes sazonais, fogo tradicional e o sal do mar"
+  },
+  "Notes": "Available 12pm – 3pm · Disponível das 12h às 15h",
+  "TemplateId": "lisbon",
+  "DefaultLanguage": 2,
+  "Currency": 1,
+  "Status": 1,
+  "Categories": [
+    {
+      "Id": "ls-cat-starters",
+      "Order": 1,
+      "Name": { "English": "Starters", "Portuguese": "Entradas" },
+      "Description": {
+        "English": "Light bites to begin — petiscos to open the meal with intention",
+        "Portuguese": "Petiscos leves para começar — abrir a refeição com intenção"
+      },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "ls-item-pumpkin-soup",
+          "Order": 1,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Pumpkin Soup",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=sUropD3XeJ8"],
+          "Name": { "English": "Pumpkin soup", "Portuguese": "Sopa de Abóbora" },
+          "ShortDescription": {
+            "English": "Creamy roasted pumpkin soup",
+            "Portuguese": "Sopa cremosa de abóbora assada"
+          },
+          "FullDescription": {
+            "English": "Slow-cooked roasted pumpkin soup with ginger and coconut cream",
+            "Portuguese": "Sopa de abóbora assada cozida lentamente com gengibre e creme de coco"
+          },
+          "Price": 5.50,
+          "Ingredients": {
+            "English": "Pumpkin, ginger, coconut cream, onion, garlic, olive oil",
+            "Portuguese": "Abóbora, gengibre, creme de coco, cebola, alho, azeite"
+          },
+          "Allergens": { "English": "Milk", "Portuguese": "Leite" }
+        },
+        {
+          "Id": "ls-item-cheese-board",
+          "Order": 2,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Cheese Board",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a318?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a318?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a318?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=lKbtZ12RJA0"],
+          "Name": { "English": "Cheese board", "Portuguese": "Tábua de Queijos" },
+          "ShortDescription": {
+            "English": "Selection of fine cheeses with accompaniments",
+            "Portuguese": "Seleção de queijos finos com acompanhamentos"
+          },
+          "FullDescription": {
+            "English": "A curated selection of local and imported cheeses served with crackers, honey, walnuts and dried fruits",
+            "Portuguese": "Uma seleção cuidada de queijos locais e importados servidos com crackers, mel, nozes e frutos secos"
+          },
+          "Price": 9.50,
+          "Ingredients": {
+            "English": "Assorted cheeses, crackers, honey, walnuts, dried fruits",
+            "Portuguese": "Queijos variados, crackers, mel, nozes, frutos secos"
+          },
+          "Allergens": { "English": "Milk, Gluten, Nuts", "Portuguese": "Leite, Glúten, Frutos de casca rija" }
+        },
+        {
+          "Id": "ls-item-bruschetta",
+          "Order": 3,
+          "Diets": [2, 3],
+          "IsNew": true,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Bruschetta",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=rSdLZtLvc8w"],
+          "Name": { "English": "Bruschetta", "Portuguese": "Bruschetta" },
+          "ShortDescription": {
+            "English": "Grilled bread with tomato and basil",
+            "Portuguese": "Pão grelhado com tomate e manjericão"
+          },
+          "FullDescription": {
+            "English": "Crispy grilled bread topped with fresh diced tomato, basil and a drizzle of olive oil",
+            "Portuguese": "Pão grelhado crocante coberto com tomate fresco picado, manjericão e um fio de azeite"
+          },
+          "Price": 4.50,
+          "Ingredients": {
+            "English": "Bread, tomato, basil, olive oil, garlic",
+            "Portuguese": "Pão, tomate, manjericão, azeite, alho"
+          },
+          "Allergens": { "English": "Gluten", "Portuguese": "Glúten" }
+        }
+      ]
+    },
+    {
+      "Id": "ls-cat-mains",
+      "Order": 2,
+      "Name": { "English": "Main courses", "Portuguese": "Pratos Principais" },
+      "Description": {
+        "English": "Hearty dishes for a satisfying lunch — traditional fire, honest craft",
+        "Portuguese": "Pratos substanciais para um almoço satisfatório — fogo tradicional, artesanato honesto"
+      },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "ls-item-grilled-chicken",
+          "Order": 1,
+          "Diets": [],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Grilled Chicken",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=KzhC-7XTRvc"],
+          "Name": { "English": "Grilled chicken", "Portuguese": "Frango Grelhado" },
+          "ShortDescription": {
+            "English": "Herb-marinated grilled chicken breast",
+            "Portuguese": "Peito de frango grelhado marinado em ervas"
+          },
+          "FullDescription": {
+            "English": "Tender chicken breast marinated in lemon, garlic and herbs, served with seasonal vegetables and roasted potatoes",
+            "Portuguese": "Peito de frango tenro marinado em limão, alho e ervas, servido com legumes da época e batatas assadas"
+          },
+          "Price": 13.50,
+          "Ingredients": {
+            "English": "Chicken breast, lemon, garlic, rosemary, thyme, potatoes, seasonal vegetables",
+            "Portuguese": "Peito de frango, limão, alho, alecrim, tomilho, batatas, legumes da época"
+          },
+          "Allergens": { "English": "None", "Portuguese": "Nenhum" }
+        },
+        {
+          "Id": "ls-item-beef-steak",
+          "Order": 2,
+          "Diets": [],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Beef Steak",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=DG1jggH82m8"],
+          "Name": { "English": "Beef steak", "Portuguese": "Bife de Vaca" },
+          "ShortDescription": {
+            "English": "Pan-seared ribeye with peppercorn sauce",
+            "Portuguese": "Entrecosto selado com molho de pimenta"
+          },
+          "FullDescription": {
+            "English": "Pan-seared 200g ribeye steak finished with a classic peppercorn sauce, served with fries and salad",
+            "Portuguese": "Bife de entrecosto de 200g selado em frigideira com molho clássico de pimenta, servido com batatas fritas e salada"
+          },
+          "Price": 18.90,
+          "Ingredients": {
+            "English": "Ribeye steak, black pepper, cream, butter, shallots, brandy",
+            "Portuguese": "Bife de entrecosto, pimenta preta, natas, manteiga, chalotas, brandy"
+          },
+          "Allergens": { "English": "Milk", "Portuguese": "Leite" }
+        },
+        {
+          "Id": "ls-item-mushroom-risotto",
+          "Order": 3,
+          "Diets": [2, 3],
+          "IsNew": true,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Mushroom Risotto",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=FQMOlA47ntw"],
+          "Name": { "English": "Mushroom risotto", "Portuguese": "Risoto de Cogumelos" },
+          "ShortDescription": {
+            "English": "Creamy Arborio rice with wild mushrooms",
+            "Portuguese": "Arroz Arborio cremoso com cogumelos silvestres"
+          },
+          "FullDescription": {
+            "English": "Slow-stirred Arborio rice with a medley of wild mushrooms, white wine, parmesan and fresh thyme",
+            "Portuguese": "Arroz Arborio mexido lentamente com variedade de cogumelos silvestres, vinho branco, parmesão e tomilho fresco"
+          },
+          "Price": 11.50,
+          "Ingredients": {
+            "English": "Arborio rice, mushrooms, parmesan, white wine, onion, butter, thyme",
+            "Portuguese": "Arroz Arborio, cogumelos, parmesão, vinho branco, cebola, manteiga, tomilho"
+          },
+          "Allergens": { "English": "Milk", "Portuguese": "Leite" }
+        },
+        {
+          "Id": "ls-item-grilled-salmon",
+          "Order": 4,
+          "Diets": [],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Grilled Salmon",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=LJiGt3d-_zo"],
+          "Name": { "English": "Grilled salmon", "Portuguese": "Salmão Grelhado" },
+          "ShortDescription": {
+            "English": "Atlantic salmon with lemon butter",
+            "Portuguese": "Salmão do Atlântico com manteiga de limão"
+          },
+          "FullDescription": {
+            "English": "Fresh Atlantic salmon fillet grilled to perfection, served with lemon butter sauce, steamed asparagus and new potatoes",
+            "Portuguese": "Filete de salmão do Atlântico fresco grelhado na perfeição, servido com molho de manteiga de limão, espargos cozidos a vapor e batatinhas novas"
+          },
+          "Price": 16.50,
+          "Ingredients": {
+            "English": "Salmon fillet, lemon, butter, asparagus, new potatoes, dill",
+            "Portuguese": "Filete de salmão, limão, manteiga, espargos, batatinhas novas, endro"
+          },
+          "Allergens": { "English": "Fish, Milk", "Portuguese": "Peixe, Leite" }
+        }
+      ]
+    },
+    {
+      "Id": "ls-cat-salads",
+      "Order": 3,
+      "Name": { "English": "Salads", "Portuguese": "Saladas" },
+      "Description": {
+        "English": "Fresh and vibrant salads — seasonal ingredients at their peak",
+        "Portuguese": "Saladas frescas e vibrantes — ingredientes sazonais no seu melhor"
+      },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "ls-item-caesar-salad",
+          "Order": 1,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Caesar Salad",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=u3luOSDfuZ4"],
+          "Name": { "English": "Caesar salad", "Portuguese": "Salada César" },
+          "ShortDescription": {
+            "English": "Romaine, parmesan and classic Caesar dressing",
+            "Portuguese": "Alface romana, parmesão e molho César clássico"
+          },
+          "FullDescription": {
+            "English": "Crisp romaine lettuce tossed with house-made Caesar dressing, shaved parmesan and crunchy croutons",
+            "Portuguese": "Alface romana crocante misturada com molho César caseiro, parmesão em lascas e croutons crocantes"
+          },
+          "Price": 8.50,
+          "Ingredients": {
+            "English": "Romaine lettuce, parmesan, croutons, Caesar dressing, lemon",
+            "Portuguese": "Alface romana, parmesão, croutons, molho César, limão"
+          },
+          "Allergens": { "English": "Gluten, Milk, Eggs, Fish", "Portuguese": "Glúten, Leite, Ovos, Peixe" }
+        },
+        {
+          "Id": "ls-item-caprese-salad",
+          "Order": 2,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Caprese Salad",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1528150177508-7cc0c36cda5c?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1528150177508-7cc0c36cda5c?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1528150177508-7cc0c36cda5c?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=6VORaPs5-jo"],
+          "Name": { "English": "Caprese salad", "Portuguese": "Salada Caprese" },
+          "ShortDescription": {
+            "English": "Fresh mozzarella, tomato and basil",
+            "Portuguese": "Mozzarella fresca, tomate e manjericão"
+          },
+          "FullDescription": {
+            "English": "Classic Italian salad with sliced buffalo mozzarella, ripe tomatoes and fresh basil, drizzled with extra virgin olive oil and balsamic glaze",
+            "Portuguese": "Salada italiana clássica com mozzarella de búfala fatiada, tomates maduros e manjericão fresco, regada com azeite extra virgem e redução de balsâmico"
+          },
+          "Price": 8.50,
+          "Ingredients": {
+            "English": "Buffalo mozzarella, tomato, fresh basil, olive oil, balsamic glaze",
+            "Portuguese": "Mozzarella de búfala, tomate, manjericão fresco, azeite, redução de balsâmico"
+          },
+          "Allergens": { "English": "Milk", "Portuguese": "Leite" }
+        }
+      ]
+    },
+    {
+      "Id": "ls-cat-desserts",
+      "Order": 4,
+      "Name": { "English": "Desserts", "Portuguese": "Sobremesas" },
+      "Description": {
+        "English": "Sweet endings to your meal — traditional Portuguese comfort and European classics",
+        "Portuguese": "Finais doces para a sua refeição — conforto português tradicional e clássicos europeus"
+      },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "ls-item-chocolate-tart",
+          "Order": 1,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Chocolate Tart",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=_ZnH8eiJbPo"],
+          "Name": { "English": "Chocolate tart", "Portuguese": "Torta de Chocolate" },
+          "ShortDescription": {
+            "English": "Rich dark chocolate tart with ganache",
+            "Portuguese": "Torta de chocolate negro rica com ganache"
+          },
+          "FullDescription": {
+            "English": "Crisp pastry shell filled with a smooth dark chocolate ganache, served with a dollop of crème fraîche",
+            "Portuguese": "Massa estaladiça recheada com ganache de chocolate negro suave, servida com uma colherada de crème fraîche"
+          },
+          "Price": 6.50,
+          "Ingredients": {
+            "English": "Dark chocolate, cream, butter, eggs, sugar, pastry",
+            "Portuguese": "Chocolate negro, natas, manteiga, ovos, açúcar, massa"
+          },
+          "Allergens": { "English": "Gluten, Milk, Eggs", "Portuguese": "Glúten, Leite, Ovos" }
+        },
+        {
+          "Id": "ls-item-creme-brulee",
+          "Order": 2,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Crème Brûlée",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=DmHg63MTEZI"],
+          "Name": { "English": "Crème brûlée", "Portuguese": "Leite Creme" },
+          "ShortDescription": {
+            "English": "Silky vanilla custard with caramelised sugar",
+            "Portuguese": "Creme de baunilha sedoso com açúcar caramelizado"
+          },
+          "FullDescription": {
+            "English": "Classic French vanilla custard with a perfectly torched caramelised sugar crust, served with seasonal berries",
+            "Portuguese": "Creme de baunilha francês clássico com uma crosta de açúcar caramelizado perfeitamente queimado, servido com frutos vermelhos da época"
+          },
+          "Price": 5.90,
+          "Ingredients": {
+            "English": "Cream, egg yolks, sugar, vanilla, seasonal berries",
+            "Portuguese": "Natas, gemas de ovo, açúcar, baunilha, frutos vermelhos da época"
+          },
+          "Allergens": { "English": "Milk, Eggs", "Portuguese": "Leite, Ovos" }
+        },
+        {
+          "Id": "ls-item-tiramisu",
+          "Order": 3,
+          "Diets": [2, 3],
+          "IsNew": true,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Tiramisu",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=rnmnK0d1rA8"],
+          "Name": { "English": "Tiramisu", "Portuguese": "Tiramisu" },
+          "ShortDescription": {
+            "English": "Italian coffee-soaked mascarpone dessert",
+            "Portuguese": "Sobremesa italiana de mascarpone embebido em café"
+          },
+          "FullDescription": {
+            "English": "Layers of espresso-soaked ladyfinger biscuits and whipped mascarpone cream, dusted with cocoa powder",
+            "Portuguese": "Camadas de biscoitos embebidos em espresso e creme de mascarpone batido, polvilhados com cacau em pó"
+          },
+          "Price": 6.00,
+          "Ingredients": {
+            "English": "Mascarpone, eggs, sugar, espresso, ladyfinger biscuits, cocoa powder",
+            "Portuguese": "Mascarpone, ovos, açúcar, espresso, biscoitos savoiardi, cacau em pó"
+          },
+          "Allergens": { "English": "Gluten, Milk, Eggs", "Portuguese": "Glúten, Leite, Ovos" }
+        },
+        {
+          "Id": "ls-item-rabanada",
+          "Order": 4,
+          "Diets": [2, 13],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Rabanada",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=eDEVAhEY_2Y"],
+          "Name": { "English": "French toast", "Portuguese": "Rabanada" },
+          "ShortDescription": {
+            "English": "Portuguese-style French toast with cinnamon sugar",
+            "Portuguese": "Rabanada portuguesa com açúcar e canela"
+          },
+          "FullDescription": {
+            "English": "Thick slices of bread soaked in egg and milk, fried until golden and dusted with cinnamon sugar — a classic Portuguese comfort dessert",
+            "Portuguese": "Fatias grossas de pão embebidas em ovo e leite, fritas até ficarem douradas e polvilhadas com açúcar e canela — uma sobremesa reconfortante portuguesa clássica"
+          },
+          "Price": 7.00,
+          "Ingredients": {
+            "English": "Bread, eggs, milk, sugar, cinnamon, olive oil",
+            "Portuguese": "Pão, ovos, leite, açúcar, canela, azeite"
+          },
+          "Allergens": { "English": "Gluten, Milk, Eggs", "Portuguese": "Glúten, Leite, Ovos" }
+        }
+      ]
+    },
+    {
+      "Id": "ls-cat-drinks",
+      "Order": 5,
+      "Name": { "English": "Drinks", "Portuguese": "Bebidas" },
+      "Description": {
+        "English": "Refreshing beverages to complement your meal",
+        "Portuguese": "Bebidas refrescantes para complementar a sua refeição"
+      },
+      "Image": null,
+      "Items": [
+        {
+          "Id": "ls-item-lemonade",
+          "Order": 1,
+          "Diets": [1, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Fresh Lemonade",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=_YYF9vBLzGU"],
+          "Name": { "English": "Fresh lemonade", "Portuguese": "Limonada Fresca" },
+          "ShortDescription": {
+            "English": "House-made sparkling lemonade",
+            "Portuguese": "Limonada com gás feita na casa"
+          },
+          "FullDescription": {
+            "English": "Freshly squeezed lemon juice with sparkling water, a touch of honey and fresh mint",
+            "Portuguese": "Sumo de limão espremido na hora com água com gás, um toque de mel e hortelã fresca"
+          },
+          "Price": 3.00,
+          "Ingredients": {
+            "English": "Lemon juice, sparkling water, honey, mint, ice",
+            "Portuguese": "Sumo de limão, água com gás, mel, hortelã, gelo"
+          },
+          "Allergens": { "English": "None", "Portuguese": "Nenhum" }
+        },
+        {
+          "Id": "ls-item-iced-coffee",
+          "Order": 2,
+          "Diets": [2, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Iced Coffee",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=2W-D2D9Ivl8"],
+          "Name": { "English": "Iced coffee", "Portuguese": "Café Gelado" },
+          "ShortDescription": {
+            "English": "Cold brew over ice with milk",
+            "Portuguese": "Cold brew com gelo e leite"
+          },
+          "FullDescription": {
+            "English": "Smooth cold-brew coffee served over ice with your choice of whole milk or oat milk",
+            "Portuguese": "Café cold brew suave servido com gelo com a sua escolha de leite gordo ou leite de aveia"
+          },
+          "Price": 3.50,
+          "Ingredients": {
+            "English": "Cold brew coffee, ice, milk or oat milk",
+            "Portuguese": "Café cold brew, gelo, leite ou leite de aveia"
+          },
+          "Allergens": { "English": "Milk", "Portuguese": "Leite" }
+        },
+        {
+          "Id": "ls-item-moscow-mule",
+          "Order": 3,
+          "Diets": [1, 3],
+          "IsNew": false,
+          "Images": [
+            {
+              "Order": 0,
+              "Title": "Moscow Mule",
+              "Source": 0,
+              "Url": "https://images.unsplash.com/photo-1587888637140-849b3e872e9a?w=800&q=80",
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1587888637140-849b3e872e9a?w=800&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1587888637140-849b3e872e9a?w=800&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=beOFB7BGGcA"],
+          "Name": { "English": "Moscow mule", "Portuguese": "Moscow Mule" },
+          "ShortDescription": {
+            "English": "Vodka, ginger beer and fresh lime",
+            "Portuguese": "Vodka, cerveja de gengibre e lima fresca"
+          },
+          "FullDescription": {
+            "English": "Classic Moscow Mule served in a copper mug with vodka, spicy ginger beer, fresh lime juice and a sprig of mint",
+            "Portuguese": "Moscow Mule clássico servido em caneca de cobre com vodka, cerveja de gengibre picante, sumo de lima fresco e um ramo de hortelã"
+          },
+          "Price": 7.50,
+          "Ingredients": {
+            "English": "Vodka, ginger beer, lime juice, mint, ice",
+            "Portuguese": "Vodka, cerveja de gengibre, sumo de lima, hortelã, gelo"
+          },
+          "Allergens": { "English": "None", "Portuguese": "Nenhum" }
+        }
+      ]
+    }
+  ]
+}

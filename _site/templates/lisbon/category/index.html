@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Menu</title>
+<title>Category</title>
 
 <link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
 
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/assets/css/menu.css">
 
 <!-- Per-template styling -->
-<link rel="stylesheet" href="/assets/css/deepblue.css">
+<link rel="stylesheet" href="/assets/css/lisbon.css">
 
 
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
@@ -57,76 +57,50 @@
     
 
     <main>
-      <div class="db">
-  <!-- Top bar: logo + language -->
-  <header class="db-topbar">
-    <div class="db-container db-topbar-inner">
-      <a class="db-brand" href="#" data-menu-home>
-        <span class="db-brand-mark"><i class="bi bi-water"></i></span>
-        <span class="db-brand-text" data-menu-name>Deep Blue</span>
+      <div class="ls">
+  <!-- Topbar -->
+  <header class="ls-topbar">
+    <div class="ls-container ls-topbar-inner">
+      <a class="ls-back-btn" href="#" data-menu-home>
+        <span class="ls-back-btn-arrow" aria-hidden="true">←</span>
+        <span class="ls-back-btn-label" data-ls-i18n="backToMenu">Back to Menu</span>
       </a>
-      <div class="db-lang lang-switcher" data-lang-switcher hidden>
-        <button type="button" class="db-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+      <span class="ls-topbar-brand" data-menu-name></span>
+      <div class="ls-lang" data-lang-switcher hidden>
+        <button type="button" class="ls-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
           <i class="bi bi-globe2"></i>
           <span data-lang-current-label>Language</span>
-          <i class="bi bi-chevron-down db-lang-caret"></i>
+          <i class="bi bi-chevron-down ls-lang-caret"></i>
         </button>
-        <ul class="db-lang-menu custom-ul" data-lang-menu></ul>
+        <ul class="ls-lang-menu ls-ul" data-lang-menu></ul>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="db-hero">
-    <div class="db-hero-overlay"></div>
-    <span class="db-shape db-shape-tall" aria-hidden="true"></span>
-    <span class="db-shape db-shape-chef" aria-hidden="true"></span>
-    <div class="db-container db-hero-inner">
-      <svg class="db-hero-orn" viewBox="0 0 160 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M8 22 C 18 14 26 30 36 22 C 44 16 50 24 58 22"/>
-        <path d="M70 20 C 76 13 88 13 94 20 C 88 27 76 27 70 20 Z"/>
-        <path d="M94 20 C 98 17 102 16 106 14 C 104 18 104 22 106 26 C 102 24 98 23 94 20 Z"/>
-        <path d="M78 15 C 82 17 87 17 90 16"/>
-        <circle cx="76" cy="18" r="0.9" fill="currentColor" stroke="none"/>
-        <path d="M102 22 C 110 24 116 16 124 22 C 134 30 142 14 152 22"/>
-      </svg>
-      <p class="db-hero-eyebrow" data-i18n="freshFromOcean">Fresh from the ocean</p>
-      <h1 class="db-hero-title" data-menu-name>Menu</h1>
-      <p class="db-hero-sub" data-menu-description></p>
-      <p class="db-hero-notes" data-menu-notes></p>
-      <a class="db-hero-scroll" href="#db-menu" aria-label="View the menu"><i class="bi bi-chevron-down"></i></a>
-    </div>
-  </section>
-
-  <!-- Menu (rendered at runtime) -->
-  <main id="db-menu" class="db-menu-area">
-    <div class="db-container">
-      <div id="menu-root">
-        <div class="db-loading">
-          <div class="db-loader">
-            <span class="db-loader-wave"></span>
-            <span class="db-loader-wave"></span>
-            <span class="db-loader-wave"></span>
-            <span class="db-loader-core"><i class="bi bi-water"></i></span>
-          </div>
-          <span class="db-loading-label">Loading…</span>
-        </div>
-      </div>
+  <!-- Category content (rendered at runtime) -->
+  <main id="category-root">
+    <div class="ls-loading">
+      <div class="ls-loader"></div>
+      <span>Loading…</span>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="db-footer">
-    <span class="db-shape db-shape-chef" aria-hidden="true"></span>
-    <div class="db-container db-footer-inner">
-      <a class="db-brand db-footer-brand" href="#" data-menu-home>
-        <span class="db-brand-mark"><i class="bi bi-water"></i></span>
-        <span class="db-brand-text" data-menu-name>Deep Blue</span>
-      </a>
-      <p class="db-footer-notes" data-menu-notes></p>
-      <p class="db-footer-copy">
-        &copy; <span data-current-year></span> <span data-menu-name></span>
-        <span class="db-footer-powered">· Powered by Akut</span>
+  <footer class="ls-footer">
+    <div class="ls-container ls-footer-inner">
+      <div class="ls-footer-left">
+        <p class="ls-footer-name" data-menu-name>Menu</p>
+        <p class="ls-footer-sub">Cozinha tradicional · Lisboa</p>
+      </div>
+      <div class="ls-footer-ornament">
+        <span class="ls-ornament-line"></span>
+        <span class="ls-ornament-diamond"></span>
+        <span class="ls-ornament-line"></span>
+      </div>
+      <p class="ls-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
       </p>
     </div>
   </footer>
@@ -145,7 +119,7 @@
   <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
   
-  <script src="/assets/js/templates/deepblue.js"></script>
+  <script src="/assets/js/templates/lisbon.js"></script>
   
 
   <!-- Theme init (preloader, back-to-top) -->

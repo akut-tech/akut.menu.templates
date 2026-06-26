@@ -1,0 +1,90 @@
+---
+layout: base
+permalink: /templates/lisbon/
+title: Menu
+no_chrome: true
+template_css: lisbon
+template_js: lisbon
+---
+
+<div class="ls">
+  <!-- Topbar -->
+  <header class="ls-topbar">
+    <div class="ls-container ls-topbar-inner">
+      <a class="ls-brand" href="#" data-menu-home>
+        <span class="ls-brand-mark">
+          <span class="ls-brand-tile"></span>
+        </span>
+        <span class="ls-brand-text">
+          <span class="ls-brand-name" data-menu-name>Menu</span>
+          <span class="ls-brand-tagline">Lisboa</span>
+        </span>
+      </a>
+      <div class="ls-lang" data-lang-switcher hidden>
+        <button type="button" class="ls-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down ls-lang-caret"></i>
+        </button>
+        <ul class="ls-lang-menu ls-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main layout: editorial aside + category list -->
+  <main class="ls-index-main">
+    <div class="ls-container ls-index-grid">
+
+      <!-- Editorial column -->
+      <aside class="ls-editorial">
+        <div class="ls-editorial-top">
+          <span class="ls-eyebrow ls-eyebrow-accent">Lisboa · Desde 1994</span>
+          <h1 class="ls-hero-title" data-menu-name>Menu</h1>
+          <div class="ls-hero-rule"></div>
+          <p class="ls-hero-desc" data-menu-description></p>
+          <p class="ls-hero-notes" data-menu-notes></p>
+        </div>
+        <div class="ls-editorial-bottom">
+          <div class="ls-stats" id="ls-stats">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- Category list -->
+      <section class="ls-cat-section">
+        <div id="menu-root">
+          <div class="ls-loading">
+            <div class="ls-loader"></div>
+            <span>Loading…</span>
+          </div>
+        </div>
+        <div class="ls-ornament">
+          <span class="ls-ornament-line"></span>
+          <span class="ls-ornament-diamond"></span>
+          <span class="ls-ornament-line"></span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="ls-footer">
+    <div class="ls-container ls-footer-inner">
+      <div class="ls-footer-left">
+        <p class="ls-footer-name" data-menu-name>Menu</p>
+        <p class="ls-footer-sub">Cozinha tradicional · Lisboa</p>
+      </div>
+      <div class="ls-footer-ornament">
+        <span class="ls-ornament-line"></span>
+        <span class="ls-ornament-diamond"></span>
+        <span class="ls-ornament-line"></span>
+      </div>
+      <p class="ls-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
+      </p>
+    </div>
+  </footer>
+</div>

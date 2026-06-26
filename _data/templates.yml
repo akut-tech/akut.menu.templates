@@ -19,3 +19,8 @@ list:
     name: Senjutsu
     main: /templates/senjutsu/
     category: /templates/senjutsu/category/
+  lisbon:
+    name: Lisbon
+    main: /templates/lisbon/
+    category: /templates/lisbon/category/
+    detail: /templates/lisbon/item/

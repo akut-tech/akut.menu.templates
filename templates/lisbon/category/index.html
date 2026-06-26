@@ -1,0 +1,57 @@
+---
+layout: base
+permalink: /templates/lisbon/category/
+title: Category
+no_chrome: true
+template_css: lisbon
+template_js: lisbon
+---
+
+<div class="ls">
+  <!-- Topbar -->
+  <header class="ls-topbar">
+    <div class="ls-container ls-topbar-inner">
+      <a class="ls-back-btn" href="#" data-menu-home>
+        <span class="ls-back-btn-arrow" aria-hidden="true">←</span>
+        <span class="ls-back-btn-label" data-ls-i18n="backToMenu">Back to Menu</span>
+      </a>
+      <span class="ls-topbar-brand" data-menu-name></span>
+      <div class="ls-lang" data-lang-switcher hidden>
+        <button type="button" class="ls-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down ls-lang-caret"></i>
+        </button>
+        <ul class="ls-lang-menu ls-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category content (rendered at runtime) -->
+  <main id="category-root">
+    <div class="ls-loading">
+      <div class="ls-loader"></div>
+      <span>Loading…</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="ls-footer">
+    <div class="ls-container ls-footer-inner">
+      <div class="ls-footer-left">
+        <p class="ls-footer-name" data-menu-name>Menu</p>
+        <p class="ls-footer-sub">Cozinha tradicional · Lisboa</p>
+      </div>
+      <div class="ls-footer-ornament">
+        <span class="ls-ornament-line"></span>
+        <span class="ls-ornament-diamond"></span>
+        <span class="ls-ornament-line"></span>
+      </div>
+      <p class="ls-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
+      </p>
+    </div>
+  </footer>
+</div>
