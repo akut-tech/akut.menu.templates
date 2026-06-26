@@ -183,7 +183,7 @@
     document.querySelectorAll('[data-menu-home]').forEach(function (a) { a.setAttribute('href', homeUrl()); });
     setText('[data-menu-name]',        name);
     setText('[data-menu-description]', L(menu.Description));
-    setText('[data-menu-notes]',       menu.Notes || '');
+    setText('[data-availability]', Core.formatAvailability(menu, state.lang));
     setText('[data-current-year]',     new Date().getFullYear());
     document.title = name;
     applyI18n();

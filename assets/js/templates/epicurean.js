@@ -127,7 +127,7 @@
 
     setText('[data-menu-name]', L(menu.Name));
     setText('[data-menu-description]', L(menu.Description));
-    setText('[data-menu-notes]', menu.Notes || '');
+    setText('[data-availability]', Core.formatAvailability(menu, state.lang));
     setText('[data-current-year]', new Date().getFullYear());
     document.title = L(menu.Name) || Core.uiText('menu', state.lang);
     applyI18n();

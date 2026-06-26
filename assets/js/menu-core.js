@@ -190,6 +190,12 @@
     tryAgain: {
       English: 'Try again', Portuguese: 'Tentar novamente',
       Spanish: 'Reintentar', French: 'Réessayer'
+    },
+    availability: {
+      English: 'Available {from}–{to}',
+      Portuguese: 'Disponível {from}–{to}',
+      Spanish: 'Disponible {from}–{to}',
+      French: 'Disponible {from}–{to}'
     }
   };
 
@@ -233,6 +239,31 @@
   function escapeHtml(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* -------------------------------------------------------------- availability */
+
+  function formatTime(timeStr, lang) {
+    if (!timeStr) return '';
+    var parts = String(timeStr).split(':');
+    var h = parseInt(parts[0], 10);
+    var m = parseInt(parts[1] || '0', 10);
+    if (isNaN(h)) return '';
+    if (lang === 'English') {
+      var suffix = h >= 12 ? 'pm' : 'am';
+      var h12 = h % 12 || 12;
+      return m ? h12 + ':' + (m < 10 ? '0' + m : m) + suffix : h12 + suffix;
+    }
+    return h + (m ? ':' + (m < 10 ? '0' + m : m) : '') + 'h';
+  }
+
+  function formatAvailability(menu, lang) {
+    var av = menu && menu.AvailabilityTime;
+    if (!av || !av.From || !av.To) return '';
+    return uiText('availability', lang, {
+      from: formatTime(av.From, lang),
+      to: formatTime(av.To, lang)
     });
   }
 
@@ -334,6 +365,7 @@
     templatePath: templatePath,
     withTenant: withTenant,
     renderError: renderError,
-    errorMessage: errorMessage
+    errorMessage: errorMessage,
+    formatAvailability: formatAvailability
   };
 })(window);
