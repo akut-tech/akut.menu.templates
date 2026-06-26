@@ -121,6 +121,33 @@
       letter-spacing: .01em;
     }
     .sc-footer strong { color: rgba(255,255,255,.7); font-weight: 600; }
+
+    /* ── language switcher ── */
+    .sc-lang {
+      display: flex;
+      gap: 4px;
+    }
+    .sc-lang-btn {
+      background: none;
+      border: 1.5px solid #e0ddd8;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      color: var(--text-bogy-gray);
+      transition: border-color .15s, color .15s, background .15s;
+    }
+    .sc-lang-btn[aria-pressed="true"] {
+      border-color: var(--text-heading-black);
+      color: var(--text-heading-black);
+      background: rgba(0,0,0,.04);
+    }
+    .sc-lang-btn:hover:not([aria-pressed="true"]) {
+      border-color: #b0ada8;
+      color: var(--text-heading-black);
+    }
   </style>
 </head>
 <body>
@@ -129,15 +156,25 @@
     <div class="container">
       <div class="sc-topbar-inner">
         <img src="{{ '/assets/images/logo-two.svg' | relative_url }}" alt="Akut" class="sc-logo">
+        <div class="sc-lang" role="group" aria-label="Language">
+          <button type="button" class="sc-lang-btn" data-lang-pick="en" aria-pressed="true">EN</button>
+          <button type="button" class="sc-lang-btn" data-lang-pick="pt">PT</button>
+        </div>
       </div>
     </div>
   </header>
 
   <section class="sc-hero">
     <div class="container">
-      <span class="sc-hero-eyebrow">Template gallery</span>
+      <span class="sc-hero-eyebrow">
+        <span data-lang="en">Template gallery</span>
+        <span data-lang="pt" hidden>Galeria de templates</span>
+      </span>
       <h1 class="sc-hero-title">Menu Templates</h1>
-      <p class="sc-hero-sub">Professional restaurant menu experiences, ready to preview.</p>
+      <p class="sc-hero-sub">
+        <span data-lang="en">Professional restaurant menu experiences, ready to preview.</span>
+        <span data-lang="pt" hidden>Experiências profissionais de cardápio para restaurantes, prontas para visualizar.</span>
+      </p>
     </div>
   </section>
 
@@ -153,5 +190,28 @@
     <strong>Akut</strong> &mdash; Powered by Akut &copy; {{ 'now' | date: '%Y' }}
   </footer>
 
+
+  <script>
+    (function () {
+      var current = 'en';
+
+      function applyLang(lang) {
+        current = lang;
+        document.querySelectorAll('[data-lang]').forEach(function (el) {
+          el.hidden = el.getAttribute('data-lang') !== lang;
+        });
+        document.querySelectorAll('[data-lang-pick]').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-lang-pick') === lang ? 'true' : 'false');
+        });
+        document.documentElement.lang = lang === 'pt' ? 'pt' : 'en';
+      }
+
+      document.querySelectorAll('[data-lang-pick]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLang(btn.getAttribute('data-lang-pick'));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

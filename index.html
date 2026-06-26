@@ -8,11 +8,13 @@ title: Akut Templates
     <div class="sc-card-accent" style="background:{{ tpl.accent }}"></div>
     <div class="sc-card-body">
       <h2 class="sc-card-name">{{ tpl.name }}</h2>
-      <p class="sc-card-desc">{{ tpl.description }}</p>
+      <p class="sc-card-desc" data-lang="en">{{ tpl.description }}</p>
+      <p class="sc-card-desc" data-lang="pt" hidden>{{ tpl.description_pt }}</p>
     </div>
     <div class="sc-card-footer">
       <span class="sc-cta" style="color:{{ tpl.accent }}">
-        View demo <i class="bi bi-arrow-right"></i>
+        <span data-lang="en">View demo</span><span data-lang="pt" hidden>Ver demo</span>
+        <i class="bi bi-arrow-right"></i>
       </span>
     </div>
   </a>
