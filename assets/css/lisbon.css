@@ -647,6 +647,28 @@ body { background: var(--ls-cal); }
 .ls-img-arrow-prev { left: 10px; }
 .ls-img-arrow-next { right: 10px; }
 
+/* Zoom button — top-right corner of gallery */
+.ls-zoom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background: rgba(245, 243, 239, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ls-azul);
+  font-size: 0.9rem;
+  z-index: 3;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ls-zoom:hover {
+  background: var(--ls-azul);
+  color: var(--ls-cal);
+}
+
 .ls-img-dots {
   position: absolute;
   bottom: 10px;
@@ -698,6 +720,14 @@ body { background: var(--ls-cal); }
 }
 
 @media (min-width: 640px) { .ls-item-name { font-size: 2.25rem; } }
+
+/* Item name as a link to the detail page */
+.ls-item-name-link {
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.ls-item-name-link:hover { color: var(--ls-terra); }
 
 .ls-item-name-pt {
   font-family: var(--ff-serif);
@@ -802,33 +832,46 @@ body { background: var(--ls-cal); }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ls-terra);
-  margin: 16px 0 0;
   transition: opacity 0.15s;
 }
 
 .ls-yt-btn:hover { opacity: 0.75; }
 
-/* -------------------------------------------------------- "View item" link */
+/* Flex row holding YouTube + View item at the bottom of the card */
+.ls-item-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* -------------------------------------------------------- "View item" button */
 
 .ls-view-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.7rem;
+  gap: 6px;
+  padding: 9px 18px;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--ls-terra);
-  margin: 24px 0 0;
-  transition: color 0.15s;
+  color: var(--ls-azul);
+  border: 1px solid var(--ls-azul);
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
 }
 
-.ls-view-btn:hover { color: var(--ls-azul); }
+.ls-view-btn:hover {
+  background: var(--ls-azul);
+  color: var(--ls-cal);
+}
 
 /* ---------------------------------------------------- back nav (bottom) */
 

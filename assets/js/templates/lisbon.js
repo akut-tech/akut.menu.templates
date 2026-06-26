@@ -352,6 +352,7 @@
     var namePt      = item.Name.Portuguese !== nameAlt ? item.Name.Portuguese : '';
     var hasDetail   = Core.templatePath('detail', state.menu.TemplateId);
 
+    var detailHref = hasDetail ? itemUrl(item.Id) : null;
     var mediaHtml = renderGallery(images, nameAlt);
 
     var newBadge = item.IsNew
@@ -388,11 +389,17 @@
         '</a>'
       : '';
 
-    var viewHtml = hasDetail
-      ? '<a class="ls-view-btn" href="' + esc(itemUrl(item.Id)) + '">' +
-          esc(lsText('viewItem')) + ' →' +
+    /* "View item →" rendered as a prominent outlined button */
+    var viewHtml = detailHref
+      ? '<a class="ls-view-btn" href="' + esc(detailHref) + '">' +
+          esc(lsText('viewItem')) + ' <i class="bi bi-arrow-right" aria-hidden="true"></i>' +
         '</a>'
       : '';
+
+    /* Item name: link to detail when available, plain heading otherwise */
+    var nameHtml = detailHref
+      ? '<a class="ls-item-name-link" href="' + esc(detailHref) + '">' + esc(nameAlt) + '</a>'
+      : esc(nameAlt);
 
     return '' +
       '<li>' +
@@ -402,7 +409,7 @@
             '<div class="ls-item-head">' +
               '<div class="ls-item-name-wrap">' +
                 '<div class="ls-item-name-row">' +
-                  '<h2 class="ls-item-name">' + esc(nameAlt) + '</h2>' +
+                  '<h2 class="ls-item-name">' + nameHtml + '</h2>' +
                   newBadge +
                 '</div>' +
                 (namePt ? '<p class="ls-item-name-pt">' + esc(namePt) + '</p>' : '') +
@@ -413,8 +420,10 @@
             (fullDesc && fullDesc !== shortDesc ? '<p class="ls-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
             dietTags +
             dlHtml +
-            ytHtml +
-            viewHtml +
+            '<div class="ls-item-footer">' +
+              ytHtml +
+              viewHtml +
+            '</div>' +
           '</div>' +
         '</article>' +
       '</li>';
@@ -576,10 +585,16 @@
         '</div>'
       : '';
 
+    /* Zoom button — top-right corner; opens full-size via Magnific Popup */
+    var zoomHtml = '<a class="ls-zoom" data-zoom href="' + esc(images[0]) + '" aria-label="Zoom image">' +
+      '<i class="bi bi-zoom-in"></i>' +
+    '</a>';
+
     return '<div class="ls-gallery">' +
       '<div class="ls-gallery-track">' + trackHtml + '</div>' +
       arrowsHtml +
       dotsHtml +
+      zoomHtml +
     '</div>';
   }
 
@@ -589,6 +604,12 @@
       var dots = Array.prototype.slice.call(container.querySelectorAll('.ls-img-dot'));
       var prev = container.querySelector('[data-img-prev]');
       var next = container.querySelector('[data-img-next]');
+      var zoom = container.querySelector('[data-zoom]');
+
+      /* Wire up Magnific Popup lightbox on the zoom anchor */
+      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
+        global.jQuery(zoom).magnificPopup({ type: 'image' });
+      }
 
       if (imgs.length <= 1) return;
 
@@ -600,6 +621,8 @@
         current = (idx + imgs.length) % imgs.length;
         imgs[current].classList.add('active');
         dots[current].classList.add('active');
+        /* Keep zoom href in sync with the visible slide */
+        if (zoom) zoom.setAttribute('href', imgs[current].src);
       }
 
       if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
