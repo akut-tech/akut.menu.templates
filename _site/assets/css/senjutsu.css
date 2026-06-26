@@ -600,16 +600,21 @@ main { overflow: hidden; }
   width: 26px;
   height: 26px;
   background: rgba(26, 26, 42, 0.52);
-  color: #fff;
-  font-size: 0.75rem;
+  color: #fff !important;
+  font-size: 0.7rem;
   line-height: 1;
   text-decoration: none;
   transition: background 0.15s;
 }
 
+.sj-zoom:visited,
+.sj-zoom:hover,
+.sj-zoom:active {
+  color: #fff !important;
+}
+
 .sj-zoom:hover {
   background: rgba(26, 26, 42, 0.85);
-  color: #fff;
 }
 
 .sj-item-no-img {
