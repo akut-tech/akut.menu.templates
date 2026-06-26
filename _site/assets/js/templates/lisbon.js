@@ -334,8 +334,9 @@
             items.map(function (item) { return renderItemCard(item, cat); }).join('') +
           '</ul>' +
           '<div class="ls-bottom-back">' +
-            '<a class="ls-back-primary" href="' + esc(homeUrl()) + '">' +
-              '← ' + esc(lsText('backToMenu')) +
+            '<a class="ls-back-btn" href="' + esc(homeUrl()) + '">' +
+              '<span class="ls-back-btn-arrow" aria-hidden="true">←</span>' +
+              '<span class="ls-back-btn-label">' + esc(lsText('backToMenu')) + '</span>' +
             '</a>' +
           '</div>' +
         '</div>' +
@@ -547,7 +548,10 @@
         '</div>' +
         videoEmbed +
         '<div class="ls-back-primary-section">' +
-          '<a class="ls-back-primary" href="' + esc(homeUrl()) + '">← ' + esc(lsText('backToMenu')) + '</a>' +
+          '<a class="ls-back-btn" href="' + esc(homeUrl()) + '">' +
+            '<span class="ls-back-btn-arrow" aria-hidden="true">←</span>' +
+            '<span class="ls-back-btn-label">' + esc(lsText('backToMenu')) + '</span>' +
+          '</a>' +
         '</div>' +
       '</div>';
 

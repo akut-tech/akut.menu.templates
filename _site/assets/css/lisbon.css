@@ -1044,29 +1044,6 @@ body { background: var(--ls-cal); }
   border: none;
 }
 
-/* ----------------------------------------- "Back to Menu" primary button */
-
-.ls-back-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 28px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  background: var(--ls-azul);
-  color: var(--ls-cal);
-  border: 1px solid var(--ls-ferro);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.ls-back-primary:hover {
-  background: var(--ls-ferro);
-  color: var(--ls-cal);
-}
-
 .ls-back-primary-section {
   margin-top: 64px;
   border-top: 1px solid var(--ls-border);
