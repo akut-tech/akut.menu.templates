@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: 'Akut Templates' }}</title>
+  <link rel="icon" href="{{ '/assets/images/fav.png' | relative_url }}" type="image/png" sizes="20x20">
+  <link rel="stylesheet" href="{{ '/assets/css/bootstrap-icons.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    /* ── page shell ── */
+    html, body { background: #F5F3EF; }
+
+    /* ── top bar ── */
+    .sc-topbar {
+      background: #fff;
+      border-bottom: 1px solid #e8e5e0;
+      padding: 18px 0;
+    }
+    .sc-topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sc-logo { height: 36px; width: auto; }
+
+    /* ── hero ── */
+    .sc-hero {
+      padding: 72px 0 52px;
+      text-align: center;
+    }
+    .sc-hero-eyebrow {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--primary-yellow);
+      margin-bottom: 14px;
+    }
+    .sc-hero-title {
+      font-family: var(--ff-bakilda-histori);
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      color: var(--text-heading-black);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .sc-hero-sub {
+      color: var(--text-bogy-gray);
+      font-size: 1.05rem;
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ── grid ── */
+    .sc-grid { padding-bottom: 96px; }
+
+    /* ── card ── */
+    .sc-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 14px rgba(0,0,0,.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform .22s ease, box-shadow .22s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .sc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(0,0,0,.11);
+      color: inherit;
+      text-decoration: none;
+    }
+    .sc-card-accent { height: 6px; flex-shrink: 0; }
+    .sc-card-body   { padding: 32px 28px 20px; flex: 1; }
+    .sc-card-name {
+      font-family: var(--ff-bakilda-histori);
+      font-size: 2rem;
+      color: var(--text-heading-black);
+      margin-bottom: 12px;
+    }
+    .sc-card-desc {
+      color: var(--text-bogy-gray);
+      font-size: .95rem;
+      line-height: 1.65;
+    }
+    .sc-card-footer {
+      padding: 0 28px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      padding: 0;
+      background: none;
+      border: none;
+      text-decoration: none;
+      transition: gap .18s ease;
+    }
+    .sc-card:hover .sc-cta { gap: 11px; }
+    .sc-cta .bi { font-size: 1rem; }
+
+    /* ── footer ── */
+    .sc-footer {
+      background: var(--text-heading-black);
+      color: rgba(255,255,255,.4);
+      text-align: center;
+      padding: 28px 16px;
+      font-size: .82rem;
+      letter-spacing: .01em;
+    }
+    .sc-footer strong { color: rgba(255,255,255,.7); font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <header class="sc-topbar">
+    <div class="container">
+      <div class="sc-topbar-inner">
+        <img src="{{ '/assets/images/logo-two.svg' | relative_url }}" alt="Akut" class="sc-logo">
+      </div>
+    </div>
+  </header>
+
+  <section class="sc-hero">
+    <div class="container">
+      <span class="sc-hero-eyebrow">Template gallery</span>
+      <h1 class="sc-hero-title">Menu Templates</h1>
+      <p class="sc-hero-sub">Professional restaurant menu experiences, ready to preview.</p>
+    </div>
+  </section>
+
+  <section class="sc-grid">
+    <div class="container">
+      <div class="row g-4">
+        {{ content }}
+      </div>
+    </div>
+  </section>
+
+  <footer class="sc-footer">
+    <strong>Akut</strong> &mdash; Powered by Akut &copy; {{ 'now' | date: '%Y' }}
+  </footer>
+
+</body>
+</html>
