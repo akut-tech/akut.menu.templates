@@ -3,12 +3,15 @@
 #
 # The runtime always builds the language switcher from the keys actually present
 # in the data; this map only decides the INITIAL language and provides display
-# labels. Adjust to match the real Akut language enum if it differs.
+# labels.
 #
-# Known: 2 => English (confirmed from sample data).
-0: { key: Portuguese, code: pt, label: "Português" }
-1: { key: Spanish,    code: es, label: "Español" }
+# Confirmed from real menu data:
+#   1 => Portuguese  (Senjutsu menu, DefaultLanguage: 1, Portuguese content)
+#   2 => English     (confirmed from sample data)
+# Others follow the same 1-based sequence; adjust if new data confirms otherwise.
+1: { key: Portuguese, code: pt, label: "Português" }
 2: { key: English,    code: en, label: "English" }
-3: { key: French,     code: fr, label: "Français" }
-4: { key: German,     code: de, label: "Deutsch" }
-5: { key: Italian,    code: it, label: "Italiano" }
+3: { key: Spanish,    code: es, label: "Español" }
+4: { key: French,     code: fr, label: "Français" }
+5: { key: German,     code: de, label: "Deutsch" }
+6: { key: Italian,    code: it, label: "Italiano" }

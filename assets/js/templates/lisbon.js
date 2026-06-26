@@ -60,7 +60,7 @@
       .then(function (menu) {
         state.menu  = menu;
         state.langs = Core.availableLanguages(menu);
-        state.lang  = Core.pickLanguage(menu, state.langs);
+        state.lang  = Core.pickLanguage(menu, state.langs, state.menuId);
         setupChrome();
         setupLangSwitcher();
         if (menuRoot)          renderIndex(menuRoot);
@@ -229,7 +229,7 @@
       var b = e.target.closest('button[data-lang]');
       if (!b) return;
       state.lang = b.getAttribute('data-lang');
-      Core.saveLang(state.lang);
+      Core.saveLang(state.lang, state.menuId);
       wrap.classList.remove('open');
       paint();
       setupChrome();

@@ -106,9 +106,9 @@
     return order;
   }
 
-  // Pick the initial language: saved choice -> DefaultLanguage enum -> first.
-  function pickLanguage(menu, available) {
-    var saved = readLang();
+  // Pick the initial language: saved choice (per menu) -> DefaultLanguage enum -> first.
+  function pickLanguage(menu, available, menuId) {
+    var saved = readLang(menuId);
     if (saved && available.indexOf(saved) !== -1) return saved;
 
     var map = CONFIG.languages || {};
@@ -137,8 +137,9 @@
     return keys.length ? field[keys[0]] : '';
   }
 
-  function readLang() { try { return global.localStorage.getItem(LANG_KEY); } catch (e) { return null; } }
-  function saveLang(l) { try { global.localStorage.setItem(LANG_KEY, l); } catch (e) {} }
+  function langKey(menuId) { return menuId ? LANG_KEY + '_' + menuId : LANG_KEY; }
+  function readLang(menuId) { try { return global.localStorage.getItem(langKey(menuId)); } catch (e) { return null; } }
+  function saveLang(l, menuId) { try { global.localStorage.setItem(langKey(menuId), l); } catch (e) {} }
 
   // Translations for the templates' own UI labels (not menu data). Keyed by the
   // same language keys used in the data (e.g. "English", "Portuguese"); falls
