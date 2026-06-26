@@ -306,6 +306,8 @@ main { overflow: hidden; }
   border: 1px solid var(--sj-border);
   background: var(--sj-card);
   transition: border-color 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .sj-cat-card:hover { border-color: var(--sj-shu); }

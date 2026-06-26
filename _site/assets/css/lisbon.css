@@ -571,11 +571,20 @@ body { background: var(--ls-cal); }
 }
 
 .ls-item-card {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
   padding: 64px 0;
   border-bottom: 1px solid var(--ls-border);
+  cursor: pointer;
+}
+
+/* Stretched link — covers the whole card; click anywhere navigates to detail */
+.ls-item-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .ls-item-card:last-child { border-bottom: none; }
@@ -722,13 +731,6 @@ body { background: var(--ls-cal); }
 @media (min-width: 640px) { .ls-item-name { font-size: 2.25rem; } }
 
 /* Item name as a link to the detail page */
-.ls-item-name-link {
-  color: inherit;
-  transition: color 0.2s;
-}
-
-.ls-item-name-link:hover { color: var(--ls-terra); }
-
 .ls-item-name-pt {
   font-family: var(--ff-serif);
   font-style: italic;
@@ -829,6 +831,8 @@ body { background: var(--ls-cal); }
 /* -------------------------------------------------------- YouTube button */
 
 .ls-yt-btn {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -851,27 +855,6 @@ body { background: var(--ls-cal); }
   margin-top: 20px;
 }
 
-/* -------------------------------------------------------- "View item" button */
-
-.ls-view-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 9px 18px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--ls-azul);
-  border: 1px solid var(--ls-azul);
-  background: transparent;
-  transition: background 0.2s, color 0.2s;
-}
-
-.ls-view-btn:hover {
-  background: var(--ls-azul);
-  color: var(--ls-cal);
-}
 
 /* ---------------------------------------------------- back nav (bottom) */
 

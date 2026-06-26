@@ -382,6 +382,7 @@
       ? '<dl class="ls-item-dl">' + dlParts.join('') + '</dl>'
       : '';
 
+    /* YouTube link stays interactive above the card overlay (z-index handled in CSS) */
     var ytHtml = ytUrl
       ? '<a class="ls-yt-btn" href="' + esc(ytUrl) + '" target="_blank" rel="noopener noreferrer">' +
           '<i class="bi bi-play-circle" aria-hidden="true"></i> ' +
@@ -389,27 +390,21 @@
         '</a>'
       : '';
 
-    /* "View item →" rendered as a prominent outlined button */
-    var viewHtml = detailHref
-      ? '<a class="ls-view-btn" href="' + esc(detailHref) + '">' +
-          esc(lsText('viewItem')) + ' <i class="bi bi-arrow-right" aria-hidden="true"></i>' +
-        '</a>'
+    /* Stretched link covers the whole card; gallery controls & yt-btn sit above it via z-index */
+    var cardLinkHtml = detailHref
+      ? '<a class="ls-item-card-link" href="' + esc(detailHref) + '" aria-label="' + esc(nameAlt) + '"></a>'
       : '';
-
-    /* Item name: link to detail when available, plain heading otherwise */
-    var nameHtml = detailHref
-      ? '<a class="ls-item-name-link" href="' + esc(detailHref) + '">' + esc(nameAlt) + '</a>'
-      : esc(nameAlt);
 
     return '' +
       '<li>' +
         '<article class="ls-item-card">' +
+          cardLinkHtml +
           '<div class="ls-item-media" data-gallery>' + mediaHtml + '</div>' +
           '<div class="ls-item-content">' +
             '<div class="ls-item-head">' +
               '<div class="ls-item-name-wrap">' +
                 '<div class="ls-item-name-row">' +
-                  '<h2 class="ls-item-name">' + nameHtml + '</h2>' +
+                  '<h2 class="ls-item-name">' + esc(nameAlt) + '</h2>' +
                   newBadge +
                 '</div>' +
                 (namePt ? '<p class="ls-item-name-pt">' + esc(namePt) + '</p>' : '') +
@@ -420,10 +415,7 @@
             (fullDesc && fullDesc !== shortDesc ? '<p class="ls-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
             dietTags +
             dlHtml +
-            '<div class="ls-item-footer">' +
-              ytHtml +
-              viewHtml +
-            '</div>' +
+            (ytHtml ? '<div class="ls-item-footer">' + ytHtml + '</div>' : '') +
           '</div>' +
         '</article>' +
       '</li>';

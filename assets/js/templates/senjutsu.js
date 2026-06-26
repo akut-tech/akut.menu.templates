@@ -259,7 +259,7 @@
       : '<div class="sj-cat-card-no-img"><div class="sj-cat-card-no-img-mark"></div></div>';
 
     return '' +
-      '<article class="sj-cat-card">' +
+      '<a class="sj-cat-card" href="' + esc(categoryUrl(cat.Id)) + '">' +
         '<div class="sj-cat-card-media">' +
           mediaHtml +
           '<span class="sj-cat-card-num">' + String(idx + 1).padStart(2, '0') + '</span>' +
@@ -272,13 +272,13 @@
           '<span class="sj-cat-card-rule"></span>' +
           (desc ? '<p class="sj-cat-card-desc">' + esc(desc) + '</p>' : '<p class="sj-cat-card-desc"></p>') +
           '<div class="sj-cat-card-action">' +
-            '<a class="sj-cat-btn" href="' + esc(categoryUrl(cat.Id)) + '">' +
+            '<span class="sj-cat-btn">' +
               esc(sjText('viewCategory')) +
               '<span aria-hidden="true">→</span>' +
-            '</a>' +
+            '</span>' +
           '</div>' +
         '</div>' +
-      '</article>';
+      '</a>';
   }
 
   /* ---------------------------------------------------------- category page */
