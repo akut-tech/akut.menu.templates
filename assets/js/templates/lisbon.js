@@ -28,7 +28,8 @@
   /* ---------------------------------------------------------- i18n strings */
 
   var LS_STRINGS = {
-    backToMenu:     { English: 'Back to Menu',    Portuguese: 'Voltar ao Menu',    Spanish: 'Volver al Menú',    French: 'Retour au Menu' },
+    backToMenu:      { English: 'Back to Menu',    Portuguese: 'Voltar ao Menu',    Spanish: 'Volver al Menú',    French: 'Retour au Menu' },
+    backToMenuShort: { English: 'Back to Menu',    Portuguese: 'Voltar',            Spanish: 'Volver al Menú',    French: 'Retour au Menu' },
     backToCategory: { English: 'Back to Category', Portuguese: 'Voltar à Categoria', Spanish: 'Volver a la Categoría', French: 'Retour à la Catégorie' },
     viewItems:      { English: 'View Items',       Portuguese: 'Ver Itens',         Spanish: 'Ver Artículos',     French: 'Voir les Articles' },
     viewItem:       { English: 'View item',        Portuguese: 'Ver item',          Spanish: 'Ver artículo',      French: 'Voir l\'article' },
