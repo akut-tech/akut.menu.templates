@@ -21,7 +21,7 @@
   var CONFIG = global.AKUT_CONFIG || {};
   var BUNDLED_MENU = (CONFIG.baseUrl || '').replace(/\/$/, '') + '/assets/data/senjutsu-menu.json';
 
-  var state = { menu: null, tenant: null, lang: null, langs: [] };
+  var state = { menu: null, tenant: null, menuId: null, lang: null, langs: [] };
 
   /* ---------------------------------------------------------------- i18n strings specific to senjutsu */
 
@@ -61,11 +61,12 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     state.tenant = queryTenant();
+    state.menuId = queryMenuId();
     var menuRoot     = document.getElementById('menu-root');
     var categoryRoot = document.getElementById('category-root');
     var fallback     = menuRoot || categoryRoot || document.querySelector('main');
 
-    loadMenu(state.tenant)
+    loadMenu(state.tenant, state.menuId)
       .then(function (menu) {
         state.menu  = menu;
         state.langs = Core.availableLanguages(menu);
@@ -87,12 +88,17 @@
     return q && q.trim() ? q.trim() : null;
   }
 
+  function queryMenuId() {
+    var q = new global.URLSearchParams(global.location.search).get('menu');
+    return q && q.trim() ? q.trim() : null;
+  }
+
   function getCategoryId() {
     return new global.URLSearchParams(global.location.search).get('category');
   }
 
-  function loadMenu(tenant) {
-    if (tenant) return Core.fetchMenu(tenant);
+  function loadMenu(tenant, menuId) {
+    if (tenant) return Core.fetchMenu(tenant, menuId);
     return global.fetch(BUNDLED_MENU, { cache: 'no-cache' })
       .then(function (res) {
         if (!res.ok) throw new Error('bundled menu unavailable');
@@ -107,14 +113,14 @@
 
   function homeUrl() {
     var url = Core.templatePath('main', state.menu.TemplateId);
-    return state.tenant ? Core.withTenant(url, state.tenant) : url;
+    return state.tenant ? Core.withTenant(url, state.tenant, state.menuId) : url;
   }
 
   function categoryUrl(catId) {
     var url   = Core.templatePath('category', state.menu.TemplateId);
     var param = 'category=' + encodeURIComponent(catId);
     return state.tenant
-      ? Core.withTenant(url, state.tenant, param)
+      ? Core.withTenant(url, state.tenant, state.menuId, param)
       : url + (url.indexOf('?') === -1 ? '?' : '&') + param;
   }
 

@@ -13,15 +13,16 @@
   var Core = global.MenuCore;
   var esc = Core.escapeHtml;
 
-  var state = { menu: null, tenant: null, lang: null, langs: [] };
+  var state = { menu: null, tenant: null, menuId: null, lang: null, langs: [] };
 
   document.addEventListener('DOMContentLoaded', function () {
     state.tenant = Core.getTenant();
+    state.menuId = Core.getMenuId();
     var menuRoot = document.getElementById('menu-root');
     var detailRoot = document.getElementById('detail-root');
     var fallback = menuRoot || detailRoot || document.querySelector('main');
 
-    Core.fetchMenu(state.tenant)
+    Core.fetchMenu(state.tenant, state.menuId)
       .then(function (menu) {
         state.menu = menu;
         state.langs = Core.availableLanguages(menu);
@@ -41,12 +42,13 @@
   function L(field) { return Core.t(field, state.lang); }
 
   function homeUrl() {
-    return Core.withTenant(Core.templatePath('main', state.menu.TemplateId), state.tenant);
+    return Core.withTenant(Core.templatePath('main', state.menu.TemplateId), state.tenant, state.menuId);
   }
   function detailUrl(itemId) {
     return Core.withTenant(
       Core.templatePath('detail', state.menu.TemplateId),
       state.tenant,
+      state.menuId,
       'item=' + encodeURIComponent(itemId)
     );
   }

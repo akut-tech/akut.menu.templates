@@ -19,7 +19,7 @@
   var CONFIG = global.AKUT_CONFIG || {};
   var BUNDLED_MENU = (CONFIG.baseUrl || '').replace(/\/$/, '') + '/assets/data/deepblue-menu.json';
 
-  var state = { menu: null, tenant: null, lang: null, langs: [] };
+  var state = { menu: null, tenant: null, menuId: null, lang: null, langs: [] };
 
   /* ---------------------------------------------------- decorative motifs */
   // Thin hand-drawn line-art used as elegant section ornaments. They cycle per
@@ -64,11 +64,12 @@
     // tenant — so resolve the tenant from the query string only and otherwise
     // fall back to the project-bundled menu.
     state.tenant = queryTenant();
+    state.menuId = queryMenuId();
     var menuRoot = document.getElementById('menu-root');
     var detailRoot = document.getElementById('detail-root');
     var fallback = menuRoot || detailRoot || document.querySelector('main');
 
-    loadMenu(state.tenant)
+    loadMenu(state.tenant, state.menuId)
       .then(function (menu) {
         state.menu = menu;
         state.langs = Core.availableLanguages(menu);
@@ -88,9 +89,14 @@
     return q && q.trim() ? q.trim() : null;
   }
 
+  function queryMenuId() {
+    var q = new global.URLSearchParams(global.location.search).get('menu');
+    return q && q.trim() ? q.trim() : null;
+  }
+
   // Tenant menu from S3 when present, otherwise the project-bundled menu.
-  function loadMenu(tenant) {
-    if (tenant) return Core.fetchMenu(tenant);
+  function loadMenu(tenant, menuId) {
+    if (tenant) return Core.fetchMenu(tenant, menuId);
     return global.fetch(BUNDLED_MENU, { cache: 'no-cache' })
       .then(function (res) {
         if (!res.ok) throw new Error('bundled menu unavailable');
@@ -107,13 +113,13 @@
 
   function homeUrl() {
     var url = Core.templatePath('main', state.menu.TemplateId);
-    return state.tenant ? Core.withTenant(url, state.tenant) : url;
+    return state.tenant ? Core.withTenant(url, state.tenant, state.menuId) : url;
   }
   function detailUrl(itemId) {
     var url = Core.templatePath('detail', state.menu.TemplateId);
     var item = 'item=' + encodeURIComponent(itemId);
     return state.tenant
-      ? Core.withTenant(url, state.tenant, item)
+      ? Core.withTenant(url, state.tenant, state.menuId, item)
       : url + (url.indexOf('?') === -1 ? '?' : '&') + item;
   }
 

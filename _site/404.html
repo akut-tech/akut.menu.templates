@@ -49,10 +49,12 @@
         return;
       }
 
-      MenuCore.fetchMenu(tenant)
+      var menuId = MenuCore.getMenuId();
+
+      MenuCore.fetchMenu(tenant, menuId)
         .then(function (menu) {
           var main = MenuCore.templatePath('main', menu.TemplateId);
-          location.replace(MenuCore.withTenant(main, tenant));
+          location.replace(MenuCore.withTenant(main, tenant, menuId));
         })
         .catch(function (err) {
           MenuCore.renderError(root, err);

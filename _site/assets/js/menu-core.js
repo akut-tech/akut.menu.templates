@@ -35,19 +35,34 @@
     return segs.length ? decodeURIComponent(segs[0]) : null;
   }
 
+  function getMenuId() {
+    var params = new global.URLSearchParams(global.location.search);
+    var q = params.get('menu');
+    if (q && q.trim()) return q.trim();
+
+    var path = global.location.pathname;
+    if (BASE_URL && path.indexOf(BASE_URL) === 0) path = path.slice(BASE_URL.length);
+
+    var segs = path.split('/').filter(function (s) {
+      return s && !/\.html?$/i.test(s) && RESERVED.indexOf(s) === -1;
+    });
+    return segs.length > 1 ? decodeURIComponent(segs[1]) : null;
+  }
+
   function getItemId() {
     return new global.URLSearchParams(global.location.search).get('item');
   }
 
   /* ------------------------------------------------------------------ fetch */
 
-  function menuUrl(tenant) {
-    return S3_BASE + encodeURIComponent(tenant) + '.json';
+  function menuUrl(tenant, menuId) {
+    return S3_BASE + encodeURIComponent(tenant) + '/active/' + encodeURIComponent(menuId) + '.json';
   }
 
-  function fetchMenu(tenant) {
+  function fetchMenu(tenant, menuId) {
     if (!tenant) return Promise.reject(makeError('NO_TENANT'));
-    return global.fetch(menuUrl(tenant), { cache: 'no-cache' })
+    if (!menuId) return Promise.reject(makeError('NOT_FOUND'));
+    return global.fetch(menuUrl(tenant, menuId), { cache: 'no-cache' })
       .then(function (res) {
         // Public buckets commonly return 403 for a missing key, so treat it as "not found".
         if (!res.ok) throw makeError((res.status === 404 || res.status === 403) ? 'NOT_FOUND' : 'HTTP_ERROR', res.status);
@@ -232,8 +247,9 @@
     return BASE_URL + (tpl[kind] || '');
   }
 
-  function withTenant(url, tenant, extra) {
+  function withTenant(url, tenant, menuId, extra) {
     var qs = 'tenant=' + encodeURIComponent(tenant);
+    if (menuId) qs += '&menu=' + encodeURIComponent(menuId);
     if (extra) qs += '&' + extra;
     return url + (url.indexOf('?') === -1 ? '?' : '&') + qs;
   }
@@ -302,6 +318,7 @@
   global.MenuCore = {
     config: CONFIG,
     getTenant: getTenant,
+    getMenuId: getMenuId,
     getItemId: getItemId,
     fetchMenu: fetchMenu,
     availableLanguages: availableLanguages,

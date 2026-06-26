@@ -6,11 +6,11 @@ dynamic part (pick tenant → fetch menu → render) happens in the browser, so 
 same build serves every tenant.
 
 ```
-<base-url>/<tenant>            →  loads the menu for <tenant>
-                                  https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/active/<tenant>.json
+<base-url>/<tenant>/<menuId>   →  loads the menu for <tenant> / <menuId>
+                                  https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/<tenant>/active/<menuId>.json
 ```
 
-For example `<base-url>/test` renders the `test.json` menu.
+For example `<base-url>/test/abc123` renders the menu at `products/menu/test/active/abc123.json`.
 
 ## How it works
 
@@ -22,13 +22,19 @@ For example `<base-url>/test` renders the `test.json` menu.
 3. **Shared runtime** (`assets/js/menu-core.js`): tenant resolution, fetching,
    i18n, price/diet formatting, and the friendly error screen.
 
-### Tenant routing
+### Tenant and menu routing
 
 The tenant is taken from, in order:
 
 1. the `?tenant=` query string (works on any host), then
-2. the first path segment, e.g. `/test` (reserved segments in `_config.yml`
-   are ignored).
+2. the first path segment, e.g. `/<tenant>/<menuId>` (reserved segments in
+   `_config.yml` are ignored).
+
+The menu ID is taken from, in order:
+
+1. the `?menu=` query string (used by template pages to carry the value across
+   page navigations), then
+2. the second path segment from the entry URL.
 
 On static hosts that don't rewrite unknown paths to `index.html`, a clean URL
 like `/test` is served as **`404.html`**, which is wired to act as the same
