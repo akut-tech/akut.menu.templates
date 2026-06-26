@@ -1,49 +1,20 @@
 ---
-title: Loading menu…
+layout: showcase
+title: Akut Templates
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="icon" href="{{ '/assets/images/fav.png' | relative_url }}" type="image/png">
-  <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/bootstrap-icons.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/menu.css' | relative_url }}">
-  {% include menu-config.html %}
-</head>
-<body>
-  <div class="site-wrapper">
-    <div id="dispatch-root">
-      <div class="menu-loading"><div class="spinner"></div></div>
+{% for tpl in site.data.showcase %}
+<div class="col-md-6">
+  <a class="sc-card" href="{{ tpl.url }}">
+    <div class="sc-card-accent" style="background:{{ tpl.accent }}"></div>
+    <div class="sc-card-body">
+      <h2 class="sc-card-name">{{ tpl.name }}</h2>
+      <p class="sc-card-desc">{{ tpl.description }}</p>
     </div>
-  </div>
-
-  <script src="{{ '/assets/js/menu-core.js' | relative_url }}"></script>
-  <script>
-    (function () {
-      var root = document.getElementById('dispatch-root');
-      var tenant = MenuCore.getTenant();
-
-      if (!tenant) {
-        MenuCore.renderError(root, { code: 'NO_TENANT' });
-        return;
-      }
-
-      var menuId = MenuCore.getMenuId();
-
-      MenuCore.fetchMenu(tenant, menuId)
-        .then(function (menu) {
-          // Route to the template named in TemplateId (or the default one).
-          var main = MenuCore.templatePath('main', menu.TemplateId);
-          location.replace(MenuCore.withTenant(main, tenant, menuId));
-        })
-        .catch(function (err) {
-          MenuCore.renderError(root, err);
-        });
-    })();
-  </script>
-</body>
-</html>
+    <div class="sc-card-footer">
+      <span class="sc-cta" style="color:{{ tpl.accent }}">
+        View demo <i class="bi bi-arrow-right"></i>
+      </span>
+    </div>
+  </a>
+</div>
+{% endfor %}
