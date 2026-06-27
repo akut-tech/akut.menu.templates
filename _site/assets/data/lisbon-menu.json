@@ -20,6 +20,7 @@
   "DefaultLanguage": 2,
   "Currency": 1,
   "Status": 1,
+  "FoundedYear": 1987,
   "Categories": [
     {
       "Id": "ls-cat-starters",

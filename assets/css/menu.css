@@ -138,3 +138,4 @@
 .back-to-top-btn.show { opacity: 1; visibility: visible; }
 
 [hidden] { display: none !important; }
+[data-founded-year]:empty { display: none; }

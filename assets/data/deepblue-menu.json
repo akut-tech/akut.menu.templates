@@ -23,6 +23,7 @@
   "DefaultLanguage": 2,
   "Currency": 1,
   "Status": 1,
+  "FoundedYear": 2003,
   "Categories": [
     {
       "Id": "db-cat-0000-0000-0000-000000000001",

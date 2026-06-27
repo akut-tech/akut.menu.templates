@@ -255,6 +255,7 @@ main { overflow: hidden; }
   padding: 5px 14px;
   margin: 0;
 }
+.sj-hero-notes:empty { display: none; }
 
 /* -------------------------------------------------------- categories section */
 

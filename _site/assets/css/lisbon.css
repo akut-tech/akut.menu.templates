@@ -373,6 +373,7 @@ body { background: var(--ls-cal); }
   max-width: 340px;
   margin: 20px 0 0;
 }
+.ls-hero-notes:empty { display: none; }
 
 .ls-editorial-bottom { display: flex; flex-direction: column; gap: 24px; }
 

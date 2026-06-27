@@ -197,6 +197,12 @@
       Portuguese: 'Disponível {from}–{to}',
       Spanish: 'Disponible {from}–{to}',
       French: 'Disponible {from}–{to}'
+    },
+    foundedYear: {
+      English: 'since {year}',
+      Portuguese: 'desde {year}',
+      Spanish: 'desde {year}',
+      French: 'depuis {year}'
     }
   };
 
@@ -266,6 +272,12 @@
       from: formatTime(av.From, lang),
       to: formatTime(av.To, lang)
     });
+  }
+
+  function formatFoundedYear(menu, lang) {
+    var year = menu && menu.FoundedYear;
+    if (!year || isNaN(year)) return '';
+    return uiText('foundedYear', lang, { year: String(year) });
   }
 
   /* ------------------------------------------------------------------- links */
@@ -367,6 +379,7 @@
     withTenant: withTenant,
     renderError: renderError,
     errorMessage: errorMessage,
-    formatAvailability: formatAvailability
+    formatAvailability: formatAvailability,
+    formatFoundedYear: formatFoundedYear
   };
 })(window);
