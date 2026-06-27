@@ -452,13 +452,17 @@ body { background: var(--ls-cal); }
   line-height: 1.1;
   color: var(--ls-azul);
   margin: 4px 0 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   transition: color 0.45s ease;
 }
 
-@media (min-width: 640px) { .ls-cat-name { font-size: 2.25rem; } }
+@media (min-width: 640px) {
+  .ls-cat-name {
+    font-size: 2.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
 .ls-cat-row:hover .ls-cat-name { color: var(--ls-cal); }
 
