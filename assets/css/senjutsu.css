@@ -256,6 +256,7 @@ main { overflow: hidden; }
   margin: 0;
 }
 .sj-hero-notes:empty { display: none; }
+.sj-hero-notes-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
 /* -------------------------------------------------------- categories section */
 
