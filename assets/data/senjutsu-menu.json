@@ -1,4 +1,4 @@
-{
+﻿{
   "Id": "senjutsu-0000-0000-0000-000000000001",
   "Logo": {
     "Order": 0,
@@ -35,7 +35,7 @@
           "Id": "sj-item-edamame",
           "Order": 1,
           "Diets": [1, 3],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -66,7 +66,7 @@
           "Id": "sj-item-gyoza",
           "Order": 2,
           "Diets": [],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -107,7 +107,7 @@
           "Id": "sj-item-agedashi",
           "Order": 3,
           "Diets": [2],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -138,7 +138,7 @@
           "Id": "sj-item-takoyaki",
           "Order": 4,
           "Diets": [],
-          "IsNew": true,
+          "Tag": 1,
           "Images": [
             {
               "Order": 0,
@@ -180,7 +180,7 @@
           "Id": "sj-item-chirashi",
           "Order": 1,
           "Diets": [],
-          "IsNew": false,
+          "Tag": 4,
           "Images": [
             {
               "Order": 0,
@@ -221,7 +221,7 @@
           "Id": "sj-item-ramen",
           "Order": 2,
           "Diets": [],
-          "IsNew": false,
+          "Tag": 5,
           "Images": [
             {
               "Order": 0,
@@ -252,7 +252,7 @@
           "Id": "sj-item-katsu",
           "Order": 3,
           "Diets": [],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -283,7 +283,7 @@
           "Id": "sj-item-teriyaki",
           "Order": 4,
           "Diets": [],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -314,7 +314,7 @@
           "Id": "sj-item-tempura",
           "Order": 5,
           "Diets": [],
-          "IsNew": true,
+          "Tag": 2,
           "Images": [
             {
               "Order": 0,
@@ -356,7 +356,7 @@
           "Id": "sj-item-mochi",
           "Order": 1,
           "Diets": [2],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -387,7 +387,7 @@
           "Id": "sj-item-dorayaki",
           "Order": 2,
           "Diets": [2],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -418,7 +418,7 @@
           "Id": "sj-item-anmitsu",
           "Order": 3,
           "Diets": [1, 3],
-          "IsNew": true,
+          "Tag": 3,
           "Images": [
             {
               "Order": 0,
@@ -460,7 +460,7 @@
           "Id": "sj-item-matcha",
           "Order": 1,
           "Diets": [1, 3],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -491,7 +491,7 @@
           "Id": "sj-item-hojicha",
           "Order": 2,
           "Diets": [1, 3],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -522,7 +522,7 @@
           "Id": "sj-item-sake",
           "Order": 3,
           "Diets": [1],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,
@@ -553,7 +553,7 @@
           "Id": "sj-item-ramune",
           "Order": 4,
           "Diets": [1, 3],
-          "IsNew": false,
+          "Tag": null,
           "Images": [
             {
               "Order": 0,

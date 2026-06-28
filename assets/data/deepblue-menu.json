@@ -1,4 +1,4 @@
-{
+﻿{
   "Id": "deepblue-0000-0000-0000-000000000001",
   "Logo": {
     "Order": 0,
@@ -58,7 +58,7 @@
           },
           "Allergens": { "English": "Molluscs, Sulphites", "Portuguese": "Moluscos, Sulfitos" },
           "Price": 16.5,
-          "IsNew": false
+          "Tag": null
         },
         {
           "Id": "db-item-000000000002",
@@ -84,7 +84,7 @@
           },
           "Allergens": { "English": "Crustaceans", "Portuguese": "Crustáceos" },
           "Price": 14.0,
-          "IsNew": true
+          "Tag": 1
         },
         {
           "Id": "db-item-000000000003",
@@ -109,7 +109,7 @@
           },
           "Allergens": { "English": "Molluscs", "Portuguese": "Moluscos" },
           "Price": 15.5,
-          "IsNew": false
+          "Tag": null
         }
       ],
       "Image": null
@@ -147,7 +147,7 @@
           },
           "Allergens": { "English": "Molluscs, Milk, Sulphites, Gluten", "Portuguese": "Moluscos, Leite, Sulfitos, Glúten" },
           "Price": 11.5,
-          "IsNew": false
+          "Tag": null
         },
         {
           "Id": "db-item-000000000005",
@@ -172,7 +172,7 @@
           },
           "Allergens": { "English": "Crustaceans, Gluten, Eggs", "Portuguese": "Crustáceos, Glúten, Ovos" },
           "Price": 12.0,
-          "IsNew": true
+          "Tag": 1
         },
         {
           "Id": "db-item-000000000006",
@@ -198,7 +198,7 @@
           },
           "Allergens": { "English": "Fish, Soya, Sesame, Gluten", "Portuguese": "Peixe, Soja, Sésamo, Glúten" },
           "Price": 13.5,
-          "IsNew": false
+          "Tag": null
         }
       ],
       "Image": null
@@ -236,7 +236,7 @@
           },
           "Allergens": { "English": "Fish, Milk", "Portuguese": "Peixe, Leite" },
           "Price": 22.0,
-          "IsNew": false
+          "Tag": null
         },
         {
           "Id": "db-item-000000000008",
@@ -262,7 +262,7 @@
           },
           "Allergens": { "English": "Fish", "Portuguese": "Peixe" },
           "Price": 26.0,
-          "IsNew": true
+          "Tag": 1
         },
         {
           "Id": "db-item-000000000009",
@@ -288,7 +288,7 @@
           },
           "Allergens": { "English": "Crustaceans, Molluscs", "Portuguese": "Crustáceos, Moluscos" },
           "Price": 68.0,
-          "IsNew": false
+          "Tag": null
         }
       ],
       "Image": null
@@ -325,7 +325,7 @@
           },
           "Allergens": { "English": "Gluten, Milk, Eggs", "Portuguese": "Glúten, Leite, Ovos" },
           "Price": 7.5,
-          "IsNew": false
+          "Tag": null
         },
         {
           "Id": "db-item-000000000011",
@@ -350,7 +350,7 @@
           },
           "Allergens": { "English": "Milk, Soya", "Portuguese": "Leite, Soja" },
           "Price": 7.0,
-          "IsNew": true
+          "Tag": 1
         }
       ],
       "Image": null
@@ -384,7 +384,7 @@
           "Ingredients": { "English": "Grapes", "Portuguese": "Uvas" },
           "Allergens": { "English": "Sulphites", "Portuguese": "Sulfitos" },
           "Price": 6.0,
-          "IsNew": false
+          "Tag": null
         },
         {
           "Id": "db-item-000000000013",
@@ -409,7 +409,7 @@
           },
           "Allergens": { "English": "None", "Portuguese": "Nenhum" },
           "Price": 4.0,
-          "IsNew": false
+          "Tag": null
         }
       ],
       "Image": null

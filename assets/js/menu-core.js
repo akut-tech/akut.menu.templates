@@ -175,9 +175,11 @@
     category: {
       English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie'
     },
-    newBadge: {
-      English: 'New', Portuguese: 'Novo', Spanish: 'Nuevo', French: 'Nouveau'
-    },
+    tagNew:     { English: 'New',           Portuguese: 'Novo',            Spanish: 'Nuevo',              French: 'Nouveau' },
+    tagPopular: { English: 'Popular',       Portuguese: 'Popular',         Spanish: 'Popular',            French: 'Populaire' },
+    tagChef:    { English: "Chef's Pick",   Portuguese: 'Escolha do Chef', Spanish: 'Selección del Chef', French: 'Choix du Chef' },
+    tagSeasonal:{ English: 'Seasonal',      Portuguese: 'Sazonal',         Spanish: 'Temporada',          French: 'Saisonnier' },
+    tagLimitedEdition: { English: 'Limited Edition', Portuguese: 'Edição Limitada', Spanish: 'Edición Limitada', French: 'Édition Limitée' },
     noItems: {
       English: 'This menu has no items yet.',
       Portuguese: 'Este menu ainda não tem itens.',
@@ -206,6 +208,14 @@
     }
   };
 
+  var TAG_CONFIG = {
+    1: { key: 'tagNew',     slug: 'new',     icon: 'bi-stars' },
+    2: { key: 'tagPopular', slug: 'popular', icon: 'bi-fire' },
+    3: { key: 'tagChef',    slug: 'chef',    icon: 'bi-award' },
+    4: { key: 'tagSeasonal',       slug: 'seasonal',        icon: 'bi-leaf' },
+    5: { key: 'tagLimitedEdition', slug: 'limited-edition', icon: 'bi-hourglass-split' }
+  };
+
   function uiText(key, lang, vars) {
     var entry = UI_STRINGS[key] || {};
     var s = (lang && entry[lang]) || entry.English || '';
@@ -215,6 +225,17 @@
       });
     }
     return s;
+  }
+
+  function tagBadge(item, lang, cssPrefix) {
+    var tag = item && item.Tag;
+    if (!tag) return '';
+    var cfg = TAG_CONFIG[tag];
+    if (!cfg) return '';
+    return '<span class="' + cssPrefix + ' ' + cssPrefix + '--' + cfg.slug + '">' +
+      '<i class="bi ' + cfg.icon + '" aria-hidden="true"></i> ' +
+      escapeHtml(uiText(cfg.key, lang)) +
+      '</span>';
   }
 
   /* -------------------------------------------------------------- formatting */
@@ -380,6 +401,8 @@
     renderError: renderError,
     errorMessage: errorMessage,
     formatAvailability: formatAvailability,
-    formatFoundedYear: formatFoundedYear
+    formatFoundedYear: formatFoundedYear,
+    TAG_CONFIG: TAG_CONFIG,
+    tagBadge: tagBadge
   };
 })(window);

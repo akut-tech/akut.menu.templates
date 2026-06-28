@@ -42,15 +42,19 @@
 .menu-book-box .menu-book-img img {
   width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
 }
-.menu-new-badge {
-  display: inline-block; margin-left: 10px; vertical-align: middle;
-  background: #fd9900; color: #fff; font-size: 11px; font-weight: 700;
+.menu-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-left: 10px; vertical-align: middle;
+  color: #fff; font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 4px;
 }
-/* The theme's `.section-title span { color: var(--primary-yellow) }` is more
-   specific than `.menu-new-badge`, which turned the detail-page badge text
-   yellow-on-orange (invisible). Re-assert white with matching specificity. */
-.section-title .menu-new-badge { color: #fff; }
+.menu-badge--new      { background: #fd9900; }
+.menu-badge--popular  { background: #e85d04; }
+.menu-badge--chef     { background: #7b2d8b; }
+.menu-badge--seasonal        { background: #16a34a; }
+.menu-badge--limited-edition { background: #dc2626; }
+/* Re-assert white text: `.section-title span` specificity would otherwise override. */
+.section-title .menu-badge { color: #fff; }
 .menu-diet-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .menu-diet-tag {
   font-size: 11px; font-weight: 600; color: #2f8f4e;

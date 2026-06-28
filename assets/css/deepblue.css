@@ -403,12 +403,11 @@ main { overflow: hidden; }
 }
 
 /* badges & tags */
-.db-new {
+.db-badge {
   position: absolute;
   top: 12px; left: 12px;
   z-index: 2;
-  background: var(--db-accent);
-  color: var(--db-deep);
+  display: inline-flex; align-items: center; gap: 4px;
   font-family: var(--ff-body);
   font-size: 10px;
   font-weight: 700;
@@ -417,7 +416,13 @@ main { overflow: hidden; }
   padding: 4px 10px;
   border-radius: 999px;
   box-shadow: 0 6px 16px rgba(6, 24, 43, 0.4);
+  color: var(--db-deep);
 }
+.db-badge--new      { background: var(--db-accent); }
+.db-badge--popular  { background: #ff6b35; }
+.db-badge--chef     { background: #c084fc; }
+.db-badge--seasonal        { background: #4ade80; }
+.db-badge--limited-edition { background: #f87171; }
 .db-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
 .db-tag {
   font-size: 10.5px;
@@ -552,7 +557,7 @@ main { overflow: hidden; }
   line-height: 1.12;
   letter-spacing: 0.02em;
 }
-.db-detail-title .db-new { position: static; margin-left: 12px; box-shadow: none; }
+.db-detail-title .db-badge { position: static; margin-left: 12px; box-shadow: none; }
 .db-detail-price {
   font-family: var(--ff-display);
   color: var(--db-accent);

@@ -818,20 +818,25 @@ body { background: var(--ls-cal); }
   color: var(--ls-verde);
 }
 
-/* ------------------------------------------------------- "New" badge */
+/* ------------------------------------------------------- tag badges */
 
-.ls-new-badge {
+.ls-badge {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   height: 20px;
   padding: 0 8px;
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  background: var(--ls-terra);
   color: #fff;
 }
+.ls-badge--new      { background: var(--ls-terra); }
+.ls-badge--popular  { background: #e85d04; }
+.ls-badge--chef     { background: var(--ls-azul); }
+.ls-badge--seasonal        { background: var(--ls-verde); }
+.ls-badge--limited-edition { background: #d62828; }
 
 /* -------------------------------------------------------- YouTube button */
 

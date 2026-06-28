@@ -1,4 +1,4 @@
-/*
+﻿/*
  * senjutsu.js — renderer for the "Senjutsu" Japanese menu template.
  *
  * Drives two pages (no item detail page in this template):
@@ -160,6 +160,18 @@
 
   function itemCountLabel(count) {
     return count + ' ' + (count === 1 ? sjText('item') : sjText('itemPlural'));
+  }
+
+  function renderTagBadge(item) {
+    var tag = item && item.Tag;
+    if (!tag) return '';
+    var cfg = Core.TAG_CONFIG[tag];
+    if (!cfg) return '';
+    var suffix = tag === 1 ? ' · 新' : '';
+    return '<span class="sj-badge sj-badge--' + cfg.slug + '">' +
+      '<i class="bi ' + cfg.icon + '" aria-hidden="true"></i> ' +
+      esc(Core.uiText(cfg.key, state.lang)) + suffix +
+      '</span>';
   }
 
   /* ------------------------------------------------------------ shared chrome */
@@ -411,9 +423,7 @@
 
     var mediaHtml = '<div class="sj-gallery-track">' + trackHtml + '</div>' + arrowsHtml + dotsHtml + zoomHtml;
 
-    var newBadge = item.IsNew
-      ? '<span class="sj-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + ' · 新</span>'
-      : '';
+    var badge = renderTagBadge(item);
 
     var dietTags = diets.length
       ? '<div class="sj-tags">' + diets.map(function (d) {
@@ -446,7 +456,7 @@
         '<article class="sj-item-card">' +
           '<div class="sj-item-media" data-gallery>' +
             mediaHtml +
-            newBadge +
+            badge +
           '</div>' +
           '<div class="sj-item-content">' +
             '<div class="sj-item-head">' +

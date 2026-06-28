@@ -314,7 +314,7 @@
     var diets = Core.dietLabels(item.Diets, state.lang).map(function (d) {
       return '<span class="db-tag">' + esc(d) + '</span>';
     }).join('');
-    var newBadge = item.IsNew ? '<span class="db-new">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '';
+    var badge = Core.tagBadge(item, state.lang, 'db-badge');
 
     return '' +
       '<a class="db-card" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
@@ -322,7 +322,7 @@
           (img
             ? '<img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy">'
             : '<span class="db-card-noimg">' + MOTIF_SHELL + '</span>') +
-          newBadge +
+          badge +
         '</span>' +
         '<span class="db-card-body">' +
           '<span class="db-card-head">' +
@@ -362,7 +362,7 @@
         '<div class="db-detail-info">' +
           '<span class="db-detail-cat">' + esc(L(category.Name)) + '</span>' +
           '<h1 class="db-detail-title">' + esc(L(item.Name)) +
-            (item.IsNew ? '<span class="db-new">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '') + '</h1>' +
+            Core.tagBadge(item, state.lang, 'db-badge') + '</h1>' +
           (price ? '<div class="db-detail-price">' + esc(price) + '</div>' : '') +
           '<p class="db-detail-lead">' + esc(L(item.ShortDescription)) + '</p>' +
           (diets.length ? '<div class="db-tags db-detail-tags">' +

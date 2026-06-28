@@ -634,12 +634,11 @@ main { overflow: hidden; }
   background: rgba(201,60,39,0.65);
 }
 
-.sj-new-badge {
+.sj-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: var(--sj-yamabuki);
-  color: var(--sj-sumi);
+  display: inline-flex; align-items: center; gap: 4px;
   font-family: var(--ff-serif);
   font-size: 0.65rem;
   font-weight: 700;
@@ -647,6 +646,11 @@ main { overflow: hidden; }
   text-transform: uppercase;
   padding: 3px 9px;
 }
+.sj-badge--new      { background: var(--sj-yamabuki); color: var(--sj-sumi); }
+.sj-badge--popular  { background: var(--sj-shu); color: #fff; }
+.sj-badge--chef     { background: #7b2d8b; color: #fff; }
+.sj-badge--seasonal        { background: var(--sj-matcha); color: #fff; }
+.sj-badge--limited-edition { background: #c0392b; color: #fff; }
 
 /* item content */
 .sj-item-content {

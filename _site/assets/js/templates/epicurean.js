@@ -232,7 +232,7 @@
     var diets = Core.dietLabels(item.Diets, state.lang).map(function (d) {
       return '<span class="menu-diet-tag">' + esc(d) + '</span>';
     }).join('');
-    var newBadge = item.IsNew ? '<span class="menu-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '';
+    var badge = Core.tagBadge(item, state.lang, 'menu-badge');
 
     return '' +
       '<div class="menu-book-box d-flex justify-content-between align-items-center">' +
@@ -240,7 +240,7 @@
         '<div class="menu-book-info-wrap d-flex flex-column flex-xl-row align-items-xl-center">' +
           (img ? '<div class="menu-book-img flex-shrink-0"><img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy"></div>' : '') +
           '<div class="menu-book-info">' +
-            '<h2 class="h2 mb-1">' + esc(L(item.Name)) + newBadge + '</h2>' +
+            '<h2 class="h2 mb-1">' + esc(L(item.Name)) + badge + '</h2>' +
             '<p>' + esc(L(item.ShortDescription)) + '</p>' +
             (diets ? '<div class="menu-diet-tags">' + diets + '</div>' : '') +
           '</div>' +
@@ -280,7 +280,7 @@
             '<a class="detail-back-link" href="' + esc(homeUrl()) + '"><i class="bi bi-arrow-left"></i> ' +
               esc(Core.uiText('backToMenu', state.lang)) + '</a>' +
             '<div class="section-title"><h2>' + esc(L(item.Name)) +
-              (item.IsNew ? '<span class="menu-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + '</span>' : '') + '</h2></div>' +
+              Core.tagBadge(item, state.lang, 'menu-badge') + '</h2></div>' +
             (price ? '<h2 class="price-number-tag">' + esc(price) + '</h2>' : '') +
             '<p>' + esc(L(item.ShortDescription)) + '</p>' +
             (diets.length ? '<div class="menu-diet-tags detail-diet-tags">' +

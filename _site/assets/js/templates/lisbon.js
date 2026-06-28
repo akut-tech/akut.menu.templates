@@ -365,9 +365,7 @@
     var detailHref = hasDetail ? itemUrl(item.Id) : null;
     var mediaHtml = renderGallery(images, nameAlt);
 
-    var newBadge = item.IsNew
-      ? '<span class="ls-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + '</span>'
-      : '';
+    var badge = Core.tagBadge(item, state.lang, 'ls-badge');
 
     var dietTags = diets.length
       ? '<div class="ls-tags">' + diets.map(function (d) {
@@ -415,7 +413,7 @@
               '<div class="ls-item-name-wrap">' +
                 '<div class="ls-item-name-row">' +
                   '<h2 class="ls-item-name">' + esc(nameAlt) + '</h2>' +
-                  newBadge +
+                  badge +
                 '</div>' +
                 (namePt ? '<p class="ls-item-name-pt">' + esc(namePt) + '</p>' : '') +
               '</div>' +
@@ -461,9 +459,7 @@
 
     var mediaHtml = renderGallery(images, nameAlt);
 
-    var newBadge = item.IsNew
-      ? '<span class="ls-new-badge">' + esc(Core.uiText('newBadge', state.lang)) + '</span>'
-      : '';
+    var badge = Core.tagBadge(item, state.lang, 'ls-badge');
 
     var dietSection = diets.length
       ? '<div>' +
@@ -536,7 +532,7 @@
           '<article class="ls-item-detail">' +
             '<div class="ls-item-detail-eyebrow">' +
               '<span class="ls-item-detail-cat">' + esc(L(cat.Name)) + '</span>' +
-              newBadge +
+              badge +
             '</div>' +
             '<h1 class="ls-item-detail-title">' + esc(nameAlt) + '</h1>' +
             (namePt ? '<p class="ls-item-detail-name-pt">' + esc(namePt) + '</p>' : '') +
