@@ -810,7 +810,7 @@ main { overflow: hidden; }
   text-align: center;
 }
 
-.sj-bottom-back-btn {
+.sj-bottom-back .sj-bottom-back-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -824,7 +824,7 @@ main { overflow: hidden; }
   transition: background 0.18s;
 }
 
-.sj-bottom-back-btn:hover { background: var(--sj-sumi); }
+.sj-bottom-back .sj-bottom-back-btn:hover { background: var(--sj-sumi); }
 
 /* ------------------------------------------------------------------ footer */
 
