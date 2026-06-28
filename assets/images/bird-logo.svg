@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!--
+    Perched bird, profile, facing right — monoline outline style.
+    Path traces clockwise: beak tip → over head → back → tail → belly → chest → lower beak → close.
+  -->
+
+  <!-- Outer contour -->
+  <path
+    d="M88 36
+       C82 28 74 20 64 17
+       C56 14 48 14 42 20
+       C36 26 30 36 24 48
+       C20 56 16 64 14 72
+       C10 78 4 86 2 94
+       L12 86
+       C18 78 24 72 30 74
+       C40 78 54 82 66 78
+       C74 74 80 66 82 54
+       C84 44 84 36 80 30
+       C82 28 86 32 88 36Z"
+    stroke="#101113" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Wing inner arc — suggests folded wing against body -->
+  <path
+    d="M58 26 C48 38 40 56 42 74"
+    stroke="#101113" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Legs and feet -->
+  <path
+    d="M54 80 L52 93
+       M48 93 L58 93
+       M65 78 L65 91
+       M61 91 L71 91"
+    stroke="#101113" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Eye -->
+  <circle cx="64" cy="20" r="3.5" fill="#101113"/>
+</svg>
