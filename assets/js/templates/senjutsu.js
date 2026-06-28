@@ -52,6 +52,16 @@
     }
   };
 
+  /* Kanji symbols paired with each tag badge — one per MenuItemTag value.
+     Chosen for the Senjutsu brush-stroke aesthetic. */
+  var SJ_TAG_KANJI = {
+    1: '新',  /* shin  — new        */
+    2: '人気', /* ninki — popular    */
+    3: '推',  /* oshi  — recommend  */
+    4: '旬',  /* shun  — in-season  */
+    5: '限'   /* gen   — limited    */
+  };
+
   function sjText(key) {
     var entry = SJ_STRINGS[key] || {};
     return (state.lang && entry[state.lang]) || entry.English || '';
@@ -167,9 +177,9 @@
     if (!tag) return '';
     var cfg = Core.TAG_CONFIG[tag];
     if (!cfg) return '';
-    var suffix = tag === 1 ? ' · 新' : '';
+    var kanji = SJ_TAG_KANJI[tag] || '';
+    var suffix = kanji ? ' · ' + kanji : '';
     return '<span class="sj-badge sj-badge--' + cfg.slug + '">' +
-      '<i class="bi ' + cfg.icon + '" aria-hidden="true"></i> ' +
       esc(Core.uiText(cfg.key, state.lang)) + suffix +
       '</span>';
   }
