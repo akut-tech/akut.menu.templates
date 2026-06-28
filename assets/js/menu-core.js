@@ -210,9 +210,9 @@
 
   var TAG_CONFIG = {
     1: { key: 'tagNew',     slug: 'new',     icon: 'bi-stars' },
-    2: { key: 'tagPopular', slug: 'popular', icon: 'bi-fire' },
+    2: { key: 'tagPopular', slug: 'popular', icon: 'bi-graph-up-arrow' },
     3: { key: 'tagChef',    slug: 'chef',    icon: 'bi-award' },
-    4: { key: 'tagSeasonal',       slug: 'seasonal',        icon: 'bi-leaf' },
+    4: { key: 'tagSeasonal',       slug: 'seasonal',        icon: 'bi-flower2' },
     5: { key: 'tagLimitedEdition', slug: 'limited-edition', icon: 'bi-hourglass-split' }
   };
 
