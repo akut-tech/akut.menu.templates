@@ -70,10 +70,7 @@
             "English": "Tomatoes, basil, cream, onion",
             "Portuguese": "Tomates, manjericão, natas, cebola"
           },
-          "Allergens": {
-            "English": "Milk",
-            "Portuguese": "Leite"
-          },
+          "Allergens": [7],
           "Price": 5.5,
           "Tag": null
         },
@@ -112,10 +109,7 @@
             "English": "Assorted cheeses, crackers, honey, walnuts, dried fruits",
             "Portuguese": "Queijos variados, crackers, mel, nozes, frutos secos"
           },
-          "Allergens": {
-            "English": "Milk, Gluten, Nuts",
-            "Portuguese": "Leite, Glúten, Frutos de casca rija"
-          },
+          "Allergens": [7, 1, 8],
           "Price": 9.5,
           "Tag": null
         },
@@ -154,10 +148,7 @@
             "English": "Bread, tomato, basil, olive oil, garlic",
             "Portuguese": "Pão, tomate, manjericão, azeite, alho"
           },
-          "Allergens": {
-            "English": "Gluten",
-            "Portuguese": "Glúten"
-          },
+          "Allergens": [1],
           "Price": 4.5,
           "Tag": 1
         }
@@ -211,10 +202,7 @@
             "English": "Chicken breast, lemon, garlic, rosemary, thyme, potatoes, seasonal vegetables",
             "Portuguese": "Peito de frango, limão, alho, alecrim, tomilho, batatas, legumes da época"
           },
-          "Allergens": {
-            "English": "None",
-            "Portuguese": "Nenhum"
-          },
+          "Allergens": [],
           "Price": 13.5,
           "Tag": null
         },
@@ -253,10 +241,7 @@
             "English": "Ribeye steak, black pepper, cream, butter, shallots, brandy",
             "Portuguese": "Bife de entrecosto, pimenta preta, natas, manteiga, chalotas, brandy"
           },
-          "Allergens": {
-            "English": "Milk",
-            "Portuguese": "Leite"
-          },
+          "Allergens": [7],
           "Price": 18.9,
           "Tag": null
         },
@@ -295,10 +280,7 @@
             "English": "Arborio rice, mushrooms, parmesan, white wine, onion, butter, thyme",
             "Portuguese": "Arroz Arborio, cogumelos, parmesão, vinho branco, cebola, manteiga, tomilho"
           },
-          "Allergens": {
-            "English": "Milk",
-            "Portuguese": "Leite"
-          },
+          "Allergens": [7],
           "Price": 11.5,
           "Tag": 2
         },
@@ -337,10 +319,7 @@
             "English": "Salmon fillet, lemon, butter, asparagus, new potatoes, dill",
             "Portuguese": "Filete de salmão, limão, manteiga, espargos, batatinhas novas, endro"
           },
-          "Allergens": {
-            "English": "Fish, Milk",
-            "Portuguese": "Peixe, Leite"
-          },
+          "Allergens": [4, 7],
           "Price": 16.5,
           "Tag": 4
         }
@@ -394,10 +373,7 @@
             "English": "Romaine lettuce, parmesan, croutons, Caesar dressing, lemon",
             "Portuguese": "Alface romana, parmesão, croutons, molho César, limão"
           },
-          "Allergens": {
-            "English": "Gluten, Milk, Eggs, Fish",
-            "Portuguese": "Glúten, Leite, Ovos, Peixe"
-          },
+          "Allergens": [1, 7, 3, 4],
           "Price": 8.5,
           "Tag": 5
         },
@@ -436,10 +412,7 @@
             "English": "Buffalo mozzarella, tomato, fresh basil, olive oil, balsamic glaze",
             "Portuguese": "Mozzarella de búfala, tomate, manjericão fresco, azeite, redução de balsâmico"
           },
-          "Allergens": {
-            "English": "Milk",
-            "Portuguese": "Leite"
-          },
+          "Allergens": [7],
           "Price": 8.5,
           "Tag": null
         }
@@ -493,10 +466,7 @@
             "English": "Dark chocolate, cream, butter, eggs, sugar, pastry",
             "Portuguese": "Chocolate negro, natas, manteiga, ovos, açúcar, massa"
           },
-          "Allergens": {
-            "English": "Gluten, Milk, Eggs",
-            "Portuguese": "Glúten, Leite, Ovos"
-          },
+          "Allergens": [1, 7, 3],
           "Price": 6.5,
           "Tag": null
         },
@@ -535,10 +505,7 @@
             "English": "Cream, egg yolks, sugar, vanilla, seasonal berries",
             "Portuguese": "Natas, gemas de ovo, açúcar, baunilha, frutos vermelhos da época"
           },
-          "Allergens": {
-            "English": "Milk, Eggs",
-            "Portuguese": "Leite, Ovos"
-          },
+          "Allergens": [7, 3],
           "Price": 5.9,
           "Tag": null
         },
@@ -577,10 +544,7 @@
             "English": "Mascarpone, eggs, sugar, espresso, ladyfinger biscuits, cocoa powder",
             "Portuguese": "Mascarpone, ovos, açúcar, espresso, biscoitos savoiardi, cacau em pó"
           },
-          "Allergens": {
-            "English": "Gluten, Milk, Eggs",
-            "Portuguese": "Glúten, Leite, Ovos"
-          },
+          "Allergens": [1, 7, 3],
           "Price": 6,
           "Tag": 3
         },
@@ -619,10 +583,7 @@
             "English": "Bread, eggs, milk, sugar, cinnamon, olive oil",
             "Portuguese": "Pão, ovos, leite, açúcar, canela, azeite"
           },
-          "Allergens": {
-            "English": "Gluten, Milk, Eggs",
-            "Portuguese": "Glúten, Leite, Ovos"
-          },
+          "Allergens": [1, 7, 3],
           "Price": 7,
           "Tag": null
         }
@@ -676,10 +637,7 @@
             "English": "Lemon juice, sparkling water, honey, mint, ice",
             "Portuguese": "Sumo de limão, água com gás, mel, hortelã, gelo"
           },
-          "Allergens": {
-            "English": "None",
-            "Portuguese": "Nenhum"
-          },
+          "Allergens": [],
           "Price": 3,
           "Tag": null
         },
@@ -718,10 +676,7 @@
             "English": "Cold brew coffee, ice, milk or oat milk",
             "Portuguese": "Café cold brew, gelo, leite ou leite de aveia"
           },
-          "Allergens": {
-            "English": "Milk",
-            "Portuguese": "Leite"
-          },
+          "Allergens": [7],
           "Price": 3.5,
           "Tag": null
         },
@@ -760,10 +715,7 @@
             "English": "Vodka, ginger beer, lime juice, mint, ice",
             "Portuguese": "Vodka, cerveja de gengibre, sumo de lima, hortelã, gelo"
           },
-          "Allergens": {
-            "English": "None",
-            "Portuguese": "Nenhum"
-          },
+          "Allergens": [],
           "Price": 7.5,
           "Tag": null
         }

@@ -404,7 +404,7 @@
   function renderTabs(item) {
     var full = L(item.FullDescription) || L(item.ShortDescription);
     var ingredients = L(item.Ingredients);
-    var allergens = L(item.Allergens);
+    var allergens = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var hasInfo = ingredients || allergens;
 
     return '' +

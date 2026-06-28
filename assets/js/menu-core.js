@@ -100,7 +100,7 @@
       scan(c.Name); scan(c.Description);
       (c.Items || []).forEach(function (i) {
         scan(i.Name); scan(i.ShortDescription); scan(i.FullDescription);
-        scan(i.Ingredients); scan(i.Allergens);
+        scan(i.Ingredients);
       });
     });
     return order;
@@ -215,6 +215,37 @@
     4: { key: 'tagSeasonal',       slug: 'seasonal',        icon: 'bi-flower2' },
     5: { key: 'tagLimitedEdition', slug: 'limited-edition', icon: 'bi-hourglass-split' }
   };
+
+  // EU-regulated list of 14 allergens, keyed by the Allergen enum integer value.
+  var ALLERGEN_LABELS = {
+    1:  { English: 'Gluten',       Portuguese: 'Glúten',                French: 'Gluten',          Spanish: 'Gluten' },
+    2:  { English: 'Crustaceans',  Portuguese: 'Crustáceos',            French: 'Crustacés',        Spanish: 'Crustáceos' },
+    3:  { English: 'Eggs',         Portuguese: 'Ovos',                  French: 'Œufs',             Spanish: 'Huevos' },
+    4:  { English: 'Fish',         Portuguese: 'Peixe',                 French: 'Poisson',          Spanish: 'Pescado' },
+    5:  { English: 'Peanuts',      Portuguese: 'Amendoins',             French: 'Cacahuètes',       Spanish: 'Cacahuetes' },
+    6:  { English: 'Soybeans',     Portuguese: 'Soja',                  French: 'Soja',             Spanish: 'Soja' },
+    7:  { English: 'Milk',         Portuguese: 'Leite',                 French: 'Lait',             Spanish: 'Leche' },
+    8:  { English: 'Nuts',         Portuguese: 'Frutos de casca rija',  French: 'Fruits à coque',   Spanish: 'Frutos de cáscara' },
+    9:  { English: 'Celery',       Portuguese: 'Aipo',                  French: 'Céleri',           Spanish: 'Apio' },
+    10: { English: 'Mustard',      Portuguese: 'Mostarda',              French: 'Moutarde',         Spanish: 'Mostaza' },
+    11: { English: 'Sesame',       Portuguese: 'Sésamo',                French: 'Sésame',           Spanish: 'Sésamo' },
+    12: { English: 'Sulphites',    Portuguese: 'Sulfitos',              French: 'Sulfites',         Spanish: 'Sulfitos' },
+    13: { English: 'Lupin',        Portuguese: 'Tremoço',               French: 'Lupin',            Spanish: 'Altramuces' },
+    14: { English: 'Molluscs',     Portuguese: 'Moluscos',              French: 'Mollusques',       Spanish: 'Moluscos' }
+  };
+
+  // Map an array of allergen IDs to translated label strings.
+  // Unknown IDs are silently skipped (no broken display on schema extensions).
+  function allergenLabels(ids, lang) {
+    if (!Array.isArray(ids) || !ids.length) return [];
+    return ids.reduce(function (acc, id) {
+      var entry = ALLERGEN_LABELS[id];
+      if (!entry) return acc;
+      var label = (lang && entry[lang]) || entry.English;
+      if (label) acc.push(label);
+      return acc;
+    }, []);
+  }
 
   function uiText(key, lang, vars) {
     var entry = UI_STRINGS[key] || {};
@@ -403,6 +434,8 @@
     formatAvailability: formatAvailability,
     formatFoundedYear: formatFoundedYear,
     TAG_CONFIG: TAG_CONFIG,
-    tagBadge: tagBadge
+    tagBadge: tagBadge,
+    ALLERGEN_LABELS: ALLERGEN_LABELS,
+    allergenLabels: allergenLabels
   };
 })(window);

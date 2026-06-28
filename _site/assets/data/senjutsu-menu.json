@@ -59,7 +59,7 @@
             "Portuguese": "Vagens de soja jovens levemente cozidas a vapor, polvilhadas com flocos de sal marinho japonês. Uma forma tradicional e refrescante de abrir a refeição."
           },
           "Price": 5.50,
-          "Allergens": { "English": "Soy", "Portuguese": "Soja" },
+          "Allergens": [6],
           "Ingredients": { "English": "Soybeans, sea salt", "Portuguese": "Feijão de soja, sal marinho" }
         },
         {
@@ -100,7 +100,7 @@
             "Portuguese": "Cinco dumplings artesanais de porco e couve, selados na frigideira até a base ficar dourada e crocante, servidos com molho ponzu e um toque de óleo de malagueta."
           },
           "Price": 8.50,
-          "Allergens": { "English": "Gluten, Soy", "Portuguese": "Glúten, Soja" },
+          "Allergens": [1, 6],
           "Ingredients": { "English": "Pork, cabbage, garlic, ginger, sesame oil, wheat wrapper", "Portuguese": "Porco, couve, alho, gengibre, óleo de sésamo, massa de trigo" }
         },
         {
@@ -131,7 +131,7 @@
             "Portuguese": "Tofu sedoso polvilhado em fécula de batata e frito até a crosta ficar translúcida e delicada, servido em caldo dashi quente com daikon ralado, cebolinho e katsuobushi."
           },
           "Price": 7.50,
-          "Allergens": { "English": "Soy, Fish", "Portuguese": "Soja, Peixe" },
+          "Allergens": [6, 4],
           "Ingredients": { "English": "Silken tofu, potato starch, dashi, daikon, scallions, katsuobushi", "Portuguese": "Tofu sedoso, fécula de batata, dashi, daikon, cebolinho, katsuobushi" }
         },
         {
@@ -162,7 +162,7 @@
             "Portuguese": "Seis bolinhos dourados de massa escondendo um pedaço tenro de polvo, servidos diretamente do ferro com molho takoyaki, maionese japonesa e uma nuvem de flocos de bonito a dançar."
           },
           "Price": 9.00,
-          "Allergens": { "English": "Gluten, Egg, Soy, Mollusc", "Portuguese": "Glúten, Ovo, Soja, Molusco" },
+          "Allergens": [1, 3, 6, 14],
           "Ingredients": { "English": "Octopus, wheat batter, bonito flakes, takoyaki sauce, Japanese mayo, scallions", "Portuguese": "Polvo, massa de trigo, flocos de bonito, molho takoyaki, maionese japonesa, cebolinho" }
         }
       ]
@@ -214,7 +214,7 @@
             "Portuguese": "Uma seleção generosa do sashimi mais fresco do dia — atum, salmão e peixe-limão — disposto sobre arroz de sushi avinagrado, servido com gengibre em vinagre, wasabi e ponzu à parte."
           },
           "Price": 24.00,
-          "Allergens": { "English": "Fish, Soy, Sesame", "Portuguese": "Peixe, Soja, Sésamo" },
+          "Allergens": [4, 6, 11],
           "Ingredients": { "English": "Tuna, salmon, yellowtail, sushi rice, rice vinegar, nori, pickled ginger, wasabi", "Portuguese": "Atum, salmão, peixe-limão, arroz de sushi, vinagre de arroz, nori, gengibre em vinagre, wasabi" }
         },
         {
@@ -245,7 +245,7 @@
             "Portuguese": "Caldo rico de frango e osso de porco temperado com shoyu envelhecido, coberto com fatias de barriga de porco chashu estufada, ajitsuke tamago, rebentos de bambu menma, nori e cebolinho."
           },
           "Price": 16.00,
-          "Allergens": { "English": "Gluten, Egg, Soy", "Portuguese": "Glúten, Ovo, Soja" },
+          "Allergens": [1, 3, 6],
           "Ingredients": { "English": "Ramen noodles, pork bone broth, shoyu, chashu pork belly, soft egg, bamboo shoots, nori, scallions", "Portuguese": "Massa ramen, caldo de osso de porco, shoyu, barriga de porco chashu, ovo macio, rebentos de bambu, nori, cebolinho" }
         },
         {
@@ -276,7 +276,7 @@
             "Portuguese": "Um lombo de porco de corte grosso envolto numa crosta de panko estaladiça, frito dourado e servido com couve ralada, arroz branco cozido, sopa de miso da casa e molho tonkatsu."
           },
           "Price": 18.50,
-          "Allergens": { "English": "Gluten, Egg, Soy", "Portuguese": "Glúten, Ovo, Soja" },
+          "Allergens": [1, 3, 6],
           "Ingredients": { "English": "Pork loin, panko breadcrumbs, egg, flour, shredded cabbage, Japanese rice, miso, tonkatsu sauce", "Portuguese": "Lombo de porco, panko, ovo, farinha, couve ralada, arroz japonês, miso, molho tonkatsu" }
         },
         {
@@ -307,7 +307,7 @@
             "Portuguese": "Filete de salmão do Atlântico grelhado a alta temperatura e finalizado com um glaze teriyaki caseiro de mirin, sake e soja. Servido com arroz japonês cozido, pickles sazonais e uma fatia de limão."
           },
           "Price": 21.00,
-          "Allergens": { "English": "Fish, Soy, Gluten", "Portuguese": "Peixe, Soja, Glúten" },
+          "Allergens": [4, 6, 1],
           "Ingredients": { "English": "Atlantic salmon, mirin, sake, soy sauce, Japanese rice, seasonal pickles", "Portuguese": "Salmão do Atlântico, mirin, sake, molho de soja, arroz japonês, pickles sazonais" }
         },
         {
@@ -338,7 +338,7 @@
             "Portuguese": "Quatro camarões-tigre e uma seleção de legumes sazonais — batata-doce, courgette, shiitake — fritos em massa gelada e mal misturada até ficarem incrivelmente leves. Servidos com caldo tentsuyu e daikon ralado."
           },
           "Price": 22.50,
-          "Allergens": { "English": "Gluten, Egg, Crustacean, Fish, Soy", "Portuguese": "Glúten, Ovo, Crustáceo, Peixe, Soja" },
+          "Allergens": [1, 3, 2, 4, 6],
           "Ingredients": { "English": "Tiger prawns, sweet potato, courgette, shiitake, wheat flour, egg, ice water, tentsuyu broth, daikon", "Portuguese": "Camarão-tigre, batata-doce, courgette, shiitake, farinha de trigo, ovo, água gelada, caldo tentsuyu, daikon" }
         }
       ]
@@ -380,7 +380,7 @@
             "Portuguese": "Bolo de arroz glutinoso batido à mão, envolto em gelado de matcha de grau ceremonial moído em pedra. Servido em três peças por prato, polvilhado com farinha kinako."
           },
           "Price": 7.50,
-          "Allergens": { "English": "Dairy, Soy", "Portuguese": "Lacticínios, Soja" },
+          "Allergens": [7, 6],
           "Ingredients": { "English": "Glutinous rice, matcha ice cream, kinako powder", "Portuguese": "Arroz glutinoso, gelado de matcha, farinha kinako" }
         },
         {
@@ -411,7 +411,7 @@
             "Portuguese": "Duas panquecas fofas glaceadas com mel, recheadas com uma generosa camada de pasta de feijão azuki tsubu-an. Um querido wagashi japonês, servido quente."
           },
           "Price": 6.50,
-          "Allergens": { "English": "Gluten, Egg", "Portuguese": "Glúten, Ovo" },
+          "Allergens": [1, 3],
           "Ingredients": { "English": "Flour, egg, honey, baking soda, azuki bean paste", "Portuguese": "Farinha, ovo, mel, bicarbonato de sódio, pasta de feijão azuki" }
         },
         {
@@ -442,7 +442,7 @@
             "Portuguese": "Cubos de delicada gelatina de agar-agar kanten servidos com fruta sazonal, uma colher de pasta azuki suave e um fio generoso de calda de açúcar preto kuromitsu. Leve, elegante e genuinamente japonês."
           },
           "Price": 7.00,
-          "Allergens": { "English": "", "Portuguese": "" },
+          "Allergens": [],
           "Ingredients": { "English": "Kanten (agar-agar), seasonal fruit, azuki paste, kuromitsu syrup", "Portuguese": "Kanten (agar-agar), fruta sazonal, pasta azuki, calda kuromitsu" }
         }
       ]
@@ -484,7 +484,7 @@
             "Portuguese": "Matcha premium de primeira colheita de Uji, Quioto, batido em espuma sedosa com um chasen de bambu. Servido numa chawan de cerâmica artesanal com um pequeno wagashi à parte."
           },
           "Price": 6.00,
-          "Allergens": { "English": "", "Portuguese": "" },
+          "Allergens": [],
           "Ingredients": { "English": "Ceremonial-grade matcha (Uji, Kyoto), water", "Portuguese": "Matcha de grau ceremonial (Uji, Quioto), água" }
         },
         {
@@ -515,7 +515,7 @@
             "Portuguese": "Chá verde bancha ao estilo de Quioto, lentamente torrado sobre carvão até as folhas ficarem castanho-caramelo escuro. Terroso, ligeiramente fumado e naturalmente doce, com muito pouca cafeína — um chá perfeito para o final da refeição."
           },
           "Price": 4.50,
-          "Allergens": { "English": "", "Portuguese": "" },
+          "Allergens": [],
           "Ingredients": { "English": "Roasted bancha green tea leaves, water", "Portuguese": "Folhas de chá verde bancha torradas, água" }
         },
         {
@@ -546,7 +546,7 @@
             "Portuguese": "Uma dose de 150 ml de sake junmai gelado — produzido apenas com arroz, água, koji e levedura, sem álcool adicionado. Encorpado, ligeiramente umami, com final limpo e seco. Servido numa ochoko tradicional."
           },
           "Price": 9.00,
-          "Allergens": { "English": "", "Portuguese": "" },
+          "Allergens": [],
           "Ingredients": { "English": "Rice, koji, water, yeast", "Portuguese": "Arroz, koji, água, levedura" }
         },
         {
@@ -577,7 +577,7 @@
             "Portuguese": "A icónica garrafa de vidro Codd-neck selada com um berlinde de vidro — pressiona o berlinde para libertar uma efervescência brilhante de limão e lima. Um clássico nostálgico do verão japonês."
           },
           "Price": 4.00,
-          "Allergens": { "English": "", "Portuguese": "" },
+          "Allergens": [],
           "Ingredients": { "English": "Carbonated water, sugar, citric acid, lemon-lime natural flavouring", "Portuguese": "Água com gás, açúcar, ácido cítrico, aroma natural de limão e lima" }
         }
       ]

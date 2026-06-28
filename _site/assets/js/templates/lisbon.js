@@ -353,7 +353,7 @@
     var images      = buildImages(item);
     var price       = Core.formatPrice(item.Price, state.menu.Currency);
     var diets       = Core.dietLabels(item.Diets, state.lang);
-    var allergens   = L(item.Allergens);
+    var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var ingredients = L(item.Ingredients);
     var shortDesc   = L(item.ShortDescription);
     var fullDesc    = L(item.FullDescription) || shortDesc;
@@ -448,7 +448,7 @@
     var images      = buildImages(item);
     var price       = Core.formatPrice(item.Price, state.menu.Currency);
     var diets       = Core.dietLabels(item.Diets, state.lang);
-    var allergens   = L(item.Allergens);
+    var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var ingredients = L(item.Ingredients);
     var shortDesc   = L(item.ShortDescription);
     var fullDesc    = L(item.FullDescription) || shortDesc;

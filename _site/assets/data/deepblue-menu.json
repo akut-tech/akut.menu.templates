@@ -56,7 +56,7 @@
             "English": "Rock oysters, lemon, red wine vinegar, shallots, black pepper",
             "Portuguese": "Ostras, limão, vinagre de vinho tinto, chalotas, pimenta preta"
           },
-          "Allergens": { "English": "Molluscs, Sulphites", "Portuguese": "Moluscos, Sulfitos" },
+          "Allergens": [14, 12],
           "Price": 16.5,
           "Tag": null
         },
@@ -82,7 +82,7 @@
             "English": "Tiger prawns, tomato, horseradish, lemon, celery salt",
             "Portuguese": "Gambas tigre, tomate, rábano, limão, sal de aipo"
           },
-          "Allergens": { "English": "Crustaceans", "Portuguese": "Crustáceos" },
+          "Allergens": [2],
           "Price": 14.0,
           "Tag": 1
         },
@@ -107,7 +107,7 @@
             "English": "Scallops, blood orange, olive oil, sea salt, chilli",
             "Portuguese": "Vieiras, laranja sanguínea, azeite, flor de sal, malagueta"
           },
-          "Allergens": { "English": "Molluscs", "Portuguese": "Moluscos" },
+          "Allergens": [14],
           "Price": 15.5,
           "Tag": null
         }
@@ -145,7 +145,7 @@
             "English": "Mussels, white wine, garlic, shallots, cream, parsley, butter",
             "Portuguese": "Mexilhões, vinho branco, alho, chalotas, natas, salsa, manteiga"
           },
-          "Allergens": { "English": "Molluscs, Milk, Sulphites, Gluten", "Portuguese": "Moluscos, Leite, Sulfitos, Glúten" },
+          "Allergens": [14, 7, 12, 1],
           "Price": 11.5,
           "Tag": null
         },
@@ -170,7 +170,7 @@
             "English": "Crab meat, breadcrumbs, egg, sweetcorn, lime, mayonnaise, garlic",
             "Portuguese": "Carne de sapateira, pão ralado, ovo, milho doce, lima, maionese, alho"
           },
-          "Allergens": { "English": "Crustaceans, Gluten, Eggs", "Portuguese": "Crustáceos, Glúten, Ovos" },
+          "Allergens": [2, 1, 3],
           "Price": 12.0,
           "Tag": 1
         },
@@ -196,7 +196,7 @@
             "English": "Yellowfin tuna, sesame oil, soy, avocado, spring onion, wonton",
             "Portuguese": "Atum rabilho, óleo de sésamo, soja, abacate, cebolinho, wonton"
           },
-          "Allergens": { "English": "Fish, Soya, Sesame, Gluten", "Portuguese": "Peixe, Soja, Sésamo, Glúten" },
+          "Allergens": [4, 6, 11, 1],
           "Price": 13.5,
           "Tag": null
         }
@@ -234,7 +234,7 @@
             "English": "Salmon, butter, lemon, dill, asparagus, new potatoes",
             "Portuguese": "Salmão, manteiga, limão, endro, espargos, batatinhas novas"
           },
-          "Allergens": { "English": "Fish, Milk", "Portuguese": "Peixe, Leite" },
+          "Allergens": [4, 7],
           "Price": 22.0,
           "Tag": null
         },
@@ -260,7 +260,7 @@
             "English": "Sea bass, fennel, lemon, thyme, olive oil, garlic",
             "Portuguese": "Robalo, funcho, limão, tomilho, azeite, alho"
           },
-          "Allergens": { "English": "Fish", "Portuguese": "Peixe" },
+          "Allergens": [4],
           "Price": 26.0,
           "Tag": 1
         },
@@ -286,7 +286,7 @@
             "English": "Lobster, crab, tiger prawns, oysters, clams, whelks, lemon",
             "Portuguese": "Lavagante, sapateira, gambas tigre, ostras, amêijoas, búzios, limão"
           },
-          "Allergens": { "English": "Crustaceans, Molluscs", "Portuguese": "Crustáceos, Moluscos" },
+          "Allergens": [2, 14],
           "Price": 68.0,
           "Tag": null
         }
@@ -323,7 +323,7 @@
             "English": "Lemon, butter, eggs, sugar, flour, sea salt",
             "Portuguese": "Limão, manteiga, ovos, açúcar, farinha, flor de sal"
           },
-          "Allergens": { "English": "Gluten, Milk, Eggs", "Portuguese": "Glúten, Leite, Ovos" },
+          "Allergens": [1, 7, 3],
           "Price": 7.5,
           "Tag": null
         },
@@ -348,7 +348,7 @@
             "English": "Dark chocolate, cream, milk, caramel, sea salt, vanilla",
             "Portuguese": "Chocolate negro, natas, leite, caramelo, flor de sal, baunilha"
           },
-          "Allergens": { "English": "Milk, Soya", "Portuguese": "Leite, Soja" },
+          "Allergens": [7, 6],
           "Price": 7.0,
           "Tag": 1
         }
@@ -382,7 +382,7 @@
             "Portuguese": "Um branco luminoso e mineral da costa atlântica — citrinos e salinidade no final, o par natural do marisco cru."
           },
           "Ingredients": { "English": "Grapes", "Portuguese": "Uvas" },
-          "Allergens": { "English": "Sulphites", "Portuguese": "Sulfitos" },
+          "Allergens": [12],
           "Price": 6.0,
           "Tag": null
         },
@@ -407,7 +407,7 @@
             "English": "Grapefruit, lime, rosemary, sparkling water, sugar",
             "Portuguese": "Toranja, lima, alecrim, água com gás, açúcar"
           },
-          "Allergens": { "English": "None", "Portuguese": "Nenhum" },
+          "Allergens": [],
           "Price": 4.0,
           "Tag": null
         }
