@@ -2,6 +2,7 @@
 <script>
   window.AKUT_CONFIG = {
     s3Base: {{ site.s3_base | jsonify }},
+    s3EphemeralBase: {{ site.s3_ephemeral_base | jsonify }},
     baseUrl: {{ site.baseurl | default: "" | jsonify }},
     defaultTemplate: {{ site.default_template | jsonify }},
     reservedPaths: {{ site.reserved_paths | jsonify }},

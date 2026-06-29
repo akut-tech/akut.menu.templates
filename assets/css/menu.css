@@ -143,3 +143,74 @@
 
 [hidden] { display: none !important; }
 [data-founded-year]:empty { display: none; }
+
+/* ---------------------------------------------------------- preview band */
+/*
+ * Full-width fixed bar at the viewport top, inserted by renderPreviewBand().
+ * Template-aware via modifier classes (.preview-band--deepblue, etc.).
+ * Each variant uses the template's own palette for high-contrast visibility.
+ */
+.preview-band {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10000;
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Epicurean default: amber on near-black */
+  background: #fd9900;
+  color: #101113;
+  font-family: var(--ff-abril-display, Georgia, serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Scrolling marquee inner track — two identical spans side by side.
+   Animation moves by -50% (= one span's width) for a seamless loop. */
+.preview-band-inner {
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+  animation: preview-band-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.preview-band-inner span { padding: 0 0; }
+
+@keyframes preview-band-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Nudge page content below the band */
+body.has-preview-band { padding-top: 40px; }
+
+/* Deep Blue — dark ocean with turquoise text */
+.preview-band--deepblue {
+  background: #06182b;
+  color: #13c5dd;
+  border-bottom: 1px solid rgba(19, 197, 221, 0.35);
+  font-family: var(--ff-abril-display, Georgia, serif);
+}
+
+/* Senjutsu — sumi ink with vermilion text */
+.preview-band--senjutsu {
+  background: #1a1a2a;
+  color: #c93c27;
+  font-family: "Noto Serif JP", Georgia, serif;
+  letter-spacing: .18em;
+}
+
+/* Lisbon — azul atlântico with white text */
+.preview-band--lisbon {
+  background: #1a4a7a;
+  color: #ffffff;
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  letter-spacing: .15em;
+}

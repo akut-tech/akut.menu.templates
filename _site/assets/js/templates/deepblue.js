@@ -78,6 +78,7 @@
         setupLangSwitcher();
         if (menuRoot) renderMain(menuRoot);
         else if (detailRoot) renderDetail(detailRoot);
+        if (Core.isPreview()) Core.renderPreviewBand('deepblue');
       })
       .catch(function (err) {
         Core.renderError(fallback, err, state.lang);
@@ -94,9 +95,14 @@
     return q && q.trim() ? q.trim() : null;
   }
 
-  // Tenant menu from S3 when present, otherwise the project-bundled menu.
+  // Tenant menu from S3 (or ephemeral S3 in preview mode) when present,
+  // otherwise the project-bundled menu.
   function loadMenu(tenant, menuId) {
-    if (tenant) return Core.fetchMenu(tenant, menuId);
+    if (tenant) {
+      return Core.isPreview()
+        ? Core.fetchPreviewMenu(tenant, menuId)
+        : Core.fetchMenu(tenant, menuId);
+    }
     return global.fetch(BUNDLED_MENU, { cache: 'no-cache' })
       .then(function (res) {
         if (!res.ok) throw new Error('bundled menu unavailable');

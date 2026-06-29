@@ -13,9 +13,10 @@
 <script>
   window.AKUT_CONFIG = {
     s3Base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/",
+    s3EphemeralBase: "https://s3-akut-prod-ephemeral-01.s3.eu-west-1.amazonaws.com/products/menu/",
     baseUrl: "",
     defaultTemplate: "epicurean",
-    reservedPaths: ["templates","assets"],
+    reservedPaths: ["templates","assets","preview"],
     languages: {"1":{"key":"Portuguese","code":"pt","label":"Português"},"2":{"key":"English","code":"en","label":"English"},"3":{"key":"Spanish","code":"es","label":"Español"},"4":{"key":"French","code":"fr","label":"Français"},"5":{"key":"German","code":"de","label":"Deutsch"},"6":{"key":"Italian","code":"it","label":"Italiano"}},
     currencies: {"1":{"code":"EUR","symbol":"€"},"2":{"code":"USD","symbol":"$"},"3":{"code":"GBP","symbol":"£"}},
     diets: {"1":{"English":"Vegan","Portuguese":"Vegano","Spanish":"Vegano","French":"Végétalien"},"2":{"English":"Vegetarian","Portuguese":"Vegetariano","Spanish":"Vegetariano","French":"Végétarien"},"3":{"English":"Gluten-Free","Portuguese":"Sem Glúten","Spanish":"Sin Gluten","French":"Sans Gluten"},"4":{"English":"Lactose-Free","Portuguese":"Sem Lactose","Spanish":"Sin Lactosa","French":"Sans Lactose"},"5":{"English":"Egg-Free","Portuguese":"Sem Ovos","Spanish":"Sin Huevo","French":"Sans Œuf"},"6":{"English":"Sugar-Free","Portuguese":"Sem Açúcar","Spanish":"Sin Azúcar","French":"Sans Sucre"},"7":{"English":"Caffeine-Free","Portuguese":"Sem Cafeína","Spanish":"Sin Cafeína","French":"Sans Caféine"},"8":{"English":"Alcohol-Free","Portuguese":"Sem Álcool","Spanish":"Sin Alcohol","French":"Sans Alcool"},"9":{"English":"Low-Carb","Portuguese":"Baixo em Carboidratos","Spanish":"Bajo en Carbohidratos","French":"Pauvre en Glucides"},"10":{"English":"Low-Fat","Portuguese":"Baixo em Gordura","Spanish":"Bajo en Grasa","French":"Pauvre en Matières Grasses"},"11":{"English":"Low-Salt","Portuguese":"Baixo em Sal","Spanish":"Bajo en Sal","French":"Pauvre en Sel"},"12":{"English":"Low-Sugar","Portuguese":"Baixo em Açúcar","Spanish":"Bajo en Azúcar","French":"Pauvre en Sucre"},"13":{"English":"Organic","Portuguese":"Biológico","Spanish":"Orgánico","French":"Biologique"},"14":{"English":"Bio","Portuguese":"Bio","Spanish":"Bio","French":"Bio"},"15":{"English":"Kosher","Portuguese":"Kosher","Spanish":"Kosher","French":"Casher"},"16":{"English":"Raw","Portuguese":"Cru","Spanish":"Crudo","French":"Cru"},"17":{"English":"Spicy","Portuguese":"Picante","Spanish":"Picante","French":"Épicé"}},
@@ -42,6 +43,14 @@
   <script>
     (function () {
       var root = document.getElementById('dispatch-root');
+
+      // Detect whether the URL path begins with /preview/ (after stripping baseUrl).
+      var rawPath = location.pathname;
+      var baseUrl = (window.AKUT_CONFIG && window.AKUT_CONFIG.baseUrl || '').replace(/\/$/, '');
+      if (baseUrl && rawPath.indexOf(baseUrl) === 0) rawPath = rawPath.slice(baseUrl.length);
+      var isPreviewPath = rawPath.split('/').filter(Boolean)[0] === 'preview';
+
+      // getTenant / getMenuId already skip "preview" because it is in reserved_paths.
       var tenant = MenuCore.getTenant();
 
       if (!tenant) {
@@ -50,6 +59,19 @@
       }
 
       var menuId = MenuCore.getMenuId();
+
+      if (isPreviewPath) {
+        // Fetch from the ephemeral S3 bucket, then route to the template with ?preview=1.
+        MenuCore.fetchPreviewMenu(tenant, menuId)
+          .then(function (menu) {
+            var main = MenuCore.templatePath('main', menu.TemplateId);
+            location.replace(MenuCore.withTenant(main, tenant, menuId, 'preview=1'));
+          })
+          .catch(function (err) {
+            MenuCore.renderError(root, err);
+          });
+        return;
+      }
 
       MenuCore.fetchMenu(tenant, menuId)
         .then(function (menu) {

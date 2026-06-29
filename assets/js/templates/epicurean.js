@@ -22,7 +22,8 @@
     var detailRoot = document.getElementById('detail-root');
     var fallback = menuRoot || detailRoot || document.querySelector('main');
 
-    Core.fetchMenu(state.tenant, state.menuId)
+    var fetch = Core.isPreview() ? Core.fetchPreviewMenu : Core.fetchMenu;
+    fetch(state.tenant, state.menuId)
       .then(function (menu) {
         state.menu = menu;
         state.langs = Core.availableLanguages(menu);
@@ -31,6 +32,7 @@
         setupLangSwitcher();
         if (menuRoot) renderMain(menuRoot);
         else if (detailRoot) renderDetail(detailRoot);
+        if (Core.isPreview()) Core.renderPreviewBand('epicurean');
       })
       .catch(function (err) {
         Core.renderError(fallback, err, state.lang);

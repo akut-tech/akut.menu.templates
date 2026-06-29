@@ -32,6 +32,14 @@ permalink: /404.html
   <script>
     (function () {
       var root = document.getElementById('dispatch-root');
+
+      // Detect whether the URL path begins with /preview/ (after stripping baseUrl).
+      var rawPath = location.pathname;
+      var baseUrl = (window.AKUT_CONFIG && window.AKUT_CONFIG.baseUrl || '').replace(/\/$/, '');
+      if (baseUrl && rawPath.indexOf(baseUrl) === 0) rawPath = rawPath.slice(baseUrl.length);
+      var isPreviewPath = rawPath.split('/').filter(Boolean)[0] === 'preview';
+
+      // getTenant / getMenuId already skip "preview" because it is in reserved_paths.
       var tenant = MenuCore.getTenant();
 
       if (!tenant) {
@@ -40,6 +48,19 @@ permalink: /404.html
       }
 
       var menuId = MenuCore.getMenuId();
+
+      if (isPreviewPath) {
+        // Fetch from the ephemeral S3 bucket, then route to the template with ?preview=1.
+        MenuCore.fetchPreviewMenu(tenant, menuId)
+          .then(function (menu) {
+            var main = MenuCore.templatePath('main', menu.TemplateId);
+            location.replace(MenuCore.withTenant(main, tenant, menuId, 'preview=1'));
+          })
+          .catch(function (err) {
+            MenuCore.renderError(root, err);
+          });
+        return;
+      }
 
       MenuCore.fetchMenu(tenant, menuId)
         .then(function (menu) {

@@ -85,6 +85,7 @@
         setupLangSwitcher();
         if (menuRoot)     renderIndex(menuRoot);
         else if (categoryRoot) renderCategory(categoryRoot);
+        if (Core.isPreview()) Core.renderPreviewBand('senjutsu');
       })
       .catch(function (err) {
         Core.renderError(fallback, err, state.lang);
@@ -108,7 +109,11 @@
   }
 
   function loadMenu(tenant, menuId) {
-    if (tenant) return Core.fetchMenu(tenant, menuId);
+    if (tenant) {
+      return Core.isPreview()
+        ? Core.fetchPreviewMenu(tenant, menuId)
+        : Core.fetchMenu(tenant, menuId);
+    }
     return global.fetch(BUNDLED_MENU, { cache: 'no-cache' })
       .then(function (res) {
         if (!res.ok) throw new Error('bundled menu unavailable');

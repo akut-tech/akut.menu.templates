@@ -15,6 +15,7 @@
 
   var CONFIG = global.AKUT_CONFIG || {};
   var S3_BASE = CONFIG.s3Base || '';
+  var S3_EPHEMERAL_BASE = CONFIG.s3EphemeralBase || '';
   var BASE_URL = (CONFIG.baseUrl || '').replace(/\/$/, '');
   var RESERVED = CONFIG.reservedPaths || ['templates', 'assets'];
   var LANG_KEY = 'akut_lang';
@@ -59,6 +60,10 @@
     return S3_BASE + encodeURIComponent(tenant) + '/active/' + encodeURIComponent(menuId) + '.json';
   }
 
+  function previewMenuUrl(tenant, menuId) {
+    return S3_EPHEMERAL_BASE + encodeURIComponent(tenant) + '/preview/' + encodeURIComponent(menuId) + '.json';
+  }
+
   function fetchMenu(tenant, menuId) {
     if (!tenant) return Promise.reject(makeError('NO_TENANT'));
     if (!menuId) return Promise.reject(makeError('NOT_FOUND'));
@@ -74,12 +79,59 @@
       });
   }
 
+  function fetchPreviewMenu(tenant, menuId) {
+    if (!tenant) return Promise.reject(makeError('NO_TENANT'));
+    if (!menuId) return Promise.reject(makeError('PREVIEW_NOT_FOUND'));
+    return global.fetch(previewMenuUrl(tenant, menuId), { cache: 'no-cache' })
+      .then(function (res) {
+        if (!res.ok) throw makeError((res.status === 404 || res.status === 403) ? 'PREVIEW_NOT_FOUND' : 'HTTP_ERROR', res.status);
+        return res.json();
+      })
+      .catch(function (err) {
+        if (err && err.code) throw err;
+        throw makeError('NETWORK', null, err);
+      });
+  }
+
   function makeError(code, status, cause) {
     var e = new Error(code);
     e.code = code;
     e.status = status || null;
     e.cause = cause || null;
     return e;
+  }
+
+  /* ----------------------------------------------------------- preview mode */
+
+  function isPreview() {
+    return new global.URLSearchParams(global.location.search).get('preview') === '1';
+  }
+
+  // Inject a full-width preview band at the top of the page. The templateSlug
+  // ('epicurean', 'deepblue', 'senjutsu', 'lisbon') selects the per-template
+  // color variant; omit it to use the default (Epicurean) palette.
+  function renderPreviewBand(templateSlug) {
+    if (document.getElementById('akut-preview-band')) return;
+
+    var word = 'PREVIEW';
+    var sep = ' · '; // interpunct separator
+    var chunk = new Array(30).fill(word).join(sep) + sep;
+
+    var inner = document.createElement('div');
+    inner.className = 'preview-band-inner';
+    inner.innerHTML =
+      '<span>' + chunk + '</span>' +
+      '<span aria-hidden="true">' + chunk + '</span>';
+
+    var band = document.createElement('div');
+    band.id = 'akut-preview-band';
+    band.className = 'preview-band' + (templateSlug ? ' preview-band--' + String(templateSlug).toLowerCase() : '');
+    band.setAttribute('role', 'note');
+    band.setAttribute('aria-label', 'Preview mode — this menu has not been published yet');
+    band.appendChild(inner);
+
+    document.body.insertBefore(band, document.body.firstChild);
+    document.body.classList.add('has-preview-band');
   }
 
   /* ------------------------------------------------------------------- i18n */
@@ -346,6 +398,7 @@
   function withTenant(url, tenant, menuId, extra) {
     var qs = 'tenant=' + encodeURIComponent(tenant);
     if (menuId) qs += '&menu=' + encodeURIComponent(menuId);
+    if (isPreview()) qs += '&preview=1';
     if (extra) qs += '&' + extra;
     return url + (url.indexOf('?') === -1 ? '?' : '&') + qs;
   }
@@ -378,6 +431,12 @@
       Portuguese: { title: 'Menu temporariamente indisponível', body: 'Não foi possível contactar o serviço de menus. Verifique a sua ligação e tente novamente.' },
       Spanish:    { title: 'Menú temporalmente no disponible', body: 'No pudimos conectar con el servicio de menús. Comprueba tu conexión e inténtalo de nuevo.' },
       French:     { title: 'Menu temporairement indisponible', body: 'Impossible de joindre le service de menus. Vérifiez votre connexion et réessayez.' }
+    },
+    PREVIEW_NOT_FOUND: {
+      English:    { title: 'Preview unavailable', body: 'The preview data could not be found. The preview may have expired or the link may be incorrect.' },
+      Portuguese: { title: 'Pré-visualização indisponível', body: 'Os dados de pré-visualização não foram encontrados. A pré-visualização pode ter expirado ou o link pode estar incorreto.' },
+      Spanish:    { title: 'Vista previa no disponible', body: 'No se encontraron los datos de la vista previa. La vista previa puede haber expirado o el enlace puede ser incorrecto.' },
+      French:     { title: 'Aperçu indisponible', body: "Les données d'aperçu sont introuvables. L'aperçu a peut-être expiré ou le lien est incorrect." }
     }
   };
 
@@ -417,6 +476,9 @@
     getMenuId: getMenuId,
     getItemId: getItemId,
     fetchMenu: fetchMenu,
+    fetchPreviewMenu: fetchPreviewMenu,
+    isPreview: isPreview,
+    renderPreviewBand: renderPreviewBand,
     availableLanguages: availableLanguages,
     pickLanguage: pickLanguage,
     languageLabel: languageLabel,

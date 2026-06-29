@@ -16,6 +16,10 @@ port: 4001
 # Final URL: {s3_base}{tenant}/active/{menuId}.json
 s3_base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/"
 
+# Ephemeral S3 bucket for preview (draft) menus — never cached.
+# Final URL: {s3_ephemeral_base}{tenant}/preview/{menuId}.json
+s3_ephemeral_base: "https://s3-akut-prod-ephemeral-01.s3.eu-west-1.amazonaws.com/products/menu/"
+
 # Template used when a menu's TemplateId is missing or unknown.
 default_template: epicurean
 
@@ -23,6 +27,7 @@ default_template: epicurean
 reserved_paths:
   - templates
   - assets
+  - preview
 
 encoding: utf-8
 
