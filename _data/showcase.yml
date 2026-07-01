@@ -2,26 +2,26 @@
   name: Epicurean
   description: Classic, elegant food and restaurant experience with a warm, inviting tone.
   description_pt: Experiência clássica e elegante de gastronomia com um tom caloroso e acolhedor.
-  url: /akut/e53dbe87-220a-4068-b1f4-d171b62fce79
+  url: /akut/b7275fbc-3dff-4303-833a-82458c7f50d8
   accent: "#FD9900"
 
 - id: deepblue
   name: Deep Blue
   description: Sophisticated ocean-inspired design crafted for seafood and fine dining.
   description_pt: Design sofisticado inspirado no oceano, criado para frutos do mar e alta gastronomia.
-  url: /akut/7fa6ddaa-19b0-4397-a290-f57c8e63dd5a
+  url: /akut/ef8a78b5-621b-4c23-b8a7-8ce87b891124
   accent: "#0a2342"
 
 - id: senjutsu
   name: Senjutsu
   description: Minimalist Japanese-inspired experience with clean, category-focused navigation.
   description_pt: Experiência minimalista de inspiração japonesa com navegação limpa e focada em categorias.
-  url: /akut/46936cd9-97ef-4f4d-af9d-6e6d0a3a8415
+  url: /akut/d57ce1a7-1732-4657-956c-5695e973706f
   accent: "#1c1c1c"
 
 - id: lisbon
   name: Lisbon
   description: Contemporary Portuguese editorial layout with refined typography and imagery.
   description_pt: Layout editorial português contemporâneo com tipografia refinada e imagens cuidadas.
-  url: /akut/feb11586-4721-4f8e-a04c-8e251db4563d
+  url: /akut/07edbb00-0321-412c-bb5a-77d962bf64cb
   accent: "#1A4A7A"

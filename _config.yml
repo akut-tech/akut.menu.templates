@@ -13,11 +13,11 @@ url: ""
 port: 4001
 
 # Public S3 bucket that stores the per-tenant menu JSON.
-# Final URL: {s3_base}{tenant}/active/{menuId}.json
+# Final URL: {s3_base}{tenant}/{menuId}.json
 s3_base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/"
 
 # Ephemeral S3 bucket for preview (draft) menus — never cached.
-# Final URL: {s3_ephemeral_base}{tenant}/preview/{menuId}.json
+# Final URL: {s3_ephemeral_base}{tenant}/{menuId}.json
 s3_ephemeral_base: "https://s3-akut-prod-ephemeral-01.s3.eu-west-1.amazonaws.com/products/menu/"
 
 # Template used when a menu's TemplateId is missing or unknown.

@@ -5,7 +5,7 @@
 The menu pages run in the browser and fetch the tenant JSON directly from
 
 ```
-https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/<tenant>/active/<menuId>.json
+https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/<tenant>/<menuId>.json
 ```
 
 Because that request is cross-origin (the site is served from a different host
@@ -32,7 +32,7 @@ Verify:
 ```bash
 curl -s -D - -o /dev/null \
   -H "Origin: https://your-site-origin" \
-  https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/test/active/abc123.json \
+  https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/test/abc123.json \
   | grep -i access-control
 ```
 

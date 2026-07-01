@@ -57,11 +57,11 @@
   /* ------------------------------------------------------------------ fetch */
 
   function menuUrl(tenant, menuId) {
-    return S3_BASE + encodeURIComponent(tenant) + '/active/' + encodeURIComponent(menuId) + '.json';
+    return S3_BASE + encodeURIComponent(tenant) + '/' + encodeURIComponent(menuId) + '.json';
   }
 
   function previewMenuUrl(tenant, menuId) {
-    return S3_EPHEMERAL_BASE + encodeURIComponent(tenant) + '/preview/' + encodeURIComponent(menuId) + '.json';
+    return S3_EPHEMERAL_BASE + encodeURIComponent(tenant) + '/' + encodeURIComponent(menuId) + '.json';
   }
 
   function fetchMenu(tenant, menuId) {

@@ -7,10 +7,10 @@ same build serves every tenant.
 
 ```
 <base-url>/<tenant>/<menuId>   →  loads the menu for <tenant> / <menuId>
-                                  https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/<tenant>/active/<menuId>.json
+                                  https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/<tenant>/<menuId>.json
 ```
 
-For example `<base-url>/test/abc123` renders the menu at `products/menu/test/active/abc123.json`.
+For example `<base-url>/test/abc123` renders the menu at `products/menu/test/abc123.json`.
 
 ## How it works
 
