@@ -651,6 +651,7 @@ main { overflow: hidden; }
 .sj-badge--chef     { background: #7b2d8b; color: #fff; }
 .sj-badge--seasonal        { background: var(--sj-matcha); color: #fff; }
 .sj-badge--limited-edition { background: #c0392b; color: #fff; }
+.sj-badge--unavailable     { background: #6b7280; color: #fff; }
 
 /* item content */
 .sj-item-content {

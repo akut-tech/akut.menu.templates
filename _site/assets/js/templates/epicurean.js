@@ -235,15 +235,18 @@
       return '<span class="menu-diet-tag">' + esc(d) + '</span>';
     }).join('');
     var badge = Core.tagBadge(item, state.lang, 'menu-badge');
+    var faded = Core.isTemporarilyUnavailable(item) ? ' menu-item-faded' : '';
+    var availNote = Core.standardAvailabilityText(item, state.lang);
 
     return '' +
-      '<div class="menu-book-box d-flex justify-content-between align-items-center">' +
+      '<div class="menu-book-box d-flex justify-content-between align-items-center' + faded + '">' +
         '<a class="menu-book-link" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '"></a>' +
         '<div class="menu-book-info-wrap d-flex flex-column flex-xl-row align-items-xl-center">' +
           (img ? '<div class="menu-book-img flex-shrink-0"><img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy"></div>' : '') +
           '<div class="menu-book-info">' +
             '<h2 class="h2 mb-1">' + esc(L(item.Name)) + badge + '</h2>' +
             '<p>' + esc(L(item.ShortDescription)) + '</p>' +
+            (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
             (diets ? '<div class="menu-diet-tags">' + diets + '</div>' : '') +
           '</div>' +
         '</div>' +
@@ -273,6 +276,7 @@
     var media = buildMedia(item);
     var price = Core.formatPrice(item.Price, menu.Currency);
     var diets = Core.dietLabels(item.Diets, state.lang);
+    var availNote = Core.standardAvailabilityText(item, state.lang);
 
     root.innerHTML =
       '<div class="row gy-4">' +
@@ -285,6 +289,7 @@
               Core.tagBadge(item, state.lang, 'menu-badge') + '</h2></div>' +
             (price ? '<h2 class="price-number-tag">' + esc(price) + '</h2>' : '') +
             '<p>' + esc(L(item.ShortDescription)) + '</p>' +
+            (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
             (diets.length ? '<div class="menu-diet-tags detail-diet-tags">' +
               diets.map(function (d) { return '<span class="menu-diet-tag">' + esc(d) + '</span>'; }).join('') +
               '</div>' : '') +

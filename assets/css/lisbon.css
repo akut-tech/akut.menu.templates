@@ -837,6 +837,7 @@ body { background: var(--ls-cal); }
 .ls-badge--chef     { background: var(--ls-azul); }
 .ls-badge--seasonal        { background: var(--ls-verde); }
 .ls-badge--limited-edition { background: #d62828; }
+.ls-badge--unavailable     { background: #6b7280; }
 
 /* -------------------------------------------------------- YouTube button */
 

@@ -366,6 +366,8 @@
     var nameAlt     = L(item.Name);
     var namePt      = item.Name.Portuguese !== nameAlt ? item.Name.Portuguese : '';
     var hasDetail   = Core.templatePath('detail', state.menu.TemplateId);
+    var faded       = Core.isTemporarilyUnavailable(item) ? ' menu-item-faded' : '';
+    var availNote   = Core.standardAvailabilityText(item, state.lang);
 
     var detailHref = hasDetail ? itemUrl(item.Id) : null;
     var mediaHtml = renderGallery(images, nameAlt);
@@ -410,7 +412,7 @@
 
     return '' +
       '<li>' +
-        '<article class="ls-item-card">' +
+        '<article class="ls-item-card' + faded + '">' +
           cardLinkHtml +
           '<div class="ls-item-media" data-gallery>' + mediaHtml + '</div>' +
           '<div class="ls-item-content">' +
@@ -425,6 +427,7 @@
               (price ? '<div class="ls-item-price">' + esc(price) + '</div>' : '') +
             '</div>' +
             (shortDesc ? '<p class="ls-item-short-desc">' + esc(shortDesc) + '</p>' : '') +
+            (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
             (fullDesc && fullDesc !== shortDesc ? '<p class="ls-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
             dietTags +
             dlHtml +
@@ -461,6 +464,7 @@
     var namePt      = item.Name.Portuguese !== nameAlt ? item.Name.Portuguese : '';
     var ytUrl       = (item.YouTubeVideoUrls || [])[0] || null;
     var videoId     = youTubeId(ytUrl);
+    var availNote   = Core.standardAvailabilityText(item, state.lang);
 
     var mediaHtml = renderGallery(images, nameAlt);
 
@@ -544,6 +548,7 @@
             '<div class="ls-item-detail-rule"></div>' +
             (price ? '<p class="ls-item-detail-price">' + esc(price) + '</p>' : '') +
             (shortDesc ? '<p class="ls-item-detail-short">' + esc(shortDesc) + '</p>' : '') +
+            (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
             (fullDesc && fullDesc !== shortDesc ? '<p class="ls-item-detail-full">' + esc(fullDesc) + '</p>' : '') +
             (dlParts.length
               ? '<hr class="ls-item-detail-hr"><dl class="ls-item-detail-dl">' + dlParts.join('') + '</dl>'

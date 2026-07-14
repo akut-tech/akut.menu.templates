@@ -257,6 +257,30 @@
       Portuguese: 'desde {year}',
       Spanish: 'desde {year}',
       French: 'depuis {year}'
+    },
+    availableWeekends: {
+      English: 'Available only on weekends',
+      Portuguese: 'Disponível apenas aos fins de semana',
+      Spanish: 'Disponible solo los fines de semana',
+      French: 'Disponible uniquement le week-end'
+    },
+    availableWeekdays: {
+      English: 'Available only on weekdays',
+      Portuguese: 'Disponível apenas nos dias úteis',
+      Spanish: 'Disponible solo entre semana',
+      French: 'Disponible uniquement en semaine'
+    },
+    availableDays: {
+      English: 'Available only on {days}',
+      Portuguese: 'Disponível apenas: {days}',
+      Spanish: 'Disponible solo: {days}',
+      French: 'Disponible uniquement : {days}'
+    },
+    tagUnavailable: {
+      English: 'Unavailable',
+      Portuguese: 'Indisponível',
+      Spanish: 'No disponible',
+      French: 'Indisponible'
     }
   };
 
@@ -310,7 +334,15 @@
     return s;
   }
 
+  // A temporarily-unavailable item shows an "Unavailable" badge in place of
+  // its normal MenuItemTag badge (New/Popular/etc.) — the two never combine.
   function tagBadge(item, lang, cssPrefix) {
+    if (isTemporarilyUnavailable(item)) {
+      return '<span class="' + cssPrefix + ' ' + cssPrefix + '--unavailable">' +
+        '<i class="bi bi-slash-circle" aria-hidden="true"></i> ' +
+        escapeHtml(uiText('tagUnavailable', lang)) +
+        '</span>';
+    }
     var tag = item && item.Tag;
     if (!tag) return '';
     var cfg = TAG_CONFIG[tag];
@@ -354,6 +386,63 @@
   }
 
   /* -------------------------------------------------------------- availability */
+
+  // Mirrors .NET's System.DayOfWeek (0=Sunday..6=Saturday), used by
+  // AvailabilityMenuItem.Standard.Days.
+  var DAY_NAMES = {
+    0: { English: 'Sunday',    Portuguese: 'Domingo',        Spanish: 'Domingo',    French: 'Dimanche' },
+    1: { English: 'Monday',    Portuguese: 'Segunda-feira',  Spanish: 'Lunes',      French: 'Lundi' },
+    2: { English: 'Tuesday',   Portuguese: 'Terça-feira',    Spanish: 'Martes',     French: 'Mardi' },
+    3: { English: 'Wednesday', Portuguese: 'Quarta-feira',   Spanish: 'Miércoles',  French: 'Mercredi' },
+    4: { English: 'Thursday',  Portuguese: 'Quinta-feira',   Spanish: 'Jueves',     French: 'Jeudi' },
+    5: { English: 'Friday',    Portuguese: 'Sexta-feira',    Spanish: 'Viernes',    French: 'Vendredi' },
+    6: { English: 'Saturday',  Portuguese: 'Sábado',         Spanish: 'Sábado',     French: 'Samedi' }
+  };
+  var DAY_DISPLAY_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Monday..Sunday, for listing multiple days
+
+  function dayName(dow, lang) {
+    var entry = DAY_NAMES[dow];
+    if (!entry) return '';
+    return (lang && entry[lang]) || entry.English;
+  }
+
+  function joinList(items, lang) {
+    if (!items.length) return '';
+    if (items.length === 1) return items[0];
+    var AND = { English: 'and', Portuguese: 'e', Spanish: 'y', French: 'et' };
+    var word = (lang && AND[lang]) || AND.English;
+    return items.slice(0, -1).join(', ') + ' ' + word + ' ' + items[items.length - 1];
+  }
+
+  // True when the item was manually flagged as temporarily unavailable
+  // (AvailabilityMenuItem.Temporary.Unavailable === true). Templates use this
+  // to fade the item; it is independent of the recurring Standard schedule.
+  function isTemporarilyUnavailable(item) {
+    var av = item && item.Availability;
+    return !!(av && av.Temporary && av.Temporary.Unavailable === true);
+  }
+
+  // Human-readable recurring-availability note (e.g. "Available only on
+  // weekends"), or '' when the item has no Standard.Days set. Selecting all
+  // 7 days is equivalent to no restriction, so it renders nothing.
+  function standardAvailabilityText(item, lang) {
+    var av = item && item.Availability;
+    var days = av && av.Standard && av.Standard.Days;
+    if (!Array.isArray(days) || !days.length) return '';
+
+    var set = {};
+    days.forEach(function (d) { set[d] = true; });
+    var uniqueDays = Object.keys(set).length;
+    if (uniqueDays >= 7) return '';
+
+    if (uniqueDays === 2 && set[0] && set[6]) return uiText('availableWeekends', lang);
+    if (uniqueDays === 5 && set[1] && set[2] && set[3] && set[4] && set[5]) return uiText('availableWeekdays', lang);
+
+    var ordered = DAY_DISPLAY_ORDER
+      .filter(function (d) { return set[d]; })
+      .map(function (d) { return dayName(d, lang); });
+    return uiText('availableDays', lang, { days: joinList(ordered, lang) });
+  }
 
   function formatTime(timeStr, lang) {
     if (!timeStr) return '';
@@ -495,6 +584,8 @@
     errorMessage: errorMessage,
     formatAvailability: formatAvailability,
     formatFoundedYear: formatFoundedYear,
+    isTemporarilyUnavailable: isTemporarilyUnavailable,
+    standardAvailabilityText: standardAvailabilityText,
     TAG_CONFIG: TAG_CONFIG,
     tagBadge: tagBadge,
     ALLERGEN_LABELS: ALLERGEN_LABELS,

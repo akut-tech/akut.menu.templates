@@ -53,6 +53,7 @@
 .menu-badge--chef     { background: #7b2d8b; }
 .menu-badge--seasonal        { background: #16a34a; }
 .menu-badge--limited-edition { background: #dc2626; }
+.menu-badge--unavailable     { background: #6b7280; }
 /* Re-assert white text: `.section-title span` specificity would otherwise override. */
 .section-title .menu-badge { color: #fff; }
 .menu-diet-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
@@ -61,6 +62,15 @@
   background: #eaf7ee; border-radius: 4px; padding: 2px 8px;
 }
 .menu-cat-desc { color: #777; margin-top: 10px; }
+
+/* ------------------------------------------------------ availability (shared across all templates) */
+.menu-item-faded { opacity: .45; transition: opacity .2s; }
+.menu-item-faded:hover, .menu-item-faded:focus-within { opacity: .65; }
+.menu-availability-note {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-style: italic; color: #888; margin-top: 4px;
+}
+.menu-availability-note i { font-size: 11px; }
 
 /* --------------------------------------------------------------- detail */
 .detail-diet-tags { margin-top: 16px; }

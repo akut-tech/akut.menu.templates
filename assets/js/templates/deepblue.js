@@ -321,9 +321,11 @@
       return '<span class="db-tag">' + esc(d) + '</span>';
     }).join('');
     var badge = Core.tagBadge(item, state.lang, 'db-badge');
+    var faded = Core.isTemporarilyUnavailable(item) ? ' menu-item-faded' : '';
+    var availNote = Core.standardAvailabilityText(item, state.lang);
 
     return '' +
-      '<a class="db-card" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
+      '<a class="db-card' + faded + '" href="' + esc(detailUrl(item.Id)) + '" aria-label="' + esc(L(item.Name)) + '">' +
         '<span class="db-card-media">' +
           (img
             ? '<img src="' + esc(img) + '" alt="' + esc(L(item.Name)) + '" loading="lazy">'
@@ -336,6 +338,7 @@
             '<span class="db-card-price">' + esc(price) + '</span>' +
           '</span>' +
           '<span class="db-card-desc">' + esc(L(item.ShortDescription)) + '</span>' +
+          (availNote ? '<span class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</span>' : '') +
           (diets ? '<span class="db-tags">' + diets + '</span>' : '') +
         '</span>' +
       '</a>';
@@ -361,6 +364,7 @@
     var media = buildMedia(item);
     var price = Core.formatPrice(item.Price, menu.Currency);
     var diets = Core.dietLabels(item.Diets, state.lang);
+    var availNote = Core.standardAvailabilityText(item, state.lang);
 
     root.innerHTML =
       '<div class="db-detail">' +
@@ -371,6 +375,7 @@
             Core.tagBadge(item, state.lang, 'db-badge') + '</h1>' +
           (price ? '<div class="db-detail-price">' + esc(price) + '</div>' : '') +
           '<p class="db-detail-lead">' + esc(L(item.ShortDescription)) + '</p>' +
+          (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
           (diets.length ? '<div class="db-tags db-detail-tags">' +
             diets.map(function (d) { return '<span class="db-tag">' + esc(d) + '</span>'; }).join('') +
           '</div>' : '') +

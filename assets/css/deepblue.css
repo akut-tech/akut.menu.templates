@@ -402,6 +402,11 @@ main { overflow: hidden; }
   margin-top: 8px;
 }
 
+/* Shared .menu-availability-note (menu.css) defaults to a gray that is
+   unreadable on this template's dark navy background — override with the
+   template's own light muted-text color instead. */
+.menu-availability-note { color: var(--db-mist); }
+
 /* badges & tags */
 .db-badge {
   position: absolute;
@@ -423,6 +428,7 @@ main { overflow: hidden; }
 .db-badge--chef     { background: #c084fc; }
 .db-badge--seasonal        { background: #4ade80; }
 .db-badge--limited-edition { background: #f87171; }
+.db-badge--unavailable     { background: #9ca3af; }
 .db-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
 .db-tag {
   font-size: 10.5px;

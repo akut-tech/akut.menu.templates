@@ -177,7 +177,15 @@
     return count + ' ' + (count === 1 ? sjText('item') : sjText('itemPlural'));
   }
 
+  // A temporarily-unavailable item shows an "Unavailable" badge (with the
+  // 休 "closed/rest" kanji, matching the per-tag kanji suffix convention)
+  // instead of its normal MenuItemTag badge.
   function renderTagBadge(item) {
+    if (Core.isTemporarilyUnavailable(item)) {
+      return '<span class="sj-badge sj-badge--unavailable">' +
+        esc(Core.uiText('tagUnavailable', state.lang)) + ' · 休' +
+        '</span>';
+    }
     var tag = item && item.Tag;
     if (!tag) return '';
     var cfg = Core.TAG_CONFIG[tag];
@@ -412,6 +420,8 @@
     var ytUrl       = firstYouTubeUrl(item);
     var alt         = esc(L(item.Name));
     var multi       = images.length > 1;
+    var faded       = Core.isTemporarilyUnavailable(item) ? ' menu-item-faded' : '';
+    var availNote   = Core.standardAvailabilityText(item, state.lang);
 
     var trackHtml = images.length
       ? images.map(function (url, i) {
@@ -468,7 +478,7 @@
 
     return '' +
       '<li>' +
-        '<article class="sj-item-card">' +
+        '<article class="sj-item-card' + faded + '">' +
           '<div class="sj-item-media" data-gallery>' +
             mediaHtml +
             badge +
@@ -484,6 +494,7 @@
             (L(item.ShortDescription)
               ? '<p class="sj-item-short-desc">' + esc(L(item.ShortDescription)) + '</p>'
               : '') +
+            (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
             '<span class="sj-item-rule"></span>' +
             (fullDesc ? '<p class="sj-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
             dietTags +
