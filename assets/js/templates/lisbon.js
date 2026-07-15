@@ -356,7 +356,7 @@
 
   function renderItemCard(item, cat) {
     var images      = buildImages(item);
-    var price       = Core.formatPrice(item.Price, state.menu.Currency);
+    var price       = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
     var diets       = Core.dietLabels(item.Diets, state.lang);
     var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var ingredients = L(item.Ingredients);
@@ -454,7 +454,7 @@
     document.title = L(item.Name) + ' — ' + (L(state.menu.Name) || '');
 
     var images      = buildImages(item);
-    var price       = Core.formatPrice(item.Price, state.menu.Currency);
+    var price       = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
     var diets       = Core.dietLabels(item.Diets, state.lang);
     var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var ingredients = L(item.Ingredients);

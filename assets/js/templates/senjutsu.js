@@ -412,7 +412,7 @@
 
   function renderItemCard(item, idx) {
     var images = buildItemImages(item);
-    var price  = Core.formatPrice(item.Price, state.menu.Currency);
+    var price  = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
     var diets  = Core.dietLabels(item.Diets, state.lang);
     var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var ingredients = L(item.Ingredients);

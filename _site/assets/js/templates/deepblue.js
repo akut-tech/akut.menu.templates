@@ -316,7 +316,7 @@
 
   function renderItem(item) {
     var img = firstImage(item);
-    var price = Core.formatPrice(item.Price, state.menu.Currency);
+    var price = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
     var diets = Core.dietLabels(item.Diets, state.lang).map(function (d) {
       return '<span class="db-tag">' + esc(d) + '</span>';
     }).join('');
@@ -362,7 +362,7 @@
     document.title = L(item.Name) || Core.uiText('details', state.lang);
 
     var media = buildMedia(item);
-    var price = Core.formatPrice(item.Price, menu.Currency);
+    var price = Core.formatPrice(item.Price, menu.Currency, state.lang);
     var diets = Core.dietLabels(item.Diets, state.lang);
     var availNote = Core.standardAvailabilityText(item, state.lang);
 

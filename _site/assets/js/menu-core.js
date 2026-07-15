@@ -281,6 +281,12 @@
       Portuguese: 'Indisponível',
       Spanish: 'No disponible',
       French: 'Indisponible'
+    },
+    complimentary: {
+      English: 'Complimentary',
+      Portuguese: 'Cortesia',
+      Spanish: 'Cortesía de la casa',
+      French: 'Offert par la maison'
     }
   };
 
@@ -356,8 +362,10 @@
   /* -------------------------------------------------------------- formatting */
 
   // Always show two decimals (e.g. 1.00, 18.90) per the configured currency.
-  function formatPrice(value, currencyEnum) {
+  // A zero price shows a localized "Complimentary" label instead of "0.00".
+  function formatPrice(value, currencyEnum, lang) {
     if (value == null || isNaN(value)) return '';
+    if (Number(value) === 0) return uiText('complimentary', lang);
     var cur = (CONFIG.currencies || {})[currencyEnum] || {};
     var symbol = cur.symbol || '';
     return symbol + Number(value).toFixed(2);
