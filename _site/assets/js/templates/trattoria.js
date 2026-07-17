@@ -29,22 +29,22 @@
   /* ---------------------------------------------------------- i18n strings */
 
   var TR_STRINGS = {
-    welcomeTo:       { English: 'Welcome to',        Italian: 'Benvenuti a' },
-    ilMenu:          { English: 'The Menu',          Italian: 'Il Menù' },
-    categories:      { English: 'Categories',        Italian: 'Categorie' },
-    buonAppetito:    { English: 'Buon Appetito',      Italian: 'Buon Appetito' },
-    allCategories:   { English: 'All categories',     Italian: 'Tutte le categorie' },
-    backToMenuShort: { English: 'Menu',               Italian: 'Menu' },
-    backToMenu:      { English: 'Back to Menu',       Italian: 'Torna al Menu' },
-    viewMenu:        { English: 'View menu',          Italian: 'Vedi il menù' },
-    items:           { English: 'items',              Italian: 'piatti' },
-    item:            { English: 'item',               Italian: 'piatto' },
-    categoria:       { English: 'Category',           Italian: 'Categoria' },
-    ancheDaProvare:  { English: 'Also worth trying',   Italian: 'Anche da provare' },
-    seeAll:          { English: 'See all',             Italian: 'Vedi tutti' },
-    none:            { English: 'None',                Italian: 'Nessuno' },
-    watchVideo:      { English: 'Watch video',         Italian: 'Guarda il video' },
-    estFrom:         { English: 'Est. {year}',         Italian: 'Dal {year}' }
+    welcomeTo:       { English: 'Welcome to',        Portuguese: 'Bem-vindo a',              Spanish: 'Bienvenido a',              French: 'Bienvenue à',            Italian: 'Benvenuti a' },
+    ilMenu:          { English: 'The Menu',          Portuguese: 'O Menu',                   Spanish: 'El Menú',                   French: 'Le Menu',                Italian: 'Il Menù' },
+    categories:      { English: 'Categories',        Portuguese: 'Categorias',               Spanish: 'Categorías',                French: 'Catégories',             Italian: 'Categorie' },
+    buonAppetito:    { English: 'Buon Appetito',      Portuguese: 'Buon Appetito',            Spanish: 'Buon Appetito',             French: 'Buon Appetito',          Italian: 'Buon Appetito' },
+    allCategories:   { English: 'All categories',     Portuguese: 'Todas as categorias',      Spanish: 'Todas las categorías',      French: 'Toutes les catégories',  Italian: 'Tutte le categorie' },
+    backToMenuShort: { English: 'Menu',               Portuguese: 'Menu',                     Spanish: 'Menú',                      French: 'Menu',                   Italian: 'Menu' },
+    backToMenu:      { English: 'Back to Menu',       Portuguese: 'Voltar ao Menu',            Spanish: 'Volver al Menú',            French: 'Retour au Menu',         Italian: 'Torna al Menu' },
+    viewMenu:        { English: 'View menu',          Portuguese: 'Ver menu',                 Spanish: 'Ver menú',                  French: 'Voir le menu',           Italian: 'Vedi il menù' },
+    items:           { English: 'items',              Portuguese: 'pratos',                   Spanish: 'platos',                    French: 'plats',                  Italian: 'piatti' },
+    item:            { English: 'item',               Portuguese: 'prato',                    Spanish: 'plato',                     French: 'plat',                   Italian: 'piatto' },
+    categoria:       { English: 'Category',           Portuguese: 'Categoria',                Spanish: 'Categoría',                 French: 'Catégorie',              Italian: 'Categoria' },
+    ancheDaProvare:  { English: 'Also worth trying',   Portuguese: 'Também vale a pena provar', Spanish: 'También vale la pena probar', French: 'À essayer aussi',      Italian: 'Anche da provare' },
+    seeAll:          { English: 'See all',             Portuguese: 'Ver tudo',                 Spanish: 'Ver todo',                  French: 'Voir tout',              Italian: 'Vedi tutti' },
+    none:            { English: 'None',                Portuguese: 'Nenhum',                   Spanish: 'Ninguno',                   French: 'Aucun',                  Italian: 'Nessuno' },
+    watchVideo:      { English: 'Watch video',         Portuguese: 'Ver vídeo',                Spanish: 'Ver vídeo',                 French: 'Voir la vidéo',          Italian: 'Guarda il video' },
+    estFrom:         { English: 'Est. {year}',         Portuguese: 'Desde {year}',             Spanish: 'Desde {year}',              French: 'Depuis {year}',          Italian: 'Dal {year}' }
   };
 
   function trText(key, vars) {
