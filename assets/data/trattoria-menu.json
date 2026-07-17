@@ -20,7 +20,7 @@
   },
   "Notes": "Open daily",
   "TemplateId": "trattoria",
-  "DefaultLanguage": 2,
+  "DefaultLanguage": 5,
   "Currency": 1,
   "AvailabilityTime": { "From": "12:00", "To": "23:00" },
   "FoundedYear": 1962,

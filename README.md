@@ -128,9 +128,10 @@ The numeric enums are mapped in `_data/`:
   `Currency` enum: `1 = Euro`, `2 = Dollar`, `3 = Pound`)
 - `diets.yml` — `Diets` values → labels
 
-> `Currency` mirrors the `akut.domain` enum. The remaining `DefaultLanguage`
-> and `Diets` mappings are inferred from sample data (`DefaultLanguage: 2 =
-> English`, `Diets: 2,3`) — update those files to match the real Akut enums.
+> `Currency` and `DefaultLanguage` mirror the `akut.domain` enums.
+> `DefaultLanguage`: `1 = Portuguese`, `2 = English`, `3 = Spanish`,
+> `4 = French`, `5 = Italian`. `Diets` is inferred from sample data
+> (`Diets: 2,3`) — update `diets.yml` if the real Akut enum differs.
 
 ## Error handling
 

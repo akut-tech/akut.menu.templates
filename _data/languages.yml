@@ -5,13 +5,10 @@
 # in the data; this map only decides the INITIAL language and provides display
 # labels.
 #
-# Confirmed from real menu data:
-#   1 => Portuguese  (Senjutsu menu, DefaultLanguage: 1, Portuguese content)
-#   2 => English     (confirmed from sample data)
-# Others follow the same 1-based sequence; adjust if new data confirms otherwise.
+# Mirrors the `akut.domain` Language enum:
+#   1 = Portuguese, 2 = English, 3 = Spanish, 4 = French, 5 = Italian
 1: { key: Portuguese, code: pt, label: "Português" }
 2: { key: English,    code: en, label: "English" }
 3: { key: Spanish,    code: es, label: "Español" }
 4: { key: French,     code: fr, label: "Français" }
-5: { key: German,     code: de, label: "Deutsch" }
-6: { key: Italian,    code: it, label: "Italiano" }
+5: { key: Italian,    code: it, label: "Italiano" }

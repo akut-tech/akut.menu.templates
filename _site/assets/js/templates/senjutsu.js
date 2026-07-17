@@ -27,28 +27,28 @@
 
   var SJ_STRINGS = {
     viewCategory: {
-      English: 'View Items', Portuguese: 'Ver Itens', Spanish: 'Ver Artículos', French: 'Voir les Articles'
+      English: 'View Items', Portuguese: 'Ver Itens', Spanish: 'Ver Artículos', French: 'Voir les Articles', Italian: 'Vedi i Piatti'
     },
     backToCategories: {
-      English: 'Back to Menu', Portuguese: 'Voltar ao Menu', Spanish: 'Volver al Menú', French: 'Retour au Menu'
+      English: 'Back to Menu', Portuguese: 'Voltar ao Menu', Spanish: 'Volver al Menú', French: 'Retour au Menu', Italian: 'Torna al Menu'
     },
     categories: {
-      English: 'Categories', Portuguese: 'Categorias', Spanish: 'Categorías', French: 'Catégories'
+      English: 'Categories', Portuguese: 'Categorias', Spanish: 'Categorías', French: 'Catégories', Italian: 'Categorie'
     },
     kondate: {
-      English: '献立 · Kondate', Portuguese: '献立 · Kondate', Spanish: '献立 · Kondate', French: '献立 · Kondate'
+      English: '献立 · Kondate', Portuguese: '献立 · Kondate', Spanish: '献立 · Kondate', French: '献立 · Kondate', Italian: '献立 · Kondate'
     },
     item: {
-      English: 'item', Portuguese: 'item', Spanish: 'artículo', French: 'article'
+      English: 'item', Portuguese: 'item', Spanish: 'artículo', French: 'article', Italian: 'piatto'
     },
     itemPlural: {
-      English: 'items', Portuguese: 'itens', Spanish: 'artículos', French: 'articles'
+      English: 'items', Portuguese: 'itens', Spanish: 'artículos', French: 'articles', Italian: 'piatti'
     },
     categoryLabel: {
-      English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie'
+      English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie', Italian: 'Categoria'
     },
     watchOnYouTube: {
-      English: 'Watch on YouTube', Portuguese: 'Ver no YouTube', Spanish: 'Ver en YouTube', French: 'Voir sur YouTube'
+      English: 'Watch on YouTube', Portuguese: 'Ver no YouTube', Spanish: 'Ver en YouTube', French: 'Voir sur YouTube', Italian: 'Guarda su YouTube'
     }
   };
 

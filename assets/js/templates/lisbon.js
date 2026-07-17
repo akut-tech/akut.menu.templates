@@ -28,18 +28,18 @@
   /* ---------------------------------------------------------- i18n strings */
 
   var LS_STRINGS = {
-    backToMenu:      { English: 'Back to Menu',    Portuguese: 'Voltar ao Menu',    Spanish: 'Volver al Menú',    French: 'Retour au Menu' },
-    backToMenuShort: { English: 'Back to Menu',    Portuguese: 'Voltar',            Spanish: 'Volver al Menú',    French: 'Retour au Menu' },
-    backToCategory: { English: 'Back to Category', Portuguese: 'Voltar à Categoria', Spanish: 'Volver a la Categoría', French: 'Retour à la Catégorie' },
-    viewItems:      { English: 'View Items',       Portuguese: 'Ver Itens',         Spanish: 'Ver Artículos',     French: 'Voir les Articles' },
-    viewItem:       { English: 'View item',        Portuguese: 'Ver item',          Spanish: 'Ver artículo',      French: 'Voir l\'article' },
-    explore:        { English: 'Explore →',        Portuguese: 'Explorar →',        Spanish: 'Explorar →',        French: 'Explorer →' },
-    categories:     { English: 'categories',       Portuguese: 'categorias',        Spanish: 'categorías',        French: 'catégories' },
-    dishes:         { English: 'dishes',           Portuguese: 'pratos',            Spanish: 'platos',            French: 'plats' },
-    dish:           { English: 'dish',             Portuguese: 'prato',             Spanish: 'plato',             French: 'plat' },
-    watchOnYouTube: { English: 'Watch on YouTube', Portuguese: 'Ver no YouTube',    Spanish: 'Ver en YouTube',    French: 'Voir sur YouTube' },
-    howItsMade:     { English: "How it's made",    Portuguese: 'Como é feito',      Spanish: 'Cómo se hace',      French: 'Comment c\'est fait' },
-    video:          { English: 'Vídeo',            Portuguese: 'Vídeo',             Spanish: 'Vídeo',             French: 'Vidéo' }
+    backToMenu:      { English: 'Back to Menu',    Portuguese: 'Voltar ao Menu',    Spanish: 'Volver al Menú',    French: 'Retour au Menu',    Italian: 'Torna al Menu' },
+    backToMenuShort: { English: 'Back to Menu',    Portuguese: 'Voltar',            Spanish: 'Volver al Menú',    French: 'Retour au Menu',    Italian: 'Indietro' },
+    backToCategory: { English: 'Back to Category', Portuguese: 'Voltar à Categoria', Spanish: 'Volver a la Categoría', French: 'Retour à la Catégorie', Italian: 'Torna alla Categoria' },
+    viewItems:      { English: 'View Items',       Portuguese: 'Ver Itens',         Spanish: 'Ver Artículos',     French: 'Voir les Articles', Italian: 'Vedi i Piatti' },
+    viewItem:       { English: 'View item',        Portuguese: 'Ver item',          Spanish: 'Ver artículo',      French: 'Voir l\'article',   Italian: 'Vedi il piatto' },
+    explore:        { English: 'Explore →',        Portuguese: 'Explorar →',        Spanish: 'Explorar →',        French: 'Explorer →',        Italian: 'Esplora →' },
+    categories:     { English: 'categories',       Portuguese: 'categorias',        Spanish: 'categorías',        French: 'catégories',        Italian: 'categorie' },
+    dishes:         { English: 'dishes',           Portuguese: 'pratos',            Spanish: 'platos',            French: 'plats',             Italian: 'piatti' },
+    dish:           { English: 'dish',             Portuguese: 'prato',             Spanish: 'plato',             French: 'plat',              Italian: 'piatto' },
+    watchOnYouTube: { English: 'Watch on YouTube', Portuguese: 'Ver no YouTube',    Spanish: 'Ver en YouTube',    French: 'Voir sur YouTube',  Italian: 'Guarda su YouTube' },
+    howItsMade:     { English: "How it's made",    Portuguese: 'Como é feito',      Spanish: 'Cómo se hace',      French: 'Comment c\'est fait', Italian: 'Come viene preparato' },
+    video:          { English: 'Vídeo',            Portuguese: 'Vídeo',             Spanish: 'Vídeo',             French: 'Vidéo',             Italian: 'Video' }
   };
 
   function lsText(key) {
