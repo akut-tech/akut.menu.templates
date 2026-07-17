@@ -24,3 +24,8 @@ list:
     main: /templates/lisbon/
     category: /templates/lisbon/category/
     detail: /templates/lisbon/item/
+  trattoria:
+    name: Trattoria
+    main: /templates/trattoria/
+    category: /templates/trattoria/category/
+    detail: /templates/trattoria/item/

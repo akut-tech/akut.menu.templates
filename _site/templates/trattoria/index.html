@@ -18,6 +18,9 @@
 <!-- Akut menu overrides -->
 <link rel="stylesheet" href="/assets/css/menu.css">
 
+<!-- Per-template styling -->
+<link rel="stylesheet" href="/assets/css/trattoria.css">
+
 
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
 <script>
@@ -52,85 +55,101 @@
   <a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
 
   <div class="site-wrapper">
-    <!-- Header: tenant logo + language switcher (populated at runtime) -->
-<header>
-  <div class="menu-area menu-area-two">
-    <div class="container">
-      <div class="row align-items-center gy-3">
-        <div class="col-6 col-lg-4 order-1">
-          <div class="menu-logo-wrap">
-            <a href="#" data-menu-home>
-              <img data-menu-logo src="" alt="" hidden>
-            </a>
-          </div>
-        </div>
-        <div class="col-6 col-lg-8 order-2 order-lg-3">
-          <div class="d-flex justify-content-end align-items-center">
-            <div class="lang-switcher" data-lang-switcher hidden>
-              <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false">
-                <i class="bi bi-globe2"></i>
-                <span data-lang-current-label>Language</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <ul class="lang-menu custom-ul" data-lang-menu></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
+    
 
     <main>
-      <!-- Breadcrumb -->
-<div class="breadcrumb-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="breadcrumb-info text-center">
-          <h1 class="text-white" data-menu-name>Menu</h1>
-          <p class="text-white mt-3" data-menu-description></p>
-          <p class="text-white mt-2 opacity-75" data-founded-year></p>
+      <div class="tr">
+  <!-- Checkered top strip -->
+  <div class="tr-checkered-strip" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="tr-header">
+    <div class="tr-container tr-header-inner">
+      <a class="tr-brand" href="#" data-menu-home>
+        <span class="tr-brand-mark">
+          <span class="tr-brand-badge"></span>
+        </span>
+        <span class="tr-brand-text">
+          <span class="tr-brand-script">trattoria</span>
+          <span class="tr-brand-name" data-menu-name>Menu</span>
+        </span>
+      </a>
+      <div class="tr-lang" data-lang-switcher hidden>
+        <button type="button" class="tr-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down tr-lang-caret"></i>
+        </button>
+        <ul class="tr-lang-menu tr-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="tr-hero">
+    <div class="tr-container tr-hero-inner">
+      <div class="tr-hero-main">
+        <p class="tr-script tr-hero-eyebrow" data-tr-i18n="welcomeTo">Benvenuti a</p>
+        <h1 class="tr-hero-title" data-menu-name>Menu</h1>
+        <p class="tr-hero-desc" data-menu-description></p>
+        <div class="tr-hero-chips">
+          <span class="tr-chip" data-availability-chip hidden>
+            <span class="tr-chip-dot"></span>
+            <span data-availability></span>
+          </span>
+          <span class="tr-chip" data-founded-chip hidden>
+            <span data-founded-year></span>
+          </span>
+        </div>
+      </div>
+      <div class="tr-hero-tile" aria-hidden="true"></div>
+    </div>
+    <div class="tr-tricolore tr-container"></div>
+  </section>
+
+  <!-- Categories -->
+  <section class="tr-categories">
+    <div class="tr-container">
+      <div class="tr-section-head">
+        <div>
+          <p class="tr-script tr-section-eyebrow" data-tr-i18n="ilMenu">Il Menù</p>
+          <h2 class="tr-section-title" data-tr-i18n="categories">Categories</h2>
+        </div>
+        <div class="tr-checkered-tile" aria-hidden="true"></div>
+      </div>
+
+      <div id="menu-root">
+        <div class="tr-loading">
+          <div class="tr-loader"></div>
+          <span>Loading…</span>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- Menu (rendered at runtime) -->
-<div class="manu-page-wrap pt-120 pb-120">
-  <div class="container">
-    <div id="menu-root">
-      <div class="menu-loading"><div class="spinner"></div></div>
+  <!-- Footer -->
+  <footer class="tr-footer">
+    <div class="tr-checkered-strip" aria-hidden="true"></div>
+    <div class="tr-container tr-footer-inner">
+      <p class="tr-script tr-footer-script" data-tr-i18n="buonAppetito">Buon Appetito</p>
+      <p class="tr-footer-sub">
+        <span data-menu-name>Menu</span>
+        <span data-availability-sep hidden> · </span>
+        <span data-availability></span>
+      </p>
+      <p class="tr-footer-founded" data-founded-year></p>
+      <p class="tr-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
+      </p>
     </div>
-  </div>
+  </footer>
 </div>
 
     </main>
 
-    <!-- Footer: simplified, restaurant-aware -->
-<div class="footer-area footer-area-slim">
-  <div class="container">
-    <div class="row align-items-center gy-3">
-      <div class="col-lg-4 text-center text-lg-start">
-        <a class="footer-logo" href="#" data-menu-home>
-          <img data-menu-logo src="/assets/images/logo-two.svg" alt="">
-        </a>
-      </div>
-      <div class="col-lg-4 text-center">
-        <p class="text-white mb-0" data-availability></p>
-      </div>
-      <div class="col-lg-4 text-center text-lg-end">
-        <p class="text-white mb-0">
-          &copy; <span data-current-year></span> <span data-menu-name></span>
-        </p>
-        <p class="footer-powered mb-0">Powered by Akut</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+    
   </div>
 
   <!-- Vendor JS (only what the menu pages use: tabs + gallery zoom) -->
@@ -141,7 +160,7 @@
   <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
   
-  <script src="/assets/js/templates/epicurean.js"></script>
+  <script src="/assets/js/templates/trattoria.js"></script>
   
 
   <!-- Theme init (preloader, back-to-top) -->

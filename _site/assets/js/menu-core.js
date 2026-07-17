@@ -199,94 +199,102 @@
   var UI_STRINGS = {
     moreFrom: {
       English: 'More from {name}', Portuguese: 'Mais de {name}',
-      Spanish: 'Más de {name}',    French: 'Plus de {name}'
+      Spanish: 'Más de {name}',    French: 'Plus de {name}', Italian: 'Altro da {name}'
     },
     menu: {
-      English: 'Menu', Portuguese: 'Menu', Spanish: 'Menú', French: 'Menu'
+      English: 'Menu', Portuguese: 'Menu', Spanish: 'Menú', French: 'Menu', Italian: 'Menu'
     },
     details: {
-      English: 'Details', Portuguese: 'Detalhes', Spanish: 'Detalles', French: 'Détails'
+      English: 'Details', Portuguese: 'Detalhes', Spanish: 'Detalles', French: 'Détails', Italian: 'Dettagli'
     },
     description: {
-      English: 'Description', Portuguese: 'Descrição', Spanish: 'Descripción', French: 'Description'
+      English: 'Description', Portuguese: 'Descrição', Spanish: 'Descripción', French: 'Description', Italian: 'Descrizione'
     },
     ingredients: {
-      English: 'Ingredients', Portuguese: 'Ingredientes', Spanish: 'Ingredientes', French: 'Ingrédients'
+      English: 'Ingredients', Portuguese: 'Ingredientes', Spanish: 'Ingredientes', French: 'Ingrédients', Italian: 'Ingredienti'
     },
     allergens: {
-      English: 'Allergens', Portuguese: 'Alergénios', Spanish: 'Alérgenos', French: 'Allergènes'
+      English: 'Allergens', Portuguese: 'Alergénios', Spanish: 'Alérgenos', French: 'Allergènes', Italian: 'Allergeni'
     },
     ingredientsAllergens: {
       English: 'Ingredients & Allergens', Portuguese: 'Ingredientes e Alergénios',
-      Spanish: 'Ingredientes y Alérgenos', French: 'Ingrédients & Allergènes'
+      Spanish: 'Ingredientes y Alérgenos', French: 'Ingrédients & Allergènes', Italian: 'Ingredienti e Allergeni'
     },
     backToMenu: {
       English: 'Back to menu', Portuguese: 'Voltar ao menu',
-      Spanish: 'Volver al menú', French: 'Retour au menu'
+      Spanish: 'Volver al menú', French: 'Retour au menu', Italian: 'Torna al menu'
     },
     category: {
-      English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie'
+      English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie', Italian: 'Categoria'
     },
-    tagNew:     { English: 'New',           Portuguese: 'Novo',            Spanish: 'Nuevo',              French: 'Nouveau' },
-    tagPopular: { English: 'Popular',       Portuguese: 'Popular',         Spanish: 'Popular',            French: 'Populaire' },
-    tagChef:    { English: "Chef's Pick",   Portuguese: 'Escolha do Chef', Spanish: 'Selección del Chef', French: 'Choix du Chef' },
-    tagSeasonal:{ English: 'Seasonal',      Portuguese: 'Sazonal',         Spanish: 'Temporada',          French: 'Saisonnier' },
-    tagLimitedEdition: { English: 'Limited Edition', Portuguese: 'Edição Limitada', Spanish: 'Edición Limitada', French: 'Édition Limitée' },
+    tagNew:     { English: 'New',           Portuguese: 'Novo',            Spanish: 'Nuevo',              French: 'Nouveau',   Italian: 'Novità' },
+    tagPopular: { English: 'Popular',       Portuguese: 'Popular',         Spanish: 'Popular',            French: 'Populaire', Italian: 'Popolare' },
+    tagChef:    { English: "Chef's Pick",   Portuguese: 'Escolha do Chef', Spanish: 'Selección del Chef', French: 'Choix du Chef', Italian: 'Scelta dello Chef' },
+    tagSeasonal:{ English: 'Seasonal',      Portuguese: 'Sazonal',         Spanish: 'Temporada',          French: 'Saisonnier', Italian: 'Di Stagione' },
+    tagLimitedEdition: { English: 'Limited Edition', Portuguese: 'Edição Limitada', Spanish: 'Edición Limitada', French: 'Édition Limitée', Italian: 'Edizione Limitata' },
     noItems: {
       English: 'This menu has no items yet.',
       Portuguese: 'Este menu ainda não tem itens.',
       Spanish: 'Este menú aún no tiene artículos.',
-      French: 'Ce menu n’a pas encore d’articles.'
+      French: 'Ce menu n’a pas encore d’articles.',
+      Italian: 'Questo menu non ha ancora piatti.'
     },
     freshFromOcean: {
       English: 'Fresh from the ocean', Portuguese: 'Fresco do oceano',
-      Spanish: 'Fresco del océano', French: 'Fraîcheur de l’océan'
+      Spanish: 'Fresco del océano', French: 'Fraîcheur de l’océan', Italian: 'Fresco dall’oceano'
     },
     tryAgain: {
       English: 'Try again', Portuguese: 'Tentar novamente',
-      Spanish: 'Reintentar', French: 'Réessayer'
+      Spanish: 'Reintentar', French: 'Réessayer', Italian: 'Riprova'
     },
     availability: {
       English: 'Available {from}–{to}',
       Portuguese: 'Disponível {from}–{to}',
       Spanish: 'Disponible {from}–{to}',
-      French: 'Disponible {from}–{to}'
+      French: 'Disponible {from}–{to}',
+      Italian: 'Disponibile {from}–{to}'
     },
     foundedYear: {
       English: 'since {year}',
       Portuguese: 'desde {year}',
       Spanish: 'desde {year}',
-      French: 'depuis {year}'
+      French: 'depuis {year}',
+      Italian: 'dal {year}'
     },
     availableWeekends: {
       English: 'Available only on weekends',
       Portuguese: 'Disponível apenas aos fins de semana',
       Spanish: 'Disponible solo los fines de semana',
-      French: 'Disponible uniquement le week-end'
+      French: 'Disponible uniquement le week-end',
+      Italian: 'Disponibile solo nei fine settimana'
     },
     availableWeekdays: {
       English: 'Available only on weekdays',
       Portuguese: 'Disponível apenas nos dias úteis',
       Spanish: 'Disponible solo entre semana',
-      French: 'Disponible uniquement en semaine'
+      French: 'Disponible uniquement en semaine',
+      Italian: 'Disponibile solo nei giorni feriali'
     },
     availableDays: {
       English: 'Available only on {days}',
       Portuguese: 'Disponível apenas: {days}',
       Spanish: 'Disponible solo: {days}',
-      French: 'Disponible uniquement : {days}'
+      French: 'Disponible uniquement : {days}',
+      Italian: 'Disponibile solo: {days}'
     },
     tagUnavailable: {
       English: 'Unavailable',
       Portuguese: 'Indisponível',
       Spanish: 'No disponible',
-      French: 'Indisponible'
+      French: 'Indisponible',
+      Italian: 'Non disponibile'
     },
     complimentary: {
       English: 'Complimentary',
       Portuguese: 'Cortesia',
       Spanish: 'Cortesía de la casa',
-      French: 'Offert par la maison'
+      French: 'Offert par la maison',
+      Italian: 'Offerto dalla casa'
     }
   };
 
@@ -300,20 +308,20 @@
 
   // EU-regulated list of 14 allergens, keyed by the Allergen enum integer value.
   var ALLERGEN_LABELS = {
-    1:  { English: 'Gluten',       Portuguese: 'Glúten',                French: 'Gluten',          Spanish: 'Gluten' },
-    2:  { English: 'Crustaceans',  Portuguese: 'Crustáceos',            French: 'Crustacés',        Spanish: 'Crustáceos' },
-    3:  { English: 'Eggs',         Portuguese: 'Ovos',                  French: 'Œufs',             Spanish: 'Huevos' },
-    4:  { English: 'Fish',         Portuguese: 'Peixe',                 French: 'Poisson',          Spanish: 'Pescado' },
-    5:  { English: 'Peanuts',      Portuguese: 'Amendoins',             French: 'Cacahuètes',       Spanish: 'Cacahuetes' },
-    6:  { English: 'Soybeans',     Portuguese: 'Soja',                  French: 'Soja',             Spanish: 'Soja' },
-    7:  { English: 'Milk',         Portuguese: 'Leite',                 French: 'Lait',             Spanish: 'Leche' },
-    8:  { English: 'Nuts',         Portuguese: 'Frutos de casca rija',  French: 'Fruits à coque',   Spanish: 'Frutos de cáscara' },
-    9:  { English: 'Celery',       Portuguese: 'Aipo',                  French: 'Céleri',           Spanish: 'Apio' },
-    10: { English: 'Mustard',      Portuguese: 'Mostarda',              French: 'Moutarde',         Spanish: 'Mostaza' },
-    11: { English: 'Sesame',       Portuguese: 'Sésamo',                French: 'Sésame',           Spanish: 'Sésamo' },
-    12: { English: 'Sulphites',    Portuguese: 'Sulfitos',              French: 'Sulfites',         Spanish: 'Sulfitos' },
-    13: { English: 'Lupin',        Portuguese: 'Tremoço',               French: 'Lupin',            Spanish: 'Altramuces' },
-    14: { English: 'Molluscs',     Portuguese: 'Moluscos',              French: 'Mollusques',       Spanish: 'Moluscos' }
+    1:  { English: 'Gluten',       Portuguese: 'Glúten',                French: 'Gluten',          Spanish: 'Gluten',            Italian: 'Glutine' },
+    2:  { English: 'Crustaceans',  Portuguese: 'Crustáceos',            French: 'Crustacés',        Spanish: 'Crustáceos',        Italian: 'Crostacei' },
+    3:  { English: 'Eggs',         Portuguese: 'Ovos',                  French: 'Œufs',             Spanish: 'Huevos',             Italian: 'Uova' },
+    4:  { English: 'Fish',         Portuguese: 'Peixe',                 French: 'Poisson',          Spanish: 'Pescado',            Italian: 'Pesce' },
+    5:  { English: 'Peanuts',      Portuguese: 'Amendoins',             French: 'Cacahuètes',       Spanish: 'Cacahuetes',         Italian: 'Arachidi' },
+    6:  { English: 'Soybeans',     Portuguese: 'Soja',                  French: 'Soja',             Spanish: 'Soja',               Italian: 'Soia' },
+    7:  { English: 'Milk',         Portuguese: 'Leite',                 French: 'Lait',             Spanish: 'Leche',              Italian: 'Latte' },
+    8:  { English: 'Nuts',         Portuguese: 'Frutos de casca rija',  French: 'Fruits à coque',   Spanish: 'Frutos de cáscara',  Italian: 'Frutta a guscio' },
+    9:  { English: 'Celery',       Portuguese: 'Aipo',                  French: 'Céleri',           Spanish: 'Apio',               Italian: 'Sedano' },
+    10: { English: 'Mustard',      Portuguese: 'Mostarda',              French: 'Moutarde',         Spanish: 'Mostaza',            Italian: 'Senape' },
+    11: { English: 'Sesame',       Portuguese: 'Sésamo',                French: 'Sésame',           Spanish: 'Sésamo',             Italian: 'Sesamo' },
+    12: { English: 'Sulphites',    Portuguese: 'Sulfitos',              French: 'Sulfites',         Spanish: 'Sulfitos',           Italian: 'Solfiti' },
+    13: { English: 'Lupin',        Portuguese: 'Tremoço',               French: 'Lupin',            Spanish: 'Altramuces',         Italian: 'Lupini' },
+    14: { English: 'Molluscs',     Portuguese: 'Moluscos',              French: 'Mollusques',       Spanish: 'Moluscos',           Italian: 'Molluschi' }
   };
 
   // Map an array of allergen IDs to translated label strings.
@@ -398,13 +406,13 @@
   // Mirrors .NET's System.DayOfWeek (0=Sunday..6=Saturday), used by
   // AvailabilityMenuItem.Standard.Days.
   var DAY_NAMES = {
-    0: { English: 'Sunday',    Portuguese: 'Domingo',        Spanish: 'Domingo',    French: 'Dimanche' },
-    1: { English: 'Monday',    Portuguese: 'Segunda-feira',  Spanish: 'Lunes',      French: 'Lundi' },
-    2: { English: 'Tuesday',   Portuguese: 'Terça-feira',    Spanish: 'Martes',     French: 'Mardi' },
-    3: { English: 'Wednesday', Portuguese: 'Quarta-feira',   Spanish: 'Miércoles',  French: 'Mercredi' },
-    4: { English: 'Thursday',  Portuguese: 'Quinta-feira',   Spanish: 'Jueves',     French: 'Jeudi' },
-    5: { English: 'Friday',    Portuguese: 'Sexta-feira',    Spanish: 'Viernes',    French: 'Vendredi' },
-    6: { English: 'Saturday',  Portuguese: 'Sábado',         Spanish: 'Sábado',     French: 'Samedi' }
+    0: { English: 'Sunday',    Portuguese: 'Domingo',        Spanish: 'Domingo',    French: 'Dimanche', Italian: 'Domenica' },
+    1: { English: 'Monday',    Portuguese: 'Segunda-feira',  Spanish: 'Lunes',      French: 'Lundi',    Italian: 'Lunedì' },
+    2: { English: 'Tuesday',   Portuguese: 'Terça-feira',    Spanish: 'Martes',     French: 'Mardi',    Italian: 'Martedì' },
+    3: { English: 'Wednesday', Portuguese: 'Quarta-feira',   Spanish: 'Miércoles',  French: 'Mercredi', Italian: 'Mercoledì' },
+    4: { English: 'Thursday',  Portuguese: 'Quinta-feira',   Spanish: 'Jueves',     French: 'Jeudi',    Italian: 'Giovedì' },
+    5: { English: 'Friday',    Portuguese: 'Sexta-feira',    Spanish: 'Viernes',    French: 'Vendredi', Italian: 'Venerdì' },
+    6: { English: 'Saturday',  Portuguese: 'Sábado',         Spanish: 'Sábado',     French: 'Samedi',   Italian: 'Sabato' }
   };
   var DAY_DISPLAY_ORDER = [1, 2, 3, 4, 5, 6, 0]; // Monday..Sunday, for listing multiple days
 
@@ -417,7 +425,7 @@
   function joinList(items, lang) {
     if (!items.length) return '';
     if (items.length === 1) return items[0];
-    var AND = { English: 'and', Portuguese: 'e', Spanish: 'y', French: 'et' };
+    var AND = { English: 'and', Portuguese: 'e', Spanish: 'y', French: 'et', Italian: 'e' };
     var word = (lang && AND[lang]) || AND.English;
     return items.slice(0, -1).join(', ') + ' ' + word + ' ' + items[items.length - 1];
   }
@@ -509,31 +517,36 @@
       English:    { title: 'No restaurant selected',    body: 'Add a tenant to the address, for example {code}.' },
       Portuguese: { title: 'Nenhum restaurante selecionado', body: 'Adicione um restaurante ao endereço, por exemplo {code}.' },
       Spanish:    { title: 'Ningún restaurante seleccionado', body: 'Añada un restaurante a la dirección, por ejemplo {code}.' },
-      French:     { title: 'Aucun restaurant sélectionné', body: 'Ajoutez un restaurant à l’adresse, par exemple {code}.' }
+      French:     { title: 'Aucun restaurant sélectionné', body: 'Ajoutez un restaurant à l’adresse, par exemple {code}.' },
+      Italian:    { title: 'Nessun ristorante selezionato', body: 'Aggiungi un ristorante all’indirizzo, ad esempio {code}.' }
     },
     NOT_FOUND: {
       English:    { title: 'Menu not found', body: "We couldn't find a menu for this restaurant yet. Please check the link or try again later." },
       Portuguese: { title: 'Menu não encontrado', body: 'Ainda não encontrámos um menu para este restaurante. Verifique o link ou tente mais tarde.' },
       Spanish:    { title: 'Menú no encontrado', body: 'Aún no encontramos un menú para este restaurante. Comprueba el enlace o inténtalo más tarde.' },
-      French:     { title: 'Menu introuvable', body: 'Nous n’avons pas encore trouvé de menu pour ce restaurant. Vérifiez le lien ou réessayez plus tard.' }
+      French:     { title: 'Menu introuvable', body: 'Nous n’avons pas encore trouvé de menu pour ce restaurant. Vérifiez le lien ou réessayez plus tard.' },
+      Italian:    { title: 'Menu non trovato', body: 'Non abbiamo ancora trovato un menu per questo ristorante. Controlla il link o riprova più tardi.' }
     },
     HTTP_ERROR: {
       English:    { title: 'Menu temporarily unavailable', body: 'The menu service responded with an error. Please try again in a few minutes.' },
       Portuguese: { title: 'Menu temporariamente indisponível', body: 'O serviço de menus respondeu com um erro. Tente novamente dentro de alguns minutos.' },
       Spanish:    { title: 'Menú temporalmente no disponible', body: 'El servicio de menús respondió con un error. Inténtalo de nuevo en unos minutos.' },
-      French:     { title: 'Menu temporairement indisponible', body: 'Le service de menus a renvoyé une erreur. Veuillez réessayer dans quelques minutes.' }
+      French:     { title: 'Menu temporairement indisponible', body: 'Le service de menus a renvoyé une erreur. Veuillez réessayer dans quelques minutes.' },
+      Italian:    { title: 'Menu temporaneamente non disponibile', body: 'Il servizio menu ha risposto con un errore. Riprova tra qualche minuto.' }
     },
     NETWORK: {
       English:    { title: 'Menu temporarily unavailable', body: "We couldn't reach the menu service. Please check your connection and try again." },
       Portuguese: { title: 'Menu temporariamente indisponível', body: 'Não foi possível contactar o serviço de menus. Verifique a sua ligação e tente novamente.' },
       Spanish:    { title: 'Menú temporalmente no disponible', body: 'No pudimos conectar con el servicio de menús. Comprueba tu conexión e inténtalo de nuevo.' },
-      French:     { title: 'Menu temporairement indisponible', body: 'Impossible de joindre le service de menus. Vérifiez votre connexion et réessayez.' }
+      French:     { title: 'Menu temporairement indisponible', body: 'Impossible de joindre le service de menus. Vérifiez votre connexion et réessayez.' },
+      Italian:    { title: 'Menu temporaneamente non disponibile', body: 'Impossibile raggiungere il servizio menu. Controlla la connessione e riprova.' }
     },
     PREVIEW_NOT_FOUND: {
       English:    { title: 'Preview unavailable', body: 'The preview data could not be found. The preview may have expired or the link may be incorrect.' },
       Portuguese: { title: 'Pré-visualização indisponível', body: 'Os dados de pré-visualização não foram encontrados. A pré-visualização pode ter expirado ou o link pode estar incorreto.' },
       Spanish:    { title: 'Vista previa no disponible', body: 'No se encontraron los datos de la vista previa. La vista previa puede haber expirado o el enlace puede ser incorrecto.' },
-      French:     { title: 'Aperçu indisponible', body: "Les données d'aperçu sont introuvables. L'aperçu a peut-être expiré ou le lien est incorrect." }
+      French:     { title: 'Aperçu indisponible', body: "Les données d'aperçu sont introuvables. L'aperçu a peut-être expiré ou le lien est incorrect." },
+      Italian:    { title: 'Anteprima non disponibile', body: "I dati dell'anteprima non sono stati trovati. L'anteprima potrebbe essere scaduta o il link potrebbe essere errato." }
     }
   };
 

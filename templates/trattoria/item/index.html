@@ -1,0 +1,59 @@
+---
+layout: base
+permalink: /templates/trattoria/item/
+title: Item
+no_chrome: true
+template_css: trattoria
+template_js: trattoria
+---
+
+<div class="tr">
+  <!-- Checkered top strip -->
+  <div class="tr-checkered-strip" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="tr-header">
+    <div class="tr-container tr-header-inner">
+      <a class="tr-back-btn" href="#" data-menu-home>
+        <span class="tr-back-btn-arrow" aria-hidden="true">←</span>
+        <span data-tr-i18n="backToMenuShort">Menu</span>
+      </a>
+      <span class="tr-topbar-brand" data-menu-name></span>
+      <div class="tr-lang" data-lang-switcher hidden>
+        <button type="button" class="tr-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down tr-lang-caret"></i>
+        </button>
+        <ul class="tr-lang-menu tr-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Item content (rendered at runtime) -->
+  <main id="item-root">
+    <div class="tr-loading">
+      <div class="tr-loader"></div>
+      <span>Loading…</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tr-footer">
+    <div class="tr-checkered-strip" aria-hidden="true"></div>
+    <div class="tr-container tr-footer-inner">
+      <p class="tr-script tr-footer-script" data-tr-i18n="buonAppetito">Buon Appetito</p>
+      <p class="tr-footer-sub">
+        <span data-menu-name>Menu</span>
+        <span data-availability-sep hidden> · </span>
+        <span data-availability></span>
+      </p>
+      <p class="tr-footer-founded" data-founded-year></p>
+      <p class="tr-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
+      </p>
+    </div>
+  </footer>
+</div>

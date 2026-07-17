@@ -224,3 +224,11 @@ body.has-preview-band { padding-top: 40px; }
   font-style: italic;
   letter-spacing: .15em;
 }
+
+/* Trattoria — rosso italiano with cream text */
+.preview-band--trattoria {
+  background: #cd212a;
+  color: #f7f4ec;
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: .15em;
+}

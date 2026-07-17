@@ -4,20 +4,20 @@
 # Each entry is keyed by language name (matching the localized fields in the
 # menu JSON, e.g. "English"). The runtime resolves the active language, then
 # falls back to English. A plain string is still accepted for back-compat.
-1:  { English: Vegan,            Portuguese: Vegano,                 Spanish: Vegano,                 French: Végétalien }
-2:  { English: Vegetarian,       Portuguese: Vegetariano,            Spanish: Vegetariano,            French: Végétarien }
-3:  { English: Gluten-Free,      Portuguese: Sem Glúten,             Spanish: Sin Gluten,             French: Sans Gluten }
-4:  { English: Lactose-Free,     Portuguese: Sem Lactose,            Spanish: Sin Lactosa,            French: Sans Lactose }
-5:  { English: Egg-Free,         Portuguese: Sem Ovos,               Spanish: Sin Huevo,              French: Sans Œuf }
-6:  { English: Sugar-Free,       Portuguese: Sem Açúcar,             Spanish: Sin Azúcar,             French: Sans Sucre }
-7:  { English: Caffeine-Free,    Portuguese: Sem Cafeína,            Spanish: Sin Cafeína,            French: Sans Caféine }
-8:  { English: Alcohol-Free,     Portuguese: Sem Álcool,             Spanish: Sin Alcohol,            French: Sans Alcool }
-9:  { English: Low-Carb,         Portuguese: Baixo em Carboidratos,  Spanish: Bajo en Carbohidratos,  French: Pauvre en Glucides }
-10: { English: Low-Fat,          Portuguese: Baixo em Gordura,       Spanish: Bajo en Grasa,          French: Pauvre en Matières Grasses }
-11: { English: Low-Salt,         Portuguese: Baixo em Sal,           Spanish: Bajo en Sal,            French: Pauvre en Sel }
-12: { English: Low-Sugar,        Portuguese: Baixo em Açúcar,        Spanish: Bajo en Azúcar,         French: Pauvre en Sucre }
-13: { English: Organic,          Portuguese: Biológico,              Spanish: Orgánico,               French: Biologique }
-14: { English: Bio,              Portuguese: Bio,                    Spanish: Bio,                    French: Bio }
-15: { English: Kosher,           Portuguese: Kosher,                 Spanish: Kosher,                 French: Casher }
-16: { English: Raw,              Portuguese: Cru,                    Spanish: Crudo,                  French: Cru }
-17: { English: Spicy,            Portuguese: Picante,                Spanish: Picante,                French: Épicé }
+1:  { English: Vegan,            Portuguese: Vegano,                 Spanish: Vegano,                 French: Végétalien,               Italian: Vegano }
+2:  { English: Vegetarian,       Portuguese: Vegetariano,            Spanish: Vegetariano,            French: Végétarien,               Italian: Vegetariano }
+3:  { English: Gluten-Free,      Portuguese: Sem Glúten,             Spanish: Sin Gluten,             French: Sans Gluten,              Italian: Senza Glutine }
+4:  { English: Lactose-Free,     Portuguese: Sem Lactose,            Spanish: Sin Lactosa,            French: Sans Lactose,             Italian: Senza Lattosio }
+5:  { English: Egg-Free,         Portuguese: Sem Ovos,               Spanish: Sin Huevo,              French: Sans Œuf,                 Italian: Senza Uova }
+6:  { English: Sugar-Free,       Portuguese: Sem Açúcar,             Spanish: Sin Azúcar,             French: Sans Sucre,               Italian: Senza Zucchero }
+7:  { English: Caffeine-Free,    Portuguese: Sem Cafeína,            Spanish: Sin Cafeína,            French: Sans Caféine,             Italian: Senza Caffeina }
+8:  { English: Alcohol-Free,     Portuguese: Sem Álcool,             Spanish: Sin Alcohol,            French: Sans Alcool,              Italian: Senza Alcol }
+9:  { English: Low-Carb,         Portuguese: Baixo em Carboidratos,  Spanish: Bajo en Carbohidratos,  French: Pauvre en Glucides,       Italian: Povero di Carboidrati }
+10: { English: Low-Fat,          Portuguese: Baixo em Gordura,       Spanish: Bajo en Grasa,          French: Pauvre en Matières Grasses, Italian: Povero di Grassi }
+11: { English: Low-Salt,         Portuguese: Baixo em Sal,           Spanish: Bajo en Sal,            French: Pauvre en Sel,            Italian: Povero di Sale }
+12: { English: Low-Sugar,        Portuguese: Baixo em Açúcar,        Spanish: Bajo en Azúcar,         French: Pauvre en Sucre,          Italian: Povero di Zucchero }
+13: { English: Organic,          Portuguese: Biológico,              Spanish: Orgánico,               French: Biologique,               Italian: Biologico }
+14: { English: Bio,              Portuguese: Bio,                    Spanish: Bio,                    French: Bio,                      Italian: Bio }
+15: { English: Kosher,           Portuguese: Kosher,                 Spanish: Kosher,                 French: Casher,                   Italian: Kosher }
+16: { English: Raw,              Portuguese: Cru,                    Spanish: Crudo,                  French: Cru,                      Italian: Crudo }
+17: { English: Spicy,            Portuguese: Picante,                Spanish: Picante,                French: Épicé,                    Italian: Piccante }

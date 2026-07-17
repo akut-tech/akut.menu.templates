@@ -2,13 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loading menu…</title>
-  <link rel="icon" href="/assets/images/fav.png" type="image/png">
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/menu.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Category</title>
+
+<link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
+
+<!-- Icon font -->
+<link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+<!-- Lightbox (item gallery zoom) -->
+<link rel="stylesheet" href="/assets/css/magnific-popup.css">
+<!-- Grid / components (tabs) -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<!-- Theme -->
+<link rel="stylesheet" href="/assets/css/style.css">
+<!-- Akut menu overrides -->
+<link rel="stylesheet" href="/assets/css/menu.css">
+
+<!-- Per-template styling -->
+<link rel="stylesheet" href="/assets/css/trattoria.css">
+
+
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
 <script>
   window.AKUT_CONFIG = {
@@ -27,61 +40,92 @@
 
 </head>
 <body>
-  <!--
-    On static hosts (S3 website, GitHub Pages) a clean tenant URL such as
-    "/test" has no matching file and is served as this 404 document. We reuse it
-    as the dispatcher: resolve the tenant from the path and route to its template.
-    If there is no tenant, we show the friendly fallback.
-  -->
-  <div class="site-wrapper">
-    <div id="dispatch-root">
-      <div class="menu-loading"><div class="spinner"></div></div>
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="spinner-wrap">
+      <div class="preloader-logo">
+        <img src="/assets/images/preloader.svg" alt="" class="img-fluid">
+      </div>
+      <div class="spinner"></div>
     </div>
   </div>
 
+  <!-- Back to top -->
+  <a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
+
+  <div class="site-wrapper">
+    
+
+    <main>
+      <div class="tr">
+  <!-- Checkered top strip -->
+  <div class="tr-checkered-strip" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="tr-header">
+    <div class="tr-container tr-header-inner">
+      <a class="tr-back-btn" href="#" data-menu-home>
+        <span class="tr-back-btn-arrow" aria-hidden="true">←</span>
+        <span data-tr-i18n="allCategories">All categories</span>
+      </a>
+      <span class="tr-topbar-brand" data-menu-name></span>
+      <div class="tr-lang" data-lang-switcher hidden>
+        <button type="button" class="tr-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down tr-lang-caret"></i>
+        </button>
+        <ul class="tr-lang-menu tr-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category content (rendered at runtime) -->
+  <main id="category-root">
+    <div class="tr-loading">
+      <div class="tr-loader"></div>
+      <span>Loading…</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="tr-footer">
+    <div class="tr-checkered-strip" aria-hidden="true"></div>
+    <div class="tr-container tr-footer-inner">
+      <p class="tr-script tr-footer-script" data-tr-i18n="buonAppetito">Buon Appetito</p>
+      <p class="tr-footer-sub">
+        <span data-menu-name>Menu</span>
+        <span data-availability-sep hidden> · </span>
+        <span data-availability></span>
+      </p>
+      <p class="tr-footer-founded" data-founded-year></p>
+      <p class="tr-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
+      </p>
+    </div>
+  </footer>
+</div>
+
+    </main>
+
+    
+  </div>
+
+  <!-- Vendor JS (only what the menu pages use: tabs + gallery zoom) -->
+  <script src="/assets/js/vendor/jquery-3.7.1.min.js"></script>
+  <script src="/assets/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/vendor/jquery.magnific-popup.min.js"></script>
+
+  <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
-  <script>
-    (function () {
-      var root = document.getElementById('dispatch-root');
+  
+  <script src="/assets/js/templates/trattoria.js"></script>
+  
 
-      // Detect whether the URL path begins with /preview/ (after stripping baseUrl).
-      var rawPath = location.pathname;
-      var baseUrl = (window.AKUT_CONFIG && window.AKUT_CONFIG.baseUrl || '').replace(/\/$/, '');
-      if (baseUrl && rawPath.indexOf(baseUrl) === 0) rawPath = rawPath.slice(baseUrl.length);
-      var isPreviewPath = rawPath.split('/').filter(Boolean)[0] === 'preview';
-
-      // getTenant / getMenuId already skip "preview" because it is in reserved_paths.
-      var tenant = MenuCore.getTenant();
-
-      if (!tenant) {
-        MenuCore.renderError(root, { code: 'NO_TENANT' });
-        return;
-      }
-
-      var menuId = MenuCore.getMenuId();
-
-      if (isPreviewPath) {
-        // Fetch from the ephemeral S3 bucket, then route to the template with ?preview=1.
-        MenuCore.fetchPreviewMenu(tenant, menuId)
-          .then(function (menu) {
-            var main = MenuCore.templatePath('main', menu.TemplateId);
-            location.replace(MenuCore.withTenant(main, tenant, menuId, 'preview=1'));
-          })
-          .catch(function (err) {
-            MenuCore.renderError(root, err);
-          });
-        return;
-      }
-
-      MenuCore.fetchMenu(tenant, menuId)
-        .then(function (menu) {
-          var main = MenuCore.templatePath('main', menu.TemplateId);
-          location.replace(MenuCore.withTenant(main, tenant, menuId));
-        })
-        .catch(function (err) {
-          MenuCore.renderError(root, err);
-        });
-    })();
-  </script>
+  <!-- Theme init (preloader, back-to-top) -->
+  <script src="/assets/js/theme-init.js"></script>
 </body>
 </html>
