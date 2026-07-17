@@ -152,6 +152,15 @@
     return (cat.Items || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
   }
 
+  function firstCategoryImage(cat) {
+    var items = sortedItems(cat);
+    for (var i = 0; i < items.length; i++) {
+      var img = buildImages(items[i])[0];
+      if (img) return img;
+    }
+    return null;
+  }
+
   function buildImages(item) {
     return (item.Images || [])
       .slice()
@@ -296,7 +305,7 @@
     var count   = sortedItems(cat).length;
     var desc    = L(cat.Description);
     var noun    = count === 1 ? trText('item') : trText('items');
-    var imgUrl  = cat.Image && ((cat.Image.Link && cat.Image.Link.FullSize) || cat.Image.Url);
+    var imgUrl  = firstCategoryImage(cat);
     var mediaHtml = imgUrl
       ? '<img src="' + esc(imgUrl) + '" alt="' + esc(L(cat.Name)) + '" loading="lazy">'
       : '<div class="tr-cat-card-noimg"><i class="bi bi-image" aria-hidden="true"></i></div>';
