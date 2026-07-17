@@ -25,3 +25,10 @@
   description_pt: Layout editorial português contemporâneo com tipografia refinada e imagens cuidadas.
   url: /akut/07edbb00-0321-412c-bb5a-77d962bf64cb
   accent: "#1A4A7A"
+
+- id: trattoria
+  name: Trattoria
+  description: Warm Italian trattoria experience with rustic typography and bold accents.
+  description_pt: Experiência acolhedora de trattoria italiana com tipografia rústica e destaques marcantes.
+  url: /akut/f697a143-818a-42a6-8d9c-6c778df7e6b2
+  accent: "#CD212A"
