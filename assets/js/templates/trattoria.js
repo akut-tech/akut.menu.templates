@@ -32,7 +32,7 @@
     welcomeTo:       { English: 'Welcome to',        Portuguese: 'Bem-vindo a',              Spanish: 'Bienvenido a',              French: 'Bienvenue à',            Italian: 'Benvenuti a' },
     ilMenu:          { English: 'The Menu',          Portuguese: 'O Menu',                   Spanish: 'El Menú',                   French: 'Le Menu',                Italian: 'Il Menù' },
     categories:      { English: 'Categories',        Portuguese: 'Categorias',               Spanish: 'Categorías',                French: 'Catégories',             Italian: 'Categorie' },
-    buonAppetito:    { English: 'Buon Appetito',      Portuguese: 'Buon Appetito',            Spanish: 'Buon Appetito',             French: 'Buon Appetito',          Italian: 'Buon Appetito' },
+    buonAppetito:    { English: 'Enjoy your meal',     Portuguese: 'Bom apetite',              Spanish: 'Buen provecho',             French: 'Bon appétit',            Italian: 'Buon Appetito' },
     allCategories:   { English: 'All categories',     Portuguese: 'Todas as categorias',      Spanish: 'Todas las categorías',      French: 'Toutes les catégories',  Italian: 'Tutte le categorie' },
     backToMenuShort: { English: 'Menu',               Portuguese: 'Menu',                     Spanish: 'Menú',                      French: 'Menu',                   Italian: 'Menu' },
     backToMenu:      { English: 'Back to Menu',       Portuguese: 'Voltar ao Menu',            Spanish: 'Volver al Menú',            French: 'Retour au Menu',         Italian: 'Torna al Menu' },
