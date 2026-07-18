@@ -37,6 +37,7 @@ exclude:
   - README.md
   - vendor
   - .gitignore
+  - draft
 
 # Pretty URLs for the template folders (/templates/classic/).
 permalink: pretty
