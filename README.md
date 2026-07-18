@@ -51,11 +51,13 @@ Templates live under `templates/<name>/` and each has **two pages**:
 | Detail | `/templates/<name>/detail/`      | `#detail-root`  |
 
 The registry in `_data/templates.yml` maps a `TemplateId` to its pages. The
-value `"default"` (used in the sample data) is aliased to `epicurean`.
+value `"default"` (used in the sample data) is aliased to `classic`, as are
+`"epicurean"` (the template's old name) and the `"epicureanm"` typo — any
+unrecognized `TemplateId` also falls back to `classic`, the default template.
 
 #### Implemented templates
 
-- **epicurean** (default) — adapted from the Epicurean food template. Main page
+- **classic** (default) — adapted from the Epicurean food template. Main page
   is the food-menu layout; detail page is the shop-details layout, both trimmed
   to the parts relevant to a menu (cart, search, blog, reviews, e-commerce
   widgets removed).
@@ -65,7 +67,7 @@ value `"default"` (used in the sample data) is aliased to `epicurean`.
   fish/chef "shape" watermarks (`assets/images/deepblue/`). Fully responsive
   across all screen sizes with its own self-contained stylesheet
   (`assets/css/deepblue.css`) and chrome (it sets `no_chrome: true` and ships its
-  own header/footer). Supports every epicurean capability — multilanguage,
+  own header/footer). Supports every classic capability — multilanguage,
   categories, diet tags, prices, "New" badges, the image **and** YouTube gallery
   (both rendered in one fixed-size 16:9 frame so the layout never jumps), the
   description / ingredients & allergens tabs, related items, and the friendly
@@ -148,7 +150,7 @@ bundle exec jekyll serve
 Then open:
 
 - `http://localhost:4001/?tenant=test` — live `test` menu from S3
-- `http://localhost:4001/templates/epicurean/?tenant=test` — template directly
+- `http://localhost:4001/templates/classic/?tenant=test` — template directly
 
 A bundled demo menu lives at `assets/data/sample-menu.json` for reference and
 offline design work.

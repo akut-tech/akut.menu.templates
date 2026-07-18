@@ -108,8 +108,8 @@
   }
 
   // Inject a full-width preview band at the top of the page. The templateSlug
-  // ('epicurean', 'deepblue', 'senjutsu', 'lisbon') selects the per-template
-  // color variant; omit it to use the default (Epicurean) palette.
+  // ('classic', 'deepblue', 'senjutsu', 'lisbon') selects the per-template
+  // color variant; omit it to use the default (Classic) palette.
   function renderPreviewBand(templateSlug) {
     if (document.getElementById('akut-preview-band')) return;
 

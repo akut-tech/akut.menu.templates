@@ -9,7 +9,7 @@
  * (?tenant= or path segment); otherwise the template renders from its own
  * bundled menu stored in the project at assets/data/deepblue-menu.json. This
  * keeps the template fully previewable on its own while still supporting the
- * shared multi-tenant runtime and every capability of the epicurean template.
+ * shared multi-tenant runtime and every capability of the classic template.
  */
 (function (global) {
   'use strict';

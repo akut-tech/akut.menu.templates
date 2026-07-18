@@ -168,7 +168,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  /* Epicurean default: amber on near-black */
+  /* Classic default: amber on near-black */
   background: #fd9900;
   color: #101113;
   font-family: var(--ff-abril-display, Georgia, serif);

@@ -21,7 +21,7 @@ s3_base: "https://s3-akut-prod-01.s3.eu-west-1.amazonaws.com/products/menu/"
 s3_ephemeral_base: "https://s3-akut-prod-ephemeral-01.s3.eu-west-1.amazonaws.com/products/menu/"
 
 # Template used when a menu's TemplateId is missing or unknown.
-default_template: epicurean
+default_template: classic
 
 # Path segments that are NOT tenant names when resolving from the URL path.
 reserved_paths:
@@ -38,5 +38,5 @@ exclude:
   - vendor
   - .gitignore
 
-# Pretty URLs for the template folders (/templates/epicurean/).
+# Pretty URLs for the template folders (/templates/classic/).
 permalink: pretty

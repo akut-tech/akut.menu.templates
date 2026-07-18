@@ -1,9 +1,9 @@
 /*
- * epicurean.js — renderer for the "Epicurean" template (the default).
+ * classic.js — renderer for the "Classic" template (the default).
  *
  * Drives both pages:
- *   - /templates/epicurean/         (main menu, container #menu-root)
- *   - /templates/epicurean/detail/  (item detail, container #detail-root)
+ *   - /templates/classic/         (main menu, container #menu-root)
+ *   - /templates/classic/detail/  (item detail, container #detail-root)
  *
  * All dynamic content comes from the tenant menu JSON loaded by menu-core.js.
  */
@@ -32,7 +32,7 @@
         setupLangSwitcher();
         if (menuRoot) renderMain(menuRoot);
         else if (detailRoot) renderDetail(detailRoot);
-        if (Core.isPreview()) Core.renderPreviewBand('epicurean');
+        if (Core.isPreview()) Core.renderPreviewBand('classic');
       })
       .catch(function (err) {
         Core.renderError(fallback, err, state.lang);

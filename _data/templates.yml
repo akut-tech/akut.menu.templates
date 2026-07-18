@@ -1,16 +1,20 @@
 # Registry of available menu templates.
 # The menu JSON's `TemplateId` is matched (case-insensitive) against the keys
-# in `list`. The S3 value "default" is aliased to `default` below.
-default: epicurean
+# in `list`. The S3 value "default" is aliased to `classic` below. Unknown
+# TemplateId values (e.g. "epicurean", the old name, or the "epicureanm"
+# typo) fall back to `default` automatically via menu-core.js.
+default: classic
 
 aliases:
-  default: epicurean
+  default: classic
+  epicurean: classic
+  epicureanm: classic
 
 list:
-  epicurean:
-    name: Epicurean
-    main: /templates/epicurean/
-    detail: /templates/epicurean/detail/
+  classic:
+    name: Classic
+    main: /templates/classic/
+    detail: /templates/classic/detail/
   deepblue:
     name: Deep Blue
     main: /templates/deepblue/
