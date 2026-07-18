@@ -112,9 +112,9 @@ Each template page's front matter drives `_layouts/base.html`:
           "ShortDescription": { "English": "…" },
           "FullDescription": { "English": "…" },
           "Ingredients": { "English": "…" },
-          "Allergens": { "English": "…" },
+          "Allergens": [7, 1, 8],              // enum → EU 14-allergen list, see below
           "Price": 5.5,
-          "IsNew": false
+          "Tag": 1                             // nullable enum → MenuItemTag, see below
         }
       ]
     }
@@ -128,6 +128,39 @@ not from a fixed list. Initial language: saved per-menu choice (`localStorage`) 
 enum mapped through `_data/languages.yml` → first available key.
 `DefaultLanguage` mirrors the `akut.domain` enum: `1=Portuguese, 2=English, 3=Spanish, 4=French,
 5=Italian`.
+
+`Allergens` is a numeric ID array (like `Diets`), not a localized text field — item-level
+`Ingredients`/`FullDescription` etc. are free-text-per-language, but the structured allergen list is
+resolved through `menu-core.js`'s `ALLERGEN_LABELS`, a hardcoded map of the EU's 14 regulated
+allergens to per-language labels. Templates call `MenuCore.allergenLabels(item.Allergens, lang)`,
+which maps each ID to its translated label (falling back to English) and silently drops any ID not
+in the table, so an unrecognized/future enum value never breaks rendering — it just doesn't display.
+`ALLERGEN_LABELS` / `allergenLabels` are exported on `MenuCore` the same way `dietLabels` and
+`formatPrice` are.
+
+`Tag` (`MenuItemTag`) is a single nullable enum per item — not an array like `Diets`/`Allergens` —
+resolved through `menu-core.js`'s `TAG_CONFIG` (menu-core.js:301-307), which maps each of the 5 tag
+values to a `UI_STRINGS` key, a CSS slug, and a Bootstrap icon class:
+
+```js
+var TAG_CONFIG = {
+  1: { key: 'tagNew',            slug: 'new',             icon: 'bi-stars' },
+  2: { key: 'tagPopular',        slug: 'popular',         icon: 'bi-graph-up-arrow' },
+  3: { key: 'tagChef',           slug: 'chef',            icon: 'bi-award' },
+  4: { key: 'tagSeasonal',       slug: 'seasonal',        icon: 'bi-flower2' },
+  5: { key: 'tagLimitedEdition', slug: 'limited-edition', icon: 'bi-hourglass-split' }
+};
+```
+
+`MenuCore.tagBadge(item, lang, cssPrefix)` builds the badge HTML, taking a caller-supplied CSS
+prefix so each template gets its own class names (`menu-badge--new`, `db-badge--chef`,
+`tr-badge--seasonal`, …) while sharing the same enum/label logic. It returns `''` when `item.Tag` is
+falsy or not in `TAG_CONFIG`. If the item is temporarily unavailable
+(`Availability.Temporary.Unavailable === true`), it renders an "Unavailable" badge instead — the two
+never combine. Classic, deepblue, lisbon, and trattoria all call `Core.tagBadge` directly; senjutsu
+has its own `renderTagBadge(item)` (senjutsu.js:183-198) that reimplements the same lookup and
+unavailable-override logic but appends a kanji suffix per tag (`SJ_TAG_KANJI`) to match its
+Japanese-aesthetic badges.
 
 ### i18n conventions
 
