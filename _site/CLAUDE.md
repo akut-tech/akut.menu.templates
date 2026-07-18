@@ -162,6 +162,17 @@ has its own `renderTagBadge(item)` (senjutsu.js:183-198) that reimplements the s
 unavailable-override logic but appends a kanji suffix per tag (`SJ_TAG_KANJI`) to match its
 Japanese-aesthetic badges.
 
+In category/item grid cards, unavailable items are not hidden or disabled — every template applies
+two independent, `isTemporarilyUnavailable`-driven treatments to the same card:
+1. **Fade**: the card gets an extra `menu-item-faded` class (e.g. `trattoria.js:381`, same pattern
+   in classic/deepblue/lisbon/senjutsu), styled by the shared rule in `assets/css/menu.css:67-68` —
+   `opacity: .45`, rising to `.65` on hover/focus. The card stays clickable.
+2. **Badge**: `Core.tagBadge`/`renderTagBadge` renders the "Unavailable" badge (icon
+   `bi-slash-circle`, or `· 休` suffix for senjutsu) in the same slot a `Tag` badge would occupy,
+   overlaid on the card's image.
+The item keeps its normal position, image, name, and price — it just reads as dimmed-with-a-badge
+rather than being removed from the grid.
+
 ### i18n conventions
 
 There are two separate i18n string tables, both keyed by language name with English as the
