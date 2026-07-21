@@ -916,6 +916,12 @@ body { background: var(--bn-cream); }
   margin: 10px 0 0;
 }
 
+.bn-footer-powered {
+  font-size: 0.75rem;
+  color: var(--bn-muted-fg);
+  margin: 4px 0 0;
+}
+
 /* ============================================================ ERROR STATE */
 
 .bn .menu-error {
