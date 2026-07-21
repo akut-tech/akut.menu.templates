@@ -250,6 +250,18 @@ properties to render standalone (see the `.vars-<name>` rules in the page's own 
 it does **not** update itself automatically. Whenever a template's loading markup/animation
 changes, or a new template is added, add/update its two swatches in this page in the same change.
 
+### Showcase page
+
+`index.html` (layout `showcase`, `_layouts/showcase.html`) renders one card per entry in
+`_data/showcase.yml` — `id`, `name`, `description`/`description_pt`, `accent` (hex, used for the
+card's top accent bar and "View demo" link color), and `url`, the card's link target. `url` is used
+as-is (no `relative_url` filter), opened in a new tab. Most entries point at a live tenant/menu on
+the production S3 bucket (`/akut/<menuId>`) so the card shows real fetched content end-to-end; for a
+new template with no live tenant menu yet, point `url` straight at its own bundled-demo page instead
+(e.g. `/templates/<name>/`, no `?tenant=`) — every template already renders standalone off its
+`assets/data/<name>-menu.json`, so this is a fully working substitute, not a placeholder. Swap it for
+a real `/akut/<menuId>` link once a live tenant menu with that `TemplateId` exists.
+
 ### Adding a new template
 
 1. Create `templates/<name>/index.html` (+ `category/index.html`, `item/index.html` or
@@ -261,7 +273,9 @@ changes, or a new template is added, add/update its two swatches in this page in
 4. Design and wire up a themed loading animation for both the boot preloader and the in-content
    loader — see **Loading states** above.
 5. Add this template's two swatches to `features/loading-preview.html`.
-6. Any menu whose `TemplateId` matches `<name>` now renders with it.
+6. Add an entry for it to `_data/showcase.yml` — see **Showcase page** above for the `url` fallback
+   when there's no live tenant demo yet.
+7. Any menu whose `TemplateId` matches `<name>` now renders with it.
 
 ## Deployment
 

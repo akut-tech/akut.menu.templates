@@ -39,3 +39,10 @@
   description_pt: Experiência descontraída de brunch de fim de semana com tons quentes de caramelo e tipografia serifada suave.
   url: /akut/e149ac59-fe6b-4693-9608-baf1c0cf5a54
   accent: "#8C4A2C"
+
+- id: coffee
+  name: Coffee
+  description: Dark, espresso-toned reskin of Brunch for coffee-first, all-day menus.
+  description_pt: Reformulação escura, em tom de café, do Brunch para menus focados em café, o dia todo.
+  url: /templates/coffee/
+  accent: "#e08a4f"
