@@ -884,20 +884,20 @@ body { background: var(--bn-cream); }
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  height: 60px;
+  height: 66px;
   width: auto;
   pointer-events: none;
   user-select: none;
   opacity: 0.9;
 }
 
-@media (min-width: 640px) { .bn-footer-beans { height: 72px; } }
+@media (min-width: 640px) { .bn-footer-beans { height: 79.2px; } }
 
 .bn-footer-inner {
   /* padding-top/bottom only — see .bn-header-inner comment for why a
      shorthand here would wipe .bn-container's horizontal padding. */
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   text-align: center;
 }
 
