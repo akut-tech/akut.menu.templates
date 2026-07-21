@@ -90,6 +90,28 @@ Two shapes already exist in this codebase — pick one and delete the other sect
 
 ---
 
+## Loading State
+Every template needs its own themed loading animation — reusing the default "Epicurean" amber ring
+spinner is only correct for the `classic` template. There are **two** separate loading moments to
+design for, both CSS-only (transform/opacity, no images/GIFs) for performance:
+
+1. **Boot preloader** — the full-screen overlay shown from first paint until page assets finish
+   loading (`.preloader` in `_layouts/base.html`, shared across all templates). Add a
+   `.preloader--<template-slug>` block to `assets/css/<template-slug>.css` that hides the generic
+   ring + logo and styles the shared 4-element `.preloader-theme-el` slot into this template's
+   shape. Because `.preloader` sits outside the template's root wrapper in the DOM, this block must
+   redeclare any CSS custom properties (colors) it needs — they are not inherited from `.db`/`.sj`/
+   etc. See `CLAUDE.md`'s **Loading states** section for the exact convention and gotcha.
+2. **In-content loader** — the small placeholder inside `#menu-root` / `#category-root` /
+   `#item-root` / `#detail-root`, shown while the S3 menu JSON is being fetched. Static markup
+   baked into each page: `<div class="<prefix>-loading"><div class="<prefix>-loader">…</div>
+   <span>Loading…</span></div>`, styled in the same `assets/css/<template-slug>.css`.
+
+Look at `deepblue`/`senjutsu`/`lisbon`/`trattoria`/`brunch` for reference implementations (bubbles,
+pulsing disc, tile grid, flag bars, coffee beans) — same technique, different shape per theme.
+
+---
+
 ## Color Schema — `<THEME>` (placeholder values, replace before implementation)
 The palette should evoke `<mood, e.g. "warmth, freshness, and morning comfort">`.
 
@@ -387,6 +409,8 @@ Legacy `TemplateId` aliases resolved to `classic`: `default`, `epicurean`, `epic
       combined with a `Tag` badge) in both grid and detail views.
 - [ ] Recurring-availability note (`Availability.Standard.Days`) renders when applicable.
 - [ ] Preview mode (`?preview=1`) works and shows the "PREVIEW" band.
+- [ ] Template has its own themed boot preloader and in-content loader (not the default classic
+      ring spinner) — see **Loading State** above.
 - [ ] No broken rendering when optional fields (`Description`, `ShortDescription`, `Images`,
       `Notes`, `Tag`, `Diets`, `Allergens`) are missing.
 - [ ] Fully responsive across mobile, tablet, desktop.

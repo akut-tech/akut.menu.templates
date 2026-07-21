@@ -206,6 +206,42 @@ to be translated.
 the production bucket, and renders a template-aware "PREVIEW" band via
 `MenuCore.renderPreviewBand(templateSlug)`.
 
+### Loading states
+
+Every template page shows **two** independent loading experiences, on different timelines, and
+each must be styled per-template — only `classic` uses the plain amber "Epicurean" look for both.
+
+1. **Boot preloader** — a full-screen overlay (`.preloader` in `_layouts/base.html`, shared by
+   every template since they all use `layout: base`), visible from first paint until the page's
+   `window.load` event fires (or a 4s safety timeout), per `assets/js/theme-init.js`. This covers
+   asset loading (CSS/JS/images), not the menu JSON fetch.
+   - `base.html` adds a `preloader--{{ page.template_css }}` modifier class, and — only when
+     `page.template_css` is set (never for classic) — a generic 4-element slot:
+     `<div class="preloader-theme"><span class="preloader-theme-el">×4</div>`.
+   - `style.css` hides `.preloader-theme` by default, so classic's markup (which never renders the
+     slot, since it has no `template_css`) is untouched.
+   - Each template's own CSS (`assets/css/<name>.css`) hides the generic ring (`.spinner-wrap
+     .spinner`) and logo (`.preloader-logo`) under its `.preloader--<name>` scope, unhides
+     `.preloader-theme`, and styles the 4 `.preloader-theme-el` spans into its own shape (reusing
+     nth-child selectors the same way the in-content loader does — see below).
+   - **Gotcha:** `.preloader` is a DOM *sibling* of the template's root wrapper (`.db`/`.sj`/`.ls`/
+     `.tr`/`.bn`), not a descendant, so the CSS custom properties scoped to that wrapper (e.g.
+     `--db-accent`, defined on `.db { … }`) are **not** inherited by `.preloader--deepblue`. Each
+     `.preloader--<name>` rule must redeclare the handful of custom properties it actually uses
+     (see the "boot preloader" block at the bottom of any template's CSS file for the pattern).
+2. **In-content loader** — a small placeholder inside the page's root container (`#menu-root` /
+   `#category-root` / `#item-root` / `#detail-root`), shown from `DOMContentLoaded` until the
+   template's JS finishes fetching and rendering the S3 menu JSON (`MenuCore.fetchMenu`/
+   `fetchPreviewMenu`). This is static markup baked into every page that has its own root container
+   (so it's duplicated per page, not templated) — `<div class="<prefix>-loading"><div
+   class="<prefix>-loader">…shape markup…</div><span>Loading…</span></div>`, styled in
+   `assets/css/<name>.css`. Classic/deepblue reuse the shared `.menu-loading .spinner` ring from
+   `assets/css/menu.css` instead of a `<prefix>-loader`.
+
+When adding a new template, design one small animation (CSS-only, transform/opacity based for
+performance) and wire it into both places — see deepblue/senjutsu/lisbon/trattoria/brunch for the
+pattern (bubbles, pulsing disc, tile grid, flag bars, coffee beans, respectively).
+
 ### Adding a new template
 
 1. Create `templates/<name>/index.html` (+ `category/index.html`, `item/index.html` or
@@ -214,7 +250,9 @@ the production bucket, and renders a template-aware "PREVIEW" band via
 2. Add `assets/js/templates/<name>.js` as an ES5 IIFE exporting the same render behavior against
    `MenuCore`, filling the appropriate root container(s).
 3. Register the page URLs in `_data/templates.yml`.
-4. Any menu whose `TemplateId` matches `<name>` now renders with it.
+4. Design and wire up a themed loading animation for both the boot preloader and the in-content
+   loader — see **Loading states** above.
+5. Any menu whose `TemplateId` matches `<name>` now renders with it.
 
 ## Deployment
 

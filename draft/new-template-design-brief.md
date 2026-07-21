@@ -91,6 +91,11 @@ Design these as reusable pieces, since the same component repeats many times per
 - **Empty/placeholder states**: no photo, no video, no description, no category description, no
   notes — all of these fields are optional per-restaurant, so every screen needs to look
   intentional when they are missing, not broken
+- **Loading animation** — a small, simple motif that reads as "this theme" at a glance (e.g. rising
+  bubbles for a seafood theme, coffee beans for a brunch theme). It appears twice: briefly
+  full-screen while the page itself loads, and again as a small inline placeholder while the menu
+  data loads. Keep it minimal and quick to render — one or two shapes animating with a simple
+  loop, not an illustration or multi-second sequence.
 
 ---
 
@@ -199,6 +204,7 @@ three: mobile, tablet, desktop.
 - [ ] Text treatments checked against a long-string example (e.g. a French item name/description)
       to confirm layouts don't break.
 - [ ] Price display designed for all 3 currency symbols.
+- [ ] Loading animation designed (full-screen and small inline versions).
 - [ ] Color palette and type styles finalized and handed off as tokens/styles (not just used ad hoc
       in the mockup).
 - [ ] Final files/handoff format: `<e.g. Figma link, exported specs, asset export>`
