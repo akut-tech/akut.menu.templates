@@ -151,10 +151,10 @@ Then open:
 
 - `http://localhost:4001/?tenant=test` — live `test` menu from S3
 - `http://localhost:4001/templates/classic/?tenant=test` — template directly
-- `http://localhost:4001/dev/loading-preview/` — every template's loading
+- `http://localhost:4001/features/loading-preview/` — every template's loading
   animations (both the full-screen boot preloader and the small in-content
   loader) shown side by side and held static, so you can inspect them without
-  racing the real page. Not linked from production nav.
+  racing the real page. Linked from the showcase page's "Features" footer.
 
 A bundled demo menu lives at `assets/data/sample-menu.json` for reference and
 offline design work.

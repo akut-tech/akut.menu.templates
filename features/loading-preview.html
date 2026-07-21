@@ -1,17 +1,21 @@
+---
+permalink: /features/loading-preview/
+title: Loading Animations — Feature Preview
+---
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading Animations — Dev Preview</title>
-<link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/menu.css">
-<link rel="stylesheet" href="/assets/css/deepblue.css">
-<link rel="stylesheet" href="/assets/css/senjutsu.css">
-<link rel="stylesheet" href="/assets/css/lisbon.css">
-<link rel="stylesheet" href="/assets/css/trattoria.css">
-<link rel="stylesheet" href="/assets/css/brunch.css">
+<title>{{ page.title }}</title>
+<link rel="stylesheet" href="{{ '/assets/css/bootstrap-icons.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/menu.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/deepblue.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/senjutsu.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/lisbon.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/trattoria.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/brunch.css' | relative_url }}">
 <style>
   * { box-sizing: border-box; }
   body {
@@ -73,11 +77,11 @@
 </head>
 <body>
 
-<h1>Loading Animations — Dev Preview</h1>
+<h1>Loading Animations — Feature Preview</h1>
 <p class="intro">
-  Static reference page, not linked from production nav. Shows both loading moments for every
-  template at once so you can inspect each without racing the real page (which usually finishes
-  loading demo data almost instantly).
+  Static reference page, linked from the showcase page's "Features" footer. Shows both loading
+  moments for every template at once so you can inspect each without racing the real page (which
+  usually finishes loading demo data almost instantly).
 </p>
 
 <div class="grid">
@@ -88,7 +92,7 @@
     <div class="boot-frame">
       <div class="preloader">
         <div class="spinner-wrap">
-          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="preloader-logo"><img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid"></div>
           <div class="spinner"></div>
         </div>
       </div>
@@ -105,7 +109,7 @@
     <div class="boot-frame">
       <div class="preloader preloader--deepblue">
         <div class="spinner-wrap">
-          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="preloader-logo"><img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid"></div>
           <div class="spinner"></div>
           <div class="preloader-theme" aria-hidden="true">
             <span class="preloader-theme-el"></span>
@@ -136,7 +140,7 @@
     <div class="boot-frame">
       <div class="preloader preloader--senjutsu">
         <div class="spinner-wrap">
-          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="preloader-logo"><img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid"></div>
           <div class="spinner"></div>
           <div class="preloader-theme" aria-hidden="true">
             <span class="preloader-theme-el"></span>
@@ -162,7 +166,7 @@
     <div class="boot-frame">
       <div class="preloader preloader--lisbon">
         <div class="spinner-wrap">
-          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="preloader-logo"><img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid"></div>
           <div class="spinner"></div>
           <div class="preloader-theme" aria-hidden="true">
             <span class="preloader-theme-el"></span>
@@ -193,7 +197,7 @@
     <div class="boot-frame">
       <div class="preloader preloader--trattoria">
         <div class="spinner-wrap">
-          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="preloader-logo"><img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid"></div>
           <div class="spinner"></div>
           <div class="preloader-theme" aria-hidden="true">
             <span class="preloader-theme-el"></span>
@@ -223,7 +227,7 @@
     <div class="boot-frame">
       <div class="preloader preloader--brunch">
         <div class="spinner-wrap">
-          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="preloader-logo"><img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid"></div>
           <div class="spinner"></div>
           <div class="preloader-theme" aria-hidden="true">
             <span class="preloader-theme-el"></span>

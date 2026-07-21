@@ -242,13 +242,13 @@ When adding a new template, design one small animation (CSS-only, transform/opac
 performance) and wire it into both places — see deepblue/senjutsu/lisbon/trattoria/brunch for the
 pattern (bubbles, pulsing disc, tile grid, flag bars, coffee beans, respectively).
 
-**`dev/loading-preview.html`** (`/dev/loading-preview/`, not linked from production nav) is a
-static reference page showing every template's boot preloader and in-content loader side by side,
-held static (no fade/hide) so they can be inspected without racing the real page. It hardcodes a
-copy of each template's markup and just enough of its CSS custom properties to render standalone
-(see the `.vars-<name>` rules in the page's own `<style>` block) — it does **not** update itself
-automatically. Whenever a template's loading markup/animation changes, or a new template is added,
-add/update its two swatches in this page in the same change.
+**`features/loading-preview.html`** (`/features/loading-preview/`, linked from the showcase page's
+"Features" footer list) is a static reference page showing every template's boot preloader and
+in-content loader side by side, held static (no fade/hide) so they can be inspected without racing
+the real page. It hardcodes a copy of each template's markup and just enough of its CSS custom
+properties to render standalone (see the `.vars-<name>` rules in the page's own `<style>` block) —
+it does **not** update itself automatically. Whenever a template's loading markup/animation
+changes, or a new template is added, add/update its two swatches in this page in the same change.
 
 ### Adding a new template
 
@@ -260,7 +260,7 @@ add/update its two swatches in this page in the same change.
 3. Register the page URLs in `_data/templates.yml`.
 4. Design and wire up a themed loading animation for both the boot preloader and the in-content
    loader — see **Loading states** above.
-5. Add this template's two swatches to `dev/loading-preview.html`.
+5. Add this template's two swatches to `features/loading-preview.html`.
 6. Any menu whose `TemplateId` matches `<name>` now renders with it.
 
 ## Deployment

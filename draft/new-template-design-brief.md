@@ -205,8 +205,8 @@ three: mobile, tablet, desktop.
       to confirm layouts don't break.
 - [ ] Price display designed for all 3 currency symbols.
 - [ ] Loading animation designed (full-screen and small inline versions). Once built, it's viewable
-      alongside every other template's at `/dev/loading-preview/` (engineering dev page) for a
-      quick side-by-side sanity check.
+      alongside every other template's at `/features/loading-preview/` (linked from the showcase
+      page's "Features" footer) for a quick side-by-side sanity check.
 - [ ] Color palette and type styles finalized and handed off as tokens/styles (not just used ad hoc
       in the mockup).
 - [ ] Final files/handoff format: `<e.g. Figma link, exported specs, asset export>`
