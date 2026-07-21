@@ -1,0 +1,1082 @@
+/*
+ * coffee.css — self-contained styling for the "Coffee" template.
+ *
+ * A dark, espresso-toned reskin of the Brunch template — same layout/markup
+ * shape (see brunch.css), different palette. Design system: dark roast /
+ * café-at-night palette.
+ *   Espresso Black    #17120d  — cards, header/footer surfaces
+ *   Roast Brown       #211a13  — page background
+ *   Cream             #f4ead9  — foreground / headings
+ *   Warm Latte        #a89686  — muted text
+ *   Burnt Caramel     #e08a4f  — primary accent, badges, price, links
+ *   Cherry Roast      #c1503f  — popular/chef badge
+ *   Amber Roast       #cf7a3a  — seasonal accent
+ *   Rust Roast        #bb5e2e  — limited-edition accent
+ *   Herb Leaf         #7fae7a  — secondary accent, diet tags
+ *
+ * Typography: Instrument Serif (display, italic accents) + Work Sans (body).
+ * All styles scoped to .cf to avoid collisions with the Jekyll shell.
+ *
+ * Pages:
+ *   /templates/coffee/           (#menu-root      — homepage)
+ *   /templates/coffee/category/  (#category-root  — category detail)
+ *   /templates/coffee/item/       (#item-root       — item detail)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+/* ---------------------------------------------------------------- variables */
+
+.cf {
+  /* Mirrors the sampled reference screenshots: page/header, hero, and card
+     surfaces are three distinct dark tones, not one flat background. */
+  --cf-bg:         #25221b;   /* page + header background */
+  --cf-hero-bg:    #322b21;   /* hero band — lighter/warmer than the page bg */
+  --cf-ink:        #f4ead9;
+  --cf-card:       #121212;   /* near-neutral black — cards sit darker than the page */
+  --cf-caramel:    #e08a4f;   /* primary — burnt caramel */
+  --cf-caramel-fg: #201911;
+  --cf-toast:      #cf7a3a;   /* amber roast */
+  --cf-jam:        #c1503f;   /* cherry roast */
+  --cf-rust:       #bb5e2e;   /* rust roast (limited edition) */
+  --cf-leaf:       #7fae7a;   /* herb green */
+  --cf-secondary:    #2c2318;
+  --cf-secondary-fg: #e7dccb;
+  --cf-muted:      #2a2119;
+  --cf-muted-fg:   #a89686;
+  --cf-accent:     #3a2c1c;
+  --cf-border:     rgba(244, 234, 217, 0.1);
+  --cf-border-md:  rgba(244, 234, 217, 0.18);
+  --cf-chip-bg:    #5a5348;
+
+  --ff-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --ff-sans:    "Work Sans", system-ui, -apple-system, sans-serif;
+
+  font-family: var(--ff-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--cf-ink);
+  background-color: var(--cf-bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body { background: var(--cf-bg); }
+
+.cf a { text-decoration: none; color: inherit; }
+.cf img { max-width: 100%; display: block; }
+.cf .cf-ul { list-style: none; margin: 0; padding: 0; }
+
+.cf h1, .cf h2, .cf h3, .cf h4 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.cf-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cf-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cf-muted-fg);
+  margin: 0;
+}
+
+.cf-muted-text { color: var(--cf-muted-fg); font-size: 0.875rem; margin: 4px 0 0; }
+
+/* ---------------------------------------------------------------- header */
+
+.cf-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(33, 26, 19, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.cf-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  /* padding-top/bottom only (not the `padding` shorthand) — a shorthand here
+     would zero out .cf-container's horizontal padding since both rules share
+     the same specificity and this one comes later in the cascade. */
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.cf-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cf-brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--cf-card);
+  border: 1px solid var(--cf-border-md);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.cf-brand-mark img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+.cf-brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cf-caramel);
+}
+
+.cf-brand-name {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
+
+.cf-brand-name-primary { color: var(--cf-ink); }
+.cf-brand-name-accent  { font-style: italic; color: var(--cf-caramel); }
+
+/* back button (category & item pages) */
+.cf-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--cf-muted-fg);
+  transition: color 0.15s;
+}
+
+.cf-back-btn:hover { color: var(--cf-ink); }
+
+.cf-topbar-brand {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40vw;
+}
+
+/* -------------------------------------------------------- language switcher */
+
+.cf-lang { position: relative; }
+
+.cf-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cf-ink);
+  background: var(--cf-muted);
+  border: 1px solid var(--cf-border-md);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.cf-lang-btn:hover { border-color: var(--cf-caramel); }
+
+.cf-lang-caret { font-size: 0.55rem; transition: transform 0.2s; }
+.cf-lang.open .cf-lang-caret { transform: rotate(180deg); }
+
+.cf-lang-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 140px;
+  background: var(--cf-card);
+  border: 1px solid var(--cf-border-md);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.cf-lang.open .cf-lang-menu { display: block; }
+
+.cf-lang-menu li button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cf-ink);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.cf-lang-menu li button:hover,
+.cf-lang-menu li button.active {
+  background: var(--cf-caramel);
+  color: var(--cf-caramel-fg);
+}
+
+/* ---------------------------------------------------------- loading state */
+
+.cf-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 96px 24px;
+  color: var(--cf-muted-fg);
+  font-size: 0.85rem;
+}
+
+.cf-loader {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cf-bean {
+  position: relative;
+  width: 11px;
+  height: 15px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(-20deg);
+  animation: cf-bean-bounce 1s ease-in-out infinite;
+}
+.cf-bean::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 1.5px;
+  height: 76%;
+  background: var(--cf-bg);
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(6deg);
+}
+.cf-bean:nth-child(1) { background: var(--cf-caramel); animation-delay: 0s; }
+.cf-bean:nth-child(2) { background: var(--cf-toast);   animation-delay: 0.15s; }
+.cf-bean:nth-child(3) { background: var(--cf-jam);     animation-delay: 0.3s; }
+
+@keyframes cf-bean-bounce {
+  0%, 100% { transform: rotate(-20deg) translateY(0);    opacity: 0.6; }
+  50%      { transform: rotate(-20deg) translateY(-7px); opacity: 1; }
+}
+
+/* --------------------------------------------------------- boot preloader */
+.preloader--coffee {
+  /* .preloader lives outside .cf in the DOM (base.html) — redeclare. */
+  --cf-bg: #25221b;
+  --cf-caramel: #e08a4f;
+  --cf-toast: #cf7a3a;
+  --cf-jam: #c1503f;
+  background: var(--cf-bg);
+}
+.preloader--coffee .preloader-logo,
+.preloader--coffee .spinner-wrap .spinner { display: none; }
+.preloader--coffee .preloader-theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.preloader--coffee .preloader-theme-el {
+  position: relative;
+  width: 18px;
+  height: 24px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(-20deg);
+  animation: cf-bean-bounce-boot 1s ease-in-out infinite;
+}
+.preloader--coffee .preloader-theme-el::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 2px;
+  height: 76%;
+  background: var(--cf-bg);
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(6deg);
+}
+.preloader--coffee .preloader-theme-el:nth-child(1) { background: var(--cf-caramel); animation-delay: 0s; }
+.preloader--coffee .preloader-theme-el:nth-child(2) { background: var(--cf-toast);   animation-delay: 0.15s; }
+.preloader--coffee .preloader-theme-el:nth-child(3) { background: var(--cf-jam);     animation-delay: 0.3s; }
+.preloader--coffee .preloader-theme-el:nth-child(4) { display: none; }
+@keyframes cf-bean-bounce-boot {
+  0%, 100% { transform: rotate(-20deg) translateY(0);     opacity: 0.6; }
+  50%      { transform: rotate(-20deg) translateY(-10px); opacity: 1; }
+}
+
+.cf-empty {
+  text-align: center;
+  color: var(--cf-muted-fg);
+  padding: 48px 0;
+}
+
+.cf-main { padding-bottom: 96px; }
+
+/* ============================================================== HERO / INDEX */
+
+/* coffee-hero-bg.png's line art is baked at ~4-7% alpha in a dark ink color —
+   invisible-by-design for the light brunch theme, and worse than invisible
+   (a dull dark smudge) if just re-blended on a dark background. hero-bg-light.png
+   is a re-rendered copy (see scripts note below) with the same linework
+   recolored to a light cream and its alpha scaled up ~13x, so it reads as an
+   actual light watermark against the dark hero — no blend-mode trickery needed. */
+.cf-hero {
+  background-color: var(--cf-hero-bg);
+  background-image: url('/assets/images/coffee/hero-bg-light.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Own escalating horizontal padding (mirrors the source's px-13/sm:px-20/lg:px-24) —
+   deliberately more generous than the page's standard .cf-container padding. */
+.cf-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px 24px;
+}
+
+@media (min-width: 480px) {
+  .cf-hero-inner { padding: 32px 52px; }
+}
+
+@media (min-width: 640px) {
+  .cf-hero-inner { padding: 48px 80px; }
+}
+
+@media (min-width: 960px) {
+  .cf-hero-inner { grid-template-columns: 1.1fr 1fr; gap: 48px; padding: 64px 96px; }
+}
+
+.cf-hero-main { min-width: 0; }
+
+.cf-hero-title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.05;
+  color: var(--cf-ink);
+  margin: 12px 0 0;
+}
+
+@media (min-width: 640px) { .cf-hero-title { font-size: 3.75rem; } }
+@media (min-width: 960px) { .cf-hero-title { font-size: 4.5rem; } }
+
+.cf-hero-title-accent {
+  display: block;
+  font-style: italic;
+  color: var(--cf-caramel);
+}
+
+.cf-hero-desc {
+  font-size: 1rem;
+  line-height: 1.625;
+  color: var(--cf-muted-fg);
+  max-width: 28rem;
+  margin: 24px 0 0;
+}
+
+.cf-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+@media (min-width: 960px) {
+  .cf-hero-chips { justify-content: flex-start; }
+}
+
+.cf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  background: var(--cf-chip-bg);
+  border: 1px solid var(--cf-border);
+  border-radius: 999px;
+  padding: 10px 20px;
+  color: var(--cf-ink);
+  font-size: 0.875rem;
+}
+
+.cf-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cf-leaf);
+  flex-shrink: 0;
+}
+
+.cf-hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cf-hero-media img {
+  height: auto;
+  max-height: 420px;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* ------------------------------------------------------------ section head */
+
+.cf-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-top: 56px;
+}
+
+.cf-section-title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.875rem;
+  color: var(--cf-ink);
+  margin: 8px 0 0;
+}
+
+@media (min-width: 640px) { .cf-section-title { font-size: 2.25rem; } }
+
+.cf-spoon-accent {
+  display: none;
+  height: 48px;
+  width: auto;
+  opacity: 0.7;
+}
+
+@media (min-width: 640px) { .cf-spoon-accent { display: block; } }
+
+/* -------------------------------------------------------------- cat grid */
+
+.cf-cat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) { .cf-cat-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .cf-cat-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.cf-cat-card,
+.cf-item-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--cf-card);
+  border: 1px solid var(--cf-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(.2,.7,.2,1), box-shadow 0.3s, border-color 0.3s;
+}
+
+.cf-cat-card:hover,
+.cf-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px -20px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: rgba(224, 138, 79, 0.5);
+}
+
+.cf-cat-card-media,
+.cf-item-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--cf-muted);
+}
+
+.cf-cat-card-media img,
+.cf-item-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cf-cat-card:hover .cf-cat-card-media img,
+.cf-item-card:hover .cf-item-card-media img { transform: scale(1.05); }
+
+.cf-cat-card-noimg,
+.cf-item-card-noimg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cf-muted-fg);
+  font-size: 1.5rem;
+}
+
+.cf-cat-card-body,
+.cf-item-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.cf-cat-card-head,
+.cf-item-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cf-cat-card-title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--cf-ink);
+  margin: 0;
+}
+
+.cf-cat-card-arrow {
+  margin-top: 4px;
+  flex-shrink: 0;
+  color: var(--cf-muted-fg);
+  transition: color 0.15s;
+}
+
+.cf-cat-card:hover .cf-cat-card-arrow { color: var(--cf-caramel); }
+
+.cf-cat-card-desc,
+.cf-item-card-desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--cf-muted-fg);
+  margin: 0;
+  min-height: 2.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cf-cat-card-count {
+  margin-top: auto;
+  padding-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cf-caramel);
+}
+
+/* ============================================================ CATEGORY PAGE */
+
+.cf-cat-banner { padding: 48px 0 8px; }
+
+.cf-cat-title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.05;
+  color: var(--cf-ink);
+  margin: 10px 0 0;
+}
+
+@media (min-width: 640px) { .cf-cat-title { font-size: 3.25rem; } }
+
+.cf-cat-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--cf-muted-fg);
+  max-width: 560px;
+  margin: 16px 0 0;
+}
+
+.cf-item-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (min-width: 640px) { .cf-item-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .cf-item-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.cf-item-card-badge { position: absolute; left: 14px; top: 14px; }
+
+/* .cf h3 (higher specificity) sets letter-spacing: -0.01em — must be beaten explicitly. */
+.cf h3.cf-item-card-title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  color: var(--cf-ink);
+  margin: 0;
+}
+
+.cf-item-card-price {
+  flex-shrink: 0;
+  font-family: var(--ff-display);
+  font-size: 1.125rem;
+  color: var(--cf-caramel);
+}
+
+.cf-item-card-body .cf-diet-tags,
+.cf-item-card-body .menu-availability-note { margin-top: auto; padding-top: 4px; }
+
+/* ------------------------------------------------------------- diet tags (cards) */
+
+.cf-diet-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cf-diet-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cf-muted-fg);
+  background: transparent;
+  border: 1px solid var(--cf-border-md);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+/* ------------------------------------------------------- diet pills (item detail) */
+
+.cf-diet-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cf-diet-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cf-leaf);
+  background: rgba(127, 174, 122, 0.12);
+  border: 1px solid rgba(127, 174, 122, 0.4);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* ------------------------------------------------------------- tag badges */
+
+.cf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+.cf-badge--new              { background: var(--cf-leaf); }
+.cf-badge--popular          { background: var(--cf-jam); }
+.cf-badge--chef              { background: var(--cf-caramel); color: var(--cf-caramel-fg); }
+.cf-badge--seasonal         { background: var(--cf-toast); }
+.cf-badge--limited-edition  { background: var(--cf-rust); }
+.cf-badge--unavailable      { background: #6b6258; }
+
+/* ------------------------------------------------------------- allergen list */
+/* Plain bulleted list (not chips) — matches the source's inline treatment. */
+
+.cf-allergen-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 4px;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  font-size: 0.875rem;
+  color: rgba(244, 234, 217, 0.85);
+}
+
+.cf-allergen-list li::before {
+  content: "•";
+  color: var(--cf-jam);
+  margin-right: 8px;
+}
+
+/* ============================================================== ITEM PAGE */
+
+/* spoon-light.png is a re-rendered copy of brunch's about-spoon.png — same
+   linework, recolored to a light cream with its native ~4-7% alpha scaled up
+   ~13x (see hero-bg-light.png note above), so it reads as a light accent
+   against the dark item page instead of the dull dark-ink smudge the
+   original asset produces once made visible on a dark background. */
+.cf-item-page {
+  position: relative;
+  padding: 40px 0 8px;
+  overflow: hidden;
+}
+
+/* Isolated on its own layer (rather than .cf-item-page's own background) so
+   opacity/size can be tuned to sit in the bottom-right corner without the
+   now-visible line art crossing and competing with the detail text above it. */
+.cf-item-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('/assets/images/coffee/spoon-light.png');
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  background-size: 220px auto;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.cf-item-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 960px) { .cf-item-layout { grid-template-columns: 1.05fr 1fr; gap: 56px; } }
+
+/* --------------------------------------------------------- media carousel */
+
+.cf-media { position: relative; }
+
+.cf-media-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--cf-border);
+  background: var(--cf-muted);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.cf-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: none;
+}
+
+.cf-slide.active { opacity: 1; }
+.cf-slide-video iframe { width: 100%; height: 100%; border: none; }
+
+.cf-media-empty {
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  border: 1px solid var(--cf-border);
+  background: var(--cf-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cf-muted-fg);
+  font-size: 1.75rem;
+}
+
+.cf-media-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(23, 18, 13, 0.85);
+  color: var(--cf-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: background 0.15s, color 0.15s;
+  z-index: 2;
+}
+
+.cf-media-arrow:hover { background: var(--cf-caramel); color: var(--cf-caramel-fg); }
+.cf-media-arrow-prev { left: 14px; }
+.cf-media-arrow-next { right: 14px; }
+
+/* Fixed height regardless of dot count (0 or N) so the media block's overall
+   size doesn't change depending on how many images an item has. */
+.cf-media-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 8px;
+  margin-top: 14px;
+}
+
+.cf-media-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cf-border-md);
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+}
+
+.cf-media-dot.active { background: var(--cf-caramel); width: 22px; border-radius: 4px; }
+
+.cf-media-zoom {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(23, 18, 13, 0.75);
+  backdrop-filter: blur(4px);
+  color: var(--cf-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cf-media-zoom:hover { background: var(--cf-caramel); color: var(--cf-caramel-fg); }
+
+/* -------------------------------------------------------------- detail */
+
+.cf-item-detail { min-width: 0; }
+
+.cf-item-detail-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+}
+
+.cf-item-detail-title {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 2.25rem;
+  line-height: 1.05;
+  color: var(--cf-ink);
+  margin: 8px 0 0;
+}
+
+@media (min-width: 640px) { .cf-item-detail-title { font-size: 3rem; } }
+
+.cf-item-detail-price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.cf-item-detail-price {
+  font-family: var(--ff-display);
+  font-size: 1.875rem;
+  color: var(--cf-caramel);
+}
+
+.cf-item-detail-unavailable {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cf-muted-fg);
+}
+
+.cf-detail-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--cf-border);
+}
+
+/* .cf h3 (higher specificity) sets the serif display font for real headings —
+   h3.cf-detail-label needs to win that fight to render in the sans body font. */
+.cf h3.cf-detail-label {
+  font-family: var(--ff-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cf-muted-fg);
+  margin: 0 0 10px;
+}
+
+.cf-detail-text {
+  font-size: 15px;
+  line-height: 1.625;
+  color: rgba(244, 234, 217, 0.85);
+  margin: 0;
+}
+
+/* -------------------------------------------------------------- related */
+
+.cf-related { margin-top: 8px; }
+
+.cf-related-see-all {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cf-caramel);
+  white-space: nowrap;
+}
+.cf-related-see-all:hover { text-decoration: underline; }
+
+/* ============================================================ FOOTER */
+
+.cf-footer {
+  position: relative;
+  margin-top: 32px;
+  border-top: 1px solid var(--cf-border);
+}
+
+.cf-footer-beans {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 66px;
+  width: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.85;
+}
+
+@media (min-width: 640px) { .cf-footer-beans { height: 79.2px; } }
+
+.cf-footer-inner {
+  /* padding-top/bottom only — see .cf-header-inner comment for why a
+     shorthand here would wipe .cf-container's horizontal padding. */
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+.cf-footer-tagline {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cf-muted-fg);
+  margin: 0;
+}
+
+.cf-footer-copy {
+  font-size: 0.75rem;
+  color: var(--cf-muted-fg);
+  margin: 10px 0 0;
+}
+
+.cf-footer-powered {
+  font-size: 0.75rem;
+  color: var(--cf-muted-fg);
+  margin: 4px 0 0;
+}
+
+/* ============================================================ ERROR STATE */
+
+.cf .menu-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 48px 24px;
+}
+
+.cf .menu-error-card { text-align: center; max-width: 440px; }
+
+.cf .menu-error-emoji { font-size: 2.5rem; margin-bottom: 20px; }
+
+.cf .menu-error-card h1 {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.9rem;
+  color: var(--cf-ink);
+  margin: 0 0 12px;
+}
+
+.cf .menu-error-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--cf-muted-fg);
+  margin: 0 0 24px;
+}
+
+.cf .menu-error-card code {
+  font-size: 0.8rem;
+  background: rgba(244, 234, 217, 0.08);
+  padding: 2px 6px;
+  border: 1px solid var(--cf-border);
+  border-radius: 4px;
+}
+
+.cf .common-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  background: var(--cf-caramel);
+  color: var(--cf-caramel-fg);
+  border: none;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.cf .common-btn:hover { background: var(--cf-jam); color: #fff; }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Menu</title>
+<title>Category</title>
 
 <link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
 
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/assets/css/menu.css">
 
 <!-- Per-template styling -->
-<link rel="stylesheet" href="/assets/css/senjutsu.css">
+<link rel="stylesheet" href="/assets/css/coffee.css">
 
 
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
@@ -42,7 +42,7 @@
 <body>
 
   <!-- Preloader -->
-  <div class="preloader preloader--senjutsu">
+  <div class="preloader preloader--coffee">
     <div class="spinner-wrap">
       <div class="preloader-logo">
         <img src="/assets/images/preloader.svg" alt="" class="img-fluid">
@@ -64,69 +64,48 @@
     
 
     <main>
-      <div class="sj">
-  <!-- Topbar: logo + language switcher -->
-  <header class="sj-topbar">
-    <div class="sj-container sj-topbar-inner">
-      <a class="sj-brand" href="#" data-menu-home>
-        <span class="sj-brand-mark">
-          <span class="sj-brand-sun"></span>
-        </span>
-        <span data-menu-name>Menu</span>
+      <div class="cf">
+  <!-- Header -->
+  <header class="cf-header">
+    <div class="cf-container cf-header-inner">
+      <a class="cf-back-btn" href="#" data-menu-home>
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        <span data-tr-i18n="menuWord">Menu</span>
       </a>
-      <div class="sj-lang" data-lang-switcher hidden>
-        <button type="button" class="sj-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+      <span class="cf-topbar-brand" data-menu-name></span>
+      <div class="cf-lang" data-lang-switcher hidden>
+        <button type="button" class="cf-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
           <i class="bi bi-globe2"></i>
           <span data-lang-current-label>Language</span>
-          <i class="bi bi-chevron-down sj-lang-caret"></i>
+          <i class="bi bi-chevron-down cf-lang-caret"></i>
         </button>
-        <ul class="sj-lang-menu sj-ul" data-lang-menu></ul>
+        <ul class="cf-lang-menu cf-ul" data-lang-menu></ul>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="sj-hero">
-    <div class="sj-container sj-hero-inner">
-      <span class="sj-hero-sun" aria-hidden="true"></span>
-      <p class="sj-hero-eyebrow">お品書き</p>
-      <h1 class="sj-hero-title" data-menu-name>Menu</h1>
-      <div class="sj-brush-divider" aria-hidden="true">
-        <span class="sj-brush-line"></span>
-        <span class="sj-brush-diamond"></span>
-        <span class="sj-brush-line"></span>
+  <!-- Category content (rendered at runtime) -->
+  <main id="category-root" class="cf-container cf-main">
+    <div class="cf-loading">
+      <div class="cf-loader">
+        <span class="cf-bean"></span>
+        <span class="cf-bean"></span>
+        <span class="cf-bean"></span>
       </div>
-      <p class="sj-hero-desc" data-menu-description></p>
-      <div class="sj-hero-notes-wrap">
-        <p class="sj-hero-notes" data-founded-year></p>
-        <p class="sj-hero-notes" data-availability></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Categories (rendered at runtime) -->
-  <main class="sj-cats-section">
-    <div class="sj-container">
-      <div class="sj-cats-head">
-        <h2 class="sj-cats-heading" data-sj-i18n="categories">Categories</h2>
-        <span class="sj-cats-subtitle" data-sj-i18n="kondate">献立 · Kondate</span>
-      </div>
-      <div id="menu-root">
-        <div class="sj-loading">
-          <div class="sj-loader"></div>
-          <span class="sj-loading-label">Loading…</span>
-        </div>
-      </div>
+      <span>Loading…</span>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="sj-footer">
-    <div class="sj-container sj-footer-inner">
-      いただきます ·
-      &copy; <span data-current-year></span>
-      <span data-menu-name></span>
-      · Powered by Akut
+  <footer class="cf-footer">
+    <img class="cf-footer-beans" src="/assets/images/brunch/scattered-coffee-beans.png" alt="" aria-hidden="true">
+    <div class="cf-container cf-footer-inner">
+      <p class="cf-footer-tagline" data-tr-i18n="coffeeFirst">Coffee first. Everything after.</p>
+      <p class="cf-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+      </p>
+      <p class="cf-footer-powered">Powered by Akut</p>
     </div>
   </footer>
 </div>
@@ -144,7 +123,7 @@
   <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
   
-  <script src="/assets/js/templates/senjutsu.js"></script>
+  <script src="/assets/js/templates/coffee.js"></script>
   
 
   <!-- Theme init (preloader, back-to-top) -->

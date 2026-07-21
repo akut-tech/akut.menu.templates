@@ -1,0 +1,90 @@
+---
+layout: base
+permalink: /templates/coffee/
+title: Menu
+no_chrome: true
+template_css: coffee
+template_js: coffee
+---
+
+<div class="cf">
+  <!-- Header -->
+  <header class="cf-header">
+    <div class="cf-container cf-header-inner">
+      <a class="cf-brand" href="#" data-menu-home>
+        <span class="cf-brand-mark">
+          <span class="cf-brand-dot"></span>
+        </span>
+        <span class="cf-brand-name" data-menu-name>Menu</span>
+      </a>
+      <div class="cf-lang" data-lang-switcher hidden>
+        <button type="button" class="cf-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down cf-lang-caret"></i>
+        </button>
+        <ul class="cf-lang-menu cf-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="cf-hero">
+    <div class="cf-container cf-hero-inner">
+      <div class="cf-hero-main">
+        <p class="cf-eyebrow" data-tr-i18n="welcomeTo">Welcome to</p>
+        <h1 class="cf-hero-title">
+          <span data-menu-name>Menu</span>
+          <span class="cf-hero-title-accent" data-tr-i18n="menuWord">Menu</span>
+        </h1>
+        <p class="cf-hero-desc" data-menu-description></p>
+        <div class="cf-hero-chips">
+          <span class="cf-chip" data-availability-chip hidden>
+            <span class="cf-chip-dot"></span>
+            <span data-availability></span>
+          </span>
+        </div>
+      </div>
+      <div class="cf-hero-media">
+        <img src="{{ '/assets/images/brunch/coffee-cup-hero.png' | relative_url }}" alt="Latte art in a white cup with coffee beans">
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <main class="cf-container cf-main">
+    <section class="cf-categories">
+      <div class="cf-section-head">
+        <div>
+          <p class="cf-eyebrow" data-tr-i18n="theMenu">The menu</p>
+          <h2 class="cf-section-title" data-tr-i18n="chooseCourse">Choose a course</h2>
+        </div>
+        <img class="cf-spoon-accent" src="{{ '/assets/images/brunch/spoon-accent.png' | relative_url }}" alt="" aria-hidden="true">
+      </div>
+
+      <div id="menu-root">
+        <div class="cf-loading">
+          <div class="cf-loader">
+            <span class="cf-bean"></span>
+            <span class="cf-bean"></span>
+            <span class="cf-bean"></span>
+          </div>
+          <span>Loading…</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="cf-footer">
+    <img class="cf-footer-beans" src="{{ '/assets/images/brunch/scattered-coffee-beans.png' | relative_url }}" alt="" aria-hidden="true">
+    <div class="cf-container cf-footer-inner">
+      <p class="cf-footer-tagline" data-tr-i18n="coffeeFirst">Coffee first. Everything after.</p>
+      <p class="cf-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+      </p>
+      <p class="cf-footer-powered">Powered by Akut</p>
+    </div>
+  </footer>
+</div>

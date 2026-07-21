@@ -1,0 +1,54 @@
+---
+layout: base
+permalink: /templates/coffee/item/
+title: Item
+no_chrome: true
+template_css: coffee
+template_js: coffee
+---
+
+<div class="cf">
+  <!-- Header -->
+  <header class="cf-header">
+    <div class="cf-container cf-header-inner">
+      <a class="cf-back-btn" href="#" data-menu-home>
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        <span data-tr-i18n="backToCategory">Back</span>
+      </a>
+      <span class="cf-topbar-brand" data-menu-name></span>
+      <div class="cf-lang" data-lang-switcher hidden>
+        <button type="button" class="cf-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down cf-lang-caret"></i>
+        </button>
+        <ul class="cf-lang-menu cf-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Item content (rendered at runtime) -->
+  <main id="item-root" class="cf-container cf-main">
+    <div class="cf-loading">
+      <div class="cf-loader">
+        <span class="cf-bean"></span>
+        <span class="cf-bean"></span>
+        <span class="cf-bean"></span>
+      </div>
+      <span>Loading…</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="cf-footer">
+    <img class="cf-footer-beans" src="{{ '/assets/images/brunch/scattered-coffee-beans.png' | relative_url }}" alt="" aria-hidden="true">
+    <div class="cf-container cf-footer-inner">
+      <p class="cf-footer-tagline" data-tr-i18n="coffeeFirst">Coffee first. Everything after.</p>
+      <p class="cf-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+      </p>
+      <p class="cf-footer-powered">Powered by Akut</p>
+    </div>
+  </footer>
+</div>

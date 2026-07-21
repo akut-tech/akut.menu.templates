@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/assets/css/lisbon.css">
 <link rel="stylesheet" href="/assets/css/trattoria.css">
 <link rel="stylesheet" href="/assets/css/brunch.css">
+<link rel="stylesheet" href="/assets/css/coffee.css">
 <style>
   * { box-sizing: border-box; }
   body {
@@ -69,6 +70,10 @@
   .vars-ls { --ls-azul: #1A4A7A; --ls-terra: #C4622D; }
   .vars-tr { --tr-green: #157A3D; --tr-red: #CD212A; --tr-border: rgba(43, 36, 31, 0.14); }
   .vars-bn { --bn-caramel: oklch(0.48 0.13 42); --bn-toast: oklch(0.62 0.14 55); --bn-jam: oklch(0.5 0.15 25); --bn-cream: oklch(0.972 0.014 85); }
+  .vars-cf {
+    --cf-caramel: #e08a4f; --cf-toast: #cf7a3a; --cf-jam: #c1503f; --cf-muted-fg: #a89686; --cf-bg: #211a13;
+    background: var(--cf-bg);
+  }
 </style>
 </head>
 <body>
@@ -241,6 +246,36 @@
           <span class="bn-bean"></span>
           <span class="bn-bean"></span>
           <span class="bn-bean"></span>
+        </div>
+        <span>Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Coffee</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--coffee">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-cf">
+      <div class="cf-loading">
+        <div class="cf-loader">
+          <span class="cf-bean"></span>
+          <span class="cf-bean"></span>
+          <span class="cf-bean"></span>
         </div>
         <span>Loading…</span>
       </div>

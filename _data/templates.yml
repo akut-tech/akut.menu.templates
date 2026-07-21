@@ -38,3 +38,8 @@ list:
     main: /templates/brunch/
     category: /templates/brunch/category/
     detail: /templates/brunch/item/
+  coffee:
+    name: Coffee
+    main: /templates/coffee/
+    category: /templates/coffee/category/
+    detail: /templates/coffee/item/

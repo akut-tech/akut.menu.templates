@@ -1,0 +1,469 @@
+{
+  "Id": "f1a2b3c4-0000-0000-0000-000000000003",
+  "Logo": {
+    "Order": 0,
+    "Url": "https://api.dicebear.com/9.x/initials/svg?seed=Brunch&backgroundColor=e08a4f&textColor=201911",
+    "Title": "Sunday Brunch Logo",
+    "Source": 0,
+    "Link": {
+      "Thumbnail": "https://api.dicebear.com/9.x/initials/svg?seed=Brunch&backgroundColor=e08a4f&textColor=201911",
+      "FullSize": "https://api.dicebear.com/9.x/initials/svg?seed=Brunch&backgroundColor=e08a4f&textColor=201911"
+    }
+  },
+  "Name": {
+    "English": "Sunday Brunch",
+    "Portuguese": "Brunch de Domingo"
+  },
+  "Description": {
+    "English": "A relaxed weekend spread of sweet and savory plates, slow-brewed coffee and cold-pressed juice — pulled together to be lingered over.",
+    "Portuguese": "Uma seleção descontraída de fim de semana com pratos doces e salgados, café lentamente extraído e sumo prensado a frio — feita para ser apreciada com calma."
+  },
+  "Notes": "Served Saturday & Sunday, 9am - 2pm",
+  "TemplateId": "coffee",
+  "DefaultLanguage": 2,
+  "Currency": 1,
+  "AvailabilityTime": { "From": "09:00", "To": "14:00" },
+  "Categories": [
+    {
+      "Id": "a1000000-0000-0000-0000-000000000001",
+      "Order": 1,
+      "Name": { "English": "Starters", "Portuguese": "Entradas" },
+      "Description": {
+        "English": "Light bites to open the morning.",
+        "Portuguese": "Petiscos leves para abrir a manhã."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "/assets/images/brunch/cards/avocado-toast-1.jpg",
+        "Title": "Avocado Toast",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "/assets/images/brunch/cards/avocado-toast-1.jpg",
+          "FullSize": "/assets/images/brunch/cards/avocado-toast-1.jpg"
+        }
+      },
+      "Items": [
+        {
+          "Id": "b1000000-0000-0000-0000-000000000001",
+          "Order": 1,
+          "Diets": [1, 2, 4],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/avocado-toast-1.jpg",
+              "Title": "Avocado Toast",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/avocado-toast-1.jpg",
+                "FullSize": "/assets/images/brunch/cards/avocado-toast-1.jpg"
+              }
+            },
+            {
+              "Order": 1,
+              "Url": "/assets/images/brunch/cards/avocado-toast-2.jpg",
+              "Title": "Avocado Toast",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/avocado-toast-2.jpg",
+                "FullSize": "/assets/images/brunch/cards/avocado-toast-2.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Avocado Toast", "Portuguese": "Torrada de Abacate" },
+          "ShortDescription": {
+            "English": "Sourdough, smashed avocado, chili flakes.",
+            "Portuguese": "Pão de fermentação natural, abacate esmagado, flocos de piripíri."
+          },
+          "FullDescription": {
+            "English": "Toasted sourdough topped with smashed avocado, olive oil, lemon and a pinch of chili flakes.",
+            "Portuguese": "Pão de fermentação natural tostado, coberto com abacate esmagado, azeite, limão e uma pitada de piripíri."
+          },
+          "Ingredients": {
+            "English": "Sourdough bread, avocado, olive oil, lemon juice, chili flakes, sea salt.",
+            "Portuguese": "Pão de fermentação natural, abacate, azeite, sumo de limão, flocos de piripíri, flor de sal."
+          },
+          "Allergens": [1],
+          "Price": 9.5,
+          "Tag": 2
+        },
+        {
+          "Id": "b1000000-0000-0000-0000-000000000002",
+          "Order": 2,
+          "Diets": [1, 2, 3, 4, 9],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/avocado-toast-2.jpg",
+              "Title": "Morning Greens Salad",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/avocado-toast-2.jpg",
+                "FullSize": "/assets/images/brunch/cards/avocado-toast-2.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Morning Greens Salad", "Portuguese": "Salada de Folhas Verdes" },
+          "ShortDescription": {
+            "English": "Seasonal greens, citrus vinaigrette.",
+            "Portuguese": "Folhas da época, vinagrete cítrico."
+          },
+          "FullDescription": {
+            "English": "A light mix of seasonal greens, cherry tomatoes and shaved fennel with a citrus vinaigrette.",
+            "Portuguese": "Uma mistura leve de folhas da época, tomate cereja e funcho laminado com vinagrete cítrico."
+          },
+          "Ingredients": {
+            "English": "Mixed greens, cherry tomato, fennel, orange, olive oil, white balsamic.",
+            "Portuguese": "Folhas variadas, tomate cereja, funcho, laranja, azeite, vinagre balsâmico branco."
+          },
+          "Allergens": [],
+          "Price": 8,
+          "Tag": null
+        },
+        {
+          "Id": "b1000000-0000-0000-0000-000000000003",
+          "Order": 3,
+          "Diets": [],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/eggs-benedict.jpg",
+              "Title": "Chef's Snack Board",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/eggs-benedict.jpg",
+                "FullSize": "/assets/images/brunch/cards/eggs-benedict.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
+          "Name": { "English": "Chef's Snack Board", "Portuguese": "Tábua de Petiscos do Chef" },
+          "ShortDescription": {
+            "English": "A rotating small-plate board, changes daily.",
+            "Portuguese": "Uma tábua de petiscos rotativa, muda diariamente."
+          },
+          "FullDescription": {
+            "English": "A rotating small-plate board the kitchen puts together daily — ask your server what's on it today.",
+            "Portuguese": "Uma tábua de petiscos que a cozinha monta diariamente — pergunte ao seu empregado de mesa o que está hoje."
+          },
+          "Ingredients": {
+            "English": "Varies daily.",
+            "Portuguese": "Varia diariamente."
+          },
+          "Allergens": [],
+          "Price": 12,
+          "Tag": 1
+        }
+      ]
+    },
+    {
+      "Id": "a1000000-0000-0000-0000-000000000002",
+      "Order": 2,
+      "Name": { "English": "Mains", "Portuguese": "Pratos Principais" },
+      "Description": {
+        "English": "The heart of the brunch table.",
+        "Portuguese": "O coração da mesa de brunch."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "/assets/images/brunch/cards/eggs-benedict.jpg",
+        "Title": "Eggs Benedict",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "/assets/images/brunch/cards/eggs-benedict.jpg",
+          "FullSize": "/assets/images/brunch/cards/eggs-benedict.jpg"
+        }
+      },
+      "Items": [
+        {
+          "Id": "b1000000-0000-0000-0000-000000000004",
+          "Order": 1,
+          "Diets": [],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/eggs-benedict.jpg",
+              "Title": "Eggs Benedict",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/eggs-benedict.jpg",
+                "FullSize": "/assets/images/brunch/cards/eggs-benedict.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Eggs Benedict", "Portuguese": "Ovos Benedict" },
+          "ShortDescription": {
+            "English": "Poached eggs, hollandaise, English muffin.",
+            "Portuguese": "Ovos escalfados, molho holandês, muffin inglês."
+          },
+          "FullDescription": {
+            "English": "Two poached eggs over toasted English muffin and Canadian bacon, finished with a silky hollandaise.",
+            "Portuguese": "Dois ovos escalfados sobre muffin inglês tostado e bacon canadiano, finalizados com um aveludado molho holandês."
+          },
+          "Ingredients": {
+            "English": "Eggs, English muffin, Canadian bacon, butter, egg yolk, lemon.",
+            "Portuguese": "Ovos, muffin inglês, bacon canadiano, manteiga, gema de ovo, limão."
+          },
+          "Allergens": [1, 3, 7],
+          "Price": 14.5,
+          "Tag": 3
+        },
+        {
+          "Id": "b1000000-0000-0000-0000-000000000005",
+          "Order": 2,
+          "Diets": [2],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+              "Title": "Buttermilk Pancakes",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+                "FullSize": "/assets/images/brunch/cards/buttermilk-pancakes.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Buttermilk Pancakes", "Portuguese": "Panquecas de Buttermilk" },
+          "ShortDescription": {
+            "English": "Maple syrup, whipped butter, berries.",
+            "Portuguese": "Xarope de ácer, manteiga batida, frutos vermelhos."
+          },
+          "FullDescription": {
+            "English": "A stack of fluffy buttermilk pancakes, warm maple syrup, whipped butter and seasonal berries.",
+            "Portuguese": "Uma pilha de fofas panquecas de buttermilk, xarope de ácer quente, manteiga batida e frutos vermelhos da época."
+          },
+          "Ingredients": {
+            "English": "Flour, buttermilk, eggs, butter, maple syrup, mixed berries.",
+            "Portuguese": "Farinha, buttermilk, ovos, manteiga, xarope de ácer, frutos vermelhos variados."
+          },
+          "Allergens": [1, 3, 7],
+          "Price": 12,
+          "Tag": null,
+          "Availability": {
+            "Temporary": { "Unavailable": true }
+          }
+        },
+        {
+          "Id": "b1000000-0000-0000-0000-000000000006",
+          "Order": 3,
+          "Diets": [2],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+              "Title": "Belgian Waffle",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+                "FullSize": "/assets/images/brunch/cards/buttermilk-pancakes.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Belgian Waffle", "Portuguese": "Waffle Belga" },
+          "ShortDescription": {
+            "English": "Crisp waffle, seasonal fruit compote.",
+            "Portuguese": "Waffle estaladiço, compota de fruta da época."
+          },
+          "FullDescription": {
+            "English": "A crisp Belgian waffle with a warm seasonal fruit compote and a dusting of powdered sugar.",
+            "Portuguese": "Um waffle belga estaladiço com uma compota de fruta da época e um toque de açúcar em pó."
+          },
+          "Ingredients": {
+            "English": "Flour, eggs, butter, milk, seasonal fruit, sugar.",
+            "Portuguese": "Farinha, ovos, manteiga, leite, fruta da época, açúcar."
+          },
+          "Allergens": [1, 3, 7],
+          "Price": 13,
+          "Tag": 4
+        }
+      ]
+    },
+    {
+      "Id": "a1000000-0000-0000-0000-000000000003",
+      "Order": 3,
+      "Name": { "English": "Sweets & Pastries", "Portuguese": "Doces & Pastelaria" },
+      "Description": {
+        "English": "Baked fresh through the morning.",
+        "Portuguese": "Cozidos frescos ao longo da manhã."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+        "Title": "Butter Croissant",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+          "FullSize": "/assets/images/brunch/cards/buttermilk-pancakes.jpg"
+        }
+      },
+      "Items": [
+        {
+          "Id": "b1000000-0000-0000-0000-000000000007",
+          "Order": 1,
+          "Diets": [2],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+              "Title": "Butter Croissant",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/buttermilk-pancakes.jpg",
+                "FullSize": "/assets/images/brunch/cards/buttermilk-pancakes.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Butter Croissant", "Portuguese": "Croissant de Manteiga" },
+          "ShortDescription": {
+            "English": "Classic French laminated pastry.",
+            "Portuguese": "Clássico folhado francês de manteiga."
+          },
+          "FullDescription": {
+            "English": "A classic all-butter croissant, baked fresh every morning.",
+            "Portuguese": "Um croissant clássico de manteiga, cozido fresco todas as manhãs."
+          },
+          "Ingredients": {
+            "English": "Flour, butter, yeast, milk.",
+            "Portuguese": "Farinha, manteiga, fermento, leite."
+          },
+          "Allergens": [1, 7],
+          "Price": 4.5,
+          "Tag": 5
+        }
+      ]
+    },
+    {
+      "Id": "a1000000-0000-0000-0000-000000000004",
+      "Order": 4,
+      "Name": { "English": "Drinks", "Portuguese": "Bebidas" },
+      "Description": {
+        "English": "Coffee, tea and fresh juices.",
+        "Portuguese": "Café, chá e sumos frescos."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "/assets/images/brunch/cards/flat-white-coffee.jpg",
+        "Title": "House Filter Coffee",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "/assets/images/brunch/cards/flat-white-coffee.jpg",
+          "FullSize": "/assets/images/brunch/cards/flat-white-coffee.jpg"
+        }
+      },
+      "Items": [
+        {
+          "Id": "b1000000-0000-0000-0000-000000000008",
+          "Order": 1,
+          "Diets": [1, 3, 6],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/flat-white-coffee.jpg",
+              "Title": "House Filter Coffee",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/flat-white-coffee.jpg",
+                "FullSize": "/assets/images/brunch/cards/flat-white-coffee.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "House Filter Coffee", "Portuguese": "Café de Filtro da Casa" },
+          "ShortDescription": {
+            "English": "Slow-brewed, single origin.",
+            "Portuguese": "Extração lenta, origem única."
+          },
+          "FullDescription": {
+            "English": "Slow-brewed single-origin coffee, roasted locally every week.",
+            "Portuguese": "Café de origem única, extraído lentamente e torrado localmente todas as semanas."
+          },
+          "Ingredients": {
+            "English": "Coffee.",
+            "Portuguese": "Café."
+          },
+          "Allergens": [],
+          "Price": 3.5,
+          "Tag": null
+        },
+        {
+          "Id": "b1000000-0000-0000-0000-000000000009",
+          "Order": 2,
+          "Diets": [1, 3, 4, 6],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/orange-juice.jpg",
+              "Title": "Fresh Orange Juice",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/orange-juice.jpg",
+                "FullSize": "/assets/images/brunch/cards/orange-juice.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Fresh Orange Juice", "Portuguese": "Sumo de Laranja Fresco" },
+          "ShortDescription": {
+            "English": "Cold-pressed, no added sugar.",
+            "Portuguese": "Prensado a frio, sem açúcar adicionado."
+          },
+          "FullDescription": {
+            "English": "Cold-pressed orange juice, squeezed to order with no added sugar.",
+            "Portuguese": "Sumo de laranja prensado a frio, espremido na hora sem açúcar adicionado."
+          },
+          "Ingredients": {
+            "English": "Orange.",
+            "Portuguese": "Laranja."
+          },
+          "Allergens": [],
+          "Price": 5,
+          "Tag": null
+        },
+        {
+          "Id": "b1000000-0000-0000-0000-000000000010",
+          "Order": 3,
+          "Diets": [1, 3],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "/assets/images/brunch/cards/orange-juice.jpg",
+              "Title": "Classic Mimosa",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "/assets/images/brunch/cards/orange-juice.jpg",
+                "FullSize": "/assets/images/brunch/cards/orange-juice.jpg"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": [],
+          "Name": { "English": "Classic Mimosa", "Portuguese": "Mimosa Clássica" },
+          "ShortDescription": {
+            "English": "Sparkling wine, fresh orange juice.",
+            "Portuguese": "Vinho espumante, sumo de laranja fresco."
+          },
+          "FullDescription": {
+            "English": "Equal parts chilled sparkling wine and fresh orange juice.",
+            "Portuguese": "Partes iguais de vinho espumante gelado e sumo de laranja fresco."
+          },
+          "Ingredients": {
+            "English": "Sparkling wine, orange juice.",
+            "Portuguese": "Vinho espumante, sumo de laranja."
+          },
+          "Allergens": [12],
+          "Price": 8,
+          "Tag": null,
+          "Availability": {
+            "Standard": { "Days": [0, 6] }
+          }
+        }
+      ]
+    }
+  ],
+  "Status": 1
+}
