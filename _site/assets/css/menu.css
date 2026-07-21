@@ -232,3 +232,12 @@ body.has-preview-band { padding-top: 40px; }
   font-family: "Playfair Display", Georgia, serif;
   letter-spacing: .15em;
 }
+
+/* Brunch — toasted caramel with cream text */
+.preview-band--brunch {
+  background: #8c4a2c;
+  color: #fbf6ee;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  letter-spacing: .15em;
+}

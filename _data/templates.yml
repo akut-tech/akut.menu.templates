@@ -33,3 +33,8 @@ list:
     main: /templates/trattoria/
     category: /templates/trattoria/category/
     detail: /templates/trattoria/item/
+  brunch:
+    name: Brunch
+    main: /templates/brunch/
+    category: /templates/brunch/category/
+    detail: /templates/brunch/item/

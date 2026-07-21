@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Menu</title>
+<title>Item</title>
 
 <link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
 
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/assets/css/menu.css">
 
 <!-- Per-template styling -->
-<link rel="stylesheet" href="/assets/css/trattoria.css">
+<link rel="stylesheet" href="/assets/css/brunch.css">
 
 
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
@@ -58,87 +58,40 @@
     
 
     <main>
-      <div class="tr">
-  <!-- Checkered top strip -->
-  <div class="tr-checkered-strip" aria-hidden="true"></div>
-
+      <div class="bn">
   <!-- Header -->
-  <header class="tr-header">
-    <div class="tr-container tr-header-inner">
-      <a class="tr-brand" href="#" data-menu-home>
-        <span class="tr-brand-mark">
-          <span class="tr-brand-badge"></span>
-        </span>
-        <span class="tr-brand-text">
-          <span class="tr-brand-script">trattoria</span>
-          <span class="tr-brand-name" data-menu-name>Menu</span>
-        </span>
+  <header class="bn-header">
+    <div class="bn-container bn-header-inner">
+      <a class="bn-back-btn" href="#" data-menu-home>
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        <span data-tr-i18n="backToCategory">Back</span>
       </a>
-      <div class="tr-lang" data-lang-switcher hidden>
-        <button type="button" class="tr-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+      <span class="bn-topbar-brand" data-menu-name></span>
+      <div class="bn-lang" data-lang-switcher hidden>
+        <button type="button" class="bn-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
           <i class="bi bi-globe2"></i>
           <span data-lang-current-label>Language</span>
-          <i class="bi bi-chevron-down tr-lang-caret"></i>
+          <i class="bi bi-chevron-down bn-lang-caret"></i>
         </button>
-        <ul class="tr-lang-menu tr-ul" data-lang-menu></ul>
+        <ul class="bn-lang-menu bn-ul" data-lang-menu></ul>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="tr-hero">
-    <div class="tr-container tr-hero-inner">
-      <div class="tr-hero-main">
-        <p class="tr-script tr-hero-eyebrow" data-tr-i18n="welcomeTo">Benvenuti a</p>
-        <h1 class="tr-hero-title" data-menu-name>Menu</h1>
-        <p class="tr-hero-desc" data-menu-description></p>
-        <div class="tr-hero-chips">
-          <span class="tr-chip" data-availability-chip hidden>
-            <span class="tr-chip-dot"></span>
-            <span data-availability></span>
-          </span>
-          <span class="tr-chip" data-founded-chip hidden>
-            <span data-founded-year></span>
-          </span>
-        </div>
-      </div>
-      <div class="tr-hero-tile" aria-hidden="true"></div>
+  <!-- Item content (rendered at runtime) -->
+  <main id="item-root" class="bn-container bn-main">
+    <div class="bn-loading">
+      <div class="bn-loader"></div>
+      <span>Loading…</span>
     </div>
-    <div class="tr-tricolore tr-container"></div>
-  </section>
-
-  <!-- Categories -->
-  <section class="tr-categories">
-    <div class="tr-container">
-      <div class="tr-section-head">
-        <div>
-          <p class="tr-script tr-section-eyebrow" data-tr-i18n="ilMenu">Il Menù</p>
-          <h2 class="tr-section-title" data-tr-i18n="categories">Categories</h2>
-        </div>
-        <div class="tr-checkered-tile" aria-hidden="true"></div>
-      </div>
-
-      <div id="menu-root">
-        <div class="tr-loading">
-          <div class="tr-loader"></div>
-          <span>Loading…</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="tr-footer">
-    <div class="tr-checkered-strip" aria-hidden="true"></div>
-    <div class="tr-container tr-footer-inner">
-      <p class="tr-script tr-footer-script" data-tr-i18n="buonAppetito">Buon Appetito</p>
-      <p class="tr-footer-sub">
-        <span data-menu-name>Menu</span>
-        <span data-availability-sep hidden> · </span>
-        <span data-availability></span>
-      </p>
-      <p class="tr-footer-founded" data-founded-year></p>
-      <p class="tr-footer-copy">
+  <footer class="bn-footer">
+    <img class="bn-footer-beans" src="/assets/images/brunch/scattered-coffee-beans.png" alt="" aria-hidden="true">
+    <div class="bn-container bn-footer-inner">
+      <p class="bn-footer-tagline" data-tr-i18n="estSlowMornings">Est. slow mornings</p>
+      <p class="bn-footer-copy">
         &copy; <span data-current-year></span>
         <span data-menu-name></span>
         · Powered by Akut
@@ -160,7 +113,7 @@
   <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
   
-  <script src="/assets/js/templates/trattoria.js"></script>
+  <script src="/assets/js/templates/brunch.js"></script>
   
 
   <!-- Theme init (preloader, back-to-top) -->

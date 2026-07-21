@@ -1,0 +1,50 @@
+---
+layout: base
+permalink: /templates/brunch/category/
+title: Category
+no_chrome: true
+template_css: brunch
+template_js: brunch
+---
+
+<div class="bn">
+  <!-- Header -->
+  <header class="bn-header">
+    <div class="bn-container bn-header-inner">
+      <a class="bn-back-btn" href="#" data-menu-home>
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        <span data-tr-i18n="menuWord">Menu</span>
+      </a>
+      <span class="bn-topbar-brand" data-menu-name></span>
+      <div class="bn-lang" data-lang-switcher hidden>
+        <button type="button" class="bn-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down bn-lang-caret"></i>
+        </button>
+        <ul class="bn-lang-menu bn-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category content (rendered at runtime) -->
+  <main id="category-root" class="bn-container bn-main">
+    <div class="bn-loading">
+      <div class="bn-loader"></div>
+      <span>Loading…</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bn-footer">
+    <img class="bn-footer-beans" src="{{ '/assets/images/brunch/scattered-coffee-beans.png' | relative_url }}" alt="" aria-hidden="true">
+    <div class="bn-container bn-footer-inner">
+      <p class="bn-footer-tagline" data-tr-i18n="estSlowMornings">Est. slow mornings</p>
+      <p class="bn-footer-copy">
+        &copy; <span data-current-year></span>
+        <span data-menu-name></span>
+        · Powered by Akut
+      </p>
+    </div>
+  </footer>
+</div>
