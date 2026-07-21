@@ -294,6 +294,46 @@ main { overflow: hidden; }
 .db-catnav a:hover { color: var(--db-accent); border-color: var(--db-line-strong); }
 @media (min-width: 768px) { .db-catnav ul { justify-content: center; flex-wrap: wrap; } }
 
+/* Side-scroll affordance: small chevrons overlaid on the sticky nav, shown
+   only while its list actually overflows (toggled in deepblue.js), hidden
+   entirely once the >=768px rule above switches the list to wrap+center. */
+.db-catnav-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 999px;
+  background: var(--db-accent);
+  color: var(--db-deep);
+  font-size: 11px;
+  line-height: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.db-catnav-arrow-prev { left: 4px; }
+.db-catnav-arrow-next { right: 4px; }
+.db-catnav--scrollable .db-catnav-arrow { display: flex; }
+.db-catnav--scrollable.db-catnav--at-start .db-catnav-arrow-prev,
+.db-catnav--scrollable.db-catnav--at-end .db-catnav-arrow-next { display: none; }
+.db-catnav--scrollable ul {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 26px, #000 calc(100% - 26px), transparent);
+          mask-image: linear-gradient(to right, transparent, #000 26px, #000 calc(100% - 26px), transparent);
+}
+.db-catnav--scrollable.db-catnav--at-start ul {
+  -webkit-mask-image: linear-gradient(to right, #000, #000 calc(100% - 26px), transparent);
+          mask-image: linear-gradient(to right, #000, #000 calc(100% - 26px), transparent);
+}
+.db-catnav--scrollable.db-catnav--at-end ul {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 26px, #000);
+          mask-image: linear-gradient(to right, transparent, #000 26px, #000);
+}
+@media (min-width: 768px) { .db-catnav-arrow { display: none !important; } }
+
 .db-cat { margin: 0 0 86px; }
 .db-cat-head { text-align: center; margin: 0 auto 46px; max-width: 640px; }
 .db-cat-title {

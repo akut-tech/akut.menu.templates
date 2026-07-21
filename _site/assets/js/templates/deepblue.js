@@ -280,16 +280,47 @@
     root.innerHTML =
       renderNav(cats) +
       cats.map(function (cat, i) { return renderCategory(cat, i); }).join('');
+
+    initCatNav(root);
   }
 
   // Sticky in-page category jump nav.
   function renderNav(cats) {
     if (cats.length < 2) return '';
-    return '<nav class="db-catnav"><ul class="custom-ul">' +
-      cats.map(function (cat) {
-        return '<li><a href="#db-cat-' + esc(cat.Id) + '">' + esc(L(cat.Name)) + '</a></li>';
-      }).join('') +
-    '</ul></nav>';
+    return '<nav class="db-catnav" data-catnav>' +
+      '<button type="button" class="db-catnav-arrow db-catnav-arrow-prev" data-catnav-prev aria-label="Scroll categories left"><i class="bi bi-chevron-left"></i></button>' +
+      '<ul class="custom-ul" data-catnav-list>' +
+        cats.map(function (cat) {
+          return '<li><a href="#db-cat-' + esc(cat.Id) + '">' + esc(L(cat.Name)) + '</a></li>';
+        }).join('') +
+      '</ul>' +
+      '<button type="button" class="db-catnav-arrow db-catnav-arrow-next" data-catnav-next aria-label="Scroll categories right"><i class="bi bi-chevron-right"></i></button>' +
+    '</nav>';
+  }
+
+  // On mobile the category list can overflow and scroll sideways; this keeps
+  // a pair of chevrons (and edge fades, via CSS) in sync with scroll position
+  // so it's clear there's more to see, and hides each arrow once its end is
+  // reached. No-op on wider viewports where the CSS wraps the list instead.
+  function initCatNav(root) {
+    var nav = root.querySelector('[data-catnav]');
+    if (!nav) return;
+    var list = nav.querySelector('[data-catnav-list]');
+    var prev = nav.querySelector('[data-catnav-prev]');
+    var next = nav.querySelector('[data-catnav-next]');
+
+    function update() {
+      var scrollable = list.scrollWidth > list.clientWidth + 1;
+      nav.classList.toggle('db-catnav--scrollable', scrollable);
+      nav.classList.toggle('db-catnav--at-start', list.scrollLeft <= 0);
+      nav.classList.toggle('db-catnav--at-end', list.scrollLeft + list.clientWidth >= list.scrollWidth - 1);
+    }
+
+    list.addEventListener('scroll', update);
+    global.addEventListener('resize', update);
+    prev.addEventListener('click', function () { list.scrollBy({ left: -120, behavior: 'smooth' }); });
+    next.addEventListener('click', function () { list.scrollBy({ left: 120, behavior: 'smooth' }); });
+    update();
   }
 
   // Centered ornament: hairline — sea-creature motif — hairline.
