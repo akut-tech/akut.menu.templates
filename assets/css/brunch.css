@@ -99,7 +99,11 @@ body { background: var(--bn-cream); }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 0;
+  /* padding-top/bottom only (not the `padding` shorthand) — a shorthand here
+     would zero out .bn-container's horizontal padding since both rules share
+     the same specificity and this one comes later in the cascade. */
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .bn-brand {
@@ -267,16 +271,26 @@ body { background: var(--bn-cream); }
   overflow: hidden;
 }
 
+/* Own escalating horizontal padding (mirrors the source's px-13/sm:px-20/lg:px-24) —
+   deliberately more generous than the page's standard .bn-container padding. */
 .bn-hero-inner {
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
   align-items: center;
-  padding: 48px 0;
+  padding: 32px 24px;
+}
+
+@media (min-width: 480px) {
+  .bn-hero-inner { padding: 32px 52px; }
+}
+
+@media (min-width: 640px) {
+  .bn-hero-inner { padding: 48px 80px; }
 }
 
 @media (min-width: 960px) {
-  .bn-hero-inner { grid-template-columns: 1.1fr 1fr; padding: 72px 0; gap: 48px; }
+  .bn-hero-inner { grid-template-columns: 1.1fr 1fr; gap: 48px; padding: 64px 96px; }
 }
 
 .bn-hero-main { min-width: 0; }
@@ -310,8 +324,13 @@ body { background: var(--bn-cream); }
 .bn-hero-chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   margin-top: 32px;
+}
+
+@media (min-width: 960px) {
+  .bn-hero-chips { justify-content: flex-start; }
 }
 
 .bn-chip {
@@ -343,8 +362,9 @@ body { background: var(--bn-cream); }
 
 .bn-hero-media img {
   height: auto;
-  max-height: 380px;
+  max-height: 420px;
   width: auto;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: 20px;
   object-fit: contain;
@@ -874,7 +894,10 @@ body { background: var(--bn-cream); }
 @media (min-width: 640px) { .bn-footer-beans { height: 72px; } }
 
 .bn-footer-inner {
-  padding: 32px 0;
+  /* padding-top/bottom only — see .bn-header-inner comment for why a
+     shorthand here would wipe .bn-container's horizontal padding. */
+  padding-top: 32px;
+  padding-bottom: 32px;
   text-align: center;
 }
 
