@@ -32,3 +32,10 @@
   description_pt: Experiência acolhedora de trattoria italiana com tipografia rústica e destaques marcantes.
   url: /akut/f697a143-818a-42a6-8d9c-6c778df7e6b2
   accent: "#CD212A"
+
+- id: brunch
+  name: Brunch
+  description: Relaxed weekend brunch experience with warm caramel tones and soft serif typography.
+  description_pt: Experiência descontraída de brunch de fim de semana com tons quentes de caramelo e tipografia serifada suave.
+  url: /akut/e149ac59-fe6b-4693-9608-baf1c0cf5a54
+  accent: "#8C4A2C"
