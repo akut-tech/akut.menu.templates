@@ -99,7 +99,7 @@
     return (menu.Categories || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
   }
   function sortedItems(cat) {
-    return (cat.Items || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
+    return Core.sortItemsAvailableFirst(cat.Items);
   }
 
   function findItem(menu, itemId) {
@@ -445,7 +445,9 @@
   }
 
   function renderRelated(category, currentItem) {
-    var others = sortedItems(category).filter(function (i) { return String(i.Id) !== String(currentItem.Id); });
+    var others = sortedItems(category).filter(function (i) {
+      return String(i.Id) !== String(currentItem.Id) && !Core.isTemporarilyUnavailable(i);
+    });
     if (!others.length) return '';
     others = others.slice(0, 8);
 

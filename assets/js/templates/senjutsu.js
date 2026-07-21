@@ -170,7 +170,7 @@
   }
 
   function sortedItems(cat) {
-    return (cat.Items || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
+    return Core.sortItemsAvailableFirst(cat.Items);
   }
 
   function itemCountLabel(count) {

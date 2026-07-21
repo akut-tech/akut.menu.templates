@@ -438,6 +438,19 @@
     return !!(av && av.Temporary && av.Temporary.Unavailable === true);
   }
 
+  // Sorts items by Order, but always places temporarily-unavailable items
+  // after every available one (stable within each group). Used by every
+  // template's category/grid listing so unavailable items sink to the end
+  // instead of appearing in their normal Order position.
+  function sortItemsAvailableFirst(items) {
+    return (items || []).slice().sort(function (a, b) {
+      var au = isTemporarilyUnavailable(a) ? 1 : 0;
+      var bu = isTemporarilyUnavailable(b) ? 1 : 0;
+      if (au !== bu) return au - bu;
+      return (a.Order || 0) - (b.Order || 0);
+    });
+  }
+
   // Human-readable recurring-availability note (e.g. "Available only on
   // weekends"), or '' when the item has no Standard.Days set. Selecting all
   // 7 days is equivalent to no restriction, so it renders nothing.
@@ -606,6 +619,7 @@
     formatAvailability: formatAvailability,
     formatFoundedYear: formatFoundedYear,
     isTemporarilyUnavailable: isTemporarilyUnavailable,
+    sortItemsAvailableFirst: sortItemsAvailableFirst,
     standardAvailabilityText: standardAvailabilityText,
     TAG_CONFIG: TAG_CONFIG,
     tagBadge: tagBadge,

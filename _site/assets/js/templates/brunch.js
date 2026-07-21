@@ -150,7 +150,7 @@
   }
 
   function sortedItems(cat) {
-    return (cat.Items || []).slice().sort(function (a, b) { return (a.Order || 0) - (b.Order || 0); });
+    return Core.sortItemsAvailableFirst(cat.Items);
   }
 
   function firstCategoryImage(cat) {
@@ -492,7 +492,9 @@
         '</section>' +
       '</div>';
 
-    var related = sortedItems(cat).filter(function (i) { return String(i.Id) !== String(item.Id); }).slice(0, 3);
+    var related = sortedItems(cat).filter(function (i) {
+      return String(i.Id) !== String(item.Id) && !Core.isTemporarilyUnavailable(i);
+    }).slice(0, 3);
     var relatedHtml = related.length
       ? '<section class="bn-related">' +
           '<div class="bn-section-head">' +

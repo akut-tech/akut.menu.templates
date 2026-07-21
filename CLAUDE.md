@@ -170,8 +170,16 @@ two independent, `isTemporarilyUnavailable`-driven treatments to the same card:
 2. **Badge**: `Core.tagBadge`/`renderTagBadge` renders the "Unavailable" badge (icon
    `bi-slash-circle`, or `· 休` suffix for senjutsu) in the same slot a `Tag` badge would occupy,
    overlaid on the card's image.
-The item keeps its normal position, image, name, and price — it just reads as dimmed-with-a-badge
-rather than being removed from the grid.
+The item keeps its image, name, and price — it just reads as dimmed-with-a-badge rather than being
+removed from the grid. It does **not** keep its normal `Order` position, though: every template's
+`sortedItems(cat)` calls the shared `Core.sortItemsAvailableFirst(items)` (`menu-core.js`), which
+sorts by `Order` within two groups — available items first, temporarily-unavailable items last —
+so unavailable items always sink to the end of the category/grid listing regardless of their `Order`
+value. The same `isTemporarilyUnavailable` check excludes unavailable items entirely (not just
+reorders them) from the item detail page's "related items" rail (`renderRelated`/"Also worth trying"
+in classic, deepblue, trattoria, brunch — lisbon and senjutsu have no such rail) — an unavailable
+item is never recommended as a suggestion, even though it still appears (faded, at the end) in its
+own category listing.
 
 ### i18n conventions
 
