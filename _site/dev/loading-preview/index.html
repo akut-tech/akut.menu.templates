@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading Animations — Dev Preview</title>
+<link rel="stylesheet" href="/assets/css/bootstrap-icons.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/menu.css">
+<link rel="stylesheet" href="/assets/css/deepblue.css">
+<link rel="stylesheet" href="/assets/css/senjutsu.css">
+<link rel="stylesheet" href="/assets/css/lisbon.css">
+<link rel="stylesheet" href="/assets/css/trattoria.css">
+<link rel="stylesheet" href="/assets/css/brunch.css">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px;
+    background: #e5e5e5;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #222;
+  }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.intro { color: #555; margin: 0 0 28px; max-width: 60em; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 0;
+    padding: 10px 14px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+  }
+  .swatch-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #888;
+    padding: 8px 14px 0;
+  }
+  /* Boot preloader swatch: neutralize position:fixed so it sits inline in the card. */
+  .boot-frame {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+  }
+  .boot-frame .preloader { position: absolute !important; }
+
+  /* In-content loader swatch: render the real root-container placeholder markup.
+     In production this markup sits inside the template's own root wrapper
+     (.db/.sj/.ls/.tr/.bn), which is where its palette custom properties are
+     declared — redeclare just those here rather than pulling in the full
+     wrapper class (which also carries page-level background/sizing rules). */
+  .content-frame { padding: 0; }
+  .vars-db { --db-accent: #13c5dd; }
+  .vars-sj { --sj-shu: #c93c27; }
+  .vars-ls { --ls-azul: #1A4A7A; --ls-terra: #C4622D; }
+  .vars-tr { --tr-green: #157A3D; --tr-red: #CD212A; --tr-border: rgba(43, 36, 31, 0.14); }
+  .vars-bn { --bn-caramel: oklch(0.48 0.13 42); --bn-toast: oklch(0.62 0.14 55); --bn-jam: oklch(0.5 0.15 25); --bn-cream: oklch(0.972 0.014 85); }
+</style>
+</head>
+<body>
+
+<h1>Loading Animations — Dev Preview</h1>
+<p class="intro">
+  Static reference page, not linked from production nav. Shows both loading moments for every
+  template at once so you can inspect each without racing the real page (which usually finishes
+  loading demo data almost instantly).
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>Classic (default)</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame">
+      <div class="menu-loading"><div class="spinner"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Deepblue</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--deepblue">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-db">
+      <div class="db-loading">
+        <div class="db-loader">
+          <span class="db-bubble"></span>
+          <span class="db-bubble"></span>
+          <span class="db-bubble"></span>
+          <span class="db-loader-core"><i class="bi bi-water"></i></span>
+        </div>
+        <span class="db-loading-label">Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Senjutsu</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--senjutsu">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-sj">
+      <div class="sj-loading">
+        <div class="sj-loader"></div>
+        <span class="sj-loading-label">Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Lisbon</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--lisbon">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-ls">
+      <div class="ls-loading">
+        <div class="ls-loader">
+          <span class="ls-tile"></span>
+          <span class="ls-tile"></span>
+          <span class="ls-tile"></span>
+          <span class="ls-tile"></span>
+        </div>
+        <span>Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Trattoria</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--trattoria">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-tr">
+      <div class="tr-loading">
+        <div class="tr-loader">
+          <span class="tr-loader-bar tr-loader-bar--green"></span>
+          <span class="tr-loader-bar tr-loader-bar--white"></span>
+          <span class="tr-loader-bar tr-loader-bar--red"></span>
+        </div>
+        <span>Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Brunch</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--brunch">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-bn">
+      <div class="bn-loading">
+        <div class="bn-loader">
+          <span class="bn-bean"></span>
+          <span class="bn-bean"></span>
+          <span class="bn-bean"></span>
+        </div>
+        <span>Loading…</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

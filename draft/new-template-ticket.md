@@ -110,6 +110,10 @@ design for, both CSS-only (transform/opacity, no images/GIFs) for performance:
 Look at `deepblue`/`senjutsu`/`lisbon`/`trattoria`/`brunch` for reference implementations (bubbles,
 pulsing disc, tile grid, flag bars, coffee beans) — same technique, different shape per theme.
 
+Add this template's two loading swatches (boot preloader + in-content loader) to
+`dev/loading-preview.html` (`/dev/loading-preview/`) — it's a static, hand-maintained reference
+page and does not pick up new templates automatically.
+
 ---
 
 ## Color Schema — `<THEME>` (placeholder values, replace before implementation)
@@ -411,6 +415,7 @@ Legacy `TemplateId` aliases resolved to `classic`: `default`, `epicurean`, `epic
 - [ ] Preview mode (`?preview=1`) works and shows the "PREVIEW" band.
 - [ ] Template has its own themed boot preloader and in-content loader (not the default classic
       ring spinner) — see **Loading State** above.
+- [ ] This template's loading swatches are added to `dev/loading-preview.html`.
 - [ ] No broken rendering when optional fields (`Description`, `ShortDescription`, `Images`,
       `Notes`, `Tag`, `Diets`, `Allergens`) are missing.
 - [ ] Fully responsive across mobile, tablet, desktop.
