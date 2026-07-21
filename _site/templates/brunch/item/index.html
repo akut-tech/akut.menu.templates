@@ -42,12 +42,18 @@
 <body>
 
   <!-- Preloader -->
-  <div class="preloader">
+  <div class="preloader preloader--brunch">
     <div class="spinner-wrap">
       <div class="preloader-logo">
         <img src="/assets/images/preloader.svg" alt="" class="img-fluid">
       </div>
       <div class="spinner"></div>
+      <div class="preloader-theme" aria-hidden="true">
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+      </div>
     </div>
   </div>
 
@@ -81,7 +87,11 @@
   <!-- Item content (rendered at runtime) -->
   <main id="item-root" class="bn-container bn-main">
     <div class="bn-loading">
-      <div class="bn-loader"></div>
+      <div class="bn-loader">
+        <span class="bn-bean"></span>
+        <span class="bn-bean"></span>
+        <span class="bn-bean"></span>
+      </div>
       <span>Loading…</span>
     </div>
   </main>

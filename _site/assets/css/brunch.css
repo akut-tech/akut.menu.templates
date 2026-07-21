@@ -243,15 +243,85 @@ body { background: var(--bn-cream); }
 }
 
 .bn-loader {
-  width: 22px;
-  height: 22px;
-  border: 3px solid var(--bn-border);
-  border-top-color: var(--bn-caramel);
-  border-radius: 50%;
-  animation: bn-spin 0.7s linear infinite;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-@keyframes bn-spin { to { transform: rotate(360deg); } }
+.bn-bean {
+  position: relative;
+  width: 11px;
+  height: 15px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(-20deg);
+  animation: bn-bean-bounce 1s ease-in-out infinite;
+}
+.bn-bean::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 1.5px;
+  height: 76%;
+  background: var(--bn-cream);
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(6deg);
+}
+.bn-bean:nth-child(1) { background: var(--bn-caramel); animation-delay: 0s; }
+.bn-bean:nth-child(2) { background: var(--bn-toast);   animation-delay: 0.15s; }
+.bn-bean:nth-child(3) { background: var(--bn-jam);     animation-delay: 0.3s; }
+
+@keyframes bn-bean-bounce {
+  0%, 100% { transform: rotate(-20deg) translateY(0);    opacity: 0.6; }
+  50%      { transform: rotate(-20deg) translateY(-7px); opacity: 1; }
+}
+
+/* --------------------------------------------------------- boot preloader */
+.preloader--brunch {
+  /* .preloader lives outside .bn in the DOM (base.html) — redeclare. */
+  --bn-cream: oklch(0.972 0.014 85);
+  --bn-caramel: oklch(0.48 0.13 42);
+  --bn-toast: oklch(0.62 0.14 55);
+  --bn-jam: oklch(0.5 0.15 25);
+  background: var(--bn-cream);
+}
+.preloader--brunch .preloader-logo,
+.preloader--brunch .spinner-wrap .spinner { display: none; }
+.preloader--brunch .preloader-theme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.preloader--brunch .preloader-theme-el {
+  position: relative;
+  width: 18px;
+  height: 24px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(-20deg);
+  animation: bn-bean-bounce-boot 1s ease-in-out infinite;
+}
+.preloader--brunch .preloader-theme-el::after {
+  content: '';
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  width: 2px;
+  height: 76%;
+  background: var(--bn-cream);
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(6deg);
+}
+.preloader--brunch .preloader-theme-el:nth-child(1) { background: var(--bn-caramel); animation-delay: 0s; }
+.preloader--brunch .preloader-theme-el:nth-child(2) { background: var(--bn-toast);   animation-delay: 0.15s; }
+.preloader--brunch .preloader-theme-el:nth-child(3) { background: var(--bn-jam);     animation-delay: 0.3s; }
+.preloader--brunch .preloader-theme-el:nth-child(4) { display: none; }
+@keyframes bn-bean-bounce-boot {
+  0%, 100% { transform: rotate(-20deg) translateY(0);     opacity: 0.6; }
+  50%      { transform: rotate(-20deg) translateY(-10px); opacity: 1; }
+}
 
 .bn-empty {
   text-align: center;

@@ -714,27 +714,30 @@ main { overflow: hidden; }
   position: relative;
   width: 72px;
   height: 72px;
-  display: grid;
-  place-items: center;
 }
-.db-loader-wave {
+.db-bubble {
   position: absolute;
-  inset: 0;
+  bottom: 8px;
   border-radius: 50%;
-  border: 1.5px solid var(--db-accent);
+  background: var(--db-accent);
   opacity: 0;
-  animation: db-sonar 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  animation: db-rise 2.2s ease-in infinite;
 }
-.db-loader-wave:nth-child(2) { animation-delay: 0.8s; }
-.db-loader-wave:nth-child(3) { animation-delay: 1.6s; }
+.db-bubble:nth-child(1) { left: 14px; width: 7px;  height: 7px;  animation-delay: 0s; }
+.db-bubble:nth-child(2) { left: 32px; width: 5px;  height: 5px;  animation-delay: 0.5s; }
+.db-bubble:nth-child(3) { left: 47px; width: 9px;  height: 9px;  animation-delay: 1s; }
 .db-loader-core {
-  position: relative;
+  position: absolute;
   z-index: 2;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   width: 30px; height: 30px;
   display: grid;
   place-items: center;
   border: 1.5px solid var(--db-accent);
   border-radius: 50%;
+  background: var(--db-deep);
   color: var(--db-accent);
   font-size: 15px;
 }
@@ -745,12 +748,49 @@ main { overflow: hidden; }
   text-transform: uppercase;
   animation: db-pulse 1.8s ease-in-out infinite alternate;
 }
-@keyframes db-sonar {
-  0%   { transform: scale(0.25); opacity: 0.65; }
-  100% { transform: scale(1.65); opacity: 0; }
+@keyframes db-rise {
+  0%   { transform: translateY(0) scale(0.6); opacity: 0; }
+  15%  { opacity: 0.85; }
+  85%  { opacity: 0.2; }
+  100% { transform: translateY(-58px) scale(1); opacity: 0; }
 }
 @keyframes db-pulse { from { opacity: 0.3; } to { opacity: 0.9; } }
 .db-empty { text-align: center; color: var(--db-mist); padding: 80px 0; }
+
+/* --------------------------------------------------------- boot preloader */
+.preloader--deepblue {
+  /* .preloader lives outside .db in the DOM (base.html), so the palette
+     custom properties from ".db { … }" aren't inherited here — redeclare
+     the two this block needs. */
+  --db-deep: #06182b;
+  --db-accent: #13c5dd;
+  background: var(--db-deep);
+}
+.preloader--deepblue .preloader-logo,
+.preloader--deepblue .spinner-wrap .spinner { display: none; }
+.preloader--deepblue .preloader-theme {
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+.preloader--deepblue .preloader-theme-el {
+  position: absolute;
+  bottom: 16px;
+  border-radius: 50%;
+  background: var(--db-accent);
+  opacity: 0;
+  animation: db-rise-boot 2.4s ease-in infinite;
+}
+.preloader--deepblue .preloader-theme-el:nth-child(1) { left: 32%; width: 12px; height: 12px; animation-delay: 0s; }
+.preloader--deepblue .preloader-theme-el:nth-child(2) { left: 50%; width: 9px;  height: 9px;  animation-delay: 0.6s; }
+.preloader--deepblue .preloader-theme-el:nth-child(3) { left: 65%; width: 15px; height: 15px; animation-delay: 1.2s; }
+.preloader--deepblue .preloader-theme-el:nth-child(4) { left: 44%; width: 7px;  height: 7px;  animation-delay: 1.8s; }
+@keyframes db-rise-boot {
+  0%   { transform: translateY(0) scale(0.6); opacity: 0; }
+  15%  { opacity: 0.85; }
+  85%  { opacity: 0.2; }
+  100% { transform: translateY(-108px) scale(1); opacity: 0; }
+}
 
 /* The shared error card (MenuCore.renderError) lands inside .db — tune it. */
 .db .menu-error { display: grid; place-items: center; min-height: 50vh; padding: 40px 0; }

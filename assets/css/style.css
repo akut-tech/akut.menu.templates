@@ -385,6 +385,13 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+/* Per-template preloader animation slot — hidden by default so Classic (no
+   page.template_css, markup not even rendered) keeps the plain Epicurean
+   ring spinner untouched. Templates with their own CSS (deepblue.css etc.)
+   unhide this and hide the ring/logo instead — see each template's
+   ".preloader--<slug>" rules. */
+.preloader-theme { display: none; }
+
 @keyframes spin {
   from {
     -webkit-transform: rotate(0deg);

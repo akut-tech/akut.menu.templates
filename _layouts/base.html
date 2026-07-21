@@ -7,12 +7,20 @@
 <body>
 
   <!-- Preloader -->
-  <div class="preloader">
+  <div class="preloader{% if page.template_css %} preloader--{{ page.template_css }}{% endif %}">
     <div class="spinner-wrap">
       <div class="preloader-logo">
         <img src="{{ '/assets/images/preloader.svg' | relative_url }}" alt="" class="img-fluid">
       </div>
       <div class="spinner"></div>
+      {%- if page.template_css %}
+      <div class="preloader-theme" aria-hidden="true">
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+      </div>
+      {%- endif %}
     </div>
   </div>
 

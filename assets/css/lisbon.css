@@ -276,15 +276,56 @@ body { background: var(--ls-cal); }
 }
 
 .ls-loader {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--ls-border);
-  border-top-color: var(--ls-azul);
-  border-radius: 50%;
-  animation: ls-spin 0.7s linear infinite;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
 }
 
-@keyframes ls-spin { to { transform: rotate(360deg); } }
+.ls-tile {
+  background: var(--ls-azul);
+  animation: ls-tile-pulse 1.4s ease-in-out infinite;
+}
+.ls-tile:nth-child(1) { animation-delay: 0s; }
+.ls-tile:nth-child(2) { animation-delay: 0.15s; background: var(--ls-terra); }
+.ls-tile:nth-child(3) { animation-delay: 0.3s; background: var(--ls-terra); }
+.ls-tile:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes ls-tile-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.7); }
+  50%      { opacity: 1;    transform: scale(1); }
+}
+
+/* --------------------------------------------------------- boot preloader */
+.preloader--lisbon {
+  /* .preloader lives outside .ls in the DOM (base.html) — redeclare. */
+  --ls-cal: #F5F3EF;
+  --ls-azul: #1A4A7A;
+  --ls-terra: #C4622D;
+  background: var(--ls-cal);
+}
+.preloader--lisbon .preloader-logo,
+.preloader--lisbon .spinner-wrap .spinner { display: none; }
+.preloader--lisbon .preloader-theme {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 48px; height: 48px;
+  transform: translate(-50%, -50%);
+}
+.preloader--lisbon .preloader-theme-el {
+  background: var(--ls-azul);
+  animation: ls-tile-pulse 1.4s ease-in-out infinite;
+}
+.preloader--lisbon .preloader-theme-el:nth-child(1) { animation-delay: 0s; }
+.preloader--lisbon .preloader-theme-el:nth-child(2) { animation-delay: 0.15s; background: var(--ls-terra); }
+.preloader--lisbon .preloader-theme-el:nth-child(3) { animation-delay: 0.3s; background: var(--ls-terra); }
+.preloader--lisbon .preloader-theme-el:nth-child(4) { animation-delay: 0.45s; }
 
 /* ============================================================ INDEX PAGE */
 
