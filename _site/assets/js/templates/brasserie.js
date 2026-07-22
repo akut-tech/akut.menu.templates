@@ -41,6 +41,7 @@
     viewMenu:        { English: 'View section',       Portuguese: 'Ver secção',               Spanish: 'Ver sección',                 French: 'Voir la carte',          Italian: 'Vedi la sezione' },
     retour:          { English: 'Back',               Portuguese: 'Voltar',                   Spanish: 'Volver',                      French: 'Retour',                 Italian: 'Indietro' },
     backToMenuShort: { English: 'Menu',                Portuguese: 'Menu',                     Spanish: 'Menú',                        French: 'Menu',                   Italian: 'Menu' },
+    backToCategory:  { English: 'Back',                Portuguese: 'Voltar',                   Spanish: 'Volver',                      French: 'Retour',                 Italian: 'Indietro' },
     sectionLabel:    { English: 'Section',             Portuguese: 'Secção',                   Spanish: 'Sección',                     French: 'Section',                Italian: 'Sezione' },
     price:           { English: 'Price',               Portuguese: 'Preço',                    Spanish: 'Precio',                       French: 'Prix',                   Italian: 'Prezzo' },
     photoComingSoon: { English: 'Photo coming soon',   Portuguese: 'Foto em breve',            Spanish: 'Foto próximamente',           French: 'Photo à venir',          Italian: 'Foto in arrivo' },
@@ -50,7 +51,8 @@
     none:            { English: 'None',                Portuguese: 'Nenhum',                   Spanish: 'Ninguno',                     French: 'Aucun',                  Italian: 'Nessuno' },
     diets:           { English: 'Diets',                Portuguese: 'Regimes',                  Spanish: 'Dietas',                       French: 'Régimes',                Italian: 'Regimi' },
     watchVideo:      { English: 'Watch video',          Portuguese: 'Ver vídeo',                Spanish: 'Ver vídeo',                    French: 'Voir la vidéo',          Italian: 'Guarda il video' },
-    footerTagline:   { English: 'Menu · French Classic Template', Portuguese: 'Menu · Modelo Clássico Francês', Spanish: 'Menú · Plantilla Clásica Francesa', French: 'Menu · Modèle Classique Français', Italian: 'Menu · Modello Classico Francese' },
+    stopVideo:       { English: 'Stop video',             Portuguese: 'Parar vídeo',              Spanish: 'Detener vídeo',                French: 'Arrêter la vidéo',       Italian: 'Ferma il video' },
+    footerTagline:   { English: 'The Taste of French Tradition', Portuguese: 'O Sabor da Tradição Francesa', Spanish: 'El Sabor de la Tradición Francesa', French: 'Le Goût de la Tradition Française', Italian: 'Il Gusto della Tradizione Francese' },
     estFrom:         { English: 'Est. {year}',         Portuguese: 'Desde {year}',             Spanish: 'Desde {year}',                French: 'Depuis {year}',          Italian: 'Dal {year}' }
   };
 
@@ -436,6 +438,13 @@
 
     document.title = L(item.Name) + ' — ' + (L(state.menu.Name) || '');
 
+    document.querySelectorAll('[data-menu-home]').forEach(function (a) {
+      a.setAttribute('href', categoryUrl(cat.Id));
+    });
+    document.querySelectorAll('[data-bs-i18n="backToCategory"]').forEach(function (el) {
+      el.textContent = L(cat.Name) || bsText('backToCategory');
+    });
+
     var price       = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
     var diets       = Core.dietLabels(item.Diets, state.lang);
     var allergens   = Core.allergenLabels(item.Allergens, state.lang);
@@ -545,6 +554,13 @@
 
   /* ====================================================== MEDIA GALLERY */
 
+  function videoPosterHtml(id, alt) {
+    return '<img class="bs-slide-video-poster" src="https://img.youtube.com/vi/' + esc(id) + '/hqdefault.jpg" alt="' + esc(alt) + '" loading="lazy">' +
+      '<button type="button" class="bs-media-play" data-play-video aria-label="' + esc(bsText('watchVideo')) + '">' +
+        '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M6.3 2.841A1.5 1.5 0 0 1 8.53 1.35l9.04 4.056a1.5 1.5 0 0 1 0 2.733l-9.04 4.056a1.5 1.5 0 0 1-2.23-1.491V2.841Z" /></svg>' +
+      '</button>';
+  }
+
   function renderMedia(slides, alt, badge) {
     if (!slides.length) {
       return '<div class="bs-media"><div class="bs-media-empty"><i class="bi bi-camera" aria-hidden="true"></i></div></div>';
@@ -557,11 +573,8 @@
         // swallow taps meant for the prev/next arrows on mobile even while
         // this slide isn't active (opacity/pointer-events aside, iframes are
         // known to ignore normal stacking-context hit-testing on touch).
-        return '<div class="bs-slide bs-slide-video' + (i === 0 ? ' active' : '') + '" data-video-id="' + esc(s.id) + '">' +
-          '<img class="bs-slide-video-poster" src="https://img.youtube.com/vi/' + esc(s.id) + '/hqdefault.jpg" alt="' + esc(alt) + '" loading="lazy">' +
-          '<button type="button" class="bs-media-play" data-play-video aria-label="' + esc(bsText('watchVideo')) + '">' +
-            '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M6.3 2.841A1.5 1.5 0 0 1 8.53 1.35l9.04 4.056a1.5 1.5 0 0 1 0 2.733l-9.04 4.056a1.5 1.5 0 0 1-2.23-1.491V2.841Z" /></svg>' +
-          '</button>' +
+        return '<div class="bs-slide bs-slide-video' + (i === 0 ? ' active' : '') + '" data-video-id="' + esc(s.id) + '" data-video-alt="' + esc(alt) + '">' +
+          videoPosterHtml(s.id, alt) +
         '</div>';
       }
       return '<img class="bs-slide bs-slide-img' + (i === 0 ? ' active' : '') + '" ' +
@@ -597,6 +610,31 @@
     '</div>';
   }
 
+  // Reverts a video slide back to its poster + play button, discarding the
+  // live iframe — the only reliable way to actually stop YouTube playback
+  // (pausing via postMessage is unnecessary complexity; this also removes
+  // whatever is generating the iframe's own on-top compositing so it can
+  // never shadow the prev/next arrows once you've moved past it).
+  function stopVideoSlide(slide) {
+    if (!slide || !slide.querySelector('iframe')) return;
+    var id  = slide.getAttribute('data-video-id');
+    var alt = slide.getAttribute('data-video-alt') || '';
+    slide.innerHTML = videoPosterHtml(id, alt);
+  }
+
+  function playVideoSlide(slide) {
+    var id  = slide.getAttribute('data-video-id');
+    var alt = slide.getAttribute('data-video-alt') || '';
+    slide.innerHTML =
+      '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" ' +
+        'title="' + esc(alt) + '" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>' +
+      '<button type="button" class="bs-media-stop" data-stop-video aria-label="' + esc(bsText('stopVideo')) + '">' +
+        '<i class="bi bi-x-lg"></i>' +
+      '</button>';
+  }
+
   function initMedia(root) {
     root.querySelectorAll('[data-media]').forEach(function (container) {
       var slides = Array.prototype.slice.call(container.querySelectorAll('.bs-slide'));
@@ -614,6 +652,7 @@
       var current = 0;
 
       function goTo(idx) {
+        var leaving = slides[current];
         slides[current].classList.remove('active');
         if (dots[current]) dots[current].classList.remove('active');
         current = (idx + slides.length) % slides.length;
@@ -624,6 +663,7 @@
           zoom.style.display = isImage ? '' : 'none';
           if (isImage) zoom.setAttribute('href', slides[current].src);
         }
+        stopVideoSlide(leaving);
       }
 
       if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
@@ -634,18 +674,21 @@
       });
     });
 
-    root.querySelectorAll('[data-play-video]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var slide = btn.closest('.bs-slide-video');
-        if (!slide) return;
-        var id     = slide.getAttribute('data-video-id');
-        var poster = slide.querySelector('img');
-        var alt    = poster ? poster.alt : '';
-        slide.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" ' +
-          'title="' + esc(alt) + '" ' +
-          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
-          'allowfullscreen></iframe>';
-      });
+    // Delegated: the play/stop buttons are recreated (via innerHTML swaps)
+    // every time a video is played or stopped, so listeners bound directly
+    // to them would only ever work once.
+    root.addEventListener('click', function (e) {
+      var playBtn = e.target.closest('[data-play-video]');
+      if (playBtn) {
+        var slide = playBtn.closest('.bs-slide-video');
+        if (slide) playVideoSlide(slide);
+        return;
+      }
+      var stopBtn = e.target.closest('[data-stop-video]');
+      if (stopBtn) {
+        var vSlide = stopBtn.closest('.bs-slide-video');
+        if (vSlide) stopVideoSlide(vSlide);
+      }
     });
   }
 

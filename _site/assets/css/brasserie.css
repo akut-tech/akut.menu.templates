@@ -873,6 +873,27 @@ body { background: var(--bs-paper); }
 .bs-media-play svg { width: 26px; height: 26px; }
 .bs-media-play:hover { transform: translate(-50%, -50%) scale(1.05); }
 
+.bs-media-stop {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  transition: background 0.15s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.bs-media-stop:hover { background: var(--bs-blue); }
+
 .bs-media-empty {
   aspect-ratio: 4 / 5;
   display: flex;
@@ -1162,10 +1183,9 @@ body { background: var(--bs-paper); }
 
 .bs-footer-tagline {
   margin: 12px 0 0;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.95rem;
   color: var(--bs-muted);
 }
 
