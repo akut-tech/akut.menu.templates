@@ -250,6 +250,8 @@ body { background: var(--bs-paper); }
 }
 .bs-back-btn-icon svg { width: 14px; height: 14px; }
 
+@media (max-width: 639px) { .bs-back-btn-text { display: none; } }
+
 .bs-subnav-brand {
   display: inline-flex;
   align-items: center;
