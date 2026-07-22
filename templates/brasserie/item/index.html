@@ -1,0 +1,63 @@
+---
+layout: base
+permalink: /templates/brasserie/item/
+title: Item
+no_chrome: true
+template_css: brasserie
+template_js: brasserie
+---
+
+<div class="bs">
+  <div class="bs-texture" aria-hidden="true"></div>
+
+  <div class="bs-subnav">
+    <div class="bs-container bs-subnav-inner">
+      <a class="bs-back-btn" href="#" data-menu-home>
+        <span class="bs-back-btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.78 12.78a.75.75 0 0 1-1.06 0L4.47 8.53a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 1.06L6.06 8l3.72 3.72a.75.75 0 0 1 0 1.06Z" /></svg>
+        </span>
+        <span data-bs-i18n="backToMenuShort">Menu</span>
+      </a>
+      <span class="bs-subnav-brand">
+        <span class="bs-ribbon bs-ribbon--sm" aria-hidden="true">
+          <span class="bs-ribbon-bar bs-ribbon-bar--blue"></span>
+          <span class="bs-ribbon-bar bs-ribbon-bar--white"></span>
+          <span class="bs-ribbon-bar bs-ribbon-bar--red"></span>
+        </span>
+        <span data-menu-name>Menu</span>
+      </span>
+      <div class="bs-lang" data-lang-switcher hidden>
+        <button type="button" class="bs-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down bs-lang-caret"></i>
+        </button>
+        <ul class="bs-lang-menu bs-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </div>
+
+  <main id="item-root">
+    <div class="bs-loading">
+      <div class="bs-loader">
+        <span class="bs-loader-bar bs-loader-bar--blue"></span>
+        <span class="bs-loader-bar bs-loader-bar--white"></span>
+        <span class="bs-loader-bar bs-loader-bar--red"></span>
+      </div>
+      <span>Loading…</span>
+    </div>
+  </main>
+
+  <footer class="bs-footer">
+    <span class="bs-ribbon bs-ribbon--sm" aria-hidden="true">
+      <span class="bs-ribbon-bar bs-ribbon-bar--blue"></span>
+      <span class="bs-ribbon-bar bs-ribbon-bar--white"></span>
+      <span class="bs-ribbon-bar bs-ribbon-bar--red"></span>
+    </span>
+    <p class="bs-footer-copy">
+      &copy; <span data-current-year></span>
+      <span data-menu-name></span>
+      · Powered by Akut
+    </p>
+  </footer>
+</div>

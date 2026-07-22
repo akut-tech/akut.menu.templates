@@ -43,3 +43,8 @@ list:
     main: /templates/coffee/
     category: /templates/coffee/category/
     detail: /templates/coffee/item/
+  brasserie:
+    name: Brasserie
+    main: /templates/brasserie/
+    category: /templates/brasserie/category/
+    detail: /templates/brasserie/item/

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Menu</title>
+<title>Category</title>
 
 <link rel="icon" href="/assets/images/fav.png" type="image/png" sizes="20x20">
 
@@ -17,6 +17,9 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 <!-- Akut menu overrides -->
 <link rel="stylesheet" href="/assets/css/menu.css">
+
+<!-- Per-template styling -->
+<link rel="stylesheet" href="/assets/css/brasserie.css">
 
 
   <!-- Runtime configuration injected from Jekyll _config.yml and _data/*. -->
@@ -39,12 +42,18 @@
 <body>
 
   <!-- Preloader -->
-  <div class="preloader">
+  <div class="preloader preloader--brasserie">
     <div class="spinner-wrap">
       <div class="preloader-logo">
         <img src="/assets/images/preloader.svg" alt="" class="img-fluid">
       </div>
       <div class="spinner"></div>
+      <div class="preloader-theme" aria-hidden="true">
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+        <span class="preloader-theme-el"></span>
+      </div>
     </div>
   </div>
 
@@ -52,85 +61,69 @@
   <a href="#" id="scroll-top" class="back-to-top-btn"><i class="bi bi-arrow-up"></i></a>
 
   <div class="site-wrapper">
-    <!-- Header: tenant logo + language switcher (populated at runtime) -->
-<header>
-  <div class="menu-area menu-area-two">
-    <div class="container">
-      <div class="row align-items-center gy-3">
-        <div class="col-6 col-lg-4 order-1">
-          <div class="menu-logo-wrap">
-            <a href="#" data-menu-home>
-              <img data-menu-logo src="" alt="" hidden>
-            </a>
-          </div>
-        </div>
-        <div class="col-6 col-lg-8 order-2 order-lg-3">
-          <div class="d-flex justify-content-end align-items-center">
-            <div class="lang-switcher" data-lang-switcher hidden>
-              <button type="button" class="lang-current" aria-haspopup="true" aria-expanded="false">
-                <i class="bi bi-globe2"></i>
-                <span data-lang-current-label>Language</span>
-                <i class="bi bi-chevron-down"></i>
-              </button>
-              <ul class="lang-menu custom-ul" data-lang-menu></ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
+    
 
     <main>
-      <!-- Breadcrumb -->
-<div class="breadcrumb-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="breadcrumb-info text-center">
-          <h1 class="text-white" data-menu-name>Menu</h1>
-          <p class="text-white mt-3" data-menu-description></p>
-          <p class="text-white mt-2 opacity-75" data-founded-year></p>
-        </div>
+      <div class="bs">
+  <div class="bs-texture" aria-hidden="true"></div>
+
+  <div class="bs-subnav">
+    <div class="bs-container bs-subnav-inner">
+      <a class="bs-back-btn" href="#" data-menu-home>
+        <span class="bs-back-btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.78 12.78a.75.75 0 0 1-1.06 0L4.47 8.53a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 1.06L6.06 8l3.72 3.72a.75.75 0 0 1 0 1.06Z" /></svg>
+        </span>
+        <span data-bs-i18n="retour">Retour</span>
+      </a>
+      <span class="bs-subnav-brand">
+        <span class="bs-ribbon bs-ribbon--sm" aria-hidden="true">
+          <span class="bs-ribbon-bar bs-ribbon-bar--blue"></span>
+          <span class="bs-ribbon-bar bs-ribbon-bar--white"></span>
+          <span class="bs-ribbon-bar bs-ribbon-bar--red"></span>
+        </span>
+        <span data-menu-name>Menu</span>
+      </span>
+      <div class="bs-lang" data-lang-switcher hidden>
+        <button type="button" class="bs-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down bs-lang-caret"></i>
+        </button>
+        <ul class="bs-lang-menu bs-ul" data-lang-menu></ul>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Menu (rendered at runtime) -->
-<div class="manu-page-wrap pt-120 pb-120">
-  <div class="container">
-    <div id="menu-root">
-      <div class="menu-loading"><div class="spinner"></div></div>
-    </div>
+  <div class="bs-container bs-page">
+    <main id="category-root">
+      <div class="bs-loading">
+        <div class="bs-loader">
+          <span class="bs-loader-bar bs-loader-bar--blue"></span>
+          <span class="bs-loader-bar bs-loader-bar--white"></span>
+          <span class="bs-loader-bar bs-loader-bar--red"></span>
+        </div>
+        <span>Loading…</span>
+      </div>
+    </main>
   </div>
+
+  <footer class="bs-footer">
+    <span class="bs-ribbon bs-ribbon--sm" aria-hidden="true">
+      <span class="bs-ribbon-bar bs-ribbon-bar--blue"></span>
+      <span class="bs-ribbon-bar bs-ribbon-bar--white"></span>
+      <span class="bs-ribbon-bar bs-ribbon-bar--red"></span>
+    </span>
+    <p class="bs-footer-copy">
+      &copy; <span data-current-year></span>
+      <span data-menu-name></span>
+      · Powered by Akut
+    </p>
+  </footer>
 </div>
 
     </main>
 
-    <!-- Footer: simplified, restaurant-aware -->
-<div class="footer-area footer-area-slim">
-  <div class="container">
-    <div class="row align-items-center gy-3">
-      <div class="col-lg-4 text-center text-lg-start">
-        <a class="footer-logo" href="#" data-menu-home>
-          <img data-menu-logo src="/assets/images/logo-two.svg" alt="">
-        </a>
-      </div>
-      <div class="col-lg-4 text-center">
-        <p class="text-white mb-0" data-availability></p>
-      </div>
-      <div class="col-lg-4 text-center text-lg-end">
-        <p class="text-white mb-0">
-          &copy; <span data-current-year></span> <span data-menu-name></span>
-        </p>
-        <p class="footer-powered mb-0">Powered by Akut</p>
-      </div>
-    </div>
-  </div>
-</div>
-
+    
   </div>
 
   <!-- Vendor JS (only what the menu pages use: tabs + gallery zoom) -->
@@ -141,7 +134,7 @@
   <!-- Akut runtime -->
   <script src="/assets/js/menu-core.js"></script>
   
-  <script src="/assets/js/templates/classic.js"></script>
+  <script src="/assets/js/templates/brasserie.js"></script>
   
 
   <!-- Theme init (preloader, back-to-top) -->

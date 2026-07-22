@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="/assets/css/trattoria.css">
 <link rel="stylesheet" href="/assets/css/brunch.css">
 <link rel="stylesheet" href="/assets/css/coffee.css">
+<link rel="stylesheet" href="/assets/css/brasserie.css">
 <style>
   * { box-sizing: border-box; }
   body {
@@ -74,6 +75,7 @@
     --cf-caramel: #e08a4f; --cf-toast: #cf7a3a; --cf-jam: #c1503f; --cf-muted-fg: #a89686; --cf-bg: #211a13;
     background: var(--cf-bg);
   }
+  .vars-bs { --bs-blue: #0055A4; --bs-red: #EF4135; --bs-border-md: rgba(26, 26, 26, 0.16); }
 </style>
 </head>
 <body>
@@ -276,6 +278,36 @@
           <span class="cf-bean"></span>
           <span class="cf-bean"></span>
           <span class="cf-bean"></span>
+        </div>
+        <span>Loading…</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Brasserie</h2>
+    <div class="swatch-label">Boot preloader</div>
+    <div class="boot-frame">
+      <div class="preloader preloader--brasserie">
+        <div class="spinner-wrap">
+          <div class="preloader-logo"><img src="/assets/images/preloader.svg" alt="" class="img-fluid"></div>
+          <div class="spinner"></div>
+          <div class="preloader-theme" aria-hidden="true">
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+            <span class="preloader-theme-el"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swatch-label">In-content loader</div>
+    <div class="content-frame vars-bs">
+      <div class="bs-loading">
+        <div class="bs-loader">
+          <span class="bs-loader-bar bs-loader-bar--blue"></span>
+          <span class="bs-loader-bar bs-loader-bar--white"></span>
+          <span class="bs-loader-bar bs-loader-bar--red"></span>
         </div>
         <span>Loading…</span>
       </div>

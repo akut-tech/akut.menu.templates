@@ -1,0 +1,333 @@
+{
+  "Id": "c9a1b2c3-0000-0000-0000-000000000001",
+  "Name": {
+    "English": "Le Petit Héritage",
+    "French": "Le Petit Héritage"
+  },
+  "Description": {
+    "English": "Cuisine bourgeoise, served with quiet pride since 1924. A short daily card, sourced from the market at dawn.",
+    "French": "Cuisine bourgeoise, servie avec une fierté discrète depuis 1924. Une carte courte, renouvelée chaque matin au marché."
+  },
+  "Notes": "Available 12:00 – 15:00",
+  "TemplateId": "brasserie",
+  "DefaultLanguage": 4,
+  "Currency": 1,
+  "Status": 1,
+  "AvailabilityTime": { "From": "12:00", "To": "15:00" },
+  "FoundedYear": 1924,
+  "Categories": [
+    {
+      "Id": "d0000000-0000-0000-0000-000000000001",
+      "Order": 1,
+      "Name": { "English": "Les Entrées", "French": "Les Entrées" },
+      "Description": {
+        "English": "Starters to awaken the palate.",
+        "French": "Des mises en bouche pour réveiller les papilles."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&h=900&q=80",
+        "Title": "Les Entrées",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&h=600&q=80",
+          "FullSize": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      },
+      "Items": [
+        {
+          "Id": "e0000000-0000-0000-0000-000000000001",
+          "Order": 1,
+          "Tag": 3,
+          "Diets": [2],
+          "Allergens": [1, 7, 12],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&h=1500&q=80",
+              "Title": "Soupe à l'Oignon Gratinée",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&h=500&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&h=1500&q=80"
+              }
+            }
+          ],
+          "Name": { "English": "French Onion Soup Gratinée", "French": "Soupe à l'Oignon Gratinée" },
+          "ShortDescription": {
+            "English": "Slow-caramelised onions, beef bouillon, Comté crust.",
+            "French": "Oignons caramélisés lentement, bouillon de bœuf, croûte de Comté."
+          },
+          "FullDescription": {
+            "English": "Yellow onions cooked for three hours until amber-sweet, deglazed with dry white wine and a whisper of cognac, ladled over toasted baguette and finished with a molten cap of aged Comté.",
+            "French": "Oignons jaunes cuits trois heures jusqu'à devenir ambrés et sucrés, déglacés au vin blanc sec et à une pointe de cognac, servis sur baguette grillée et nappés d'une croûte fondante de Comté affiné."
+          },
+          "Ingredients": {
+            "English": "Yellow onions, beef stock, dry white wine, cognac, baguette, Comté cheese, butter, thyme, bay leaf.",
+            "French": "Oignons jaunes, bouillon de bœuf, vin blanc sec, cognac, baguette, fromage Comté, beurre, thym, laurier."
+          },
+          "Price": 14
+        },
+        {
+          "Id": "e0000000-0000-0000-0000-000000000002",
+          "Order": 2,
+          "Tag": 2,
+          "Diets": [9],
+          "Allergens": [3, 1, 10],
+          "Images": [],
+          "Name": { "English": "Salade Lyonnaise", "French": "Salade Lyonnaise" },
+          "ShortDescription": {
+            "English": "Frisée, lardons, poached egg, croutons.",
+            "French": "Frisée, lardons, œuf poché, croûtons."
+          },
+          "FullDescription": {
+            "English": "A Lyon classic — bitter frisée dressed warm with rendered lardon fat and sherry vinegar, crowned with a soft poached egg and garlic croutons.",
+            "French": "Un classique lyonnais — frisée amère assaisonnée tiède avec la graisse fondue des lardons et du vinaigre de xérès, couronnée d'un œuf poché fondant et de croûtons à l'ail."
+          },
+          "Ingredients": {
+            "English": "Frisée lettuce, smoked lardons, farm egg, sourdough croutons, Dijon, sherry vinegar, shallot.",
+            "French": "Salade frisée, lardons fumés, œuf fermier, croûtons au levain, moutarde de Dijon, vinaigre de xérès, échalote."
+          },
+          "Price": 16
+        },
+        {
+          "Id": "e0000000-0000-0000-0000-000000000003",
+          "Order": 3,
+          "Diets": [3, 9],
+          "Allergens": [3, 10],
+          "Images": [],
+          "Availability": { "Temporary": { "Unavailable": true } },
+          "Name": { "English": "Beef Tartare", "French": "Tartare de Bœuf" },
+          "ShortDescription": {
+            "English": "Hand-cut Charolais, cornichons, quail yolk.",
+            "French": "Charolais coupé au couteau, cornichons, jaune de caille."
+          },
+          "Price": 22
+        }
+      ]
+    },
+    {
+      "Id": "d0000000-0000-0000-0000-000000000002",
+      "Order": 2,
+      "Name": { "English": "Les Plats", "French": "Les Plats" },
+      "Description": {
+        "English": "Slow cookery, seasonal produce, quiet confidence.",
+        "French": "Cuisson lente, produits de saison, une assurance discrète."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "https://images.unsplash.com/photo-1594221708779-94832f4320d1?auto=format&fit=crop&w=1200&h=900&q=80",
+        "Title": "Les Plats",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "https://images.unsplash.com/photo-1594221708779-94832f4320d1?auto=format&fit=crop&w=800&h=600&q=80",
+          "FullSize": "https://images.unsplash.com/photo-1594221708779-94832f4320d1?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      },
+      "Items": [
+        {
+          "Id": "e0000000-0000-0000-0000-000000000004",
+          "Order": 1,
+          "Tag": 4,
+          "Diets": [9],
+          "Allergens": [12, 9, 1],
+          "Availability": { "Standard": { "Days": [0, 6] } },
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://images.unsplash.com/photo-1594221708779-94832f4320d1?auto=format&fit=crop&w=1200&h=1500&q=80",
+              "Title": "Coq au Vin de Bourgogne",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1594221708779-94832f4320d1?auto=format&fit=crop&w=400&h=500&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1594221708779-94832f4320d1?auto=format&fit=crop&w=1200&h=1500&q=80"
+              }
+            }
+          ],
+          "YouTubeVideoUrls": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
+          "Name": { "English": "Coq au Vin de Bourgogne", "French": "Coq au Vin de Bourgogne" },
+          "ShortDescription": {
+            "English": "Chicken braised in Pinot Noir, pancetta, pearl onions.",
+            "French": "Poulet braisé au Pinot Noir, pancetta, oignons grelots."
+          },
+          "FullDescription": {
+            "English": "A quintessentially French braise: free-range chicken simmered patiently in Burgundy wine with smoked pancetta, button mushrooms, and glazed pearl onions. Served with buttered tagliatelle to catch every drop of the sauce.",
+            "French": "Un braisé typiquement français : poulet fermier mijoté patiemment au vin de Bourgogne avec pancetta fumée, champignons de Paris et oignons grelots glacés. Servi avec des tagliatelles au beurre pour recueillir chaque goutte de sauce."
+          },
+          "Ingredients": {
+            "English": "Free-range chicken, Pinot Noir, smoked pancetta, button mushrooms, pearl onions, thyme, bay leaf, garlic, tagliatelle.",
+            "French": "Poulet fermier, Pinot Noir, pancetta fumée, champignons de Paris, oignons grelots, thym, laurier, ail, tagliatelles."
+          },
+          "Price": 32
+        },
+        {
+          "Id": "e0000000-0000-0000-0000-000000000005",
+          "Order": 2,
+          "Tag": 2,
+          "Diets": [3, 4],
+          "Allergens": [12],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&w=1200&h=1500&q=80",
+              "Title": "Confit de Canard",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&w=400&h=500&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1580554530778-ca36943938b2?auto=format&fit=crop&w=1200&h=1500&q=80"
+              }
+            }
+          ],
+          "Name": { "English": "Confit de Canard", "French": "Confit de Canard" },
+          "ShortDescription": {
+            "English": "Slow-cured duck leg, sarladaise potatoes, garlic jus.",
+            "French": "Cuisse de canard confite, pommes sarladaises, jus à l'ail."
+          },
+          "FullDescription": {
+            "English": "Duck legs from the Périgord, cured in salt and thyme, then cooked gently in their own fat for six hours. Crisped to order and served with potatoes sautéed in duck fat with garlic and parsley.",
+            "French": "Cuisses de canard du Périgord, salées au thym puis cuites doucement dans leur graisse pendant six heures. Servies bien croustillantes avec des pommes de terre sautées à la graisse de canard, à l'ail et au persil."
+          },
+          "Ingredients": {
+            "English": "Duck legs, duck fat, Agria potatoes, garlic, flat-leaf parsley, thyme, sea salt.",
+            "French": "Cuisses de canard, graisse de canard, pommes de terre Agria, ail, persil plat, thym, fleur de sel."
+          },
+          "Price": 28
+        },
+        {
+          "Id": "e0000000-0000-0000-0000-000000000006",
+          "Order": 3,
+          "Tag": 1,
+          "Diets": [3],
+          "Allergens": [3, 7, 12],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1200&h=1500&q=80",
+              "Title": "Entrecôte, Frites Maison",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=400&h=500&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1200&h=1500&q=80"
+              }
+            }
+          ],
+          "Name": { "English": "Ribeye, House-cut Fries", "French": "Entrecôte, Frites Maison" },
+          "ShortDescription": {
+            "English": "Grilled ribeye, béarnaise, hand-cut fries.",
+            "French": "Entrecôte grillée, béarnaise, frites coupées à la main."
+          },
+          "FullDescription": {
+            "English": "Dry-aged Limousin ribeye grilled over embers, served with a spooned béarnaise and twice-cooked frites in beef dripping.",
+            "French": "Entrecôte de Limousin maturée, grillée aux braises, servie avec une béarnaise généreuse et des frites double cuisson à la graisse de bœuf."
+          },
+          "Ingredients": {
+            "English": "Limousin ribeye, potato, clarified butter, tarragon, egg yolk, shallot, white wine vinegar.",
+            "French": "Entrecôte de Limousin, pomme de terre, beurre clarifié, estragon, jaune d'œuf, échalote, vinaigre de vin blanc."
+          },
+          "Price": 34
+        },
+        {
+          "Id": "e0000000-0000-0000-0000-000000000007",
+          "Order": 4,
+          "Diets": [3],
+          "Allergens": [4, 7],
+          "Images": [],
+          "Availability": { "Temporary": { "Unavailable": true } },
+          "Name": { "English": "Sole Meunière", "French": "Sole Meunière" },
+          "ShortDescription": {
+            "English": "Whole Dover sole, brown butter, lemon, capers.",
+            "French": "Sole entière, beurre noisette, citron, câpres."
+          },
+          "Price": 42
+        }
+      ]
+    },
+    {
+      "Id": "d0000000-0000-0000-0000-000000000003",
+      "Order": 3,
+      "Name": { "English": "Desserts", "French": "Desserts" },
+      "Description": {
+        "English": "Modest, buttered, always warm.",
+        "French": "Modestes, beurrés, toujours servis tièdes."
+      },
+      "Image": {
+        "Order": 0,
+        "Url": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=1200&h=900&q=80",
+        "Title": "Desserts",
+        "Source": 0,
+        "Link": {
+          "Thumbnail": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=800&h=600&q=80",
+          "FullSize": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=1200&h=900&q=80"
+        }
+      },
+      "Items": [
+        {
+          "Id": "e0000000-0000-0000-0000-000000000008",
+          "Order": 1,
+          "Tag": 5,
+          "Diets": [2, 13],
+          "Allergens": [1, 7, 3],
+          "Availability": { "Standard": { "Days": [0, 6] } },
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=1200&h=1500&q=80",
+              "Title": "Tarte Tatin",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=400&h=500&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=1200&h=1500&q=80"
+              }
+            }
+          ],
+          "Name": { "English": "Tarte Tatin", "French": "Tarte Tatin" },
+          "ShortDescription": {
+            "English": "Caramelised apple tart, crème fraîche d'Isigny.",
+            "French": "Tarte aux pommes caramélisées, crème fraîche d'Isigny."
+          },
+          "FullDescription": {
+            "English": "Reine des Reinettes apples cooked upside-down in salted caramel until translucent, wrapped in buttered puff pastry and turned out at the pass. Served warm with a spoon of thick crème fraîche.",
+            "French": "Pommes Reine des Reinettes cuites à l'envers dans un caramel salé jusqu'à devenir translucides, enveloppées dans une pâte feuilletée beurrée et démoulées à la minute. Servie tiède avec une cuillère de crème fraîche épaisse."
+          },
+          "Ingredients": {
+            "English": "Reinette apples, puff pastry, cultured butter, cane sugar, fleur de sel, crème fraîche d'Isigny.",
+            "French": "Pommes reinette, pâte feuilletée, beurre de baratte, sucre de canne, fleur de sel, crème fraîche d'Isigny."
+          },
+          "Price": 12
+        },
+        {
+          "Id": "e0000000-0000-0000-0000-000000000009",
+          "Order": 2,
+          "Diets": [2, 3],
+          "Allergens": [3, 7],
+          "Images": [
+            {
+              "Order": 0,
+              "Url": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=1200&h=1500&q=80",
+              "Title": "Crème Brûlée à la Vanille",
+              "Source": 0,
+              "Link": {
+                "Thumbnail": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=400&h=500&q=80",
+                "FullSize": "https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=1200&h=1500&q=80"
+              }
+            }
+          ],
+          "Name": { "English": "Vanilla Crème Brûlée", "French": "Crème Brûlée à la Vanille" },
+          "ShortDescription": {
+            "English": "Tahitian vanilla, torched cane sugar.",
+            "French": "Vanille de Tahiti, sucre de canne caramélisé."
+          },
+          "FullDescription": {
+            "English": "A slow-baked custard scented with Tahitian vanilla, finished with a thin lacquer of torched cane sugar you crack with the back of a spoon.",
+            "French": "Une crème cuite lentement, parfumée à la vanille de Tahiti, recouverte d'une fine couche de sucre de canne caramélisé que l'on brise du dos de la cuillère."
+          },
+          "Ingredients": {
+            "English": "Cream, egg yolk, Tahitian vanilla pod, cane sugar.",
+            "French": "Crème, jaune d'œuf, gousse de vanille de Tahiti, sucre de canne."
+          },
+          "Price": 10
+        }
+      ]
+    }
+  ]
+}

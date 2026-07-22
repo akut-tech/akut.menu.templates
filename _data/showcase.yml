@@ -46,3 +46,10 @@
   description_pt: Reformulação escura, em tom de café, do Brunch para menus focados em café, o dia todo.
   url: /akut/0e6f50b1-571f-43f4-80d9-f44a8727d449
   accent: "#e08a4f"
+
+- id: brasserie
+  name: Brasserie
+  description: French classic brasserie experience with a tricolour ribbon motif and elegant serif typography.
+  description_pt: Experiência clássica de brasserie francesa com um motivo de fita tricolor e tipografia serifada elegante.
+  url: /templates/brasserie/
+  accent: "#0055A4"
