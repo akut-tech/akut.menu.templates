@@ -446,7 +446,7 @@
     var badge       = Core.tagBadge(item, state.lang, 'bs-badge');
 
     var slides    = buildSlides(item);
-    var mediaHtml = renderMedia(slides, nameAlt, cat, badge);
+    var mediaHtml = renderMedia(slides, nameAlt, badge);
 
     var dietsHtml = diets.length
       ? '<div class="bs-diet-tags bs-diet-tags--lg">' + diets.map(function (d) {
@@ -544,14 +544,9 @@
 
   /* ====================================================== MEDIA GALLERY */
 
-  function renderMedia(slides, alt, cat, badge) {
-    var backHtml =
-      '<a class="bs-media-back" href="' + esc(categoryUrl(cat.Id)) + '" aria-label="' + esc(bsText('retour')) + '">' +
-        '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M9.78 12.78a.75.75 0 0 1-1.06 0L4.47 8.53a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 1.06L6.06 8l3.72 3.72a.75.75 0 0 1 0 1.06Z" /></svg>' +
-      '</a>';
-
+  function renderMedia(slides, alt, badge) {
     if (!slides.length) {
-      return '<div class="bs-media"><div class="bs-media-empty"><i class="bi bi-camera" aria-hidden="true"></i></div>' + backHtml + '</div>';
+      return '<div class="bs-media"><div class="bs-media-empty"><i class="bi bi-camera" aria-hidden="true"></i></div></div>';
     }
 
     var trackHtml = slides.map(function (s, i) {
@@ -581,7 +576,6 @@
 
     return '<div class="bs-media" data-media>' +
       '<div class="bs-media-track">' + trackHtml + '</div>' +
-      backHtml +
       (badge ? '<div class="bs-media-badge">' + badge + '</div>' : '') +
       arrowsHtml +
       dotsHtml +

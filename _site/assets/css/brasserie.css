@@ -851,24 +851,6 @@ body { background: var(--bs-paper); }
   background: var(--bs-charcoal);
 }
 
-.bs-media-back {
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--bs-charcoal);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: background 0.15s;
-}
-.bs-media-back svg { width: 16px; height: 16px; }
-.bs-media-back:hover { background: #fff; }
-
 .bs-media-badge {
   position: absolute;
   right: 16px;
