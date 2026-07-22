@@ -914,6 +914,23 @@ body { background: var(--bs-paper); }
 .bs-media-arrow-prev { left: 14px; }
 .bs-media-arrow-next { right: 14px; }
 
+.bs-media-zoom {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--bs-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: background 0.15s, color 0.15s;
+}
+.bs-media-zoom:hover { background: var(--bs-blue); color: #fff; }
+
 .bs-media-dots {
   display: flex;
   justify-content: center;

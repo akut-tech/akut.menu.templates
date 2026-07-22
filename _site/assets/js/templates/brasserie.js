@@ -581,11 +581,19 @@
         '<button type="button" class="bs-media-arrow bs-media-arrow-next" data-media-next aria-label="Next"><i class="bi bi-chevron-right"></i></button>'
       : '';
 
+    var firstImage = slides[0].type === 'image' ? slides[0].src : null;
+    var zoomHtml = firstImage
+      ? '<a class="bs-media-zoom" data-zoom href="' + esc(firstImage) + '" aria-label="Zoom image">' +
+          '<i class="bi bi-zoom-in"></i>' +
+        '</a>'
+      : '';
+
     return '<div class="bs-media" data-media>' +
       '<div class="bs-media-track">' + trackHtml + '</div>' +
       (badge ? '<div class="bs-media-badge">' + badge + '</div>' : '') +
       arrowsHtml +
       dotsHtml +
+      zoomHtml +
     '</div>';
   }
 
@@ -595,6 +603,11 @@
       var dots   = Array.prototype.slice.call(container.querySelectorAll('.bs-media-dot'));
       var prev   = container.querySelector('[data-media-prev]');
       var next   = container.querySelector('[data-media-next]');
+      var zoom   = container.querySelector('[data-zoom]');
+
+      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
+        global.jQuery(zoom).magnificPopup({ type: 'image' });
+      }
 
       if (slides.length <= 1) return;
 
@@ -606,6 +619,11 @@
         current = (idx + slides.length) % slides.length;
         slides[current].classList.add('active');
         if (dots[current]) dots[current].classList.add('active');
+        if (zoom) {
+          var isImage = slides[current].tagName === 'IMG';
+          zoom.style.display = isImage ? '' : 'none';
+          if (isImage) zoom.setAttribute('href', slides[current].src);
+        }
       }
 
       if (prev) prev.addEventListener('click', function () { goTo(current - 1); });

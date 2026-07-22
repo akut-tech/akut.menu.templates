@@ -206,6 +206,35 @@ to be translated.
 the production bucket, and renders a template-aware "PREVIEW" band via
 `MenuCore.renderPreviewBand(templateSlug)`.
 
+### Item detail-page media carousel
+
+Every template with a detail page (classic, deepblue, lisbon, trattoria, brunch, coffee, brasserie —
+senjutsu has none) renders the item's images/video as a carousel: a `<prefix>-media`/`<prefix>-stage`
+stage showing one active slide at a time, with prev/next arrows and dots (or a thumbnail strip, for
+classic/deepblue) appearing only when there's more than one slide. Each template implements this
+itself as a `renderGallery`/`renderMedia` (markup) + `initGallery`/`initMedia` (behavior) function
+pair in its own `assets/js/templates/<name>.js` — there's no shared carousel component in
+`menu-core.js`.
+
+**Every one of these carousels must support zooming the current image slide to full size.** This is
+implemented with jQuery Magnific Popup (`assets/js/vendor/jquery.magnific-popup.min.js` +
+`assets/css/magnific-popup.css`), loaded globally for every template regardless of whether it uses
+it (`_layouts/base.html` script tag, `_includes/head.html` CSS include) — so it's always available,
+no per-template opt-in needed. The convention (see `renderGallery`/`initGallery` in classic.js/
+deepblue.js, or `renderMedia`/`initMedia` in lisbon/trattoria/brunch/coffee/brasserie's JS):
+
+- Markup: a zoom anchor absolutely positioned over the stage/track — `<a class="<prefix>-media-zoom"
+  data-zoom href="<first-slide-image-src>"><i class="bi bi-zoom-in"></i></a>` (classic/deepblue use
+  `data-gallery-zoom` and a `gallery-`/`db-` prefix instead of `data-zoom`, same idea). Omit it
+  entirely when the gallery has no image slides (e.g. video-only).
+- Binding, inside `initGallery`/`initMedia`: `if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) { global.jQuery(zoom).magnificPopup({ type: 'image' }); }`.
+- Keeping it in sync: the carousel's `goTo(idx)` must update the zoom anchor's `href` to the new
+  active slide's image `src`, and hide the anchor (`display: none`) whenever the active slide is a
+  video — zoom only ever targets images, never video iframes/posters.
+
+When **adding a new template** (see below), its detail-page carousel must include this zoom
+affordance from the start — don't ship an image/video carousel without it.
+
 ### Loading states
 
 Every template page shows **two** independent loading experiences, on different timelines, and
@@ -268,7 +297,8 @@ a real `/akut/<menuId>` link once a live tenant menu with that `TemplateId` exis
    `detail.html` as needed) with front matter setting `permalink`, `template_js: <name>`, optionally
    `template_css: <name>` and `no_chrome: true`.
 2. Add `assets/js/templates/<name>.js` as an ES5 IIFE exporting the same render behavior against
-   `MenuCore`, filling the appropriate root container(s).
+   `MenuCore`, filling the appropriate root container(s). If the template has a detail page, its
+   media carousel must include the zoom affordance — see **Item detail-page media carousel** above.
 3. Register the page URLs in `_data/templates.yml`.
 4. Design and wire up a themed loading animation for both the boot preloader and the in-content
    loader — see **Loading states** above.
