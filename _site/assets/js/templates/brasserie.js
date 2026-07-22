@@ -49,6 +49,7 @@
     seeAll:          { English: 'See all',             Portuguese: 'Ver tudo',                 Spanish: 'Ver todo',                    French: 'Voir tout',              Italian: 'Vedi tutti' },
     none:            { English: 'None',                Portuguese: 'Nenhum',                   Spanish: 'Ninguno',                     French: 'Aucun',                  Italian: 'Nessuno' },
     diets:           { English: 'Diets',                Portuguese: 'Regimes',                  Spanish: 'Dietas',                       French: 'Régimes',                Italian: 'Regimi' },
+    watchVideo:      { English: 'Watch video',          Portuguese: 'Ver vídeo',                Spanish: 'Ver vídeo',                    French: 'Voir la vidéo',          Italian: 'Guarda il video' },
     footerTagline:   { English: 'Menu · French Classic Template', Portuguese: 'Menu · Modelo Clássico Francês', Spanish: 'Menú · Plantilla Clásica Francesa', French: 'Menu · Modèle Classique Français', Italian: 'Menu · Modello Classico Francese' },
     estFrom:         { English: 'Est. {year}',         Portuguese: 'Desde {year}',             Spanish: 'Desde {year}',                French: 'Depuis {year}',          Italian: 'Dal {year}' }
   };
@@ -189,7 +190,7 @@
     var slides = buildImages(item).map(function (src) { return { type: 'image', src: src }; });
     (item.YouTubeVideoUrls || []).forEach(function (url) {
       var id = youTubeEmbedId(url);
-      if (id) slides.push({ type: 'video', src: 'https://www.youtube.com/embed/' + id });
+      if (id) slides.push({ type: 'video', id: id });
     });
     return slides;
   }
@@ -551,10 +552,16 @@
 
     var trackHtml = slides.map(function (s, i) {
       if (s.type === 'video') {
-        return '<div class="bs-slide bs-slide-video' + (i === 0 ? ' active' : '') + '">' +
-          '<iframe src="' + esc(s.src) + '" title="' + esc(alt) + '" ' +
-            'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
-            'allowfullscreen></iframe>' +
+        // Lazy: render a poster + play button, not a live iframe, until the
+        // user explicitly taps play — an always-present YouTube iframe can
+        // swallow taps meant for the prev/next arrows on mobile even while
+        // this slide isn't active (opacity/pointer-events aside, iframes are
+        // known to ignore normal stacking-context hit-testing on touch).
+        return '<div class="bs-slide bs-slide-video' + (i === 0 ? ' active' : '') + '" data-video-id="' + esc(s.id) + '">' +
+          '<img class="bs-slide-video-poster" src="https://img.youtube.com/vi/' + esc(s.id) + '/hqdefault.jpg" alt="' + esc(alt) + '" loading="lazy">' +
+          '<button type="button" class="bs-media-play" data-play-video aria-label="' + esc(bsText('watchVideo')) + '">' +
+            '<svg viewBox="0 0 20 20" fill="currentColor"><path d="M6.3 2.841A1.5 1.5 0 0 1 8.53 1.35l9.04 4.056a1.5 1.5 0 0 1 0 2.733l-9.04 4.056a1.5 1.5 0 0 1-2.23-1.491V2.841Z" /></svg>' +
+          '</button>' +
         '</div>';
       }
       return '<img class="bs-slide bs-slide-img' + (i === 0 ? ' active' : '') + '" ' +
@@ -606,6 +613,20 @@
 
       dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () { goTo(i); });
+      });
+    });
+
+    root.querySelectorAll('[data-play-video]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var slide = btn.closest('.bs-slide-video');
+        if (!slide) return;
+        var id     = slide.getAttribute('data-video-id');
+        var poster = slide.querySelector('img');
+        var alt    = poster ? poster.alt : '';
+        slide.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" ' +
+          'title="' + esc(alt) + '" ' +
+          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+          'allowfullscreen></iframe>';
       });
     });
   }
