@@ -668,10 +668,11 @@ body { background: var(--ls-cal); }
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
-.ls-gallery-img.active { opacity: 1; }
+.ls-gallery-img.active { opacity: 1; pointer-events: auto; }
 
 .ls-gallery-no-img {
   aspect-ratio: 4 / 3;
@@ -1062,38 +1063,165 @@ body { background: var(--ls-cal); }
   line-height: 1.7;
 }
 
-/* ------------------------------------------------------ YouTube embed */
+/* ------------------------------------------------- gallery video slide */
 
-.ls-video-section {
+.ls-gallery-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.ls-gallery-video.active { opacity: 1; pointer-events: auto; }
+.ls-gallery-video iframe { width: 100%; height: 100%; border: none; }
+
+.ls-gallery-video-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.ls-gallery-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(245, 243, 239, 0.95);
+  color: var(--ls-azul);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 3px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.ls-gallery-play:hover { transform: translate(-50%, -50%) scale(1.05); }
+
+.ls-gallery-stop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(26, 74, 122, 0.75);
+  color: var(--ls-cal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  transition: background 0.15s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.ls-gallery-stop:hover { background: var(--ls-azul); }
+
+/* ------------------------------------------------------- worth trying */
+
+.ls-related {
   margin-top: 80px;
 }
 
-.ls-video-eyebrow { margin: 0 0 12px; }
+.ls-related-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 28px;
+}
 
-.ls-video-title {
+.ls-related-title {
   font-family: var(--ff-serif);
   font-style: italic;
   font-weight: 500;
   font-size: 1.875rem;
   color: var(--ls-azul);
-  margin: 0 0 28px;
+  margin: 0;
 }
 
-.ls-video-embed {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  overflow: hidden;
+.ls-related-see-all {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ls-terra);
+  white-space: nowrap;
+}
+.ls-related-see-all:hover { text-decoration: underline; }
+
+.ls-related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) { .ls-related-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .ls-related-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+.ls-related-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  background: var(--ls-card);
   border: 1px solid var(--ls-border);
-  background: rgba(26, 74, 122, 0.06);
+  padding: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ls-video-embed iframe {
-  position: absolute;
-  inset: 0;
+.ls-related-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(26, 74, 122, 0.12);
+}
+
+.ls-related-card-media {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--ls-border);
+}
+.ls-related-card-media img { width: 100%; height: 100%; object-fit: cover; }
+
+.ls-related-card-noimg {
   width: 100%;
   height: 100%;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ls-muted);
+}
+
+.ls-related-card-body { min-width: 0; }
+
+.ls-related-card-title {
+  font-family: var(--ff-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ls-ferro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ls-related-card-price {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ls-azul);
 }
 
 .ls-back-primary-section {

@@ -1,0 +1,47 @@
+---
+layout: base
+permalink: /templates/senjutsu/item/
+title: Item
+no_chrome: true
+template_css: senjutsu
+template_js: senjutsu
+---
+
+<div class="sj">
+  <!-- Topbar: back button + language switcher -->
+  <header class="sj-topbar">
+    <div class="sj-container sj-topbar-inner">
+      <a class="sj-back-btn" href="#" data-menu-home>
+        <span class="sj-back-btn-arrow" aria-hidden="true">←</span>
+        <span class="sj-back-btn-label" data-sj-i18n="backToCategories">Back to Category</span>
+      </a>
+      <span class="sj-topbar-tagline">お品書き</span>
+      <div class="sj-lang" data-lang-switcher hidden>
+        <button type="button" class="sj-lang-btn lang-current" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-globe2"></i>
+          <span data-lang-current-label>Language</span>
+          <i class="bi bi-chevron-down sj-lang-caret"></i>
+        </button>
+        <ul class="sj-lang-menu sj-ul" data-lang-menu></ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Item content (rendered at runtime) -->
+  <main id="item-root">
+    <div class="sj-loading">
+      <div class="sj-loader"></div>
+      <span class="sj-loading-label">Loading…</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="sj-footer">
+    <div class="sj-container sj-footer-inner">
+      ごちそうさま ·
+      &copy; <span data-current-year></span>
+      <span data-menu-name></span>
+      · Powered by Akut
+    </div>
+  </footer>
+</div>

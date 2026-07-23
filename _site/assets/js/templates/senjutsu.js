@@ -1,9 +1,10 @@
 ﻿/*
  * senjutsu.js — renderer for the "Senjutsu" Japanese menu template.
  *
- * Drives two pages (no item detail page in this template):
+ * Drives three pages:
  *   - /templates/senjutsu/           (index — category grid,  #menu-root)
  *   - /templates/senjutsu/category/  (category — items list, #category-root)
+ *   - /templates/senjutsu/item/      (item detail — gallery + video, #item-root)
  *
  * Data source: a real tenant's menu is loaded from S3 when a tenant is present
  * (?tenant= query param); otherwise the bundled senjutsu-menu.json is used so
@@ -47,8 +48,20 @@
     categoryLabel: {
       English: 'Category', Portuguese: 'Categoria', Spanish: 'Categoría', French: 'Catégorie', Italian: 'Categoria'
     },
-    watchOnYouTube: {
-      English: 'Watch on YouTube', Portuguese: 'Ver no YouTube', Spanish: 'Ver en YouTube', French: 'Voir sur YouTube', Italian: 'Guarda su YouTube'
+    watchVideo: {
+      English: 'Watch video', Portuguese: 'Ver vídeo', Spanish: 'Ver vídeo', French: 'Voir la vidéo', Italian: 'Guarda il video'
+    },
+    stopVideo: {
+      English: 'Stop video', Portuguese: 'Parar vídeo', Spanish: 'Detener vídeo', French: 'Arrêter la vidéo', Italian: 'Ferma il video'
+    },
+    worthTrying: {
+      English: 'Worth Trying', Portuguese: 'Vale a Pena Experimentar', Spanish: 'Vale la Pena Probar', French: 'À Essayer Aussi', Italian: 'Da Provare Anche'
+    },
+    seeAll: {
+      English: 'See all', Portuguese: 'Ver todos', Spanish: 'Ver todos', French: 'Voir tout', Italian: 'Vedi tutti'
+    },
+    backToCategory: {
+      English: 'Back to Category', Portuguese: 'Voltar à Categoria', Spanish: 'Volver a la Categoría', French: 'Retour à la Catégorie', Italian: 'Torna alla Categoria'
     }
   };
 
@@ -74,7 +87,8 @@
     state.menuId = queryMenuId();
     var menuRoot     = document.getElementById('menu-root');
     var categoryRoot = document.getElementById('category-root');
-    var fallback     = menuRoot || categoryRoot || document.querySelector('main');
+    var itemRoot     = document.getElementById('item-root');
+    var fallback     = menuRoot || categoryRoot || itemRoot || document.querySelector('main');
 
     loadMenu(state.tenant, state.menuId)
       .then(function (menu) {
@@ -83,8 +97,9 @@
         state.lang  = Core.pickLanguage(menu, state.langs, state.menuId);
         setupChrome();
         setupLangSwitcher();
-        if (menuRoot)     renderIndex(menuRoot);
+        if (menuRoot)          renderIndex(menuRoot);
         else if (categoryRoot) renderCategory(categoryRoot);
+        else if (itemRoot)     renderItem(itemRoot);
         if (Core.isPreview()) Core.renderPreviewBand('senjutsu');
       })
       .catch(function (err) {
@@ -137,6 +152,42 @@
     return state.tenant
       ? Core.withTenant(url, state.tenant, state.menuId, param)
       : url + (url.indexOf('?') === -1 ? '?' : '&') + param;
+  }
+
+  function itemUrl(itemId) {
+    var url   = Core.templatePath('detail', state.menu.TemplateId);
+    var param = 'item=' + encodeURIComponent(itemId);
+    return state.tenant
+      ? Core.withTenant(url, state.tenant, state.menuId, param)
+      : url + (url.indexOf('?') === -1 ? '?' : '&') + param;
+  }
+
+  function findItem(itemId) {
+    var cats = state.menu.Categories || [];
+    for (var c = 0; c < cats.length; c++) {
+      var items = cats[c].Items || [];
+      for (var i = 0; i < items.length; i++) {
+        if (String(items[i].Id) === String(itemId)) return { item: items[i], category: cats[c] };
+      }
+    }
+    return null;
+  }
+
+  function youTubeId(url) {
+    if (!url) return null;
+    var m = String(url).match(
+      /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+    );
+    return m ? m[1] : null;
+  }
+
+  function buildSlides(item) {
+    var slides = buildItemImages(item).map(function (src) { return { type: 'image', src: src }; });
+    (item.YouTubeVideoUrls || []).forEach(function (url) {
+      var id = youTubeId(url);
+      if (id) slides.push({ type: 'video', id: id });
+    });
+    return slides;
   }
 
   function setText(selector, value) {
@@ -273,8 +324,10 @@
   function rerenderCurrentView() {
     var menuRoot     = document.getElementById('menu-root');
     var categoryRoot = document.getElementById('category-root');
-    if (menuRoot)     renderIndex(menuRoot);
+    var itemRoot     = document.getElementById('item-root');
+    if (menuRoot)          renderIndex(menuRoot);
     else if (categoryRoot) renderCategory(categoryRoot);
+    else if (itemRoot)     renderItem(itemRoot);
   }
 
   /* ------------------------------------------------------------- index page */
@@ -372,42 +425,6 @@
       '</section>';
 
     root.innerHTML = headerHtml + itemsHtml;
-    initItemGalleries(root);
-  }
-
-  function initItemGalleries(root) {
-    root.querySelectorAll('[data-gallery]').forEach(function (container) {
-      var imgs = container.querySelectorAll('.sj-gallery-img');
-      var dots = container.querySelectorAll('.sj-img-dot');
-      var prev = container.querySelector('[data-img-prev]');
-      var next = container.querySelector('[data-img-next]');
-      var zoom = container.querySelector('[data-zoom]');
-
-      if (imgs.length > 1) {
-        var current = 0;
-
-        function goTo(idx) {
-          imgs[current].classList.remove('active');
-          dots[current].classList.remove('active');
-          current = (idx + imgs.length) % imgs.length;
-          imgs[current].classList.add('active');
-          dots[current].classList.add('active');
-          if (zoom) zoom.setAttribute('href', imgs[current].src);
-        }
-
-        if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
-        if (next) next.addEventListener('click', function () { goTo(current + 1); });
-      }
-
-      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
-        global.jQuery(zoom).magnificPopup({ type: 'image' });
-      }
-    });
-  }
-
-  function firstYouTubeUrl(item) {
-    var urls = item.YouTubeVideoUrls || [];
-    return urls.length ? urls[0] : null;
   }
 
   function renderItemCard(item, idx) {
@@ -417,36 +434,21 @@
     var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
     var ingredients = L(item.Ingredients);
     var fullDesc    = L(item.FullDescription) || L(item.ShortDescription);
-    var ytUrl       = firstYouTubeUrl(item);
     var alt         = esc(L(item.Name));
-    var multi       = images.length > 1;
     var faded       = Core.isTemporarilyUnavailable(item) ? ' menu-item-faded' : '';
     var availNote   = Core.standardAvailabilityText(item, state.lang);
+    var hasDetail   = Core.templatePath('detail', state.menu.TemplateId);
+    var detailHref  = hasDetail ? itemUrl(item.Id) : null;
 
-    var trackHtml = images.length
-      ? images.map(function (url, i) {
-          return '<img class="sj-gallery-img' + (i === 0 ? ' active' : '') + '" src="' + esc(url) + '" alt="' + alt + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">';
-        }).join('')
+    // Category list shows a single static thumbnail — the full gallery and
+    // any video live on the item detail page (data-media carousel there).
+    var mediaHtml = images.length
+      ? '<img class="sj-item-thumb" src="' + esc(images[0]) + '" alt="' + alt + '" loading="' + (idx === 0 ? 'eager' : 'lazy') + '">'
       : '<div class="sj-item-no-img"><div class="sj-item-no-img-mark"></div></div>';
 
-    var arrowsHtml = multi
-      ? '<button type="button" class="sj-img-arrow sj-img-arrow-prev" data-img-prev aria-label="Previous image"><i class="bi bi-chevron-left"></i></button>' +
-        '<button type="button" class="sj-img-arrow sj-img-arrow-next" data-img-next aria-label="Next image"><i class="bi bi-chevron-right"></i></button>'
+    var cardLinkHtml = detailHref
+      ? '<a class="sj-item-card-link" href="' + esc(detailHref) + '" aria-label="' + alt + '"></a>'
       : '';
-
-    var dotsHtml = multi
-      ? '<div class="sj-img-dots">' +
-          images.map(function (_, i) {
-            return '<span class="sj-img-dot' + (i === 0 ? ' active' : '') + '"></span>';
-          }).join('') +
-        '</div>'
-      : '';
-
-    var zoomHtml = images.length
-      ? '<a class="sj-zoom" data-zoom href="' + esc(images[0]) + '" aria-label="Zoom image"><i class="bi bi-zoom-in"></i></a>'
-      : '';
-
-    var mediaHtml = '<div class="sj-gallery-track">' + trackHtml + '</div>' + arrowsHtml + dotsHtml + zoomHtml;
 
     var badge = renderTagBadge(item);
 
@@ -479,7 +481,8 @@
     return '' +
       '<li>' +
         '<article class="sj-item-card' + faded + '">' +
-          '<div class="sj-item-media" data-gallery>' +
+          cardLinkHtml +
+          '<div class="sj-item-media">' +
             mediaHtml +
             badge +
           '</div>' +
@@ -499,15 +502,267 @@
             (fullDesc ? '<p class="sj-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
             dietTags +
             dlHtml +
-            (ytUrl
-              ? '<a class="sj-youtube-btn" href="' + esc(ytUrl) + '" target="_blank" rel="noopener noreferrer">' +
-                  '<i class="bi bi-play-fill" aria-hidden="true"></i>' +
-                  esc(sjText('watchOnYouTube')) +
-                '</a>'
-              : '') +
           '</div>' +
         '</article>' +
       '</li>';
+  }
+
+  /* ========================================================= ITEM PAGE */
+
+  function renderItem(root) {
+    var itemId = Core.getItemId();
+    var result = itemId ? findItem(itemId) : null;
+
+    if (!result) {
+      Core.renderError(root, { code: 'NOT_FOUND' }, state.lang);
+      return;
+    }
+
+    var item = result.item;
+    var cat  = result.category;
+
+    document.title = L(item.Name) + ' — ' + (L(state.menu.Name) || '');
+
+    document.querySelectorAll('[data-menu-home]').forEach(function (a) {
+      a.setAttribute('href', categoryUrl(cat.Id));
+    });
+    document.querySelectorAll('[data-sj-i18n="backToCategories"]').forEach(function (el) {
+      el.textContent = L(cat.Name) || sjText('backToCategory');
+    });
+
+    var price       = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
+    var diets       = Core.dietLabels(item.Diets, state.lang);
+    var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
+    var ingredients = L(item.Ingredients);
+    var shortDesc   = L(item.ShortDescription);
+    var fullDesc    = L(item.FullDescription) || shortDesc;
+    var availNote   = Core.standardAvailabilityText(item, state.lang);
+    var badge       = renderTagBadge(item);
+
+    var slides    = buildSlides(item);
+    var mediaHtml = renderMedia(slides, L(item.Name));
+
+    var dietsHtml = diets.length
+      ? '<div class="sj-tags">' + diets.map(function (d) {
+          return '<span class="sj-tag">' + esc(d) + '</span>';
+        }).join('') + '</div>'
+      : '';
+
+    var dlHtml = '';
+    if (allergens || ingredients) {
+      dlHtml = '<dl class="sj-item-dl">';
+      if (allergens) {
+        dlHtml +=
+          '<div class="sj-item-dl-row">' +
+            '<dt class="sj-item-dt">' + esc(Core.uiText('allergens', state.lang)) + ':</dt>' +
+            '<dd class="sj-item-dd">' + esc(allergens) + '</dd>' +
+          '</div>';
+      }
+      if (ingredients) {
+        dlHtml +=
+          '<div class="sj-item-dl-row">' +
+            '<dt class="sj-item-dt">' + esc(Core.uiText('ingredients', state.lang)) + ':</dt>' +
+            '<dd class="sj-item-dd">' + esc(ingredients) + '</dd>' +
+          '</div>';
+      }
+      dlHtml += '</dl>';
+    }
+
+    var breadcrumbHtml =
+      '<nav class="sj-breadcrumb" aria-label="breadcrumb">' +
+        '<a href="' + esc(homeUrl()) + '">' + esc(Core.uiText('menu', state.lang)) + '</a>' +
+        '<span aria-hidden="true">·</span>' +
+        '<a href="' + esc(categoryUrl(cat.Id)) + '">' + esc(L(cat.Name)) + '</a>' +
+      '</nav>';
+
+    var related = sortedItems(cat).filter(function (i) {
+      return String(i.Id) !== String(item.Id) && !Core.isTemporarilyUnavailable(i);
+    }).slice(0, 3);
+    var relatedHtml = related.length
+      ? '<section class="sj-related">' +
+          '<div class="sj-container">' +
+            '<div class="sj-related-head">' +
+              '<h2 class="sj-related-title">' + esc(sjText('worthTrying')) + '</h2>' +
+              '<a class="sj-related-see-all" href="' + esc(categoryUrl(cat.Id)) + '">' + esc(sjText('seeAll')) + '</a>' +
+            '</div>' +
+            '<div class="sj-related-grid">' +
+              related.map(function (r) { return renderRelatedCard(r); }).join('') +
+            '</div>' +
+          '</div>' +
+        '</section>'
+      : '';
+
+    root.innerHTML =
+      '<div class="sj-item-page">' +
+        '<div class="sj-container">' +
+          breadcrumbHtml +
+          '<div class="sj-item-detail-layout">' +
+            '<div class="sj-item-detail-media" data-media>' + mediaHtml + badge + '</div>' +
+            '<article class="sj-item-detail">' +
+              '<p class="sj-cat-eyebrow">' + esc(L(cat.Name)) + '</p>' +
+              '<h1 class="sj-item-detail-title">' + esc(L(item.Name)) + '</h1>' +
+              '<span class="sj-item-rule"></span>' +
+              (price ? '<p class="sj-item-detail-price">' + esc(price) + '</p>' : '') +
+              (shortDesc ? '<p class="sj-item-short-desc">' + esc(shortDesc) + '</p>' : '') +
+              (availNote ? '<p class="menu-availability-note"><i class="bi bi-calendar2-week" aria-hidden="true"></i> ' + esc(availNote) + '</p>' : '') +
+              (fullDesc && fullDesc !== shortDesc ? '<p class="sj-item-full-desc">' + esc(fullDesc) + '</p>' : '') +
+              dietsHtml +
+              dlHtml +
+            '</article>' +
+          '</div>' +
+        '</div>' +
+        relatedHtml +
+        '<div class="sj-bottom-back">' +
+          '<a class="sj-bottom-back-btn" href="' + esc(categoryUrl(cat.Id)) + '">' +
+            '← ' + esc(L(cat.Name) || sjText('backToCategory')) +
+          '</a>' +
+        '</div>' +
+      '</div>';
+
+    initMedia(root);
+  }
+
+  function renderRelatedCard(item) {
+    var images  = buildItemImages(item);
+    var price   = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
+    var nameAlt = L(item.Name);
+    var mediaHtml = images.length
+      ? '<img src="' + esc(images[0]) + '" alt="' + esc(nameAlt) + '" loading="lazy">'
+      : '<div class="sj-related-card-noimg"><div class="sj-item-no-img-mark"></div></div>';
+
+    return '' +
+      '<a class="sj-related-card" href="' + esc(itemUrl(item.Id)) + '">' +
+        '<div class="sj-related-card-media">' + mediaHtml + '</div>' +
+        '<div class="sj-related-card-body">' +
+          '<div class="sj-related-card-title">' + esc(nameAlt) + '</div>' +
+          (price ? '<div class="sj-related-card-price">' + esc(price) + '</div>' : '') +
+        '</div>' +
+      '</a>';
+  }
+
+  /* ================================================= ITEM MEDIA (images + video) */
+
+  function videoPosterHtml(id, alt) {
+    return '<img class="sj-gallery-video-poster" src="https://img.youtube.com/vi/' + esc(id) + '/hqdefault.jpg" alt="' + esc(alt) + '" loading="lazy">' +
+      '<button type="button" class="sj-gallery-play" data-play-video aria-label="' + esc(sjText('watchVideo')) + '">' +
+        '<i class="bi bi-play-fill" aria-hidden="true"></i>' +
+      '</button>';
+  }
+
+  function renderMedia(slides, alt) {
+    if (!slides.length) {
+      return '<div class="sj-gallery-track"><div class="sj-item-no-img"><div class="sj-item-no-img-mark"></div></div></div>';
+    }
+
+    var trackHtml = slides.map(function (s, i) {
+      if (s.type === 'video') {
+        return '<div class="sj-gallery-slide sj-gallery-video' + (i === 0 ? ' active' : '') + '" ' +
+          'data-video-id="' + esc(s.id) + '" data-video-alt="' + esc(alt) + '">' +
+          videoPosterHtml(s.id, alt) +
+        '</div>';
+      }
+      return '<img class="sj-gallery-slide sj-gallery-img' + (i === 0 ? ' active' : '') + '" ' +
+        'src="' + esc(s.src) + '" alt="' + esc(alt) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">';
+    }).join('');
+
+    var arrowsHtml = slides.length > 1
+      ? '<button type="button" class="sj-img-arrow sj-img-arrow-prev" data-img-prev aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>' +
+        '<button type="button" class="sj-img-arrow sj-img-arrow-next" data-img-next aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>'
+      : '';
+
+    var dotsHtml = slides.length > 1
+      ? '<div class="sj-img-dots">' +
+          slides.map(function (_, i) {
+            return '<span class="sj-img-dot' + (i === 0 ? ' active' : '') + '"></span>';
+          }).join('') +
+        '</div>'
+      : '';
+
+    var firstImage = slides[0].type === 'image' ? slides[0].src : null;
+    var zoomHtml = firstImage
+      ? '<a class="sj-zoom" data-zoom href="' + esc(firstImage) + '" aria-label="Zoom image"><i class="bi bi-zoom-in"></i></a>'
+      : '';
+
+    return '<div class="sj-gallery-track">' + trackHtml + '</div>' + arrowsHtml + dotsHtml + zoomHtml;
+  }
+
+  // Reverts a video slide back to its poster + play button, discarding the
+  // live iframe — the only reliable way to actually stop YouTube playback.
+  function stopVideoSlide(slide) {
+    if (!slide || !slide.querySelector('iframe')) return;
+    var id  = slide.getAttribute('data-video-id');
+    var alt = slide.getAttribute('data-video-alt') || '';
+    slide.innerHTML = videoPosterHtml(id, alt);
+  }
+
+  function playVideoSlide(slide) {
+    var id  = slide.getAttribute('data-video-id');
+    var alt = slide.getAttribute('data-video-alt') || '';
+    slide.innerHTML =
+      '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" ' +
+        'title="' + esc(alt) + '" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>' +
+      '<button type="button" class="sj-gallery-stop" data-stop-video aria-label="' + esc(sjText('stopVideo')) + '">' +
+        '<i class="bi bi-x-lg"></i>' +
+      '</button>';
+  }
+
+  function initMedia(root) {
+    root.querySelectorAll('[data-media]').forEach(function (container) {
+      var slides = Array.prototype.slice.call(container.querySelectorAll('.sj-gallery-slide'));
+      var dots   = Array.prototype.slice.call(container.querySelectorAll('.sj-img-dot'));
+      var prev   = container.querySelector('[data-img-prev]');
+      var next   = container.querySelector('[data-img-next]');
+      var zoom   = container.querySelector('[data-zoom]');
+
+      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
+        global.jQuery(zoom).magnificPopup({ type: 'image' });
+      }
+
+      if (slides.length <= 1) return;
+
+      var current = 0;
+
+      function goTo(idx) {
+        var leaving = slides[current];
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+        if (zoom) {
+          var isImage = slides[current].classList.contains('sj-gallery-img');
+          zoom.style.display = isImage ? '' : 'none';
+          if (isImage) zoom.setAttribute('href', slides[current].src);
+        }
+        stopVideoSlide(leaving);
+      }
+
+      if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+      if (next) next.addEventListener('click', function () { goTo(current + 1); });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); });
+      });
+    });
+
+    // Delegated: the play/stop buttons are recreated (via innerHTML swaps)
+    // every time a video is played or stopped, so listeners bound directly
+    // to them would only ever work once.
+    root.addEventListener('click', function (e) {
+      var playBtn = e.target.closest('[data-play-video]');
+      if (playBtn) {
+        var slide = playBtn.closest('.sj-gallery-video');
+        if (slide) playVideoSlide(slide);
+        return;
+      }
+      var stopBtn = e.target.closest('[data-stop-video]');
+      if (stopBtn) {
+        var vSlide = stopBtn.closest('.sj-gallery-video');
+        if (vSlide) stopVideoSlide(vSlide);
+      }
+    });
   }
 
 })(window);

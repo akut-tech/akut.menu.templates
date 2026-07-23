@@ -38,8 +38,10 @@
     dishes:         { English: 'dishes',           Portuguese: 'pratos',            Spanish: 'platos',            French: 'plats',             Italian: 'piatti' },
     dish:           { English: 'dish',             Portuguese: 'prato',             Spanish: 'plato',             French: 'plat',              Italian: 'piatto' },
     watchOnYouTube: { English: 'Watch on YouTube', Portuguese: 'Ver no YouTube',    Spanish: 'Ver en YouTube',    French: 'Voir sur YouTube',  Italian: 'Guarda su YouTube' },
-    howItsMade:     { English: "How it's made",    Portuguese: 'Como é feito',      Spanish: 'Cómo se hace',      French: 'Comment c\'est fait', Italian: 'Come viene preparato' },
-    video:          { English: 'Vídeo',            Portuguese: 'Vídeo',             Spanish: 'Vídeo',             French: 'Vidéo',             Italian: 'Video' }
+    watchVideo:     { English: 'Watch video',      Portuguese: 'Ver vídeo',         Spanish: 'Ver vídeo',         French: 'Voir la vidéo',     Italian: 'Guarda il video' },
+    stopVideo:      { English: 'Stop video',       Portuguese: 'Parar vídeo',       Spanish: 'Detener vídeo',     French: 'Arrêter la vidéo',  Italian: 'Ferma il video' },
+    worthTrying:    { English: 'Worth Trying',     Portuguese: 'Vale a Pena Experimentar', Spanish: 'Vale la Pena Probar', French: 'À Essayer Aussi', Italian: 'Da Provare Anche' },
+    seeAll:         { English: 'See all',          Portuguese: 'Ver todos',         Spanish: 'Ver todos',         French: 'Voir tout',         Italian: 'Vedi tutti' }
   };
 
   function lsText(key) {
@@ -160,6 +162,15 @@
       /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
     );
     return m ? m[1] : null;
+  }
+
+  function buildSlides(item) {
+    var slides = buildImages(item).map(function (src) { return { type: 'image', src: src }; });
+    (item.YouTubeVideoUrls || []).forEach(function (url) {
+      var id = youTubeId(url);
+      if (id) slides.push({ type: 'video', id: id });
+    });
+    return slides;
   }
 
   function findItem(itemId) {
@@ -453,7 +464,16 @@
 
     document.title = L(item.Name) + ' — ' + (L(state.menu.Name) || '');
 
-    var images      = buildImages(item);
+    // The topbar back button defaults to the menu home (set generically by
+    // setupChrome for every page); on the item page it should return to the
+    // category the item was opened from instead.
+    document.querySelectorAll('[data-menu-home]').forEach(function (a) {
+      a.setAttribute('href', categoryUrl(cat.Id));
+    });
+    document.querySelectorAll('[data-ls-i18n="backToMenuShort"]').forEach(function (el) {
+      el.textContent = L(cat.Name) || lsText('backToCategory');
+    });
+
     var price       = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
     var diets       = Core.dietLabels(item.Diets, state.lang);
     var allergens   = Core.allergenLabels(item.Allergens, state.lang).join(', ');
@@ -462,11 +482,10 @@
     var fullDesc    = L(item.FullDescription) || shortDesc;
     var nameAlt     = L(item.Name);
     var namePt      = item.Name.Portuguese !== nameAlt ? item.Name.Portuguese : '';
-    var ytUrl       = (item.YouTubeVideoUrls || [])[0] || null;
-    var videoId     = youTubeId(ytUrl);
     var availNote   = Core.standardAvailabilityText(item, state.lang);
 
-    var mediaHtml = renderGallery(images, nameAlt);
+    var slides    = buildSlides(item);
+    var mediaHtml = renderMedia(slides, nameAlt);
 
     var badge = Core.tagBadge(item, state.lang, 'ls-badge');
 
@@ -477,18 +496,6 @@
             '<div class="ls-tags">' + diets.map(function (d) {
               return '<span class="ls-tag">' + esc(d) + '</span>';
             }).join('') + '</div>' +
-          '</dd>' +
-        '</div>'
-      : '';
-
-    var ytSection = ytUrl
-      ? '<div>' +
-          '<dt class="ls-item-detail-dt">Video</dt>' +
-          '<dd class="ls-item-detail-dd">' +
-            '<a class="ls-yt-btn" href="' + esc(ytUrl) + '" target="_blank" rel="noopener noreferrer">' +
-              '<i class="bi bi-play-circle" aria-hidden="true"></i> ' +
-              esc(lsText('watchOnYouTube')) +
-            '</a>' +
           '</dd>' +
         '</div>'
       : '';
@@ -511,7 +518,6 @@
       );
     }
     if (dietSection) dlParts.push(dietSection);
-    if (ytSection)   dlParts.push(ytSection);
 
     var breadcrumbHtml =
       '<nav class="ls-breadcrumb" aria-label="breadcrumb">' +
@@ -520,15 +526,19 @@
         '<a href="' + esc(categoryUrl(cat.Id)) + '">' + esc(L(cat.Name)) + '</a>' +
       '</nav>';
 
-    var videoEmbed = videoId
-      ? '<section class="ls-video-section">' +
-          '<p class="ls-eyebrow ls-eyebrow-accent ls-video-eyebrow">' + esc(lsText('video')) + '</p>' +
-          '<h2 class="ls-video-title">' + esc(lsText('howItsMade')) + '</h2>' +
-          '<div class="ls-video-embed">' +
-            '<iframe src="https://www.youtube.com/embed/' + esc(videoId) + '" ' +
-              'title="' + esc(nameAlt) + '" ' +
-              'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
-              'allowfullscreen></iframe>' +
+    var related = sortedItems(cat).filter(function (i) {
+      return String(i.Id) !== String(item.Id) && !Core.isTemporarilyUnavailable(i);
+    }).slice(0, 3);
+    var relatedHtml = related.length
+      ? '<section class="ls-related">' +
+          '<div class="ls-container">' +
+            '<div class="ls-related-head">' +
+              '<h2 class="ls-related-title">' + esc(lsText('worthTrying')) + '</h2>' +
+              '<a class="ls-related-see-all" href="' + esc(categoryUrl(cat.Id)) + '">' + esc(lsText('seeAll')) + '</a>' +
+            '</div>' +
+            '<div class="ls-related-grid">' +
+              related.map(function (r) { return renderRelatedCard(r); }).join('') +
+            '</div>' +
           '</div>' +
         '</section>'
       : '';
@@ -537,7 +547,7 @@
       '<div class="ls-item-page">' +
         breadcrumbHtml +
         '<div class="ls-item-layout">' +
-          '<div class="ls-item-media" data-gallery>' + mediaHtml + '</div>' +
+          '<div class="ls-item-media" data-media>' + mediaHtml + '</div>' +
           '<article class="ls-item-detail">' +
             '<div class="ls-item-detail-eyebrow">' +
               '<span class="ls-item-detail-cat">' + esc(L(cat.Name)) + '</span>' +
@@ -555,16 +565,34 @@
               : '') +
           '</article>' +
         '</div>' +
-        videoEmbed +
+        relatedHtml +
         '<div class="ls-back-primary-section">' +
-          '<a class="ls-back-btn" href="' + esc(homeUrl()) + '">' +
+          '<a class="ls-back-btn" href="' + esc(categoryUrl(cat.Id)) + '">' +
             '<span class="ls-back-btn-arrow" aria-hidden="true">←</span>' +
-            '<span class="ls-back-btn-label">' + esc(lsText('backToMenu')) + '</span>' +
+            '<span class="ls-back-btn-label">' + esc(L(cat.Name) || lsText('backToCategory')) + '</span>' +
           '</a>' +
         '</div>' +
       '</div>';
 
-    initGalleries(root);
+    initMedia(root);
+  }
+
+  function renderRelatedCard(item) {
+    var images  = buildImages(item);
+    var price   = Core.formatPrice(item.Price, state.menu.Currency, state.lang);
+    var nameAlt = L(item.Name);
+    var mediaHtml = images.length
+      ? '<img src="' + esc(images[0]) + '" alt="' + esc(nameAlt) + '" loading="lazy">'
+      : '<div class="ls-related-card-noimg"><i class="bi bi-camera" aria-hidden="true"></i></div>';
+
+    return '' +
+      '<a class="ls-related-card" href="' + esc(itemUrl(item.Id)) + '">' +
+        '<div class="ls-related-card-media">' + mediaHtml + '</div>' +
+        '<div class="ls-related-card-body">' +
+          '<div class="ls-related-card-title">' + esc(nameAlt) + '</div>' +
+          (price ? '<div class="ls-related-card-price">' + esc(price) + '</div>' : '') +
+        '</div>' +
+      '</a>';
   }
 
   /* ====================================================== IMAGE GALLERY */
@@ -642,6 +670,140 @@
       dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () { goTo(i); });
       });
+    });
+  }
+
+  /* ============================================ ITEM MEDIA (images + video) */
+
+  function videoPosterHtml(id, alt) {
+    return '<img class="ls-gallery-video-poster" src="https://img.youtube.com/vi/' + esc(id) + '/hqdefault.jpg" alt="' + esc(alt) + '" loading="lazy">' +
+      '<button type="button" class="ls-gallery-play" data-play-video aria-label="' + esc(lsText('watchVideo')) + '">' +
+        '<i class="bi bi-play-fill" aria-hidden="true"></i>' +
+      '</button>';
+  }
+
+  function renderMedia(slides, alt) {
+    if (!slides.length) {
+      return '<div class="ls-gallery"><div class="ls-gallery-no-img"><i class="bi bi-image" aria-hidden="true"></i></div></div>';
+    }
+
+    var trackHtml = slides.map(function (s, i) {
+      if (s.type === 'video') {
+        return '<div class="ls-gallery-slide ls-gallery-video' + (i === 0 ? ' active' : '') + '" ' +
+          'data-video-id="' + esc(s.id) + '" data-video-alt="' + esc(alt) + '">' +
+          videoPosterHtml(s.id, alt) +
+        '</div>';
+      }
+      return '<img class="ls-gallery-slide ls-gallery-img' + (i === 0 ? ' active' : '') + '" ' +
+        'src="' + esc(s.src) + '" alt="' + esc(alt) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">';
+    }).join('');
+
+    var arrowsHtml = slides.length > 1
+      ? '<button type="button" class="ls-img-arrow ls-img-arrow-prev" data-img-prev aria-label="Previous slide">' +
+          '<i class="bi bi-chevron-left"></i>' +
+        '</button>' +
+        '<button type="button" class="ls-img-arrow ls-img-arrow-next" data-img-next aria-label="Next slide">' +
+          '<i class="bi bi-chevron-right"></i>' +
+        '</button>'
+      : '';
+
+    var dotsHtml = slides.length > 1
+      ? '<div class="ls-img-dots">' +
+          slides.map(function (_, i) {
+            return '<span class="ls-img-dot' + (i === 0 ? ' active' : '') + '"></span>';
+          }).join('') +
+        '</div>'
+      : '';
+
+    var firstImage = slides[0].type === 'image' ? slides[0].src : null;
+    var zoomHtml = firstImage
+      ? '<a class="ls-zoom" data-zoom href="' + esc(firstImage) + '" aria-label="Zoom image"><i class="bi bi-zoom-in"></i></a>'
+      : '';
+
+    return '<div class="ls-gallery">' +
+      '<div class="ls-gallery-track">' + trackHtml + '</div>' +
+      arrowsHtml +
+      dotsHtml +
+      zoomHtml +
+    '</div>';
+  }
+
+  // Reverts a video slide back to its poster + play button, discarding the
+  // live iframe — the only reliable way to actually stop YouTube playback.
+  function stopVideoSlide(slide) {
+    if (!slide || !slide.querySelector('iframe')) return;
+    var id  = slide.getAttribute('data-video-id');
+    var alt = slide.getAttribute('data-video-alt') || '';
+    slide.innerHTML = videoPosterHtml(id, alt);
+  }
+
+  function playVideoSlide(slide) {
+    var id  = slide.getAttribute('data-video-id');
+    var alt = slide.getAttribute('data-video-alt') || '';
+    slide.innerHTML =
+      '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" ' +
+        'title="' + esc(alt) + '" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>' +
+      '<button type="button" class="ls-gallery-stop" data-stop-video aria-label="' + esc(lsText('stopVideo')) + '">' +
+        '<i class="bi bi-x-lg"></i>' +
+      '</button>';
+  }
+
+  function initMedia(root) {
+    root.querySelectorAll('[data-media]').forEach(function (container) {
+      var slides = Array.prototype.slice.call(container.querySelectorAll('.ls-gallery-slide'));
+      var dots   = Array.prototype.slice.call(container.querySelectorAll('.ls-img-dot'));
+      var prev   = container.querySelector('[data-img-prev]');
+      var next   = container.querySelector('[data-img-next]');
+      var zoom   = container.querySelector('[data-zoom]');
+
+      if (zoom && global.jQuery && global.jQuery.fn.magnificPopup) {
+        global.jQuery(zoom).magnificPopup({ type: 'image' });
+      }
+
+      if (slides.length <= 1) return;
+
+      var current = 0;
+
+      function goTo(idx) {
+        var leaving = slides[current];
+        slides[current].classList.remove('active');
+        if (dots[current]) dots[current].classList.remove('active');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        if (dots[current]) dots[current].classList.add('active');
+        if (zoom) {
+          var isImage = slides[current].classList.contains('ls-gallery-img');
+          zoom.style.display = isImage ? '' : 'none';
+          if (isImage) zoom.setAttribute('href', slides[current].src);
+        }
+        stopVideoSlide(leaving);
+      }
+
+      if (prev) prev.addEventListener('click', function () { goTo(current - 1); });
+      if (next) next.addEventListener('click', function () { goTo(current + 1); });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { goTo(i); });
+      });
+    });
+
+    // Delegated: the play/stop buttons are recreated (via innerHTML swaps)
+    // every time a video is played or stopped, so listeners bound directly
+    // to them would only ever work once.
+    root.addEventListener('click', function (e) {
+      var playBtn = e.target.closest('[data-play-video]');
+      if (playBtn) {
+        var slide = playBtn.closest('.ls-gallery-video');
+        if (slide) playVideoSlide(slide);
+        return;
+      }
+      var stopBtn = e.target.closest('[data-stop-video]');
+      if (stopBtn) {
+        var vSlide = stopBtn.closest('.ls-gallery-video');
+        if (vSlide) stopVideoSlide(vSlide);
+      }
     });
   }
 

@@ -2919,8 +2919,15 @@ body::-webkit-scrollbar-thumb {
   font-size: 15px;
 }
 
+.menu-book-box .menu-book-price {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
 .menu-book-box .menu-book-price h2 {
   color: var(--primary-yellow);
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 767.98px) {

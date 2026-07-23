@@ -290,11 +290,11 @@
       Italian: 'Non disponibile'
     },
     complimentary: {
-      English: 'Complimentary',
-      Portuguese: 'Cortesia',
-      Spanish: 'Cortesía de la casa',
-      French: 'Offert par la maison',
-      Italian: 'Offerto dalla casa'
+      English: 'Free',
+      Portuguese: 'Grátis',
+      Spanish: 'Gratis',
+      French: 'Gratuit',
+      Italian: 'Gratis'
     }
   };
 
